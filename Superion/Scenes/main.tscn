@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://Scenes/Paddle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Paddle.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Ball.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Code/Ball.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/Wall.tscn" type="PackedScene" id=5]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+
+transform/pos = Vector2( 392.181, 1095.31 )
+script/script = ExtResource( 2 )
+
+[node name="KinematicBody2D" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 395.253, 944.075 )
+script/script = ExtResource( 4 )
+
+[node name="Wall" parent="." instance=ExtResource( 5 )]
+
+[node name="Spawner" type="Node2D" parent="."]
+
+
