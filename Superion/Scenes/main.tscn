@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://Scenes/Paddle.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Paddle.gd" type="Script" id=2]
+[ext_resource path="res://Code/Paddle.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Ball.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Code/Ball.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Wall.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Code/Spawner.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/DownWall.tscn" type="PackedScene" id=7]
 
 [node name="Node2D" type="Node2D"]
 
@@ -13,7 +15,7 @@
 transform/pos = Vector2( 392.181, 1095.31 )
 script/script = ExtResource( 2 )
 
-[node name="KinematicBody2D" parent="." instance=ExtResource( 3 )]
+[node name="Ball" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 395.253, 944.075 )
 script/script = ExtResource( 4 )
@@ -21,5 +23,15 @@ script/script = ExtResource( 4 )
 [node name="Wall" parent="." instance=ExtResource( 5 )]
 
 [node name="Spawner" type="Node2D" parent="."]
+
+script/script = ExtResource( 6 )
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="DownWall" parent="." instance=ExtResource( 7 )]
+
+collision/mask = 2
+
+[connection signal="body_enter" from="Ball" to="Ball" method="_bodyenter"]
 
 

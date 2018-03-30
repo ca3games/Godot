@@ -1,28 +1,18 @@
-extends KinematicBody2D
+extends RigidBody2D
 var vel
 var speed
 var left
 var up
 
 func _ready():
-	vel = 5
+	vel = 200
 	set_fixed_process(true)
 	speed = Vector2(vel, vel)
-
-func _fixed_process(delta):
-	if is_colliding():
-		var object = get_collider().get_name()
-		if object == "Left":
-			left = false
-		if object == "Right":
-			left = true
-		if object == "Up":
-			up = false
-		if object == "Down":
-			up = true
-		if object == "Player":
-			up = !up
+	left = true
+	up = true
+	connect("body_enter", self, "bodyenter")
 	
+func _fixed_process(delta):
 	if left:
 		speed.x = -vel
 	else:
@@ -32,4 +22,18 @@ func _fixed_process(delta):
 	else:
 		speed.y = vel
 	
-	move(speed)
+	set_linear_velocity(speed)
+
+func _bodyenter( body ):
+	if body.get_name() == "Left":
+		left = false
+	if body.get_name() == "Right":
+		left = true
+	if body.get_name() == "Up":
+		up = false
+	if body.get_name() == "Down":
+		up = true
+	if body.get_name() == "Player":
+		up = !up
+	if body.is_in_group("Enemy"):
+		left = !left

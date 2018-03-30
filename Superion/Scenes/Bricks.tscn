@@ -7,23 +7,25 @@
 custom_solver_bias = 0.0
 extents = Vector2( 31.3988, 31.9696 )
 
-[node name="RigidBody2D" type="RigidBody2D"]
+[node name="Bricks" type="RigidBody2D" groups=[
+"Enemy",
+]]
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, -0.902512, 1.805 )
 shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
+collision/layers = 2
+collision/mask = 7
 mode = 0
-mass = 1.0
+mass = 2.0
 friction = 1.0
 bounce = 1.0
 gravity_scale = 0.0
 custom_integrator = false
 continuous_cd = 0
-contacts_reported = 0
-contact_monitor = false
+contacts_reported = 3
+contact_monitor = true
 sleeping = false
 can_sleep = true
 velocity/linear = Vector2( 0, 0 )

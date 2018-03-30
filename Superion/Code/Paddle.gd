@@ -2,10 +2,12 @@ extends KinematicBody2D
 
 var speed
 var vel
+var y
 
 func _ready():
 	vel = 5
 	speed = 0
+	y = get_pos().y
 	set_process_input(true)
 	set_fixed_process(true)
 	set_process(true)
@@ -22,3 +24,4 @@ func _process(delta):
 
 func _fixed_process(delta):
 	move(Vector2(speed, 0))
+	set_pos(Vector2(get_pos().x, y))
