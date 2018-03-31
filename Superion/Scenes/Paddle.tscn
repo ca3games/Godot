@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 50, 11 )
+extents = Vector2( 69.174, 11 )
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
 
@@ -19,7 +19,8 @@ collision/margin = 0.08
 
 [node name="Paddle" type="Sprite" parent="."]
 
-transform/pos = Vector2( -1, 3 )
+transform/pos = Vector2( -2.78898, 3 )
+transform/scale = Vector2( 1.40729, 1 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
