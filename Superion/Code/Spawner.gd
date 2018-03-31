@@ -7,6 +7,8 @@ var level = 1
 func _ready():
 	
 	level = Global.level + 2
+	if level > 22:
+		level = 22
 	
 	var x = 0
 	var y = 0

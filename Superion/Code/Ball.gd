@@ -8,7 +8,7 @@ var timer
 
 func _ready():
 	powerup = false
-	vel = 200
+	vel = 200 + (Global.level * 10)
 	set_fixed_process(true)
 	speed = Vector2(vel, vel)
 	left = true
