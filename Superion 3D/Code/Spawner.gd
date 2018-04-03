@@ -5,16 +5,16 @@ onready var brick = preload("res://Scenes/Enemy.tscn")
 var level = 1
 
 func _ready():
-	level = Variables.level + 2
+	level = Variables.level
 	if level > 9:
-		get_tree().change_scene("res://Scenes/GameOver.tscn")
+		Variables._gameover()
 	
 	var x = 0
 	var y = 0
-	var left = get_node("../Right").get_translation().x
-	var right = get_node("../Left").get_translation().x
-	var top = get_node("../Top").get_translation().y
-	var bottom = get_node("../Bottom").get_translation().y
+	var left = get_node("../Walls/Right").get_translation().x
+	var right = get_node("../Walls/Left").get_translation().x
+	var top = get_node("../Walls/Top").get_translation().y
+	var bottom = get_node("../Walls/Bottom").get_translation().y
 	var width = right - left
 	var height = top - bottom
 	
@@ -36,4 +36,4 @@ func _ready():
 func _process(delta):
 	if get_tree().get_nodes_in_group("Enemy").size() < 1:
 		Variables.level += 1
-		get_tree().change_scene("res://Scenes/main.tscn")
+		Variables._endleveltransition()

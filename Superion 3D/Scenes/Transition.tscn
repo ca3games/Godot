@@ -1,0 +1,114 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://Code/Transition.gd" type="Script" id=1]
+[ext_resource path="res://2D/transition.tex" type="Texture" id=2]
+
+[sub_resource type="Animation" id=2]
+
+resource/name = "Close"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("transition:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 1 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 303.049, 1060 ), Vector2( 306.844, 555.295 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("transition1:transform/pos")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 1 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 305.099, -258 ), Vector2( 308.894, 56.9664 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 1 ),
+"transitions": FloatArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_closefinish"
+} ]
+}
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "Open"
+length = 0.7
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("transition:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.7 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 303.049, 634.607 ), Vector2( 303.049, 1060 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("transition1:transform/pos")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.7 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 305.099, 138.375 ), Vector2( 305.099, -258 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0.3 ),
+"transitions": FloatArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_finish"
+} ]
+}
+
+[node name="Node2D" type="Node2D"]
+
+process/pause_mode = 2
+script/script = ExtResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/Close = SubResource( 2 )
+anims/Open = SubResource( 1 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="transition" type="Sprite" parent="."]
+
+transform/pos = Vector2( 306.844, 555.295 )
+transform/scale = Vector2( 1.1, 1 )
+texture = ExtResource( 2 )
+
+[node name="transition1" type="Sprite" parent="."]
+
+transform/pos = Vector2( 308.894, 56.9664 )
+transform/scale = Vector2( 1.1, 1 )
+texture = ExtResource( 2 )
+flip_v = true
+
+

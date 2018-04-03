@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://2D/Background.tex" type="Texture" id=1]
-[ext_resource path="res://Font/astron boy video.fnt" type="BitmapFont" id=2]
-[ext_resource path="res://Code/TitleButton.gd" type="Script" id=3]
+[ext_resource path="res://2D/square.tex" type="Texture" id=2]
+[ext_resource path="res://Font/astron boy video.fnt" type="BitmapFont" id=3]
+[ext_resource path="res://2D/Button.tex" type="Texture" id=4]
+[ext_resource path="res://Code/TitleButton.gd" type="Script" id=5]
+[ext_resource path="res://Font/button.fnt" type="BitmapFont" id=6]
 
 [node name="Node2D" type="Node2D"]
 
@@ -11,6 +14,16 @@
 transform/pos = Vector2( 282.682, 399.581 )
 transform/scale = Vector2( 1.2, 1.2 )
 texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="square" type="Sprite" parent="."]
+
+visibility/self_opacity = 0.35
+transform/pos = Vector2( 293.822, 418.004 )
+transform/scale = Vector2( 1.17906, 1.18932 )
+texture = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="."]
 
@@ -22,27 +35,52 @@ margin/left = 88.0
 margin/top = 237.0
 margin/right = 511.0
 margin/bottom = 392.0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "SUPERION 3D"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="TextureButton" parent="."]
 
+visibility/opacity = 0.86
+rect/scale = Vector2( 0.2, 0.2 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 196.0
-margin/top = 448.0
-margin/right = 398.0
-margin/bottom = 515.0
+margin/left = 261.0
+margin/top = 397.0
+margin/right = 861.0
+margin/bottom = 697.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-text = "NEW GAME"
-flat = false
-script/script = ExtResource( 3 )
+textures/normal = ExtResource( 4 )
+params/resize_mode = 0
+params/scale = Vector2( 1.5, 1.5 )
+params/stretch_mode = 0
+params/modulate = Color( 0.984497, 1, 0.503906, 1 )
+script/script = ExtResource( 5 )
+
+[node name="Label 2" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 272.0
+margin/top = 409.0
+margin/right = 343.0
+margin/bottom = 433.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0.420738, 0.925781, 0.137421, 1 )
+text = "START"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
 
 

@@ -1,0 +1,109 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://Code/Bonus.gd" type="Script" id=1]
+[ext_resource path="res://2D/black.tex" type="Texture" id=2]
+[ext_resource path="res://Font/Andromeda.fnt" type="BitmapFont" id=3]
+[ext_resource path="res://Font/sci fi number.fnt" type="BitmapFont" id=4]
+
+[node name="Node2D" type="Node2D"]
+
+script/script = ExtResource( 1 )
+
+[node name="black" type="Sprite" parent="."]
+
+transform/pos = Vector2( 303.412, 390.911 )
+transform/scale = Vector2( 6.56496, 8.72799 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 3
+margin/left = 152.0
+margin/top = 282.0
+margin/right = 451.0
+margin/bottom = 394.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.84375, 1, 0.981689, 1 )
+text = "BONUS"
+align = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label 2" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 244.0
+margin/top = 393.0
+margin/right = 363.0
+margin/bottom = 422.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0.980469, 0, 0, 1 )
+text = "time left:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="time" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 251.0
+margin/top = 438.0
+margin/right = 354.0
+margin/bottom = 496.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0.959524, 0.980469, 0.597473, 1 )
+text = "-99"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="score" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 2.0
+margin/top = 593.0
+margin/right = 615.0
+margin/bottom = 652.0
+custom_fonts/font = ExtResource( 4 )
+text = "00000"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label 3" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 231.0
+margin/top = 546.0
+margin/right = 390.0
+margin/bottom = 575.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 1, 0.581726, 0.304688, 1 )
+text = "FINAL SCORE"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+

@@ -1,4 +1,4 @@
-extends Button
+extends TextureButton
 
 func _ready():
 	connect("pressed", self, "_onpress")

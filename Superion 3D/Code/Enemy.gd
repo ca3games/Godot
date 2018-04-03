@@ -24,6 +24,7 @@ func _bounce(body):
 	if body.is_in_group("Enemy"):
 		left = !left
 	if body.is_in_group("Hole"):
+		Variables.score += 100
 		self.queue_free()
 	
 func _fixed_process(delta):

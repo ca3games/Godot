@@ -14,18 +14,22 @@ func _ready():
 func _bodyenter(body):
 	if body.get_name() == "Right":
 		left = true
+		Variables.score += 10
 	if body.get_name() == "Left":
 		left = false
+		Variables.score += 10
 	if body.get_name() == "Top":
 		top = false
+		Variables.score += 10
 	if body.get_name() == "Bottom":
-		top = true
-		#get_tree().change_scene("res://Scenes/GameOver.tscn")
+		Variables._gameover()
 	if body.is_in_group("Enemy"):
 		left = !left
+		Variables.score += 5
 	if body.get_name() == "Player":
 		top = !top
 		left = !body.right
+		Variables.score += 8
 	set_angular_velocity(Vector3(0,0,0))
 	get_node("AnimationPlayer").play("Bounce")
 
