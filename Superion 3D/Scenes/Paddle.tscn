@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://Code/Paddle.gd" type="Script" id=1]
 [ext_resource path="res://3D/paddle.msh" type="Mesh" id=2]
@@ -43,6 +43,16 @@ textures/specular_exp_tc = 0
 textures/glow_tc = 0
 textures/normal_tc = 0
 textures/shade_param_tc = 0
+
+[sub_resource type="Mesh" id=3]
+
+surfaces/0 = {
+"alphasort": false,
+"arrays": [ Vector3Array( 1.80991, -0.487257, 0.50401, 1.80991, -0.487257, -0.50401, -1.81377, -0.488451, 0.502261, -1.81377, -0.488451, -0.502261, -1.81377, 0.488451, -0.502261, 1.80991, 0.487257, -0.50401, -1.81377, 0.488451, 0.502261, 1.80991, 0.487257, 0.50401, 1.80991, 0.487257, -0.50401, 2.48406, -0.0425106, -0.490879, 1.80991, 0.487257, 0.50401, 2.48406, -0.0425106, 0.490879, 1.80991, 0.487257, 0.50401, 2.48406, -0.0425106, 0.490879, -1.81377, 0.488451, 0.502261, -2.41824, -0.0283204, 0.489038, -1.81377, 0.488451, 0.502261, -2.41824, -0.0283204, 0.489038, -1.81377, 0.488451, -0.502261, -2.41824, -0.0283204, -0.489038, 1.80991, -0.487257, -0.50401, 2.48406, -0.0425106, -0.490879, -1.81377, -0.488451, -0.502261, -2.41824, -0.0283204, -0.489038, 1.80991, 0.487257, -0.50401, -1.81377, 0.488451, -0.502261, -2.41824, -0.0283204, 0.489038, -1.81377, -0.488451, 0.502261, -2.41824, -0.0283204, -0.489038, -1.81377, -0.488451, -0.502261, 1.80991, -0.487257, 0.50401, -1.81377, -0.488451, 0.502261, 2.48406, -0.0425106, -0.490879, 1.80991, -0.487257, -0.50401, 2.48406, -0.0425106, 0.490879, 1.80991, -0.487257, 0.50401 ), Vector3Array( 0, -1, 0, 0, -1, 0, 0, -1, 0, 0, -1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0.5371, 0.8435, 0, 0.5371, 0.8435, 0, 0.5371, 0.8435, 0, 0.5371, 0.8435, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, -0.5918, 0.8061, 0, -0.5918, 0.8061, 0, -0.5918, 0.8061, 0, -0.5918, 0.8061, 0, 0, 0, -1, 0, 0, -1, 0, 0, -1, 0, 0, -1, 0, 0, -1, 0, 0, -1, -0.5918, -0.8061, 0, -0.5918, -0.8061, 0, -0.5918, -0.8061, 0, -0.5918, -0.8061, 0, 0, 0, 1, 0, 0, 1, 0.5371, -0.8435, 0, 0.5371, -0.8435, 0, 0.5371, -0.8435, 0, 0.5371, -0.8435, 0 ), null, null, null, null, null, null, IntArray( 0, 2, 1, 2, 3, 1, 4, 6, 5, 6, 7, 5, 8, 10, 9, 10, 11, 9, 12, 14, 13, 14, 15, 13, 16, 18, 17, 18, 19, 17, 20, 22, 21, 22, 23, 21, 21, 23, 24, 23, 25, 24, 26, 28, 27, 28, 29, 27, 13, 15, 30, 15, 31, 30, 32, 34, 33, 34, 35, 33 ) ],
+"morph_arrays": [  ],
+"primitive": 4
+}
+custom_aabb/custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 
 [node name="RigidBody" type="RigidBody"]
 
@@ -94,6 +104,27 @@ geometry/baked_light_tex_id = 0
 mesh/mesh = ExtResource( 2 )
 mesh/skeleton = NodePath("..")
 material/0 = SubResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="MeshInstance"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+layers = 1
+geometry/visible = true
+geometry/material_override = null
+geometry/cast_shadow = 1
+geometry/receive_shadows = true
+geometry/range_begin = 0.0
+geometry/range_end = 0.0
+geometry/extra_cull_margin = 0.0
+geometry/billboard = false
+geometry/billboard_y = false
+geometry/depth_scale = false
+geometry/visible_in_all_rooms = false
+geometry/use_baked_light = false
+geometry/baked_light_tex_id = 0
+mesh/mesh = SubResource( 3 )
+mesh/skeleton = NodePath("..")
+material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 

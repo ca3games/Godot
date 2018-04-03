@@ -23,6 +23,8 @@ func _bounce(body):
 		left = true
 	if body.is_in_group("Enemy"):
 		left = !left
+	if body.is_in_group("Hole"):
+		self.queue_free()
 	
 func _fixed_process(delta):
 	if timer > 0:

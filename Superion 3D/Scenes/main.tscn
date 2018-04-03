@@ -1,28 +1,59 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=14 format=1]
 
 [ext_resource path="res://Scenes/Ball Rigidbody.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Paddle.tscn" type="PackedScene" id=3]
-
-[sub_resource type="BoxShape" id=3]
-
-extents = Vector3( 1, 15.6811, 2.64174 )
+[ext_resource path="res://Scenes/Paddle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Code/Spawner.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Hole.tscn" type="PackedScene" id=4]
+[ext_resource path="res://2D/Background.tex" type="Texture" id=5]
+[ext_resource path="res://2D/cloud.tex" type="Texture" id=6]
+[ext_resource path="res://Code/BackgroundAnimation.gd" type="Script" id=7]
 
 [sub_resource type="BoxShape" id=1]
 
+extents = Vector3( 1, 15.6811, 2.64174 )
+
+[sub_resource type="BoxShape" id=2]
+
 extents = Vector3( 1, 25.4711, 3.08262 )
 
-[sub_resource type="BoxShape" id=4]
+[sub_resource type="BoxShape" id=3]
 
 extents = Vector3( 12.476, 1, 2.73678 )
 
-[sub_resource type="BoxShape" id=2]
+[sub_resource type="BoxShape" id=4]
 
 extents = Vector3( 13.298, 1, 2.69348 )
 
 [sub_resource type="BoxShape" id=5]
 
 extents = Vector3( 12.8345, 0.205534, 3.1679 )
+
+[sub_resource type="Animation" id=6]
+
+resource/name = "Stars"
+length = 99.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("nebula:transform/translation")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 99 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -0.239281, 6.21633, -5.26701 ), Vector3( -0.239281, -6.18023, -4.86594 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("stars:transform/translation")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 99 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -0.096808, 4.51122, -5.27558 ), Vector3( -0.096808, -4.61146, -5.27558 ) ]
+}
 
 [node name="Spatial" type="Spatial"]
 
@@ -46,13 +77,12 @@ v_offset = 0.0
 
 [node name="Right" type="StaticBody" parent="."]
 
-editor/display_folded = true
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.91845, 1.77095, -3.6219 )
 input/ray_pickable = true
 input/capture_on_drag = false
 shape_count = 1
-shapes/0/shape = SubResource( 3 )
+shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -65,19 +95,18 @@ constant_angular_velocity = Vector3( 0, 0, 0 )
 [node name="CollisionShape" type="CollisionShape" parent="Right"]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
 [node name="Left" type="StaticBody" parent="."]
 
-editor/display_folded = true
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2057, 1.92144, -3.6219 )
 input/ray_pickable = true
 input/capture_on_drag = false
 shape_count = 1
-shapes/0/shape = SubResource( 1 )
+shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.151636, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -91,19 +120,18 @@ constant_angular_velocity = Vector3( 0, 0, 0 )
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.151636, 0, 0 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
 
 [node name="Top" type="StaticBody" parent="."]
 
-editor/display_folded = true
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.628784, 0 )
 input/ray_pickable = true
 input/capture_on_drag = false
 shape_count = 1
-shapes/0/shape = SubResource( 4 )
+shapes/0/shape = SubResource( 3 )
 shapes/0/transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0819036, 12.6983, -3.41921 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -117,7 +145,7 @@ constant_angular_velocity = Vector3( 0, 0, 0 )
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0819036, 12.6983, -3.41921 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 0
 
@@ -128,7 +156,7 @@ transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0967927, -25.698, 0 )
 input/ray_pickable = true
 input/capture_on_drag = false
 shape_count = 1
-shapes/0/shape = SubResource( 2 )
+shapes/0/shape = SubResource( 4 )
 shapes/0/transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.215653, 12.7831, -3.58971 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -142,7 +170,7 @@ constant_angular_velocity = Vector3( 0, 0, 0 )
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.215653, 12.7831, -3.58971 )
-shape = SubResource( 2 )
+shape = SubResource( 4 )
 trigger = false
 _update_shape_index = 0
 
@@ -176,21 +204,114 @@ _update_shape_index = 0
 
 transform/local = Transform( 1, 2.2587e-08, 0, -2.2587e-08, 1, 0, 0, 0, 1, -2.00048e-06, -4.56988, -3 )
 
-[node name="RigidBody" parent="." instance=ExtResource( 2 )]
-
-transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00152874, 5.88598, 0.473448 )
-
-[node name="RigidBody1" parent="." instance=ExtResource( 2 )]
-
-transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.67681, 5.88598, 0.589445 )
-
-[node name="RigidBody2" parent="." instance=ExtResource( 2 )]
-
-transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.93497, 5.80016, -1.1608 )
-
-[node name="Player" parent="." instance=ExtResource( 3 )]
+[node name="Player" parent="." instance=ExtResource( 2 )]
 
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.05, -2.91116 )
 mode = 0
+
+[node name="Spawner" type="Spatial" parent="."]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+script/script = ExtResource( 3 )
+
+[node name="Hole" parent="." instance=ExtResource( 4 )]
+
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.54345, 9.71013, -3.61183 )
+
+[node name="Hole1" parent="." instance=ExtResource( 4 )]
+
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00786069, 9.71013, -3.61183 )
+
+[node name="Hole2" parent="." instance=ExtResource( 4 )]
+
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.78726, 9.71013, -3.5602 )
+
+[node name="stars" type="Sprite3D" parent="."]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 4.38488, 0, 0, 0, 4.38183, 0, 0, 0, 1.04402, -0.096808, -4.61146, -5.27558 )
+layers = 1
+geometry/visible = true
+geometry/material_override = null
+geometry/cast_shadow = 1
+geometry/receive_shadows = true
+geometry/range_begin = 0.0
+geometry/range_end = 0.0
+geometry/extra_cull_margin = 0.0
+geometry/billboard = false
+geometry/billboard_y = false
+geometry/depth_scale = false
+geometry/visible_in_all_rooms = false
+geometry/use_baked_light = false
+geometry/baked_light_tex_id = 0
+centered = true
+offset = Vector2( 0, 0 )
+flip_h = false
+flip_v = false
+modulate = Color( 1, 1, 1, 1 )
+opacity = 1.0
+pixel_size = 0.01
+axis = 2
+flags/transparent = true
+flags/shaded = false
+flags/double_sided = true
+flags/on_top = false
+flags/alpha_cut = 0
+texture = ExtResource( 5 )
+vframes = 1
+hframes = 1
+frame = 0
+region = false
+region_rect = Rect2( 0, 0, 0, 0 )
+
+[node name="nebula" type="Sprite3D" parent="."]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 5.0291, 0, 0, 0, 5.0291, 0, 0, 0, 5.0291, -0.239281, -6.18023, -4.86594 )
+layers = 1
+geometry/visible = true
+geometry/material_override = null
+geometry/cast_shadow = 1
+geometry/receive_shadows = true
+geometry/range_begin = 0.0
+geometry/range_end = 0.0
+geometry/extra_cull_margin = 0.0
+geometry/billboard = false
+geometry/billboard_y = false
+geometry/depth_scale = false
+geometry/visible_in_all_rooms = false
+geometry/use_baked_light = false
+geometry/baked_light_tex_id = 0
+centered = true
+offset = Vector2( 0, 0 )
+flip_h = false
+flip_v = false
+modulate = Color( 1, 1, 1, 1 )
+opacity = 0.15
+pixel_size = 0.01
+axis = 2
+flags/transparent = true
+flags/shaded = false
+flags/double_sided = true
+flags/on_top = false
+flags/alpha_cut = 1090519040
+texture = ExtResource( 6 )
+vframes = 1
+hframes = 1
+frame = 0
+region = false
+region_rect = Rect2( 0, 0, 0, 0 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/Stars = SubResource( 6 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+script/script = ExtResource( 7 )
 
 

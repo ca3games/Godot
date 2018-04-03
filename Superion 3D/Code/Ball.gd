@@ -20,6 +20,7 @@ func _bodyenter(body):
 		top = false
 	if body.get_name() == "Bottom":
 		top = true
+		#get_tree().change_scene("res://Scenes/GameOver.tscn")
 	if body.is_in_group("Enemy"):
 		left = !left
 	if body.get_name() == "Player":
