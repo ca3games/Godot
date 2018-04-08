@@ -21,3 +21,16 @@ func _endleveltransition():
 func _startlevel():
 	lasttime = 99
 	get_tree().change_scene("res://Scenes/main.tscn")
+	
+func _barbounce(value):
+	var tmp = get_tree().get_root().get_node("Spatial/SpecialBar").get_value();
+	tmp += value
+	get_tree().get_root().get_node("Spatial/SpecialBar").set_value(tmp);
+	var button = get_tree().get_root().get_node("Spatial/Specialbutton").is_visible()
+	if tmp >= 99:
+		get_tree().get_root().get_node("Spatial/Specialbutton").show()
+	
+func _super():
+	get_tree().get_root().get_node("Spatial/Ball")._super()
+	get_tree().get_root().get_node("Spatial/Specialbutton").hide()
+	get_tree().get_root().get_node("Spatial/SpecialBar").set_value(0);

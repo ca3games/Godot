@@ -27,7 +27,6 @@ func _ready():
 		var size = get_viewport().get_rect().size
 		var pos = Vector2((width / 4) * x + left, 6 - (y * 2.5))
 		var tmp = Vector3(pos.x, pos.y, Variables.z)
-		print(str(level) + " / " + str(tmp.y))
 		e.set_translation(tmp)
 		get_node("../Spawner").add_child(e)
 	

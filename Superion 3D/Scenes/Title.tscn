@@ -24,6 +24,9 @@ visibility/self_opacity = 0.35
 transform/pos = Vector2( 293.822, 418.004 )
 transform/scale = Vector2( 1.17906, 1.18932 )
 texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Label" type="Label" parent="."]
 

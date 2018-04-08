@@ -46,7 +46,7 @@ textures/glow_tc = 0
 textures/normal_tc = 0
 textures/shade_param_tc = 0
 
-[sub_resource type="Mesh" id=5]
+[sub_resource type="Mesh" id=3]
 
 surfaces/0 = {
 "alphasort": false,
@@ -56,9 +56,8 @@ surfaces/0 = {
 }
 custom_aabb/custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 
-resource/name = "Bounce"
 length = 0.6
 loop = false
 step = 0.1
@@ -85,7 +84,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 
 length = 2.0
 loop = true
@@ -171,7 +170,7 @@ geometry/depth_scale = false
 geometry/visible_in_all_rooms = false
 geometry/use_baked_light = false
 geometry/baked_light_tex_id = 0
-mesh/mesh = SubResource( 5 )
+mesh/mesh = SubResource( 3 )
 mesh/skeleton = NodePath("..")
 material/0 = null
 
@@ -180,8 +179,8 @@ material/0 = null
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/Bounce = SubResource( 3 )
-anims/IDLE = SubResource( 4 )
+anims/Bounce = SubResource( 4 )
+anims/IDLE = SubResource( 5 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
