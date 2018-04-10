@@ -44,6 +44,7 @@ func _bodyenter(body):
 		if time > 0:
 			body.queue_free()
 			Variables.score += 100
+			get_tree().get_root().get_node("Spatial/SamplePlayer").play("enemy coin")
 	if body.get_name() == "Player":
 		top = !top
 		left = !body.right
@@ -53,6 +54,10 @@ func _bodyenter(body):
 	set_angular_velocity(Vector3(0,0,0))
 	get_node("AnimationPlayer").play("Bounce")
 	get_node("../Camera")._shake()
+	if body.is_in_group("Enemy"):
+		get_tree().get_root().get_node("Spatial/SamplePlayer").play("bounce enemy")
+	else:
+		get_tree().get_root().get_node("Spatial/SamplePlayer").play("bounce ball")
 
 func _stopbounce():
 	get_node("AnimationPlayer").play("IDLE")

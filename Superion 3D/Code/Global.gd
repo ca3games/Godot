@@ -29,8 +29,10 @@ func _barbounce(value):
 	var button = get_tree().get_root().get_node("Spatial/Specialbutton").is_visible()
 	if tmp >= 99:
 		get_tree().get_root().get_node("Spatial/Specialbutton").show()
+		get_tree().get_root().get_node("Spatial/SamplePlayer").play("warning super")
 	
 func _super():
 	get_tree().get_root().get_node("Spatial/Ball")._super()
 	get_tree().get_root().get_node("Spatial/Specialbutton").hide()
-	get_tree().get_root().get_node("Spatial/SpecialBar").set_value(0);
+	get_tree().get_root().get_node("Spatial/SpecialBar").set_value(0)
+	

@@ -24,6 +24,7 @@ func _bounce(body):
 	if body.is_in_group("Enemy"):
 		left = !left
 	if body.is_in_group("Hole"):
+		get_tree().get_root().get_node("Spatial/SamplePlayer").play("enemy coin")
 		Variables.score += 100
 		self.queue_free()
 	
