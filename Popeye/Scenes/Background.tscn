@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://2D/Backgrounds/black.tex" type="Texture" id=1]
 [ext_resource path="res://2D/Backgrounds/Level1.tex" type="Texture" id=2]
 [ext_resource path="res://2D/Backgrounds/stair.tex" type="Texture" id=3]
-[ext_resource path="res://Scenes/Popeye.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Brutus.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Popeye.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -50,22 +51,26 @@ __meta__ = {
 
 [node name="stair" type="Sprite" parent="."]
 
-transform/pos = Vector2( 39, 194 )
+transform/pos = Vector2( 39.3972, 183.275 )
 texture = ExtResource( 3 )
 
 [node name="stair1" type="Sprite" parent="."]
 
-transform/pos = Vector2( 214, 194 )
+transform/pos = Vector2( 214, 182.481 )
 texture = ExtResource( 3 )
 flip_h = true
 
-[node name="Popeye" parent="." instance=ExtResource( 4 )]
+[node name="Brutus" parent="." instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 73.4013, 180.435 )
+transform/pos = Vector2( 165.811, 178.423 )
+
+[node name="Popeye" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 73.0041, 174.731 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-transform/pos = Vector2( 125.136, 219.736 )
+transform/pos = Vector2( 128.314, 214.175 )
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0.59874, -3.57494 )
@@ -83,6 +88,9 @@ transform/pos = Vector2( 0.59874, -3.57494 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="StaticBody2D 2" type="StaticBody2D" parent="."]
 
