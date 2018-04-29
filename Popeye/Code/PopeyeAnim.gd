@@ -26,6 +26,10 @@ func _input(event):
 			attack = true
 			get_node("AnimationPlayer").play("Punch")
 			speed.x = 0
+		if Input.is_action_pressed("GRAB"):
+			attack = true
+			get_node("AnimationPlayer").play("Grab")
+			speed.x = 0
 		set_linear_velocity(speed)
 
 func _stopunch():

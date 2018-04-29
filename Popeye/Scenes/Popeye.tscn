@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=1]
+[gd_scene load_steps=40 format=1]
 
 [ext_resource path="res://Code/PopeyeAnim.gd" type="Script" id=1]
 [ext_resource path="res://2D/Popeye/IDLE/popeye small1.tex" type="Texture" id=2]
@@ -27,6 +27,11 @@
 [ext_resource path="res://2D/Popeye/Punch/punch3.tex" type="Texture" id=25]
 [ext_resource path="res://2D/Popeye/Punch/punch4.tex" type="Texture" id=26]
 [ext_resource path="res://2D/Popeye/Punch/punch5.tex" type="Texture" id=27]
+[ext_resource path="res://2D/Popeye/Grab/grab1.tex" type="Texture" id=28]
+[ext_resource path="res://2D/Popeye/Grab/grab2.tex" type="Texture" id=29]
+[ext_resource path="res://2D/Popeye/Grab/grab3.tex" type="Texture" id=30]
+[ext_resource path="res://2D/Popeye/Grab/grab4.tex" type="Texture" id=31]
+[ext_resource path="res://2D/Popeye/Grab/grab5.tex" type="Texture" id=32]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -35,7 +40,45 @@ extents = Vector2( 6.80807, 25.1041 )
 
 [sub_resource type="Animation" id=2]
 
-resource/name = "IDLE"
+resource/name = "Grab"
+length = 0.6
+loop = false
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.15, 0.3, 0.45, 0.6 ),
+"transitions": FloatArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 26, 27, 28, 29, 30 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:transform/pos")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.475699, 6.42134 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0.6 ),
+"transitions": FloatArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_stopunch"
+} ]
+}
+
+[sub_resource type="Animation" id=3]
+
 length = 0.8
 loop = true
 step = 0.1
@@ -60,9 +103,8 @@ tracks/1/keys = {
 "values": [ Vector2( 0.713478, 3.09175 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 
-resource/name = "Punch"
 length = 0.6
 loop = false
 step = 0.15
@@ -99,9 +141,8 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 
-resource/name = "Walk"
 length = 0.75
 loop = true
 step = 0.15
@@ -126,7 +167,7 @@ tracks/1/keys = {
 "values": [ Vector2( -2.85394, 4.75654 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 
 length = 0.6
 loop = true
@@ -152,10 +193,10 @@ tracks/1/keys = {
 "values": [ Vector2( -3.09176, 4.04306 ) ]
 }
 
-[sub_resource type="SpriteFrames" id=6]
+[sub_resource type="SpriteFrames" id=7]
 
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -204,10 +245,11 @@ __meta__ = {
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/IDLE = SubResource( 2 )
-anims/Punch = SubResource( 3 )
-anims/Walk = SubResource( 4 )
-anims/Walk_Back = SubResource( 5 )
+anims/Grab = SubResource( 2 )
+anims/IDLE = SubResource( 3 )
+anims/Punch = SubResource( 4 )
+anims/Walk = SubResource( 5 )
+anims/Walk_Back = SubResource( 6 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -215,9 +257,9 @@ autoplay = ""
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 
-transform/pos = Vector2( 10.2266, 5.70786 )
-frames = SubResource( 6 )
+transform/pos = Vector2( 0.475699, 6.42134 )
+frames = SubResource( 7 )
 animation = "default"
-frame = 25
+frame = 30
 
 
