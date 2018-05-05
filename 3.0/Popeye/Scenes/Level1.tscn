@@ -1,0 +1,117 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://2D/Backgrounds/black.tex" type="Texture" id=1]
+[ext_resource path="res://2D/Backgrounds/Level1.tex" type="Texture" id=2]
+[ext_resource path="res://2D/Backgrounds/stair.tex" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 169.451 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 181.455, 10 )
+
+[node name="Node2D" type="Node2D" index="0"]
+
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="black" type="Sprite" parent="." index="0"]
+
+position = Vector2( 125.553, 127.818 )
+scale = Vector2( 52.9429, 50.7709 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Level1" type="Sprite" parent="." index="1"]
+
+position = Vector2( 127.182, 128.632 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="black2" type="Sprite" parent="." index="2"]
+
+position = Vector2( 123.11, 181.575 )
+scale = Vector2( 45.0693, 10.0456 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="stair" type="Sprite" parent="." index="3"]
+
+position = Vector2( 34.388, 188.091 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="stair2" type="Sprite" parent="." index="4"]
+
+position = Vector2( 220.426, 187.277 )
+texture = ExtResource( 3 )
+flip_h = true
+_sections_unfolded = [ "Offset" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." index="5"]
+
+editor/display_folded = true
+position = Vector2( -6.32448, 95.9214 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" index="0"]
+
+position = Vector2( 1.7605, -0.880249 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." index="6"]
+
+editor/display_folded = true
+position = Vector2( 254.231, 91.5201 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" index="0"]
+
+position = Vector2( 1.7605, -0.880249 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="7"]
+
+editor/display_folded = true
+position = Vector2( 124.382, 216.614 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+
+shape = SubResource( 2 )
+
+
