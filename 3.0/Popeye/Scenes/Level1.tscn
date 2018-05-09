@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://2D/Backgrounds/black.tex" type="Texture" id=1]
 [ext_resource path="res://2D/Backgrounds/Level1.tex" type="Texture" id=2]
 [ext_resource path="res://2D/Backgrounds/stair.tex" type="Texture" id=3]
+[ext_resource path="res://2D/Backgrounds/stair2.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -14,7 +15,7 @@ extents = Vector2( 10, 169.451 )
 custom_solver_bias = 0.0
 extents = Vector2( 181.455, 10 )
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 __meta__ = {
 "_edit_lock_": true
@@ -39,8 +40,8 @@ __meta__ = {
 
 [node name="black2" type="Sprite" parent="." index="2"]
 
-position = Vector2( 123.11, 181.575 )
-scale = Vector2( 45.0693, 10.0456 )
+position = Vector2( 123.11, 167.413 )
+scale = Vector2( 45.0693, 15.0996 )
 texture = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
@@ -103,15 +104,30 @@ shape = SubResource( 1 )
 editor/display_folded = true
 position = Vector2( 124.382, 216.614 )
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 4
+collision_mask = 7
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
 
 shape = SubResource( 2 )
+
+[node name="stair3" type="Sprite" parent="." index="8"]
+
+position = Vector2( 39.231, 146.114 )
+scale = Vector2( 1.75, 1.875 )
+texture = ExtResource( 4 )
+
+[node name="stair4" type="Sprite" parent="." index="9"]
+
+position = Vector2( 215.231, 145.114 )
+scale = Vector2( 1.75, 1.875 )
+texture = ExtResource( 4 )
+flip_h = true
+_sections_unfolded = [ "Offset" ]
 
 

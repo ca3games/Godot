@@ -27,10 +27,20 @@ func _process(delta):
 			STATE.idle: _idle()
 			STATE.walk: _walk()
 			STATE.walkback: _walkback()
+			STATE.punch: _punch()
 		
 	
 func _AI(distance):
 	var ai = randi()%10+1
+	if distance < 50:
+		if ai < 5:
+			status = STATE.punch
+			timer = 1
+		else:
+			status = STATE.walkback
+			timer = 1
+		return
+	
 	if distance > 50:
 		if ai < 5:
 			status = STATE.idle
@@ -65,12 +75,22 @@ func _walk():
 func _walkback():
 	if get_node("AnimationPlayer").current_animation != "WalkBack":
 		get_node("AnimationPlayer").play("WalkBack")
+		
+		
+func _punch():
+	if get_node("AnimationPlayer").current_animation != "Punch":
+		get_node("AnimationPlayer").play("Punch")
 
 func _stop():
 	attack = false
 	status = STATE.idle
 	get_node("AnimationPlayer").play("IDLE")
+	timer = -99
 	
 func _hit():
 	attack = true
 	get_node("AnimationPlayer").play("Hurt")
+
+func _Area2D(body):
+	if body.is_in_group("Popeye"):
+		body._golpe()
