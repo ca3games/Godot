@@ -568,7 +568,7 @@ tracks/5/keys = {
 custom_solver_bias = 0.0
 radius = 7.38239
 
-[node name="RigidBody2D" type="RigidBody2D" index="0" groups=[
+[node name="RigidBody2D" type="RigidBody2D" groups=[
 "Popeye",
 ]]
 

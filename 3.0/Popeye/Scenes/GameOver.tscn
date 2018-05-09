@@ -4,7 +4,7 @@
 [ext_resource path="res://2D/Backgrounds/black.tex" type="Texture" id=2]
 [ext_resource path="res://2D/Backgrounds/Green.png" type="Texture" id=3]
 
-[node name="Node" type="Node"]
+[node name="Node" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -65,6 +65,6 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[connection signal="pressed" from="TextureButton" to="." method="_StartGame"]
+[connection signal="pressed" from="TextureButton" to="." method="_Title"]
 
 
