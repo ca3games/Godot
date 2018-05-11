@@ -15,7 +15,7 @@ extents = Vector2( 10, 169.451 )
 custom_solver_bias = 0.0
 extents = Vector2( 181.455, 10 )
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 __meta__ = {
 "_edit_lock_": true
@@ -40,12 +40,9 @@ __meta__ = {
 
 [node name="black2" type="Sprite" parent="." index="2"]
 
-position = Vector2( 123.11, 167.413 )
-scale = Vector2( 45.0693, 15.0996 )
+position = Vector2( 127.11, 166.298 )
+scale = Vector2( 45.0693, 15.8985 )
 texture = ExtResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="stair" type="Sprite" parent="." index="3"]
 
@@ -129,5 +126,23 @@ scale = Vector2( 1.75, 1.875 )
 texture = ExtResource( 4 )
 flip_h = true
 _sections_unfolded = [ "Offset" ]
+
+[node name="black3" type="Sprite" parent="." index="10"]
+
+position = Vector2( 130.231, 30.522 )
+scale = Vector2( 40, 3.16667 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="black4" type="Sprite" parent="." index="11"]
+
+position = Vector2( 217.416, 71.8164 )
+scale = Vector2( 3.42223, 3.22852 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 
