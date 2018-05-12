@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://Code/Popeye.gd" type="Script" id=1]
 [ext_resource path="res://2D/Popeye/Hurt/hurt1.png" type="Texture" id=2]
@@ -35,6 +35,7 @@
 [ext_resource path="res://2D/Popeye/Punch/punch3.tex" type="Texture" id=33]
 [ext_resource path="res://2D/Popeye/Punch/punch4.tex" type="Texture" id=34]
 [ext_resource path="res://2D/Popeye/Punch/punch5.tex" type="Texture" id=35]
+[ext_resource path="res://Music/popeye hit.wav" type="AudioStream" id=36]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -363,9 +364,12 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0.5 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
 "values": [ {
+"args": [  ],
+"method": "_hitsound"
+}, {
 "args": [  ],
 "method": "_stop"
 } ]
@@ -586,7 +590,7 @@ contacts_reported = 0
 contact_monitor = false
 sleeping = false
 can_sleep = true
-linear_velocity = Vector2( -20, 0 )
+linear_velocity = Vector2( 0, 0 )
 linear_damp = -1.0
 angular_velocity = 0.0
 angular_damp = -1.0
@@ -601,9 +605,10 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
 
-position = Vector2( 0, 4.99437 )
+position = Vector2( 7.92229, 3.08089 )
 frames = SubResource( 2 )
-animation = "Hurt"
+animation = "Punch"
+frame = 3
 _sections_unfolded = [ "Transform" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
@@ -623,7 +628,7 @@ blend_times = [  ]
 
 [node name="Area2D" type="Area2D" parent="." index="3"]
 
-position = Vector2( -1.32038, 0.880249 )
+position = Vector2( 27.2879, -1.76051 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -637,7 +642,16 @@ _sections_unfolded = [ "Collision", "Transform" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 
 shape = SubResource( 9 )
-disabled = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="4"]
+
+stream = ExtResource( 36 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 
 [connection signal="body_entered" from="Area2D" to="." method="_hit"]
 

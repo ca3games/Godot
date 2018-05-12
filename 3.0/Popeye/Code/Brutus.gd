@@ -94,3 +94,6 @@ func _hit():
 func _Area2D(body):
 	if body.is_in_group("Popeye"):
 		body._golpe()
+		
+func _hitsound():
+	get_node("AudioStreamPlayer2D").play()

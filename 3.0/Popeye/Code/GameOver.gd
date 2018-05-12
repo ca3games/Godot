@@ -10,4 +10,5 @@ func _ready():
 	pass
 
 func _Title():
+	Variables.hearts = 0
 	get_tree().change_scene("res://Scenes/Title.tscn")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/Level1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Popeye.tscn" type="PackedScene" id=2]
@@ -9,6 +9,9 @@
 [ext_resource path="res://2D/Backgrounds/Green.png" type="Texture" id=7]
 [ext_resource path="res://2D/Backgrounds/Heart/0001.png" type="Texture" id=8]
 [ext_resource path="res://Font/PORKYS_.TTF" type="DynamicFontData" id=9]
+[ext_resource path="res://Music/level 1 song.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Music/coin.wav" type="AudioStream" id=11]
+[ext_resource path="res://Music/heart lost.wav" type="AudioStream" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -102,5 +105,33 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="7"]
+
+stream = ExtResource( 10 )
+volume_db = -1.0
+autoplay = true
+mix_target = 1
+bus = "Song"
+
+[node name="Coin" type="AudioStreamPlayer2D" parent="." index="8"]
+
+stream = ExtResource( 11 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Heart"
+area_mask = 1
+
+[node name="Lost" type="AudioStreamPlayer2D" parent="." index="9"]
+
+stream = ExtResource( 12 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Lost"
+area_mask = 1
 
 

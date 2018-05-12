@@ -42,6 +42,9 @@ func _hit(body):
 		body._hit()
 	if body.is_in_group("Heart"):
 		body._grab(grab)
+		
+func _hitsound():
+	get_node("AudioStreamPlayer2D").play()
 	
 func _golpe():
 	attack = true
