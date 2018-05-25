@@ -1,0 +1,17 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/silla.obj-94f9bcf7b31ec4e793b456b519db99da.mesh"
+
+[deps]
+
+files=[ "res://.import/silla.obj-94f9bcf7b31ec4e793b456b519db99da.mesh" ]
+
+source_file="res://3D/Voxel/silla.obj"
+dest_files=[ "res://.import/silla.obj-94f9bcf7b31ec4e793b456b519db99da.mesh", "res://.import/silla.obj-94f9bcf7b31ec4e793b456b519db99da.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )

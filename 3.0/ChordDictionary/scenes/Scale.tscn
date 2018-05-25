@@ -1,0 +1,98 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://2D/Key.png" type="Texture" id=1]
+
+[node name="scale" type="Node2D" index="0"]
+
+position = Vector2( 133.302, -182.602 )
+scale = Vector2( 1.71, 0.6 )
+
+[node name="C" type="Sprite" parent="." index="0"]
+
+position = Vector2( 0.700302, 314.337 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="C#" type="Sprite" parent="." index="1"]
+
+position = Vector2( 0.350143, 284.562 )
+scale = Vector2( 1, 0.944282 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="D" type="Sprite" parent="." index="2"]
+
+modulate = Color( 0, 0.0839233, 0.976562, 0.54902 )
+position = Vector2( 0.350151, 255.846 )
+scale = Vector2( 1, 0.898449 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="D#" type="Sprite" parent="." index="3"]
+
+position = Vector2( 0.350151, 228.019 )
+scale = Vector2( 1, 0.900211 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="E" type="Sprite" parent="." index="4"]
+
+modulate = Color( 0, 0.54902, 0, 1 )
+position = Vector2( 0.350143, 198.581 )
+scale = Vector2( 1, 1.2661 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="F" type="Sprite" parent="." index="5"]
+
+modulate = Color( 0.215686, 0.215686, 0.215686, 0.54902 )
+position = Vector2( 0, 161.509 )
+scale = Vector2( 1, 1.14348 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="F#" type="Sprite" parent="." index="6"]
+
+position = Vector2( 0, 130.225 )
+scale = Vector2( 1, 0.833684 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="G" type="Sprite" parent="." index="7"]
+
+position = Vector2( 0.350143, 102.701 )
+scale = Vector2( 1, 0.980125 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="G#" type="Sprite" parent="." index="8"]
+
+modulate = Color( 0.215686, 0.215686, 0.215686, 0.54902 )
+position = Vector2( 0.350151, 77.3369 )
+scale = Vector2( 1, 0.900209 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="A" type="Sprite" parent="." index="9"]
+
+position = Vector2( 0.350143, 50.8926 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="A#" type="Sprite" parent="." index="10"]
+
+modulate = Color( 0.215686, 0.215686, 0.215686, 0.54902 )
+position = Vector2( 0, 25.4464 )
+scale = Vector2( 1, 0.767157 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="B" type="Sprite" parent="." index="11"]
+
+modulate = Color( 0.988281, 0.972839, 0, 1 )
+position = Vector2( 0, -0.254929 )
+scale = Vector2( 1, 0.983005 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+

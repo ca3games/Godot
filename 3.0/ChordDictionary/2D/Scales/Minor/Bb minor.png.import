@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Bb minor.png-b3fd14181619f51c03e7077b0d270c47.stex"
+
+[deps]
+
+source_file="res://2D/Scales/Minor/Bb minor.png"
+source_md5="1db5041100d32edea4a4137214291128"
+
+dest_files=[ "res://.import/Bb minor.png-b3fd14181619f51c03e7077b0d270c47.stex" ]
+dest_md5="0255c0bae38b36eb2bf2d55f2b350123"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

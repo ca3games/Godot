@@ -1,0 +1,69 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/Key.tscn" type="PackedScene" id=1]
+
+[node name="Keys" type="Node2D"]
+
+editor/display_folded = true
+
+[node name="C" parent="." index="0" instance=ExtResource( 1 )]
+
+[node name="D" parent="." index="1" instance=ExtResource( 1 )]
+
+position = Vector2( 0, -30 )
+
+[node name="E" parent="." index="2" instance=ExtResource( 1 )]
+
+position = Vector2( 0, -60 )
+
+[node name="F" parent="." index="3" instance=ExtResource( 1 )]
+
+position = Vector2( 0, -90 )
+_sections_unfolded = [ "Material", "Region", "Transform", "Visibility" ]
+
+[node name="G" parent="." index="4" instance=ExtResource( 1 )]
+
+position = Vector2( 0, -120 )
+_sections_unfolded = [ "Material", "Region", "Transform", "Visibility" ]
+
+[node name="A" parent="." index="5" instance=ExtResource( 1 )]
+
+position = Vector2( 0, -150 )
+_sections_unfolded = [ "Material", "Region", "Transform", "Visibility" ]
+
+[node name="B" parent="." index="6" instance=ExtResource( 1 )]
+
+position = Vector2( 0, -180 )
+_sections_unfolded = [ "Material", "Region", "Transform", "Visibility" ]
+
+[node name="C#" parent="." index="7" instance=ExtResource( 1 )]
+
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -23, -15 )
+scale = Vector2( 0.5, 0.7 )
+
+[node name="D#" parent="." index="8" instance=ExtResource( 1 )]
+
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -23, -49 )
+scale = Vector2( 0.5, 0.7 )
+
+[node name="F#" parent="." index="9" instance=ExtResource( 1 )]
+
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -23, -105 )
+scale = Vector2( 0.5, 0.7 )
+
+[node name="G#" parent="." index="10" instance=ExtResource( 1 )]
+
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -23, -136 )
+scale = Vector2( 0.5, 0.7 )
+
+[node name="A#" parent="." index="11" instance=ExtResource( 1 )]
+
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -23, -165 )
+scale = Vector2( 0.5, 0.7 )
+
+

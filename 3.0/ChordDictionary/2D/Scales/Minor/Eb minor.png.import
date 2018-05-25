@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Eb minor.png-2d5788335ab9e7d8c9300833d81200aa.stex"
+
+[deps]
+
+source_file="res://2D/Scales/Minor/Eb minor.png"
+source_md5="dfb20fe41e6d2a8dbfb7e417fec5f118"
+
+dest_files=[ "res://.import/Eb minor.png-2d5788335ab9e7d8c9300833d81200aa.stex" ]
+dest_md5="45906d7bfc98fa108dc8ade580096429"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

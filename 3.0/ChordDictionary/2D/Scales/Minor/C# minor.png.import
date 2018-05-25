@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/C# minor.png-79f413720ef5ea2a6d7213ef8f29f081.stex"
+
+[deps]
+
+source_file="res://2D/Scales/Minor/C# minor.png"
+source_md5="69186a23d46e80624795be5b0851dd65"
+
+dest_files=[ "res://.import/C# minor.png-79f413720ef5ea2a6d7213ef8f29f081.stex" ]
+dest_md5="2f3415febbdf0e8eba4472e6d170aa88"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

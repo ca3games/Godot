@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/C minor.png-b36ab2b96faabcaa1095cb298b25c21f.stex"
+
+[deps]
+
+source_file="res://2D/Scales/Minor/C minor.png"
+source_md5="1cafa809d48ee34f0a00c822dd26e6ac"
+
+dest_files=[ "res://.import/C minor.png-b36ab2b96faabcaa1095cb298b25c21f.stex" ]
+dest_md5="097da9a28e3126d807e12c0251d3e171"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0
