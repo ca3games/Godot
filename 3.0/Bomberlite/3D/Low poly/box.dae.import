@@ -7,7 +7,10 @@ path="res://.import/box.dae-bbcbe6a7567e1f7b6401d756acfd7af9.scn"
 [deps]
 
 source_file="res://3D/Low poly/box.dae"
+source_md5="3c7ad5859a867377f5891f61bf141e7d"
+
 dest_files=[ "res://.import/box.dae-bbcbe6a7567e1f7b6401d756acfd7af9.scn" ]
+dest_md5="933f541ac8ed248f1ed8ced565172b9f"
 
 [params]
 

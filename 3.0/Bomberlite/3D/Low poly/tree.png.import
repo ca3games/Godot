@@ -8,7 +8,10 @@ path.etc2="res://.import/tree.png-506bc890dcee47184686d05017fb4cdb.etc2.stex"
 [deps]
 
 source_file="res://3D/Low poly/tree.png"
+source_md5="0048fa9dd121630771cbbef96f29ef6b"
+
 dest_files=[ "res://.import/tree.png-506bc890dcee47184686d05017fb4cdb.s3tc.stex", "res://.import/tree.png-506bc890dcee47184686d05017fb4cdb.etc2.stex" ]
+dest_md5="9a9a161ffd4df7d40b7fb7e4b0b1313d"
 
 [params]
 

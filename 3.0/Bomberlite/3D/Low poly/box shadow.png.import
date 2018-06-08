@@ -8,7 +8,10 @@ path.etc2="res://.import/box shadow.png-2f50d05e189644893a8ff97345af3ec5.etc2.st
 [deps]
 
 source_file="res://3D/Low poly/box shadow.png"
+source_md5="41e796cc8e778816fc57dce769ac171a"
+
 dest_files=[ "res://.import/box shadow.png-2f50d05e189644893a8ff97345af3ec5.s3tc.stex", "res://.import/box shadow.png-2f50d05e189644893a8ff97345af3ec5.etc2.stex" ]
+dest_md5="23f79bdbae53910d3042be50f435b69b"
 
 [params]
 

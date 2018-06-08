@@ -8,7 +8,10 @@ path.etc2="res://.import/idle 02.png-7494790ea07732c71bf602ee2a0f8799.etc2.stex"
 [deps]
 
 source_file="res://2D/Pacifica/idle 02.png"
+source_md5="4cdbf6aed5ea31b0475e66baa6a2ab66"
+
 dest_files=[ "res://.import/idle 02.png-7494790ea07732c71bf602ee2a0f8799.s3tc.stex", "res://.import/idle 02.png-7494790ea07732c71bf602ee2a0f8799.etc2.stex" ]
+dest_md5="6a7d38995cdd0341b305be22df4d2b82"
 
 [params]
 

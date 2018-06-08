@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/grass limit rightt.png-16908be726e3a16a21a5c149c3aa638f.stex"
+
+[deps]
+
+source_file="res://2D/Tileset/grass limit rightt.png"
+source_md5="8d7afada81733fd85b030be6f285237a"
+
+dest_files=[ "res://.import/grass limit rightt.png-16908be726e3a16a21a5c149c3aa638f.stex" ]
+dest_md5="3f57f9b6fd7ee8b1944940877b51336f"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=1
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=true
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

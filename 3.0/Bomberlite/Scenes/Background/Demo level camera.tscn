@@ -1,24 +1,125 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Scenes/Code/Level/Demo.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Code/Level/Camera.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Background/Demo Level.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Characters/Pacifica.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Characters/shadow.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Background/Props/pig colliders.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Background/Props/Well collider.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Animals/Chicken.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Code/Level/Pacifica.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/Characters/shadow.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Background/Props/pig colliders.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Background/Props/Well collider.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Animals/Chicken.tscn" type="PackedScene" id=8]
 
-[node name="Spatial" type="Spatial" index="0"]
+[sub_resource type="ProceduralSky" id=1]
+
+radiance_size = 4
+sky_top_color = Color( 0.0470588, 0.454902, 0.976471, 1 )
+sky_horizon_color = Color( 0.556863, 0.823529, 0.909804, 1 )
+sky_curve = 0.25
+sky_energy = 1.0
+ground_bottom_color = Color( 0.101961, 0.145098, 0.188235, 1 )
+ground_horizon_color = Color( 0.482353, 0.788235, 0.952941, 1 )
+ground_curve = 0.01
+ground_energy = 1.0
+sun_color = Color( 1, 1, 1, 1 )
+sun_latitude = 35.0
+sun_longitude = 0.0
+sun_angle_min = 1.0
+sun_angle_max = 100.0
+sun_curve = 0.05
+sun_energy = 16.0
+texture_size = 2
+
+[sub_resource type="Environment" id=2]
+
+background_mode = 1
+background_sky = SubResource( 1 )
+background_sky_custom_fov = 0.0
+background_color = Color( 0.429688, 0.652466, 1, 1 )
+background_energy = 15.0
+background_canvas_max_layer = 0
+ambient_light_color = Color( 0.440986, 0.4319, 0.722656, 1 )
+ambient_light_energy = 4.61
+ambient_light_sky_contribution = 1.0
+fog_enabled = false
+fog_color = Color( 0.5, 0.6, 0.7, 1 )
+fog_sun_color = Color( 1, 0.9, 0.7, 1 )
+fog_sun_amount = 0.0
+fog_depth_enabled = true
+fog_depth_begin = 10.0
+fog_depth_curve = 1.0
+fog_transmit_enabled = false
+fog_transmit_curve = 1.0
+fog_height_enabled = false
+fog_height_min = 0.0
+fog_height_max = 100.0
+fog_height_curve = 1.0
+tonemap_mode = 2
+tonemap_exposure = 1.0
+tonemap_white = 1.0
+auto_exposure_enabled = true
+auto_exposure_scale = 0.4
+auto_exposure_min_luma = 0.05
+auto_exposure_max_luma = 8.0
+auto_exposure_speed = 0.5
+ss_reflections_enabled = false
+ss_reflections_max_steps = 64
+ss_reflections_fade_in = 0.15
+ss_reflections_fade_out = 2.0
+ss_reflections_depth_tolerance = 0.2
+ss_reflections_roughness = true
+ssao_enabled = false
+ssao_radius = 1.0
+ssao_intensity = 1.0
+ssao_radius2 = 0.0
+ssao_intensity2 = 1.0
+ssao_bias = 0.01
+ssao_light_affect = 0.0
+ssao_color = Color( 0, 0, 0, 1 )
+ssao_quality = 0
+ssao_blur = 3
+ssao_edge_sharpness = 4.0
+dof_blur_far_enabled = false
+dof_blur_far_distance = 10.0
+dof_blur_far_transition = 5.0
+dof_blur_far_amount = 0.1
+dof_blur_far_quality = 1
+dof_blur_near_enabled = false
+dof_blur_near_distance = 2.0
+dof_blur_near_transition = 1.0
+dof_blur_near_amount = 0.1
+dof_blur_near_quality = 1
+glow_enabled = false
+glow_levels/1 = false
+glow_levels/2 = false
+glow_levels/3 = true
+glow_levels/4 = false
+glow_levels/5 = true
+glow_levels/6 = false
+glow_levels/7 = false
+glow_intensity = 0.8
+glow_strength = 1.0
+glow_bloom = 0.0
+glow_blend_mode = 2
+glow_hdr_threshold = 1.0
+glow_hdr_scale = 2.0
+glow_bicubic_upscale = false
+adjustment_enabled = false
+adjustment_brightness = 1.0
+adjustment_contrast = 1.0
+adjustment_saturation = 1.0
+_sections_unfolded = [ "Ambient Light", "Background", "Tonemap" ]
+
+[node name="Spatial" type="Spatial"]
 
 [node name="DirectionalLight" type="DirectionalLight" parent="." index="0"]
 
-transform = Transform( 0.790608, 0, 0.612323, -0.442141, 0.691819, 0.570875, -0.423617, -0.722071, 0.546957, 0, 9.47556, 0 )
+transform = Transform( 0.741251, -0.44078, 0.506221, 0, 0.754172, 0.656677, -0.671228, -0.486762, 0.559031, 0, 4.64363, 4.76645 )
 layers = 1
-light_color = Color( 1, 1, 1, 1 )
-light_energy = 0.1
-light_indirect_energy = 0.0
+light_color = Color( 0.56459, 0.660222, 0.886719, 1 )
+light_energy = 0.5
+light_indirect_energy = 1.0
 light_negative = false
-light_specular = 0.0
+light_specular = 0.1
 light_bake_mode = 1
 light_cull_mask = -1
 shadow_enabled = false
@@ -38,7 +139,11 @@ directional_shadow_depth_range = 0
 directional_shadow_max_distance = 200.0
 _sections_unfolded = [ "Light" ]
 
-[node name="Camera" type="Camera" parent="." index="1"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="1"]
+
+environment = SubResource( 2 )
+
+[node name="Camera" type="Camera" parent="." index="2"]
 
 transform = Transform( 0.906308, 0.109382, -0.408218, 0, 0.965926, 0.258819, 0.422618, -0.23457, 0.875426, -4, 1, 10 )
 keep_aspect = 1
@@ -53,48 +158,49 @@ fov = 70.0
 size = 3.0
 near = 0.05
 far = 100.0
+script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="objects" type="Spatial" parent="." index="2"]
+[node name="objects" type="Spatial" parent="." index="3"]
 
-script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Static" parent="objects" index="0" instance=ExtResource( 2 )]
 
-[node name="RigidBody" parent="objects" index="1" instance=ExtResource( 3 )]
+[node name="Pacifica" parent="objects" index="1" instance=ExtResource( 3 )]
 
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.558324, -1.79851, 3.94759 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.558324, -1.79851, 4.58291 )
+script = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="shadow2" parent="objects/RigidBody" index="2" instance=ExtResource( 4 )]
+[node name="shadow2" parent="objects/Pacifica" index="2" instance=ExtResource( 5 )]
 
 transform = Transform( 2, 0, 0, 0, -8.74228e-08, 2, 0, -2, -8.74228e-08, -0.0452136, -0.0921021, -0.0628662 )
 
-[node name="Pig" parent="objects" index="2" instance=ExtResource( 5 )]
+[node name="Pig" parent="objects" index="2" instance=ExtResource( 6 )]
 
 editor/display_folded = true
 transform = Transform( 0.602619, 0, -0.798029, 0, 1, 0, 0.798029, 0, 0.602619, 1.30551, -1.63953, -0.00653076 )
 
-[node name="shadow3" parent="objects/Pig" index="2" instance=ExtResource( 4 )]
+[node name="shadow3" parent="objects/Pig" index="2" instance=ExtResource( 5 )]
 
 transform = Transform( 2.41048, 3.19211, 6.97659e-08, 0, -1.74846e-07, 2, 3.19211, -2.41048, -5.26827e-08, -5.16884e-08, -0.217102, -8.84756e-09 )
 
-[node name="Pig2" parent="objects" index="3" instance=ExtResource( 5 )]
+[node name="Pig2" parent="objects" index="3" instance=ExtResource( 6 )]
 
 editor/display_folded = true
 transform = Transform( 0.995141, 0, 0.098462, 0, 1, 0, -0.098462, 0, 0.995141, 1.76846, -1.63953, 0.674194 )
 
-[node name="shadow3" parent="objects/Pig2" index="2" instance=ExtResource( 4 )]
+[node name="shadow3" parent="objects/Pig2" index="2" instance=ExtResource( 5 )]
 
 transform = Transform( 2.41048, 3.19211, 6.97659e-08, 0, -1.74846e-07, 2, 3.19211, -2.41048, -5.26827e-08, -5.16884e-08, -0.217102, -8.84756e-09 )
 
-[node name="StaticBody" parent="objects" index="4" instance=ExtResource( 6 )]
+[node name="StaticBody" parent="objects" index="4" instance=ExtResource( 7 )]
 
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -2.34656, -1.7464, 0.143097 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Chicken" parent="objects" index="5" instance=ExtResource( 7 )]
+[node name="Chicken" parent="objects" index="5" instance=ExtResource( 8 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.60681, -1.74779, 1.79218 )
 _sections_unfolded = [ "Transform" ]

@@ -8,7 +8,10 @@ path.etc2="res://.import/box.png-7c388189a71c620a68ac7d4e07a0aaf8.etc2.stex"
 [deps]
 
 source_file="res://3D/Low poly/box.png"
+source_md5="04abe7344edffccca3f150edeaf47870"
+
 dest_files=[ "res://.import/box.png-7c388189a71c620a68ac7d4e07a0aaf8.s3tc.stex", "res://.import/box.png-7c388189a71c620a68ac7d4e07a0aaf8.etc2.stex" ]
+dest_md5="18ca5dc8374313aa835f2b8d4ed87881"
 
 [params]
 

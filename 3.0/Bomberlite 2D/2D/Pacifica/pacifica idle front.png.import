@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/pacifica idle front.png-1aeef7cb2ce9b414fe4ae93d481435cf.stex"
+
+[deps]
+
+source_file="res://2D/Pacifica/pacifica idle front.png"
+source_md5="a3e0e7a6cff8107a915f34b8177bf9e2"
+
+dest_files=[ "res://.import/pacifica idle front.png-1aeef7cb2ce9b414fe4ae93d481435cf.stex" ]
+dest_md5="63dcf22d7b32557b584da74016383466"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

@@ -7,7 +7,10 @@ path="res://.import/tree 1.glb-929dc2b24d4331d1b0b1dbc59571237e.scn"
 [deps]
 
 source_file="res://3D/Low poly/tree 1.glb"
+source_md5="fe31ff54a93b5b2c9dd0fab9147d1452"
+
 dest_files=[ "res://.import/tree 1.glb-929dc2b24d4331d1b0b1dbc59571237e.scn" ]
+dest_md5="f536a673da5f4b12711f82d5b9dd5d2a"
 
 [params]
 

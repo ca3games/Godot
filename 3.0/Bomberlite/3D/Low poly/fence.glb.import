@@ -7,7 +7,10 @@ path="res://.import/fence.glb-80b363d0609e2441c0202a5278a872e4.scn"
 [deps]
 
 source_file="res://3D/Low poly/fence.glb"
+source_md5="e580df2300324b062c85710b80334454"
+
 dest_files=[ "res://.import/fence.glb-80b363d0609e2441c0202a5278a872e4.scn" ]
+dest_md5="d00945a2a1897d23df8141ac8420bf4d"
 
 [params]
 

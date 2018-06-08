@@ -32,7 +32,6 @@ flags_use_point_size = false
 flags_world_triplanar = false
 flags_fixed_size = false
 flags_albedo_tex_force_srgb = false
-flags_do_not_receive_shadows = false
 vertex_color_use_as_albedo = false
 vertex_color_is_srgb = false
 params_diffuse_mode = 4
@@ -78,6 +77,7 @@ _sections_unfolded = [ "Albedo", "Flags", "Parameters" ]
 [node name="Scene Root" type="Spatial" index="0"]
 
 [node name="Circle" type="MeshInstance" parent="." index="0"]
+
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -90,5 +90,6 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 1 )
 skeleton = NodePath("..")
 material/0 = SubResource( 2 )
-_sections_unfolded = [ "Material" ]
+_sections_unfolded = [ "Material", "material" ]
+
 

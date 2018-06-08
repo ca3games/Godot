@@ -8,7 +8,10 @@ path.etc2="res://.import/well.png-ecdb256b95993325150261c364e5fbbf.etc2.stex"
 [deps]
 
 source_file="res://3D/Low poly/well.png"
+source_md5="39a06c2ac365e7f0cb3964339a01afb4"
+
 dest_files=[ "res://.import/well.png-ecdb256b95993325150261c364e5fbbf.s3tc.stex", "res://.import/well.png-ecdb256b95993325150261c364e5fbbf.etc2.stex" ]
+dest_md5="ceae093b0b2d567a42f2314795d80b62"
 
 [params]
 

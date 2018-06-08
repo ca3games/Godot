@@ -8,7 +8,10 @@ path.etc2="res://.import/Tileset.png-987bcd477c88c50ffb91f80f3b5ae0fa.etc2.stex"
 [deps]
 
 source_file="res://3D/Low poly/Tileset.png"
+source_md5="25cdc229ff7bd98f5508b2d2902fc472"
+
 dest_files=[ "res://.import/Tileset.png-987bcd477c88c50ffb91f80f3b5ae0fa.s3tc.stex", "res://.import/Tileset.png-987bcd477c88c50ffb91f80f3b5ae0fa.etc2.stex" ]
+dest_md5="b487277961f75dcf752ca1841a316e40"
 
 [params]
 

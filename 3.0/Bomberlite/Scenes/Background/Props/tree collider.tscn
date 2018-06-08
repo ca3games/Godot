@@ -7,7 +7,8 @@
 radius = 0.326086
 height = 1.54984
 
-[node name="StaticBody" type="StaticBody" index="0"]
+[node name="StaticBody" type="StaticBody"]
+
 input_ray_pickable = true
 input_capture_on_drag = false
 collision_layer = 1
@@ -18,12 +19,15 @@ constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="." index="0"]
+
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, -0.157094, 0.894262, 0 )
 shape = SubResource( 1 )
 disabled = false
 _sections_unfolded = [ "Transform" ]
 
 [node name="Scene Root" parent="." index="1" instance=ExtResource( 1 )]
+
 transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0 )
 _sections_unfolded = [ "Transform" ]
+
 

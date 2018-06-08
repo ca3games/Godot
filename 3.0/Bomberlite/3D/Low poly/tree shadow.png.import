@@ -8,7 +8,10 @@ path.etc2="res://.import/tree shadow.png-fd41bfc2543bad6ccd2e6d796ecae2eb.etc2.s
 [deps]
 
 source_file="res://3D/Low poly/tree shadow.png"
+source_md5="34ced607e095bfebd8a065383bbae8c4"
+
 dest_files=[ "res://.import/tree shadow.png-fd41bfc2543bad6ccd2e6d796ecae2eb.s3tc.stex", "res://.import/tree shadow.png-fd41bfc2543bad6ccd2e6d796ecae2eb.etc2.stex" ]
+dest_md5="a1bcc0b8bf47ab9c8d2f5e2d73000443"
 
 [params]
 
