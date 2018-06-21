@@ -9,10 +9,7 @@ path="res://.import/silla.obj-94f9bcf7b31ec4e793b456b519db99da.mesh"
 files=[ "res://.import/silla.obj-94f9bcf7b31ec4e793b456b519db99da.mesh" ]
 
 source_file="res://3D/Voxel/silla.obj"
-source_md5="0f88fc463544db76faf3556136486d8a"
-
 dest_files=[ "res://.import/silla.obj-94f9bcf7b31ec4e793b456b519db99da.mesh", "res://.import/silla.obj-94f9bcf7b31ec4e793b456b519db99da.mesh" ]
-dest_md5="2590bac6569c3aa5664f29a23067e9a1"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/grass limit rightt.png-16908be726e3a16a21a5c149c3aa638f.stex
 [deps]
 
 source_file="res://2D/Tileset/grass limit rightt.png"
-source_md5="8d7afada81733fd85b030be6f285237a"
-
 dest_files=[ "res://.import/grass limit rightt.png-16908be726e3a16a21a5c149c3aa638f.stex" ]
-dest_md5="3f57f9b6fd7ee8b1944940877b51336f"
 
 [params]
 

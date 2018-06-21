@@ -7,10 +7,7 @@ path="res://.import/Default_Height.png-495dd8019e92f16083f730c45e1e7175.stex"
 [deps]
 
 source_file="res://3D/Models/Pig/Default_Height.png"
-source_md5="fdb681e39e3385410a95b646292640cb"
-
 dest_files=[ "res://.import/Default_Height.png-495dd8019e92f16083f730c45e1e7175.stex" ]
-dest_md5="692a4b301124e60374518f1f614f293e"
 
 [params]
 

@@ -9,10 +9,7 @@ path="res://.import/ground.obj-1a6e5669e00eb40c4ef04bde7df964ce.mesh"
 files=[ "res://.import/ground.obj-1a6e5669e00eb40c4ef04bde7df964ce.mesh" ]
 
 source_file="res://3D/Voxel/ground.obj"
-source_md5="77f094d89cb31770420fc30360b4e1ee"
-
 dest_files=[ "res://.import/ground.obj-1a6e5669e00eb40c4ef04bde7df964ce.mesh", "res://.import/ground.obj-1a6e5669e00eb40c4ef04bde7df964ce.mesh" ]
-dest_md5="b8a7cf643e6057c71513c04856d15d77"
 
 [params]
 

@@ -8,10 +8,7 @@ path.etc2="res://.import/Default_Base_Color.png-fa44e7a90b045af215b68d23b893bec9
 [deps]
 
 source_file="res://3D/Models/Pig/Default_Base_Color.png"
-source_md5="db1b49b89d9a360c42ecd1aaf3f9a791"
-
 dest_files=[ "res://.import/Default_Base_Color.png-fa44e7a90b045af215b68d23b893bec9.s3tc.stex", "res://.import/Default_Base_Color.png-fa44e7a90b045af215b68d23b893bec9.etc2.stex" ]
-dest_md5="01c163174a1503810e354dd0c76b2572"
 
 [params]
 

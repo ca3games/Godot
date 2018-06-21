@@ -7,10 +7,7 @@ path="res://.import/ground.dae-f121d5fcfef684e83c4cbeef954e1303.scn"
 [deps]
 
 source_file="res://3D/Low poly/ground.dae"
-source_md5="e2d277f28b3b92b60f2f12c4ca157837"
-
 dest_files=[ "res://.import/ground.dae-f121d5fcfef684e83c4cbeef954e1303.scn" ]
-dest_md5="10684d8fed9e15f36323a7dc66aabcb8"
 
 [params]
 

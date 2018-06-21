@@ -9,10 +9,7 @@ path="res://.import/pig fixed.obj-a0290a6ccca1e9987619011937196cd7.mesh"
 files=[ "res://.import/pig fixed.obj-a0290a6ccca1e9987619011937196cd7.mesh" ]
 
 source_file="res://3D/Models/Pig/pig fixed.obj"
-source_md5="a4cd369f0886bd5c51353b84233fa5ae"
-
 dest_files=[ "res://.import/pig fixed.obj-a0290a6ccca1e9987619011937196cd7.mesh", "res://.import/pig fixed.obj-a0290a6ccca1e9987619011937196cd7.mesh" ]
-dest_md5="c4e298d7ea33dd21aaa373b2f1da10dd"
 
 [params]
 

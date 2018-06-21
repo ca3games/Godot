@@ -7,10 +7,7 @@ path="res://.import/chicken indexed.png-c36329a3a809b36892d3c6bc8f0c7c22.stex"
 [deps]
 
 source_file="res://2D/farm/chicken indexed.png"
-source_md5="07d8ae2ef2a0c8d987257454d07bbe9d"
-
 dest_files=[ "res://.import/chicken indexed.png-c36329a3a809b36892d3c6bc8f0c7c22.stex" ]
-dest_md5="18fed780ede049d26be24a173c32119a"
 
 [params]
 

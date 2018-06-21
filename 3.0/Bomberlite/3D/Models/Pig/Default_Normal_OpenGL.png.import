@@ -7,10 +7,7 @@ path="res://.import/Default_Normal_OpenGL.png-9a5ad2c2dec2abf3924473bf16e7a2bf.s
 [deps]
 
 source_file="res://3D/Models/Pig/Default_Normal_OpenGL.png"
-source_md5="8a6916e4321b25a1c260fbfd0da02e6a"
-
 dest_files=[ "res://.import/Default_Normal_OpenGL.png-9a5ad2c2dec2abf3924473bf16e7a2bf.stex" ]
-dest_md5="aa352f9d5cb62165f201c148d9beb676"
 
 [params]
 

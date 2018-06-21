@@ -8,10 +8,7 @@ path.etc2="res://.import/pacifica idle front.png-1aeef7cb2ce9b414fe4ae93d481435c
 [deps]
 
 source_file="res://2D/Pacifica/pacifica idle front.png"
-source_md5="a3e0e7a6cff8107a915f34b8177bf9e2"
-
 dest_files=[ "res://.import/pacifica idle front.png-1aeef7cb2ce9b414fe4ae93d481435cf.s3tc.stex", "res://.import/pacifica idle front.png-1aeef7cb2ce9b414fe4ae93d481435cf.etc2.stex" ]
-dest_md5="e98171bd6b9b4f025e41ef0e3d93edae"
 
 [params]
 

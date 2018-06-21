@@ -8,10 +8,7 @@ path.etc2="res://.import/grass1.png-4cdb7810dbae2adaf2a61c1683a46d9c.etc2.stex"
 [deps]
 
 source_file="res://2D/Tileset/grass1.png"
-source_md5="aa4901aacc792650879c93d0d41fe444"
-
 dest_files=[ "res://.import/grass1.png-4cdb7810dbae2adaf2a61c1683a46d9c.s3tc.stex", "res://.import/grass1.png-4cdb7810dbae2adaf2a61c1683a46d9c.etc2.stex" ]
-dest_md5="a7a7100a927d8e50277adf8bfe526c6b"
 
 [params]
 

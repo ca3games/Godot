@@ -7,10 +7,7 @@ path="res://.import/House.dae-a91d6c2174cac2591ccad1f0807754b6.scn"
 [deps]
 
 source_file="res://3D/Low poly/House.dae"
-source_md5="cd799a5189c0400434caf945f84c6ef4"
-
 dest_files=[ "res://.import/House.dae-a91d6c2174cac2591ccad1f0807754b6.scn" ]
-dest_md5="e416132e4db78bec585992805f4405db"
 
 [params]
 
