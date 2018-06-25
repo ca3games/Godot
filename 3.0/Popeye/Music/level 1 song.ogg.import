@@ -7,10 +7,7 @@ path="res://.import/level 1 song.ogg-a74e891f7e8f6f2892ad7bd751465870.oggstr"
 [deps]
 
 source_file="res://Music/level 1 song.ogg"
-source_md5="3bebf4c0cd3333816024e43aa4cf5383"
-
 dest_files=[ "res://.import/level 1 song.ogg-a74e891f7e8f6f2892ad7bd751465870.oggstr" ]
-dest_md5="e6602d514f15f081dd0e3a5948f4663c"
 
 [params]
 

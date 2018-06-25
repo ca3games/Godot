@@ -7,10 +7,7 @@ path="res://.import/hurt2.png-d521a20a3454644e2c3cc0295adcb9b8.stex"
 [deps]
 
 source_file="res://2D/Popeye/Hurt/hurt2.png"
-source_md5="d456a2e2f11eea47176be8d4a6100b67"
-
 dest_files=[ "res://.import/hurt2.png-d521a20a3454644e2c3cc0295adcb9b8.stex" ]
-dest_md5="915a90e828e76a51c62d527fa424041c"
 
 [params]
 

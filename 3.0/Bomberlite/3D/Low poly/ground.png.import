@@ -2,20 +2,16 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/ground.png-ab54bfb0373d05dc302be0e454d1a001.s3tc.stex"
-path.etc2="res://.import/ground.png-ab54bfb0373d05dc302be0e454d1a001.etc2.stex"
+path="res://.import/ground.png-ab54bfb0373d05dc302be0e454d1a001.stex"
 
 [deps]
 
 source_file="res://3D/Low poly/ground.png"
-source_md5="8f5b9488d135fc494386bbc2f9155972"
-
-dest_files=[ "res://.import/ground.png-ab54bfb0373d05dc302be0e454d1a001.s3tc.stex", "res://.import/ground.png-ab54bfb0373d05dc302be0e454d1a001.etc2.stex" ]
-dest_md5="ab5f1e769f90e6381e04f0cc98ece9cd"
+dest_files=[ "res://.import/ground.png-ab54bfb0373d05dc302be0e454d1a001.stex" ]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0

@@ -7,10 +7,7 @@ path="res://.import/Border.png-2c4c79bb1e4ea69d7649d77bbdb4fe5e.stex"
 [deps]
 
 source_file="res://2D/Backgrounds/Border.png"
-source_md5="5418b047d487f005502b25ffa26af271"
-
 dest_files=[ "res://.import/Border.png-2c4c79bb1e4ea69d7649d77bbdb4fe5e.stex" ]
-dest_md5="4ed6ae54d96f9ec72804bf65fca18fb2"
 
 [params]
 

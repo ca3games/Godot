@@ -7,10 +7,7 @@ path="res://.import/0006.png-a0b8c46ea7d209db64c88fc8b5e81c6c.stex"
 [deps]
 
 source_file="res://2D/Backgrounds/Heart/0006.png"
-source_md5="5bce6aeeb84965b767810c77414e3b72"
-
 dest_files=[ "res://.import/0006.png-a0b8c46ea7d209db64c88fc8b5e81c6c.stex" ]
-dest_md5="c4e5b65195ab7d9816871786997aa2ec"
 
 [params]
 

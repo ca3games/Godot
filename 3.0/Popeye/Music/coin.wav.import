@@ -7,10 +7,7 @@ path="res://.import/coin.wav-f0ca2a329a0ecd53dd38d68f175d0635.sample"
 [deps]
 
 source_file="res://Music/coin.wav"
-source_md5="ba3189ff08c3765afe10341c4231fde9"
-
 dest_files=[ "res://.import/coin.wav-f0ca2a329a0ecd53dd38d68f175d0635.sample" ]
-dest_md5="164b0935c4e4cc1bcb0980e98bc9b3a6"
 
 [params]
 

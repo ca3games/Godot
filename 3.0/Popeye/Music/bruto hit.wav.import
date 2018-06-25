@@ -7,10 +7,7 @@ path="res://.import/bruto hit.wav-b0c94c32f6d88c4db7515e2ed61a2895.sample"
 [deps]
 
 source_file="res://Music/bruto hit.wav"
-source_md5="f3c1f525414142ad487d25dbda11902a"
-
 dest_files=[ "res://.import/bruto hit.wav-b0c94c32f6d88c4db7515e2ed61a2895.sample" ]
-dest_md5="5436cf9fd616352043c1a247377413ab"
 
 [params]
 

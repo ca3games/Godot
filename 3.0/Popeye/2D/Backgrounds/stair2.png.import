@@ -7,10 +7,7 @@ path="res://.import/stair2.png-306f8b6c2000819d3ea503b81effc830.stex"
 [deps]
 
 source_file="res://2D/Backgrounds/stair2.png"
-source_md5="dfc87ea50c53acee6feb2b7829d61ae0"
-
 dest_files=[ "res://.import/stair2.png-306f8b6c2000819d3ea503b81effc830.stex" ]
-dest_md5="6015f5a288347e9c70edc0530f29db04"
 
 [params]
 

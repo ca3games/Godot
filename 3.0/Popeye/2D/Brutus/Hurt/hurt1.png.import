@@ -7,10 +7,7 @@ path="res://.import/hurt1.png-ad131a9cc99ce3d614e20b445eee5c6f.stex"
 [deps]
 
 source_file="res://2D/Brutus/Hurt/hurt1.png"
-source_md5="f9277858559681b98dd936b08fd270f8"
-
 dest_files=[ "res://.import/hurt1.png-ad131a9cc99ce3d614e20b445eee5c6f.stex" ]
-dest_md5="91e995f253e9e83875917f98fc061f81"
 
 [params]
 

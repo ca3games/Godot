@@ -7,10 +7,7 @@ path="res://.import/punch2.png-767f5af1eeadb4a17d7ccd23b5f3f214.stex"
 [deps]
 
 source_file="res://2D/Brutus/Punch/punch2.png"
-source_md5="e836d7908377f8be62ee7a56a67f5a3b"
-
 dest_files=[ "res://.import/punch2.png-767f5af1eeadb4a17d7ccd23b5f3f214.stex" ]
-dest_md5="3985b6a261e9d265a49b636388e11803"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/popeye hit.wav-58475a339f98d5daaf428b1260d698ad.sample"
 [deps]
 
 source_file="res://Music/popeye hit.wav"
-source_md5="75e4b60c45ddfcd7ef2e7fc227cb02b5"
-
 dest_files=[ "res://.import/popeye hit.wav-58475a339f98d5daaf428b1260d698ad.sample" ]
-dest_md5="bea8f584f3cfd52522c2138c1c634e12"
 
 [params]
 

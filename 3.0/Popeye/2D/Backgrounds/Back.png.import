@@ -7,10 +7,7 @@ path="res://.import/Back.png-f0ee47a846e7f844197debbc791d9279.stex"
 [deps]
 
 source_file="res://2D/Backgrounds/Back.png"
-source_md5="70e5c8d2c8ba0b527512063f444e52ce"
-
 dest_files=[ "res://.import/Back.png-f0ee47a846e7f844197debbc791d9279.stex" ]
-dest_md5="908cc8615100abed3931a78ccf341be1"
 
 [params]
 

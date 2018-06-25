@@ -1,0 +1,17 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/pot.obj-e0fc4435a0af95fe0bb403dd631c51e2.mesh"
+
+[deps]
+
+files=[ "res://.import/pot.obj-e0fc4435a0af95fe0bb403dd631c51e2.mesh" ]
+
+source_file="res://3D/Low poly/pot.obj"
+dest_files=[ "res://.import/pot.obj-e0fc4435a0af95fe0bb403dd631c51e2.mesh", "res://.import/pot.obj-e0fc4435a0af95fe0bb403dd631c51e2.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
