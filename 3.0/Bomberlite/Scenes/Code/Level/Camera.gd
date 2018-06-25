@@ -1,26 +1,28 @@
 extends Camera
 
-var Pacificapos = Vector2(0,0)
-var camerapos = Vector2(0,0)
-var offset = Vector2(1,1)
-var center_x = Vector2(3, 7)
+var bounds = Vector2(1,1)
+var center_x = Vector2(3, -5)
 var cameraspeed = Vector2(0,0)
+var speed = 3
+
+var Pacificaoffset = Vector3(0,0,0)
 
 func _ready():
 	pass
 	
 func _process(delta):
-	Pacificapos = Vector2(get_tree().get_root().get_node("Spatial/objects/Pacifica").get_global_transform().origin.x, get_tree().get_root().get_node("Spatial/objects/Pacifica").get_global_transform().origin.z)
-	camerapos = Vector2(get_tree().get_root().get_node("Spatial/Camera").get_global_transform().origin.x, get_tree().get_root().get_node("Spatial/Camera").get_global_transform().origin.z)
-
-func _physics_process(delta):
+	var cameraoffset = get_global_transform().origin + Vector3(center_x.x, 0, center_x.y)
+	Pacificaoffset = cameraoffset - get_node("/root/Spatial/objects/Pacifica").get_global_transform().origin
 	cameraspeed = Vector2(0,0)
-	if Pacificapos.x <= center_x.x + (camerapos.x - offset.x):
-		cameraspeed.x = -delta
-	if Pacificapos.x >= (camerapos.x + offset.x) + center_x.x:
-		cameraspeed.x = delta
-	if Pacificapos.y < camerapos.y - offset.y - center_x.y:
-		cameraspeed.y = -delta
-	if Pacificapos.y > camerapos.y + offset.y - center_x.y:
-		cameraspeed.y = delta
-	self.global_translate(Vector3(cameraspeed.x * 2, 0, cameraspeed.y * 2))
+	if Pacificaoffset.x < -bounds.x:
+		cameraspeed.x = -speed
+	if Pacificaoffset.x > bounds.x:
+		cameraspeed.x = speed
+	if Pacificaoffset.z < -bounds.y:
+		cameraspeed.y = -speed
+	if Pacificaoffset.z > bounds.y:
+		cameraspeed.y = speed
+	var target = get_global_transform().origin + Vector3 (center_x.x + cameraspeed.x, 0, center_x.y + cameraspeed.y)
+	var pos = get_global_transform().origin + Vector3(center_x.x, 0, center_x.y)
+	var distance = (pos - target).normalized() * delta
+	global_translate(distance)
