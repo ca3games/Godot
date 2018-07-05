@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/Code/Level/Camera.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Background/Demo Level.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Scenes/Background/Props/Well collider.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Animals/Chicken.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Background/Props/Pot.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Enemies/Shape 1.tscn" type="PackedScene" id=10]
 
 [sub_resource type="ProceduralSky" id=1]
 
@@ -160,6 +161,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="objects" type="Spatial" parent="." index="2"]
 
+editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Static" parent="objects" index="0" instance=ExtResource( 2 )]
@@ -172,7 +174,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="shadow2" parent="objects/Pacifica" index="2" instance=ExtResource( 5 )]
 
-transform = Transform( 2, 0, 0, 0, -8.74228e-08, 2, 0, -2, -8.74228e-08, -0.0452136, -0.0921021, -0.0628662 )
+transform = Transform( 2, 0, 0, 0, -8.74228e-008, 2, 0, -2, -8.74228e-008, -0.0452136, -0.0921021, -0.0628662 )
 
 [node name="Pig" parent="objects" index="2" instance=ExtResource( 6 )]
 
@@ -181,7 +183,7 @@ transform = Transform( 0.602619, 0, -0.798029, 0, 1, 0, 0.798029, 0, 0.602619, 1
 
 [node name="shadow3" parent="objects/Pig" index="2" instance=ExtResource( 5 )]
 
-transform = Transform( 2.41048, 3.19211, 6.97659e-08, 0, -1.74846e-07, 2, 3.19211, -2.41048, -5.26827e-08, -5.16884e-08, -0.217102, -8.84756e-09 )
+transform = Transform( 2.41048, 3.19211, 6.97659e-008, 0, -1.74846e-007, 2, 3.19211, -2.41048, -5.26827e-008, -5.16884e-008, -0.217102, -8.84756e-009 )
 
 [node name="Pig2" parent="objects" index="3" instance=ExtResource( 6 )]
 
@@ -190,7 +192,7 @@ transform = Transform( 0.995141, 0, 0.098462, 0, 1, 0, -0.098462, 0, 0.995141, 1
 
 [node name="shadow3" parent="objects/Pig2" index="2" instance=ExtResource( 5 )]
 
-transform = Transform( 2.41048, 3.19211, 6.97659e-08, 0, -1.74846e-07, 2, 3.19211, -2.41048, -5.26827e-08, -5.16884e-08, -0.217102, -8.84756e-09 )
+transform = Transform( 2.41048, 3.19211, 6.97659e-008, 0, -1.74846e-007, 2, 3.19211, -2.41048, -5.26827e-008, -5.16884e-008, -0.217102, -8.84756e-009 )
 
 [node name="StaticBody" parent="objects" index="4" instance=ExtResource( 7 )]
 
@@ -239,6 +241,14 @@ playback_speed = 1.0
 playback/active = false
 playback/repeat = false
 playback/speed = 1.0
+
+[node name="enemies" type="Spatial" parent="." index="5"]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="RigidBody" parent="enemies" index="0" instance=ExtResource( 10 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.16543, -1.32686, 4.96946 )
 
 [connection signal="tween_completed" from="Tween" to="Camera" method="_tween_completed"]
 

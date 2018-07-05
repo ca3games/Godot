@@ -1,0 +1,17 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/shape 1.obj-1ffb92b10b4a96e903f80bb2a316e94d.mesh"
+
+[deps]
+
+files=[ "res://.import/shape 1.obj-1ffb92b10b4a96e903f80bb2a316e94d.mesh" ]
+
+source_file="res://2D/Spirograph/shape 1.obj"
+dest_files=[ "res://.import/shape 1.obj-1ffb92b10b4a96e903f80bb2a316e94d.mesh", "res://.import/shape 1.obj-1ffb92b10b4a96e903f80bb2a316e94d.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
