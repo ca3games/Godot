@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=1]
+[gd_scene load_steps=100 format=1]
 
 [ext_resource path="res://2D/Ground/ground.png" type="Texture" id=1]
 [ext_resource path="res://2D/sky.tex" type="Texture" id=2]
@@ -91,6 +91,8 @@
 [ext_resource path="res://2D/GUI/mana.tex" type="Texture" id=89]
 [ext_resource path="res://Code/Spawner.gd" type="Script" id=90]
 [ext_resource path="res://Fonts/start.fnt" type="BitmapFont" id=91]
+[ext_resource path="res://Scenes/Veneco sex.tscn" type="PackedScene" id=92]
+[ext_resource path="res://Musica/burra.ogg" type="AudioStream" id=93]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -130,6 +132,7 @@ extents = Vector2( 70.1007, 37.2566 )
 
 [node name="ground" type="Sprite" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 536.03, 365.22 )
 transform/scale = Vector2( 3.57615, 1.77715 )
 texture = ExtResource( 1 )
@@ -272,7 +275,7 @@ transform/pos = Vector2( 38.6332, -174.246 )
 transform/scale = Vector2( 0.32383, 0.550196 )
 frames = SubResource( 5 )
 animation = "default"
-frame = 62
+frame = 10
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -388,7 +391,7 @@ texture = ExtResource( 86 )
 transform/pos = Vector2( -25.0965, 87.622 )
 texture = ExtResource( 87 )
 
-[node name="TextureProgress 2" type="TextureProgress" parent="GUI"]
+[node name="Mana" type="TextureProgress" parent="GUI"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -402,7 +405,7 @@ range/min = 0.0
 range/max = 100.0
 range/step = 1.0
 range/page = 0.0
-range/value = 75.0
+range/value = 100.0
 range/exp_edit = false
 range/rounded = false
 texture/under = ExtResource( 88 )
@@ -453,5 +456,21 @@ transform/scale = Vector2( 0.816607, 1 )
 
 transform/pos = Vector2( 225.311, 554.501 )
 transform/scale = Vector2( 0.816607, 1 )
+
+[node name="Video" parent="." instance=ExtResource( 92 )]
+
+visibility/visible = false
+transform/pos = Vector2( 868.495, 512.746 )
+
+[node name="Music" type="StreamPlayer" parent="."]
+
+stream/stream = ExtResource( 93 )
+stream/play = false
+stream/loop = true
+stream/volume_db = 0.0
+stream/autoplay = true
+stream/paused = false
+stream/loop_restart_time = 0.0
+stream/buffering_ms = 500
 
 

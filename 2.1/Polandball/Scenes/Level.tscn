@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
+
+[sub_resource type="LineShape2D" id=1]
+
+custom_solver_bias = 0.0
+normal = Vector2( 0, -1 )
+d = 0.0
+
+[node name="Node" type="Node"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 500.989, 568.962 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 10.3818, 0, 0, 1, -106.392, -15.4543 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+
+transform/pos = Vector2( -106.392, -15.4543 )
+transform/scale = Vector2( 10.3818, 1 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Player1" parent="." groups=[
+"P1",
+] instance=ExtResource( 1 )]
+
+transform/pos = Vector2( 218.529, 416.767 )
+
+[node name="Player2" parent="." groups=[
+"P2",
+] instance=ExtResource( 1 )]
+
+transform/pos = Vector2( 799.289, 416.767 )
+
+
