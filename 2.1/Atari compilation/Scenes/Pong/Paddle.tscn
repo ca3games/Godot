@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://Code/Pong/Paddle.gd" type="Script" id=1]
+[ext_resource path="res://2D/Pong/pong paddle.tex" type="Texture" id=2]
+[ext_resource path="res://2D/Pong/pong paddle blur.tex" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 44.6983 )
+
+[node name="RigidBody2D" type="RigidBody2D"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 1
+contact_monitor = true
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+script/script = ExtResource( 1 )
+
+[node name="paddle" type="Sprite" parent="."]
+
+transform/pos = Vector2( 1.42572, -2.18783 )
+texture = ExtResource( 2 )
+modulate = Color( 0.144531, 0.89975, 1, 1 )
+
+[node name="pong paddle blur" type="Sprite" parent="paddle"]
+
+visibility/opacity = 0.58
+transform/pos = Vector2( -0.598737, -5.38864 )
+texture = ExtResource( 3 )
+modulate = Color( 0, 0.882812, 1, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Tween" type="Tween" parent="."]
+
+playback/process_mode = 1
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[connection signal="tween_complete" from="Tween" to="." method="_tween_complete"]
+
+
