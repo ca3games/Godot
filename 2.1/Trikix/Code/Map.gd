@@ -5,9 +5,10 @@ var map
 var width = 10
 var height = 10
 var rotate
-
+var timer = -99
 
 func _ready():
+	set_process(true)
 	map = []
 	for x in range(width):
 		map.append([])
@@ -30,6 +31,9 @@ func _ready():
 	_newRotatePiece()
 	_FOCUSOFF()
 
+func _process(delta):
+	pass
+
 func _rotate():
 	if Global.side >= 3:
 		Global.side = 0
@@ -38,10 +42,155 @@ func _rotate():
 	_newRotatePiece()
 	
 func _MapClicked(x, y):
-	Global._newpiece()
+	_SetPiece(x, y)
 	_FOCUSOFF()
 	_FOCUSON(x, y)
 	_newRotatePiece()
+
+func _SetPiece(x, y):
+	if Global.tipo == 0:
+		if Global.side == 0 or Global.side == 2:
+			if IsValidVerticalLine(x, y):
+				SetVerticalLine(x, y)
+				CheckCombo(x, y, map[x][y].getColor())
+				Global._newpiece()
+		else:
+			if IsValidHorizontalLine(x, y):
+				SetHorizontalLine(x, y)
+				CheckCombo(x, y, map[x][y].getColor())
+				Global._newpiece()
+	if Global.tipo == 1:
+		if Global.side == 0:
+			if IsValidVerticalLine(x, y) and IsValid(x+1, y+1):
+				SetVerticalLine(x, y)
+				SetCell(x+1, y+1)
+				CheckCombo(x, y, map[x][y].getColor())
+				Global._newpiece()
+		if Global.side == 1:
+			if IsValidHorizontalLine(x, y) and IsValid(x-1, y+1):
+				SetHorizontalLine(x, y)
+				SetCell(x-1, y+1)
+				CheckCombo(x, y, map[x][y].getColor())
+				Global._newpiece()
+		if Global.side == 2:
+			if IsValidVerticalLine(x, y) and IsValid(x-1, y-1):
+				SetVerticalLine(x, y)
+				SetCell(x-1, y-1)
+				CheckCombo(x, y, map[x][y].getColor())
+				Global._newpiece()
+		if Global.side == 3:
+			if IsValidHorizontalLine(x, y) and IsValid(x+1, y-1):
+				SetHorizontalLine(x, y)
+				SetCell(x+1, y-1)
+				CheckCombo(x, y, map[x][y].getColor())
+				Global._newpiece()
+	if Global.tipo == 2:
+		if Global.side == 0:
+			if IsValidTwoHorizontal(x, x+1, y) and IsValidTwoHorizontal(x, x+1, y+1):
+				SetTwoHorizontal(x, x+1, y)
+				SetTwoHorizontal(x, x+1, y+1)
+				CheckCombo(x, y, map[x][y].getColor())
+				Global._newpiece()
+		if Global.side == 1:
+			if IsValidTwoHorizontal(x, x-1, y) and IsValidTwoHorizontal(x, x-1, y+1):
+				SetTwoHorizontal(x, x-1, y)
+				SetTwoHorizontal(x, x-1, y+1)
+				CheckCombo(x, y, map[x][y].getColor())
+				Global._newpiece()
+		if Global.side == 2:
+			if IsValidTwoHorizontal(x, x-1, y) and IsValidTwoHorizontal(x, x-1, y-1):
+				SetTwoHorizontal(x, x-1, y)
+				SetTwoHorizontal(x, x-1, y-1)
+				CheckCombo(x, y, map[x][y].getColor())
+				Global._newpiece()
+		if Global.side == 3:
+			if IsValidTwoHorizontal(x, x+1, y) and IsValidTwoHorizontal(x, x+1, y-1):
+				SetTwoHorizontal(x, x+1, y)
+				SetTwoHorizontal(x, x+1, y-1)
+				CheckCombo(x, y, map[x][y].getColor())
+				Global._newpiece()
+	if Global.tipo == 3:
+		if IsValidVerticalLine(x, y) and IsValidHorizontalLine(x, y):
+			SetVerticalLine(x, y)
+			SetHorizontalLine(x, y)
+			CheckCombo(x, y, map[x][y].getColor())
+			Global._newpiece()
+	if Global.tipo == 4:
+		if Global.side == 0:
+			if IsValidTwoVertical(x, y, y-1) and IsValidTwoVertical(x+1, y, y+1):
+				SetTwoVertical(x, y, y-1)
+				SetTwoVertical(x+1, y, y+1)
+				CheckCombo(x, y, map[x][y].getColor())
+				Global._newpiece()
+		if Global.side == 1:
+			if IsValidTwoHorizontal(x, x+1, y) and IsValidTwoHorizontal(x, x-1, y+1):
+				SetTwoHorizontal(x, x+1, y)
+				SetTwoHorizontal(x, x-1, y+1)
+				CheckCombo(x, y, map[x][y].getColor())
+				Global._newpiece()
+		if Global.side == 2:
+			if IsValidTwoVertical(x-1, y, y-1) and IsValidTwoVertical(x, y, y+1):
+				SetTwoVertical(x-1, y, y-1)
+				SetTwoVertical(x, y, y+1)
+				CheckCombo(x, y, map[x][y].getColor())
+				Global._newpiece()
+		if Global.side == 3:
+			if IsValidTwoHorizontal(x, x+1, y-1) and IsValidTwoHorizontal(x-1, x, y):
+				SetTwoHorizontal(x, x+1, y-1)
+				SetTwoHorizontal(x-1, x, y)
+				CheckCombo(x, y, map[x][y].getColor())
+				Global._newpiece()
+	if Global.tipo == 5:
+		if Global.side == 0:
+			if IsValidTwoVertical(x, y, y+1) and IsValidTwoVertical(x+1, y, y-1):
+				SetTwoVertical(x, y, y+1)
+				SetTwoVertical(x+1, y, y-1)
+				CheckCombo(x, y, map[x][y].getColor())
+				Global._newpiece()
+		if Global.side == 1:
+			if IsValidTwoHorizontal(x, x-1, y) and IsValidTwoHorizontal(x, x+1, y+1):
+				SetTwoHorizontal(x, x-1, y)
+				SetTwoHorizontal(x, x+1, y+1)
+				CheckCombo(x, y, map[x][y].getColor())
+				Global._newpiece()
+		if Global.side == 2:
+			if IsValidTwoVertical(x-1, y, y+1) and IsValidTwoVertical(x, y, y-1):
+				SetTwoVertical(x-1, y, y+1)
+				SetTwoVertical(x, y, y-1)
+				CheckCombo(x, y, map[x][y].getColor())
+				Global._newpiece()
+		if Global.side == 3:
+			if IsValidTwoHorizontal(x, x-1, y-1) and IsValidTwoHorizontal(x, x+1, y):
+				SetTwoHorizontal(x, x-1, y-1)
+				SetTwoHorizontal(x, x+1, y)
+				CheckCombo(x, y, map[x][y].getColor())
+				Global._newpiece()
+	if Global.tipo == 6:
+		if Global.side == 0:
+			if IsValidVerticalLine(x, y) and IsValidHorizontalLine(x, y-1):
+				SetVerticalLine(x, y)
+				SetHorizontalLine(x, y-1)
+				CheckCombo(x, y, map[x][y].getColor())
+				Global._newpiece()
+		if Global.side == 1:
+			if IsValidVerticalLine(x+1, y) and IsValidHorizontalLine(x, y):
+				SetHorizontalLine(x, y)
+				SetVerticalLine(x+1, y)
+				CheckCombo(x, y, map[x][y].getColor())
+				Global._newpiece()
+		if Global.side == 2:
+			if IsValidVerticalLine(x, y) and IsValidHorizontalLine(x, y+1):
+				SetVerticalLine(x, y)
+				SetHorizontalLine(x, y+1)
+				CheckCombo(x, y, map[x][y].getColor())
+				Global._newpiece()
+		if Global.side == 3:
+			if IsValidVerticalLine(x-1, y) and IsValidHorizontalLine(x, y):
+				SetHorizontalLine(x, y)
+				SetVerticalLine(x-1, y)
+				CheckCombo(x, y, map[x][y].getColor())
+				Global._newpiece()
+
 
 func _FOCUSOFF():
 	for x in range(width):
@@ -145,11 +294,6 @@ func _FOCUSON(x, y):
 			if IsValidVerticalLine(x-1, y) and IsValidHorizontalLine(x, y):
 				ShowHorizontalLine(x, y)
 				ShowVerticalLine(x-1, y)
-	if Global.tipo == 7:
-		if IsValidVerticalLine(x-1, y) and IsValidVerticalLine(x, y) and IsValidVerticalLine(x+1, y):
-			ShowVerticalLine(x-1, y)
-			ShowVerticalLine(x, y)
-			ShowVerticalLine(x+1, y)
 
 func _newRotatePiece():
 	_cleanRotate()
@@ -225,8 +369,47 @@ func _newRotatePiece():
 		if Global.side == 3:
 			MakeHorizontalLineRotate(1)
 			MakeVerticalLineRotate(2)
-	if Global.tipo == 7:
-		MakeBombRotate()
+
+func CheckCombo(x, y, colour):
+	if CheckCell(x, y, colour) and CheckCell(x-1, y, colour) and CheckCell(x-2, y, colour) and CheckCell(x-3, y, colour):
+		_Combo(x, y, colour)
+		CleanCombo()
+	if CheckCell(x, y, colour) and CheckCell(x+1, y, colour) and CheckCell(x+2, y, colour) and CheckCell(x+3, y, colour):
+		_Combo(x, y, colour)
+		CleanCombo()
+	if CheckCell(x, y, colour) and CheckCell(x, y-1, colour) and CheckCell(x, y-2, colour) and CheckCell(x, y-3, colour):
+		_Combo(x, y, colour)
+		CleanCombo()
+	if CheckCell(x, y, colour) and CheckCell(x, y+1, colour) and CheckCell(x, y+2, colour) and CheckCell(x, y+3, colour):
+		_Combo(x, y, colour)
+		CleanCombo()
+		
+func CheckCell(x, y, colour):
+	if _OldValid(x, y) and map[x][y].getColor() == colour:
+		return true
+	else:
+		return false
+
+func _Combo(x, y, colour):
+	if not _OldValid(x, y):
+		return	
+	if map[x][y].getColor() != colour:
+		return
+	else:
+		if map[x][y].ComboCheck != false:
+			return
+		else:
+			map[x][y].ComboCheck = true
+			_Combo(x-1, y, colour)
+			_Combo(x+1, y, colour)
+			_Combo(x, y-1, colour)
+			_Combo(x, y+1, colour)
+
+func CleanCombo():
+	for x in range(width):
+		for y in range(height):
+			if map[x][y].ComboCheck:
+				map[x][y]._combo()
 
 func _cleanRotate():
 	for x in range(3):
@@ -302,10 +485,17 @@ func ShowTwoHorizontal(x, x2, y):
 	ShowCell(x, y)
 	ShowCell(x2, y)
 
+func SetTwoHorizontal(x, x2, y):
+	SetCell(x, y)
+	SetCell(x2, y)
+
 func ShowTwoVertical(x, y, y2):
 	ShowCell(x, y)
 	ShowCell(x, y2)
 
+func SetTwoVertical(x, y, y2):
+	SetCell(x, y)
+	SetCell(x, y2)
 
 func IsValidTwoVertical(x, y, y2):
 	if IsValid(x, y) and IsValid(x, y2):
@@ -317,17 +507,45 @@ func ShowHorizontalLine(x, y):
 	ShowCell(x-1, y)
 	ShowCell(x+1, y)
 	ShowCell(x, y)
-		
+
+func SetHorizontalLine(x, y):
+	SetCell(x-1, y)
+	SetCell(x+1, y)
+	SetCell(x, y)
+
 func ShowVerticalLine(x, y):
 	ShowCell(x, y)
 	ShowCell(x, y-1)
 	ShowCell(x, y+1)
 
+func SetVerticalLine(x, y):
+	SetCell(x, y)
+	SetCell(x, y-1)
+	SetCell(x, y+1)
+
+func OldVerticalLine(x, y):
+	map[x][y]._show()
+	map[x][y-1]._show()
+	map[x][y+1]._show()
+
 func ShowCell(x, y):
 	if IsValid(x, y):
 		map[x][y]._show()
 
+func SetCell(x, y):
+	if IsValid(x, y):
+		map[x][y]._changeColor(Global.colour)
+
 func IsValid(x, y):
+	if x < 0 or y < 0 or x >= width or y >= height:
+		return false
+	else:
+		if map[x][y]._empty():
+			return true
+		else:
+			return false
+
+func _OldValid(x, y):
 	if x < 0 or y < 0 or x >= width or y >= height:
 		return false
 	else:

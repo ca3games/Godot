@@ -18,7 +18,7 @@ func _newpiece():
 
 func _newType():
 	randomize()
-	var i = randi()% 8 + 1
+	var i = randi()% 7 + 1
 	if i == 1:
 		return type.l
 	if i == 2:
@@ -33,8 +33,6 @@ func _newType():
 		return type.Z
 	if i == 7:
 		return type.T
-	if i >= 8:
-		return type.bomb
 	return _newType()
 
 func _newShape():

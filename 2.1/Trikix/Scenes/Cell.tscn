@@ -35,10 +35,26 @@ params/stretch_mode = 0
 texture = ExtResource( 3 )
 offset = Vector2( 16, 16 )
 
+[node name="Tween" type="Tween" parent="."]
+
+playback/process_mode = 1
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="Solid" type="Tween" parent="."]
+
+playback/process_mode = 1
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
 [connection signal="mouse_enter" from="TextureButton" to="." method="_FOCUSON"]
 
 [connection signal="mouse_exit" from="TextureButton" to="." method="_FOCUSOFF"]
 
 [connection signal="pressed" from="TextureButton" to="." method="_clicked"]
+
+[connection signal="tween_complete" from="Tween" to="." method="_tween_complete"]
 
 
