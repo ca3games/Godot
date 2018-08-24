@@ -9,6 +9,7 @@ onready var TweenNode = get_node("Tween")
 onready var TweenSolid = get_node("Solid")
 
 func _ready():
+	get_node("AnimationPlayer").play("IDLE")
 	pass
 
 func _show():
@@ -45,6 +46,7 @@ func _changeColor(c):
 		
 func _clicked():
 	get_node("/root/Node/Spawner")._MapClicked(x, y)
+	get_node("/root/Node/Timer").start()
 
 func _FOCUSON():
 	get_node("/root/Node/Spawner")._FOCUSON(x, y)
@@ -62,13 +64,14 @@ func _tween_complete( object, key ):
 	_changeColor(5)
 	ComboCheck = false
 	get_node("AnimatedSprite").set_scale(Vector2(1,1))
-	get_node("AnimatedSprite").set_offset(Vector2(16,16))
 	TweenSolid.interpolate_property(get_node("AnimatedSprite"), "visibility/opacity", 0, 1, 0.5, Tween.TRANS_LINEAR, Tween.EASE_OUT_IN)
 	TweenSolid.start()
 	
 func _combo():
 	get_node("AnimatedSprite").play("combo")
 	TweenNode.interpolate_property(get_node("AnimatedSprite"), "visibility/opacity", 1, 0, 1, Tween.TRANS_LINEAR, Tween.EASE_OUT_IN)
-	TweenNode.interpolate_property(get_node("AnimatedSprite"), "transform/scale", Vector2(1,1), Vector2(0,0), 1, Tween.TRANS_LINEAR, Tween.EASE_OUT_IN)
-	TweenNode.interpolate_property(get_node("AnimatedSprite"), "offset", Vector2(16,16), Vector2(40,40), 1, Tween.TRANS_LINEAR, Tween.EASE_IN)
-	TweenNode.start()	
+	TweenNode.start()
+	get_node("AnimationPlayer").play("DIE")
+
+func _stop():
+	get_node("AnimationPlayer").play("IDLE")

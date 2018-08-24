@@ -6,6 +6,8 @@ var width = 10
 var height = 10
 var rotate
 var timer = -99
+var off_y = 50
+var off_x = 50
 
 func _ready():
 	set_process(true)
@@ -14,7 +16,7 @@ func _ready():
 		map.append([])
 		for y in range(height):
 			var e = cell.instance()
-			e.set_pos(Vector2(x*32, y*32))
+			e.set_pos(Vector2(off_x + x*32, off_y + y*32))
 			map[x].append(e)
 			map[x][y].x = x
 			map[x][y].y = y
@@ -25,7 +27,7 @@ func _ready():
 		rotate.append([])
 		for y in range(3):
 			var e = cellRotate.instance()
-			e.set_pos(Vector2((width*32) - ((x+1)*32), ((height+1)*32) + (y*32)))
+			e.set_pos(Vector2(off_x + (width*32) - ((x+1)*32), off_y + ((height+1)*32) + (y*32)))
 			rotate[x].append(e)
 			get_node("/root/Node/Rotate").add_child(rotate[x][y])
 	_newRotatePiece()
