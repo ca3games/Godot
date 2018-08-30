@@ -7,10 +7,7 @@ path="res://.import/e minor.png-817d67a406c8217e7fa674950eb0c9b9.stex"
 [deps]
 
 source_file="res://2D/Scales/Minor/e minor.png"
-source_md5="72762ec563b1f7bf42c1c67a8f1cf6b7"
-
 dest_files=[ "res://.import/e minor.png-817d67a406c8217e7fa674950eb0c9b9.stex" ]
-dest_md5="b99376efac97bfe1dc52f57dbf3a74ec"
 
 [params]
 

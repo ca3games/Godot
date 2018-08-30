@@ -5,7 +5,7 @@ var map
 var width = 10
 var height = 10
 var rotate
-var timer = -99
+var timer = 20
 var off_y = 50
 var off_x = 50
 
@@ -44,6 +44,7 @@ func _rotate():
 	_newRotatePiece()
 	
 func _MapClicked(x, y):
+	get_node("/root/Node/Time").time = 20
 	_SetPiece(x, y)
 	_FOCUSOFF()
 	_FOCUSON(x, y)
@@ -376,15 +377,23 @@ func CheckCombo(x, y, colour):
 	if CheckCell(x, y, colour) and CheckCell(x-1, y, colour) and CheckCell(x-2, y, colour) and CheckCell(x-3, y, colour):
 		_Combo(x, y, colour)
 		CleanCombo()
+		Values._score()
+		Values.fanfare()
 	if CheckCell(x, y, colour) and CheckCell(x+1, y, colour) and CheckCell(x+2, y, colour) and CheckCell(x+3, y, colour):
 		_Combo(x, y, colour)
 		CleanCombo()
+		Values._score()
+		Values.fanfare()
 	if CheckCell(x, y, colour) and CheckCell(x, y-1, colour) and CheckCell(x, y-2, colour) and CheckCell(x, y-3, colour):
 		_Combo(x, y, colour)
 		CleanCombo()
+		Values._score()
+		Values.fanfare()
 	if CheckCell(x, y, colour) and CheckCell(x, y+1, colour) and CheckCell(x, y+2, colour) and CheckCell(x, y+3, colour):
 		_Combo(x, y, colour)
 		CleanCombo()
+		Values._score()
+		Values.fanfare()
 		
 func CheckCell(x, y, colour):
 	if _OldValid(x, y) and map[x][y].getColor() == colour:
@@ -411,6 +420,7 @@ func CleanCombo():
 	for x in range(width):
 		for y in range(height):
 			if map[x][y].ComboCheck:
+				Values.combototal += 1
 				map[x][y]._combo()
 
 func _cleanRotate():

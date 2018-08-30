@@ -7,10 +7,7 @@ path="res://.import/a-major-scale.png-c724b2daebe4e37d4adb4e10eede72ec.stex"
 [deps]
 
 source_file="res://2D/Scales/Major/a-major-scale.png"
-source_md5="e90ea1f19298447f38889dccf3aef43a"
-
 dest_files=[ "res://.import/a-major-scale.png-c724b2daebe4e37d4adb4e10eede72ec.stex" ]
-dest_md5="ca865946660af2f6691e8a8feed68c2c"
 
 [params]
 

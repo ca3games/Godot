@@ -7,10 +7,7 @@ path="res://.import/Key.png-e8a019ead0318936e68137785bebcfcc.stex"
 [deps]
 
 source_file="res://2D/Key.png"
-source_md5="f7c18666968de48882dbf5002df561b4"
-
 dest_files=[ "res://.import/Key.png-e8a019ead0318936e68137785bebcfcc.stex" ]
-dest_md5="8a507fca2ae66bb87e9eb6837e39fc49"
 
 [params]
 

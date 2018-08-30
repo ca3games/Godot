@@ -7,10 +7,7 @@ path="res://.import/C# minor.png-79f413720ef5ea2a6d7213ef8f29f081.stex"
 [deps]
 
 source_file="res://2D/Scales/Minor/C# minor.png"
-source_md5="69186a23d46e80624795be5b0851dd65"
-
 dest_files=[ "res://.import/C# minor.png-79f413720ef5ea2a6d7213ef8f29f081.stex" ]
-dest_md5="2f3415febbdf0e8eba4472e6d170aa88"
 
 [params]
 

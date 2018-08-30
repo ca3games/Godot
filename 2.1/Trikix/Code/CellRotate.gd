@@ -22,4 +22,5 @@ func _changeColor(colour):
 		get_node("AnimatedSprite").play("empty")
 
 func _pressed():
+	Values.rotate()
 	get_node("/root/Node/Spawner")._rotate()

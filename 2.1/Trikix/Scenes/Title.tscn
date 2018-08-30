@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://2D/ringed notebook.jpg" type="Texture" id=1]
+
+[node name="ringed notebook" type="Sprite"]
+
+transform/pos = Vector2( 197.631, 244.998 )
+transform/scale = Vector2( 0.911755, 0.888597 )
+texture = ExtResource( 1 )
+modulate = Color( 1, 0.944458, 0.796875, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+

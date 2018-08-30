@@ -7,10 +7,7 @@ path="res://.import/f-sharp-major-scale.png-ea0ed4328044508b9107baa474084f37.ste
 [deps]
 
 source_file="res://2D/Scales/Major/f-sharp-major-scale.png"
-source_md5="aa24d4dfbbad980c87dc136ac0a231fa"
-
 dest_files=[ "res://.import/f-sharp-major-scale.png-ea0ed4328044508b9107baa474084f37.stex" ]
-dest_md5="6c3341deea36cef1d2436202ff58daec"
 
 [params]
 

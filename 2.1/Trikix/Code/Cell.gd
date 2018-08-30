@@ -45,8 +45,9 @@ func _changeColor(c):
 		empty = true
 		
 func _clicked():
+	Values.click()
 	get_node("/root/Node/Spawner")._MapClicked(x, y)
-	get_node("/root/Node/Timer").start()
+	
 
 func _FOCUSON():
 	get_node("/root/Node/Spawner")._FOCUSON(x, y)
