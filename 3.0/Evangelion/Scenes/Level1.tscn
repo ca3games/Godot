@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://2D/Background/Level1/eva.png" type="Texture" id=1]
+[ext_resource path="res://2D/Background/Level1/building two.png" type="Texture" id=2]
+[ext_resource path="res://2D/Background/Level1/building one.png" type="Texture" id=3]
+[ext_resource path="res://2D/Background/Level1/tree.png" type="Texture" id=4]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="eva" type="Sprite" parent="." index="0"]
+
+position = Vector2( 510.414, 296.606 )
+scale = Vector2( 1.88009, 1.52614 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="building two" type="Sprite" parent="." index="1"]
+
+position = Vector2( 527.233, 313.711 )
+scale = Vector2( 0.733638, 0.481158 )
+texture = ExtResource( 2 )
+
+[node name="building one2" type="Sprite" parent="." index="2"]
+
+position = Vector2( 444.339, 230.679 )
+rotation = -0.0370948
+scale = Vector2( 0.961293, 1.24461 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="building one" type="Sprite" parent="." index="3"]
+
+position = Vector2( 264.202, 194.116 )
+rotation = -0.116458
+scale = Vector2( 2.41055, 2.0839 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="tree" type="Sprite" parent="." index="4"]
+
+position = Vector2( 197.641, 401.376 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+
