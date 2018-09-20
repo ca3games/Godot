@@ -1,11 +1,12 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=24 format=2]
 
-[ext_resource path="res://3D/level 1/building level 1.dae" type="PackedScene" id=1]
-[ext_resource path="res://2D/Background/Level1/ocean.jpg" type="Texture" id=2]
+[ext_resource path="res://Code/LevelCamera.gd" type="Script" id=1]
+[ext_resource path="res://3D/level 1/building level 1.dae" type="PackedScene" id=2]
 [ext_resource path="res://2D/Background/Level1/tree.png" type="Texture" id=3]
 [ext_resource path="res://2D/Background/Level1/mountain.png" type="Texture" id=4]
 [ext_resource path="res://2D/Background/Level1/mountain 2.png" type="Texture" id=5]
 [ext_resource path="res://2D/Background/Level1/sky.png" type="Texture" id=6]
+[ext_resource path="res://2D/Background/Level1/ocean.jpg" type="Texture" id=7]
 
 [sub_resource type="ProceduralSky" id=1]
 
@@ -108,7 +109,7 @@ adjustment_contrast = 1.0
 adjustment_saturation = 1.0
 _sections_unfolded = [ "Ambient Light", "Background" ]
 
-[sub_resource type="SpatialMaterial" id=3]
+[sub_resource type="SpatialMaterial" id=7]
 
 render_priority = 0
 flags_transparent = false
@@ -164,7 +165,7 @@ proximity_fade_enable = false
 distance_fade_mode = 0
 _sections_unfolded = [ "Albedo" ]
 
-[sub_resource type="CubeMesh" id=4]
+[sub_resource type="CubeMesh" id=8]
 
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 flip_faces = false
@@ -173,7 +174,147 @@ subdivide_width = 0
 subdivide_height = 0
 subdivide_depth = 0
 
+[sub_resource type="VisualShaderNodeScalarOp" id=16]
+
+output_port_for_preview = -1
+default_input_values = [ 0, 0.0, 1, 0.0 ]
+operator = 0
+
+[sub_resource type="VisualShaderNodeVectorCompose" id=17]
+
+output_port_for_preview = -1
+default_input_values = [ 0, 0.0, 1, 0.0, 2, 0.0 ]
+
+[sub_resource type="VisualShaderNodeTexture" id=12]
+
+output_port_for_preview = -1
+source = 0
+texture = ExtResource( 7 )
+texture_type = 0
+
+[sub_resource type="VisualShaderNodeInput" id=13]
+
+output_port_for_preview = -1
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeScalarConstant" id=15]
+
+output_port_for_preview = -1
+constant = 0.9
+
+[sub_resource type="VisualShaderNodeInput" id=18]
+
+output_port_for_preview = -1
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeScalarOp" id=19]
+
+output_port_for_preview = -1
+default_input_values = [ 0, 0.0, 1, 0.0 ]
+operator = 2
+
+[sub_resource type="VisualShaderNodeScalarConstant" id=20]
+
+output_port_for_preview = -1
+constant = 0.005
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id=21]
+
+output_port_for_preview = -1
+default_input_values = [ 0, Vector3( 0, 0, 0 ) ]
+
+[sub_resource type="VisualShader" id=10]
+
+code = "shader_type spatial;
+render_mode unshaded;
+
+uniform sampler2D tex_frg_2;
+
+
+void vertex() {
+// Salida:0
+
+}
+
+void fragment() {
+// Input:3
+	vec3 n_out3p0;
+	n_out3p0 = vec3(UV,0.0);
+
+// Texture:2
+	vec3 n_out2p0;
+	float n_out2p1;
+	vec4 tex_frg_2_read = texture( tex_frg_2 , n_out3p0.xy );
+	n_out2p0 = tex_frg_2_read.rgb;
+	n_out2p1 = tex_frg_2_read.a;
+
+// Salida:0
+	ALBEDO = n_out2p0;
+
+}
+
+void light() {
+// Salida:0
+
+}
+"
+graph_offset = Vector2( -548, 5 )
+mode = 0
+modes/blend = 0
+modes/cull = 0
+modes/depth_draw = 0
+modes/diffuse = 0
+modes/specular = 0
+flags/ambient_light_disabled = false
+flags/depth_test_disable = false
+flags/ensure_correct_normals = false
+flags/shadows_disabled = false
+flags/skip_vertex_transform = false
+flags/unshaded = true
+flags/vertex_lighting = false
+flags/world_vertex_coords = false
+nodes/vertex/0/position = Vector2( 400, 150 )
+nodes/vertex/connections = PoolIntArray(  )
+nodes/fragment/0/position = Vector2( 400, 180 )
+nodes/fragment/2/node = SubResource( 12 )
+nodes/fragment/2/position = Vector2( 360, -40 )
+nodes/fragment/3/node = SubResource( 13 )
+nodes/fragment/3/position = Vector2( -520, 160 )
+nodes/fragment/5/node = SubResource( 15 )
+nodes/fragment/5/position = Vector2( 160, 360 )
+nodes/fragment/6/node = SubResource( 18 )
+nodes/fragment/6/position = Vector2( -340, -40 )
+nodes/fragment/7/node = SubResource( 19 )
+nodes/fragment/7/position = Vector2( -180, 40 )
+nodes/fragment/8/node = SubResource( 20 )
+nodes/fragment/8/position = Vector2( -380, 40 )
+nodes/fragment/9/node = SubResource( 21 )
+nodes/fragment/9/position = Vector2( -320, 160 )
+nodes/fragment/10/node = SubResource( 16 )
+nodes/fragment/10/position = Vector2( -80, 160 )
+nodes/fragment/11/node = SubResource( 17 )
+nodes/fragment/11/position = Vector2( 140, 140 )
+nodes/fragment/connections = PoolIntArray( 2, 0, 0, 0, 5, 0, 0, 1, 6, 0, 7, 0, 8, 0, 7, 1, 3, 0, 9, 0, 7, 0, 10, 0, 9, 0, 10, 1, 10, 0, 11, 0, 9, 1, 11, 1, 9, 2, 11, 2, 11, 0, 2, 0 )
+nodes/light/0/position = Vector2( 400, 150 )
+nodes/light/connections = PoolIntArray(  )
+_sections_unfolded = [ "flags" ]
+
+[sub_resource type="ShaderMaterial" id=11]
+
+render_priority = 0
+shader = SubResource( 10 )
+_sections_unfolded = [ "shader" ]
+
+[sub_resource type="PlaneMesh" id=9]
+
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
+flip_faces = false
+size = Vector2( 2, 2 )
+subdivide_width = 0
+subdivide_depth = 0
+
 [node name="Spatial" type="Spatial"]
+script = ExtResource( 1 )
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 0.999999, 3.86742e-05, -0.00139042, -3.86718e-05, 1, 1.81305e-06, 0.00139042, -1.76004e-06, 0.999999, -0.0549526, -0.0369377, 0.110033 )
@@ -189,48 +330,18 @@ fov = 70.0
 size = 1.0
 near = 0.05
 far = 100.0
+_sections_unfolded = [ "Transform" ]
 
-[node name="Scene Root" parent="." instance=ExtResource( 1 )]
+[node name="Scene Root" parent="." instance=ExtResource( 2 )]
 transform = Transform( 0.506469, -0.238595, 1.3916, -0.0972506, 1.46902, 0.287262, -1.40856, -0.187216, 0.48054, -7.01277, 0, -10.6135 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Scene Root2" parent="." instance=ExtResource( 1 )]
+[node name="Scene Root2" parent="." instance=ExtResource( 2 )]
 transform = Transform( 0.692233, -0.194939, 1.05524, 0.288332, 1.55078, 0.438925, -0.616884, 0.000424439, 0.404185, -2.85687, -0.550124, -18.1101 )
 
-[node name="Scene Root3" parent="." instance=ExtResource( 1 )]
+[node name="Scene Root3" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.79346, -0.82613, -26.2571 )
 _sections_unfolded = [ "Transform" ]
-
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform( 8, 0, 0, 0, -1.77858e-07, -1, 0, 4.06892, -4.37114e-08, 2.21739, -3.77789, -12.9259 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-centered = true
-offset = Vector2( 0, 0 )
-flip_h = false
-flip_v = true
-modulate = Color( 0.750671, 0.942768, 0.980469, 1 )
-opacity = 1.0
-pixel_size = 0.01
-axis = 2
-transparent = true
-shaded = false
-double_sided = true
-alpha_cut = 0
-texture = ExtResource( 2 )
-vframes = 1
-hframes = 1
-frame = 0
-region_enabled = false
-region_rect = Rect2( 0, 0, 0, 0 )
-_sections_unfolded = [ "Flags", "Transform" ]
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 0.945338, 0.21559, 0.244658, -0.308305, 0.83531, 0.455199, -0.106229, -0.505746, 0.856117, 5.11334, 9.74081, 0 )
@@ -262,7 +373,7 @@ _sections_unfolded = [ "Light" ]
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 44.6265, 0, 0, 0, 1, 0, 0, 0, 3.08817, 0, -3.20543, -1.00774 )
 layers = 1
-material_override = SubResource( 3 )
+material_override = SubResource( 7 )
 cast_shadow = 1
 extra_cull_margin = 0.0
 use_in_baked_light = false
@@ -270,7 +381,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 4 )
+mesh = SubResource( 8 )
 skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
@@ -429,3 +540,28 @@ region_enabled = false
 region_rect = Rect2( 0, 0, 0, 0 )
 _sections_unfolded = [ "Transform" ]
 
+[node name="Sea" type="MeshInstance" parent="."]
+transform = Transform( -40, 0, -7.78829e-06, 0, 1, 0, 1.55766e-05, 0, -20, 4.74059, -3.74691, -25.6109 )
+layers = 1
+material_override = SubResource( 11 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 9 )
+skeleton = NodePath("..")
+material/0 = null
+_sections_unfolded = [ "Geometry", "Transform", "material" ]
+
+[node name="Tween" type="Tween" parent="."]
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[connection signal="tween_completed" from="Tween" to="." method="_tween_completed"]
