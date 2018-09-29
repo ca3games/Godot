@@ -1,6 +1,6 @@
 extends Camera2D
 
-var speed = 100
+var speed = 50
 var vel = Vector2(0,0)
 var finished = true
 onready var TweenNode = get_node("CameraTween")
@@ -13,6 +13,9 @@ func _process(delta):
 		TweenNode.interpolate_property(self, "position", position, position + vel, 1, Tween.TRANS_LINEAR, Tween.EASE_IN)
 		TweenNode.start()
 
+func _stop():
+	vel.x = 0
+	Level.stop()
 
 func _Right_entered(body):
 	if body.is_in_group("Azuka"):
@@ -21,19 +24,17 @@ func _Right_entered(body):
 
 func _Right_exited(body):
 	if body.is_in_group("Azuka"):
-		vel.x = 0
-		Level.stop()
+		_stop()
 
 func _tween_completed(object, key):
 	finished = true
 
 
 func _Lef_entered(body):
-	if body.is_in_group("Azuka"):
+	if body.is_in_group("Shinji"):
 		vel.x = -speed
 		Level.Mover_Izq()
 
 func _Left_exited(body):
-	if body.is_in_group("Azuka"):
-		vel.x = 0
-		Level.stop()
+	if body.is_in_group("Shinji"):
+		_stop()

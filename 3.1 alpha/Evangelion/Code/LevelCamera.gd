@@ -12,7 +12,6 @@ func _ready():
 func _process(delta):
 	if speed.x != 0 and finished:
 		finished = false
-		print("trans:" + str(translation))
 		TweenNode.interpolate_property(camera3D, "translation", camera3D.translation, camera3D.translation + speed, 1, Tween.TRANS_LINEAR, Tween.EASE_IN)
 		TweenNode.start()
 
@@ -28,4 +27,3 @@ func stop():
 
 func _tween_completed(object, key):
 	finished = true
-	print ("off:" + str(translation))
