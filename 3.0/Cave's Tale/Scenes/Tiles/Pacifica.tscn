@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://2D/placeholder/Pacifica player.png" type="Texture" id=1]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "IDLE",
+"speed": 5.0
+} ]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." index="0"]
+
+transform = Transform( 1.5, 0, 0, 0, 1.06066, 1.06066, 0, -1.06066, 1.06066, 0, 0.370035, 0 )
+layers = 1
+material_override = null
+cast_shadow = 0
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+centered = true
+offset = Vector2( 0, 0 )
+flip_h = false
+flip_v = false
+modulate = Color( 1, 1, 1, 1 )
+opacity = 1.0
+pixel_size = 0.01
+axis = 2
+transparent = true
+shaded = false
+double_sided = true
+alpha_cut = 2
+frames = SubResource( 1 )
+animation = "IDLE"
+_sections_unfolded = [ "Flags", "Geometry", "Transform", "Visibility" ]
+
+
