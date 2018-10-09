@@ -10,17 +10,18 @@ func _ready():
 	
 	finished = true
 	var Playerpos = map._getPlayerCoord()
+	_move(0,0)
 	map._turnRed(Playerpos.x, Playerpos.y)
 
 func _input(event):
 	if finished:
-		if Input.is_action_just_pressed("LEFT"):
+		if Input.is_action_pressed("LEFT"):
 			_move(-1, 0)
-		if Input.is_action_just_pressed("RIGHT"):
+		if Input.is_action_pressed("RIGHT"):
 			_move(1, 0)
-		if Input.is_action_just_pressed("UP"):
+		if Input.is_action_pressed("UP"):
 			_move(0, 1)
-		if Input.is_action_just_pressed("DOWN"):
+		if Input.is_action_pressed("DOWN"):
 			_move(0, -1)
 	
 func _move(x, y):
@@ -29,6 +30,7 @@ func _move(x, y):
 		map._turnRed(Playerpos.x + x, Playerpos.y + y)
 		map._turnWhite(Playerpos.x, Playerpos.y)
 		map._moveplayer(x, y)
+		map._cameraboundary()
 		TweenNode.interpolate_property(self, "translation", map._getPos(Playerpos.x, Playerpos.y) , map._getPlayerpos(), 0.3, Tween.TRANS_LINEAR,Tween.EASE_IN)
 		TweenNode.start()
 		finished = false

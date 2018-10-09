@@ -1,5 +1,6 @@
 extends Spatial
 
+onready var TweenNode = $Tween
 onready var Tile = preload("res://Scenes/Tiles/Tile.tscn")
 onready var Wall = preload("res://Scenes/Tiles/Wall.tscn")
 onready var Player = preload("res://Scenes/Tiles/Player.tscn")
@@ -8,14 +9,17 @@ var Tiles = []
 
 var Map
 var room_size = Vector2(9,9)
-var size = Vector2(room_size.x*5,room_size.y*9)
+var size = Vector2(room_size.x*10,room_size.y*5)
 var offset = 0.6
 var camera_pos = Vector3(-1,7,5)
+var camera_size = Vector2(2,2)
+var camera_coord
 
 var Playerpos = Vector2(size.x/2-1, 5)
 
 func _ready():
 	get_node("Camera").global_transform.origin = camera_pos
+	camera_coord = Playerpos
 	
 	Tiles = _makeTiles()
 	Map = []
@@ -27,7 +31,7 @@ func _ready():
 	
 	var camerapos = Vector3(Playerpos.x * offset, camera_pos.y, Playerpos.y *-1 * offset + camera_pos.z)
 	get_node("Camera").global_transform.origin = camerapos
-	
+	_cameramove(0,0)
 
 func _makeTiles():
 	var Tile = []
@@ -84,3 +88,35 @@ func _Valid(x, y):
 func _moveplayer(x, y):
 	Playerpos.x += x
 	Playerpos.y += y
+
+func _cameramove(x, y):
+	var tmp = Vector2(0,0)
+	if camera_coord.x + x < 0:
+		tmp.x = 0
+	elif camera_coord.x + x > size.x - 1:
+		tmp.x = size.x - 1
+	else:
+		tmp.x = camera_coord.x + x
+	if camera_coord.y + y < 0:
+		tmp.y = 0
+	elif camera_coord.y + y > size.y - 1:
+		tmp.y = size.y - 1
+	else:
+		tmp.y = camera_coord.y + y
+	var new_pos = Vector3(Map[tmp.x][tmp.y].global_transform.origin.x, 7, Map[tmp.x][tmp.y].global_transform.origin.z + 5)
+	TweenNode.interpolate_property($Camera, "translation", $Camera.global_transform.origin, new_pos, 1, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	TweenNode.start()
+
+func _cameraboundary():
+	if Playerpos.x < camera_coord.x - camera_size.x:
+		_cameramove(-3, 0)
+		camera_coord.x -= 3
+	if Playerpos.x > camera_coord.x + camera_size.x:
+		_cameramove(3, 0)
+		camera_coord.x += 3
+	if Playerpos.y < camera_coord.y + camera_size.y:
+		_cameramove(-3, 0)
+		camera_coord.y -= 3
+	if Playerpos.y > camera_coord.y + (camera_size.y * 2):
+		_cameramove(3, 0)
+		camera_coord.y += 3

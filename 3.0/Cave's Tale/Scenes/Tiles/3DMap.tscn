@@ -25,4 +25,13 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Mapa" type="Spatial" parent="." index="1"]
 
+[node name="Tween" type="Tween" parent="." index="2"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
 
