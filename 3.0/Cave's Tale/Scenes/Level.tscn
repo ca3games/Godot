@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/Tiles/3DMap.tscn" type="PackedScene" id=1]
-[ext_resource path="res://2D/2D/gabriela.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/GUI/Story.tscn" type="PackedScene" id=2]
+[ext_resource path="res://2D/2D/gabriela.png" type="Texture" id=3]
 
 [node name="Node2D" type="Node2D"]
 
@@ -56,58 +57,13 @@ shadow_atlas_quad_3 = 4
 
 [node name="Spatial" parent="ViewportContainer/Viewport" index="0" instance=ExtResource( 1 )]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 3.0
-margin_top = 25.0
-margin_right = 260.0
-margin_bottom = 615.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = true
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-bbcode_enabled = true
-bbcode_text = "[code]En ese momento, nuestra heroína se despertó confundida, sin saber dónde estaba, qué había pasado y sucedido. Estaba cansada, maltrecha y hecha como un harapo, se sentía mal y sentía mareo. El cielo era completamente negro, cual si fuera de noche, pero todo estaba iluminado, como si fuera un dia normal, algo sumamente raro y exótico era ver eso. Era como si el sol hubiera dejado su existencia pero su elixir todavía estuviera en su lugar.
-
-Al alzar su vista vio a otra chica, idéntica cual ella, la cual parecía un copo de nieve suyo, era algo extraño realmente, era como verse al espejo, solo que no había uno y era todo realmente en el mismo lugar.
-
-No sabe por que todo aquello había sucedido, pero era gracioso, era como si todo hubiera sido una gran broma.
-
-No es gracioso, pensaba ella, no es divertido decían al unísono, toda esta situación solo hacia mas que confundirlas.
-
-Pasaron unos segundos, unos momentos de incómodo silencio, en donde no hacen nada más que verse a los ojos, a la cara, a los cabezos que rizan su rostro.
-[/code]"
-visible_characters = -1
-percent_visible = 1.0
-meta_underlined = true
-tab_size = 4
-text = "En ese momento, nuestra heroína se despertó confundida, sin saber dónde estaba, qué había pasado y sucedido. Estaba cansada, maltrecha y hecha como un harapo, se sentía mal y sentía mareo. El cielo era completamente negro, cual si fuera de noche, pero todo estaba iluminado, como si fuera un dia normal, algo sumamente raro y exótico era ver eso. Era como si el sol hubiera dejado su existencia pero su elixir todavía estuviera en su lugar.
-
-Al alzar su vista vio a otra chica, idéntica cual ella, la cual parecía un copo de nieve suyo, era algo extraño realmente, era como verse al espejo, solo que no había uno y era todo realmente en el mismo lugar.
-
-No sabe por que todo aquello había sucedido, pero era gracioso, era como si todo hubiera sido una gran broma.
-
-No es gracioso, pensaba ella, no es divertido decían al unísono, toda esta situación solo hacia mas que confundirlas.
-
-Pasaron unos segundos, unos momentos de incómodo silencio, en donde no hacen nada más que verse a los ojos, a la cara, a los cabezos que rizan su rostro.
-"
-scroll_active = true
-scroll_following = false
-selection_enabled = false
-override_selected_font_color = false
-_sections_unfolded = [ "BBCode" ]
+[node name="Text" parent="." index="1" instance=ExtResource( 2 )]
 
 [node name="Pacifica" type="Sprite" parent="." index="2"]
 
 position = Vector2( 891.258, 297.897 )
 scale = Vector2( 0.511796, 0.483974 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Offset", "Transform" ]
 
 

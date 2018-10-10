@@ -27,7 +27,7 @@ params_point_size = 1.0
 params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
-albedo_color = Color( 0.355469, 0.283221, 0.230499, 1 )
+albedo_color = Color( 1, 1, 1, 1 )
 albedo_texture = ExtResource( 3 )
 metallic = 0.0
 metallic_specular = 0.5
@@ -57,7 +57,7 @@ proximity_fade_enable = false
 distance_fade_enable = false
 _sections_unfolded = [ "Albedo" ]
 
-[node name="Spatial" type="Spatial"]
+[node name="Spatial" type="Spatial" index="0"]
 
 [node name="Sprite3D" type="Sprite3D" parent="." index="0"]
 
@@ -93,7 +93,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="MeshInstance" type="MeshInstance" parent="." index="1"]
 
-transform = Transform( 0.3, 0, 0, 0, 0.1, 0, 0, 0, 0.3, 0, 0.0813599, 0 )
+transform = Transform( 0.3, 0, 0, 0, 0.05, 0, 0, 0, 0.3, 0, 0.0813599, 0 )
 layers = 1
 material_override = null
 cast_shadow = 1
