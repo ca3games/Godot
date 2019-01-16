@@ -1,0 +1,31 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/aurelio diagonal back1.png-6497ee44c32e9aad7a4b9ed086da00ce.stex"
+
+[deps]
+
+source_file="res://2D/Aurelio/Diagonal back/aurelio diagonal back1.png"
+dest_files=[ "res://.import/aurelio diagonal back1.png-6497ee44c32e9aad7a4b9ed086da00ce.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=true
+flags/filter=false
+flags/mipmaps=true
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0
