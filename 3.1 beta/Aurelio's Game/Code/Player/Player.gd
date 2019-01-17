@@ -11,6 +11,7 @@ func _input(event):
 	current._MyInput()
 
 func _process(delta):
+	_input(delta)
 	current._Animation()
 	
 func _physics_process(delta):
