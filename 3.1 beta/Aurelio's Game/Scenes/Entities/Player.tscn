@@ -2054,7 +2054,9 @@ tracks/3/keys = {
 "values": [ Vector3( -0.11194, -0.103436, 0.123114 ) ]
 }
 
-[node name="RigidBody" type="RigidBody"]
+[node name="RigidBody" type="RigidBody" groups=[
+"Player",
+]]
 mode = 2
 contacts_reported = 1
 contact_monitor = true
