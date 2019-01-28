@@ -1,38 +1,431 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Scenes/Entities/Mamerto AI.gd" type="Script" id=1]
-[ext_resource path="res://2D/Mamerto 01/Front/front.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/Entities/AI/CHASING.gd" type="Script" id=3]
-[ext_resource path="res://Scenes/Entities/AI/IDLE.gd" type="Script" id=4]
-[ext_resource path="res://Scenes/Entities/AI/FAR.gd" type="Script" id=5]
+[ext_resource path="res://2D/Mamerto 01/Front/back diagonal.png" type="Texture" id=2]
+[ext_resource path="res://2D/Mamerto 01/Front/back.png" type="Texture" id=3]
+[ext_resource path="res://2D/Mamerto 01/Front/front diagonal.png" type="Texture" id=4]
+[ext_resource path="res://2D/Mamerto 01/Front/front.png" type="Texture" id=5]
+[ext_resource path="res://2D/Mamerto 01/Front/side.png" type="Texture" id=6]
+[ext_resource path="res://2D/Mamerto 01/dead/dead1.png" type="Texture" id=7]
+[ext_resource path="res://2D/Mamerto 01/dead/dead2.png" type="Texture" id=8]
+[ext_resource path="res://2D/Mamerto 01/dead/dead3.png" type="Texture" id=9]
+[ext_resource path="res://2D/Mamerto 01/dead/dead4.png" type="Texture" id=10]
+[ext_resource path="res://2D/Mamerto 01/dead/dead5.png" type="Texture" id=11]
+[ext_resource path="res://Scenes/Entities/AI/CHASING.gd" type="Script" id=12]
+[ext_resource path="res://Scenes/Entities/AI/IDLE.gd" type="Script" id=13]
+[ext_resource path="res://Scenes/Entities/AI/FAR.gd" type="Script" id=14]
+[ext_resource path="res://Scenes/Entities/AI/DEAD.gd" type="Script" id=15]
 
 [sub_resource type="CapsuleShape" id=1]
 
 radius = 0.05819
 height = 0.198992
 
-[sub_resource type="SpatialMaterial" id=2]
+[sub_resource type="Animation" id=2]
+
+resource_name = "Back"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite3D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "IDLE" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite3D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite3D:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=3]
+
+resource_name = "Back Diagonal Left"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite3D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "IDLE" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite3D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite3D:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=4]
+
+resource_name = "Back Diagonal Right"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite3D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "IDLE" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite3D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite3D:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=5]
+
+resource_name = "Die"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite3D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "DIE" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite3D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite3D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("STATES/DEAD")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.7 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_end"
+} ]
+}
+
+[sub_resource type="Animation" id=6]
+
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite3D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "IDLE" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite3D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 3 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite3D:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=7]
+
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite3D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "IDLE" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite3D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite3D:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=8]
+
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite3D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "IDLE" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite3D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite3D:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=9]
+
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite3D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "IDLE" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite3D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite3D:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=10]
+
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite3D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "IDLE" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite3D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite3D:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="SpatialMaterial" id=11]
 
 flags_transparent = true
 flags_unshaded = true
 params_depth_draw_mode = 3
 params_billboard_mode = 1
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=12]
 
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
-"name": "Front",
+"name": "IDLE",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "DIE",
 "speed": 5.0
 } ]
 
-[sub_resource type="CylinderShape" id=4]
+[sub_resource type="CylinderShape" id=13]
 
 radius = 0.432041
 height = 0.594338
 
-[sub_resource type="CylinderShape" id=5]
+[sub_resource type="CylinderShape" id=14]
 
 radius = 2.00319
 height = 0.778271
@@ -50,34 +443,50 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Front"
+anims/Back = SubResource( 2 )
+"anims/Back Diagonal Left" = SubResource( 3 )
+"anims/Back Diagonal Right" = SubResource( 4 )
+anims/Die = SubResource( 5 )
+anims/Front = SubResource( 6 )
+"anims/Front Diagonal Left" = SubResource( 7 )
+"anims/Front Diagonal Right" = SubResource( 8 )
+"anims/Side Left" = SubResource( 9 )
+"anims/Side Right" = SubResource( 10 )
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0 )
-material_override = SubResource( 2 )
-frames = SubResource( 3 )
-animation = "Front"
+material_override = SubResource( 11 )
+frames = SubResource( 12 )
+animation = "DIE"
+frame = 4
 
 [node name="STATES" type="Node" parent="."]
 
 [node name="CHASING" type="Node" parent="STATES"]
-script = ExtResource( 3 )
+script = ExtResource( 12 )
 
 [node name="IDLE" type="Node" parent="STATES"]
-script = ExtResource( 4 )
+script = ExtResource( 13 )
 
 [node name="FAR" type="Node" parent="STATES"]
-script = ExtResource( 5 )
+script = ExtResource( 14 )
+
+[node name="DEAD" type="Node" parent="STATES"]
+script = ExtResource( 15 )
 
 [node name="Near" type="Area" parent="."]
+editor/display_folded = true
 
 [node name="CollisionShape" type="CollisionShape" parent="Near"]
-shape = SubResource( 4 )
+shape = SubResource( 13 )
 
 [node name="Far" type="Area" parent="."]
+editor/display_folded = true
 
 [node name="CollisionShape" type="CollisionShape" parent="Far"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0795093, 0 )
-shape = SubResource( 5 )
+shape = SubResource( 14 )
 
 [node name="Timer" type="Timer" parent="."]
 

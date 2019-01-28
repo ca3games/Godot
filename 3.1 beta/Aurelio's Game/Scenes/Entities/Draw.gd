@@ -28,6 +28,6 @@ func _physics_process(delta):
 			var body = Ray.get_collider()
 			
 			if body.is_in_group("Enemies"):
-				body.queue_free()
+				body._PistolHit()
 		
 		p_ray = false

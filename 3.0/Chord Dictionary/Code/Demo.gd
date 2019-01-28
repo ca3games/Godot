@@ -16,25 +16,38 @@ func _ready():
 	_ScaleMajor()
 
 func _input(event):
-	if Input.is_action_pressed("ui_up"):
-		Major = true
+	if Input.is_action_pressed("UP"):
+		_MAYOR()
+		
+	if Input.is_action_pressed("DOWN"):
+		_MINOR()
+	
+	if Input.is_action_just_pressed("LEFT"):
+		_LEFT()
+	if Input.is_action_just_pressed("RIGHT"):
+		_RIGHT()
+
+func _LEFT():
+	leftMajor()
+	if Major:
 		_ScaleMajor()
-	if Input.is_action_pressed("ui_down"):
-		Major = false
+	else:
 		_ScaleMinor()
 	
-	if Input.is_action_just_pressed("ui_left"):
-		leftMajor()
-		if Major:
-			_ScaleMajor()
-		else:
-			_ScaleMinor()
-	if Input.is_action_just_pressed("ui_right"):
-		rightMajor()
-		if Major:
-			_ScaleMajor()
-		else:
-			_ScaleMinor()
+func _RIGHT():
+	rightMajor()
+	if Major:
+		_ScaleMajor()
+	else:
+		_ScaleMinor()
+	
+func _MINOR():
+	Major = false
+	_ScaleMinor()
+	
+func _MAYOR():
+	Major = true
+	_ScaleMajor()
 
 func _ScaleMinor():
 	match current:
@@ -168,3 +181,15 @@ func leftMajor():
 		escala.A: current = escala.Ab
 		escala.Bb: current = escala.A
 		escala.B: current = escala.Bb
+
+func _on_Left_pressed():
+	_LEFT()
+
+func _on_Right_pressed():
+	_RIGHT()
+	
+func _on_Mayor_pressed():
+	_MAYOR()
+
+func _on_Minor_pressed():
+	_MINOR()

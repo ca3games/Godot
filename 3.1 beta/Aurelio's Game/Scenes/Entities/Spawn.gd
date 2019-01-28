@@ -14,5 +14,5 @@ func _process(delta):
 		pos.x = rand_range(TopLeft.transform.origin.x, BottomRight.transform.origin.x)
 		pos.z = rand_range(TopLeft.transform.origin.z, BottomRight.transform.origin.z)
 		pos.y = 0.1
-		mamer.transform.origin = pos
+		mamer.global_transform.origin = pos
 		add_child(mamer)

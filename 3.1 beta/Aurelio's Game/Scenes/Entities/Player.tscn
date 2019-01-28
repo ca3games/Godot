@@ -5,14 +5,14 @@
 [ext_resource path="res://2D/Aurelio/Side/side2.png" type="Texture" id=3]
 [ext_resource path="res://2D/Aurelio/Side/side3.png" type="Texture" id=4]
 [ext_resource path="res://2D/Aurelio/Side/side4.png" type="Texture" id=5]
-[ext_resource path="res://2D/Aurelio/Back/back1.png" type="Texture" id=6]
-[ext_resource path="res://2D/Aurelio/Back/back2.png" type="Texture" id=7]
-[ext_resource path="res://2D/Aurelio/Back/back3.png" type="Texture" id=8]
-[ext_resource path="res://2D/Aurelio/Back/back4.png" type="Texture" id=9]
-[ext_resource path="res://2D/Aurelio/Front/aurelio front01.png" type="Texture" id=10]
-[ext_resource path="res://2D/Aurelio/Front/aurelio front2.png" type="Texture" id=11]
-[ext_resource path="res://2D/Aurelio/Front/aurelio front3.png" type="Texture" id=12]
-[ext_resource path="res://2D/Aurelio/Front/aurelio front4.png" type="Texture" id=13]
+[ext_resource path="res://2D/Aurelio/Front/aurelio front01.png" type="Texture" id=6]
+[ext_resource path="res://2D/Aurelio/Front/aurelio front2.png" type="Texture" id=7]
+[ext_resource path="res://2D/Aurelio/Front/aurelio front3.png" type="Texture" id=8]
+[ext_resource path="res://2D/Aurelio/Front/aurelio front4.png" type="Texture" id=9]
+[ext_resource path="res://2D/Aurelio/Back/back1.png" type="Texture" id=10]
+[ext_resource path="res://2D/Aurelio/Back/back2.png" type="Texture" id=11]
+[ext_resource path="res://2D/Aurelio/Back/back3.png" type="Texture" id=12]
+[ext_resource path="res://2D/Aurelio/Back/back4.png" type="Texture" id=13]
 [ext_resource path="res://2D/Aurelio/Diagonal Front/aurelio diagonal front1.png" type="Texture" id=14]
 [ext_resource path="res://2D/Aurelio/Diagonal Front/aurelio diagonal front2.png" type="Texture" id=15]
 [ext_resource path="res://2D/Aurelio/Diagonal Front/aurelio diagonal front3.png" type="Texture" id=16]
@@ -68,12 +68,12 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": true,
-"name": "Back",
+"name": "Front",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
 "loop": true,
-"name": "Front",
+"name": "Back",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
