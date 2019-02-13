@@ -14,6 +14,7 @@ func _ready():
 	Sheet = get_node("Sheet/AnimationPlayer")
 	Name = get_node("ScaleName")
 	_ScaleMajor()
+	_MajorChord()
 
 func _input(event):
 	if Input.is_action_pressed("UP"):
@@ -193,3 +194,34 @@ func _on_Mayor_pressed():
 
 func _on_Minor_pressed():
 	_MINOR()
+
+func _cleanChords():
+	$"Chords/acordes mayores-1".hide()
+	$"Chords/aumented-1".hide()
+	$"Chords/disminished-1".hide()
+	$"Chords/acordes menores-1".hide()
+	$"Chords/dominante majores-1".hide()
+
+func _MajorChord():
+	_cleanChords()
+	$"Chords/acordes mayores-1".show()
+
+
+func _minorChords():
+	_cleanChords()
+	$"Chords/acordes menores-1".show()
+	
+
+func _DominantChord():
+	_cleanChords()
+	$"Chords/dominante majores-1".show()
+
+
+func _aumentedChords():
+	_cleanChords()
+	$"Chords/aumented-1".show()
+
+
+func _DisminishedChords():
+	_cleanChords()
+	$"Chords/disminished-1".show()

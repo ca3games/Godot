@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Code/Demo.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Keyboard.tscn" type="PackedScene" id=2]
@@ -6,6 +6,12 @@
 [ext_resource path="res://2D/dirtyoldtown.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://2D/The-Circle-of-Fifths_-_EMDtips.com_-1.jpg" type="Texture" id=5]
 [ext_resource path="res://2D/arial_narrow_7.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://2D/Chords/dominante majores-1.png" type="Texture" id=7]
+[ext_resource path="res://2D/Chords/acordes mayores-1.png" type="Texture" id=8]
+[ext_resource path="res://2D/Chords/acordes menores-1.png" type="Texture" id=9]
+[ext_resource path="res://2D/Chords/aumented-1.png" type="Texture" id=10]
+[ext_resource path="res://2D/Chords/disminished-1.png" type="Texture" id=11]
+[ext_resource path="res://2D/Scales/notes-of-the-bass-clef.jpg" type="Texture" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -156,10 +162,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 836.272
-margin_top = 411.84
-margin_right = 885.272
-margin_bottom = 457.84
+margin_left = 836.0
+margin_top = 411.0
+margin_right = 887.0
+margin_bottom = 457.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -171,7 +177,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "Mayor"
+text = "Major"
 flat = false
 align = 1
 
@@ -181,10 +187,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 889.255
-margin_top = 412.272
-margin_right = 940.255
-margin_bottom = 458.272
+margin_left = 889.0
+margin_top = 411.0
+margin_right = 940.0
+margin_bottom = 457.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -200,6 +206,174 @@ text = "Minor"
 flat = false
 align = 1
 
+[node name="Chord M" type="Button" parent="Control" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 66.0
+margin_top = 751.0
+margin_right = 114.0
+margin_bottom = 789.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Major"
+flat = false
+align = 1
+
+[node name="Chord m" type="Button" parent="Control" index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 136.0
+margin_top = 751.0
+margin_right = 185.0
+margin_bottom = 790.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Minor"
+flat = false
+align = 1
+
+[node name="Dominant" type="Button" parent="Control" index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 194.0
+margin_top = 750.0
+margin_right = 269.0
+margin_bottom = 792.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Dominant"
+flat = false
+align = 1
+
+[node name="Aumented" type="Button" parent="Control" index="7"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 285.0
+margin_top = 751.0
+margin_right = 364.0
+margin_bottom = 792.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Aumented"
+flat = false
+align = 1
+
+[node name="Disminished" type="Button" parent="Control" index="8"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 372.0
+margin_top = 749.0
+margin_right = 458.0
+margin_bottom = 792.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Diminished"
+flat = false
+align = 1
+
+[node name="Chords" type="Node2D" parent="." index="6"]
+
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="dominante majores-1" type="Sprite" parent="Chords" index="0"]
+
+position = Vector2( 500.382, 643.92 )
+scale = Vector2( 0.3, 0.478877 )
+texture = ExtResource( 7 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="acordes mayores-1" type="Sprite" parent="Chords" index="1"]
+
+position = Vector2( 499.648, 645.742 )
+scale = Vector2( 0.424019, 0.57074 )
+texture = ExtResource( 8 )
+
+[node name="acordes menores-1" type="Sprite" parent="Chords" index="2"]
+
+position = Vector2( 499.755, 649.451 )
+scale = Vector2( 0.430638, 0.513334 )
+texture = ExtResource( 9 )
+
+[node name="aumented-1" type="Sprite" parent="Chords" index="3"]
+
+position = Vector2( 498.866, 659.19 )
+scale = Vector2( 0.43158, 0.635696 )
+texture = ExtResource( 10 )
+
+[node name="disminished-1" type="Sprite" parent="Chords" index="4"]
+
+position = Vector2( 501.194, 643.552 )
+scale = Vector2( 0.434822, 0.6612 )
+texture = ExtResource( 11 )
+
+[node name="notes-of-the-bass-clef" type="Sprite" parent="." index="7"]
+
+position = Vector2( 322.793, 489.463 )
+scale = Vector2( 0.657723, 0.396561 )
+texture = ExtResource( 12 )
+
 [connection signal="pressed" from="Control/Left" to="." method="_on_Left_pressed"]
 
 [connection signal="pressed" from="Control/Right" to="." method="_on_Right_pressed"]
@@ -207,5 +381,15 @@ align = 1
 [connection signal="pressed" from="Control/Mayor" to="." method="_on_Mayor_pressed"]
 
 [connection signal="pressed" from="Control/Minor" to="." method="_on_Minor_pressed"]
+
+[connection signal="pressed" from="Control/Chord M" to="." method="_MajorChord"]
+
+[connection signal="pressed" from="Control/Chord m" to="." method="_minorChords"]
+
+[connection signal="pressed" from="Control/Dominant" to="." method="_DominantChord"]
+
+[connection signal="pressed" from="Control/Aumented" to="." method="_aumentedChords"]
+
+[connection signal="pressed" from="Control/Disminished" to="." method="_DisminishedChords"]
 
 
