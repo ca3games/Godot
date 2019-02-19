@@ -48,6 +48,9 @@ func _MyInput():
 	if Input.is_action_pressed("SHOOT"):
 		R._ChangeStatus("shoot")
 		return
+	if Input.is_action_just_pressed("MELEE"):
+		R._ChangeStatus("melee")
+		return
 
 	if none :
 		R._ChangeStatus("idle")

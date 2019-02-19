@@ -5,6 +5,8 @@ var path = []
 var path_ind = 0
 var time = true
 onready var Root = $"../.."
+onready var Ani = $"../../AnimationPlayer"
+var Aurelio
 
 var walking_speed = 0.5
 
@@ -25,10 +27,35 @@ func _Physics():
 		var move_vec = (path[path_ind] - $"../..".global_transform.origin)
 		if move_vec.length() < 0.1:
 			path_ind += 1
+			var direction = 1
+			if path[path_ind].z < Root.global_transform.origin.z:
+				if  path[path_ind].x < Root.global_transform.origin.x:
+					direction = 7
+				else:
+					direction = 9
+			else:	
+				if  path[path_ind].x < Root.global_transform.origin.x:
+					direction = 1
+				else:
+					direction = 3
+			match(direction):
+				1:
+					if Ani.current_animation != "Front Dia Left Walking":
+						Ani.play("Front Dia Left Walking")
+				3:
+					if Ani.current_animation != "Front Dia Right Walking":
+						Ani.play("Front Dia Right Walking")
+				7:
+					if Ani.current_animation != "Front Dia Right Walking":
+						Ani.play("Back Dia Left Walking")
+				9:
+					if Ani.current_animation != "Front Dia Right Walking":
+						Ani.play("Back Dia Right Walking")
 		else:
 			$"../..".linear_velocity = move_vec.normalized() * walking_speed
 
 func _move(target_pos):
+	Aurelio = target_pos
 	path = Nav.get_simple_path($"../..".global_transform.origin, target_pos)
 	path_ind = 0
 

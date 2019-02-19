@@ -1,7 +1,6 @@
 extends RigidBody
 
 var direction = 2
-var idle = true
 var speed = Vector2(0,0)
 var vel = 0.5
 
@@ -22,3 +21,5 @@ func _ChangeStatus(state):
 		"move" : current = $STATUS/MOVE
 		"idle" : current = $STATUS/IDLE
 		"shoot" : current = $STATUS/SHOOT
+		"melee" : current = $STATUS/KNIFE
+		

@@ -16,7 +16,6 @@ func _physics_process(delta):
 		current._Physics()
 	
 func _ChangeStatus(new_status):
-	print (new_status)
 	match(new_status):
 		"idle" : current = $STATES/IDLE
 		"chase" : current = $STATES/CHASING

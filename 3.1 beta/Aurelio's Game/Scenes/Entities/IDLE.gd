@@ -7,6 +7,9 @@ func _MyInput():
 	if Input.is_action_pressed("SHOOT"):
 		R._ChangeStatus("shoot")
 	
+	if Input.is_action_pressed("MELEE"):
+		R._ChangeStatus("melee")
+	
 	if Input.is_action_pressed("LEFT") or Input.is_action_pressed("RIGHT") or Input.is_action_pressed("UP") or Input.is_action_pressed("DOWN"):
 		R._ChangeStatus("move")
 

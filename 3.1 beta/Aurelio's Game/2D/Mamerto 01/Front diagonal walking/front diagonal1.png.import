@@ -1,0 +1,31 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/front diagonal1.png-c13f12f6e02066e6ef58ea78268ad99e.stex"
+
+[deps]
+
+source_file="res://2D/Mamerto 01/Front diagonal walking/front diagonal1.png"
+dest_files=[ "res://.import/front diagonal1.png-c13f12f6e02066e6ef58ea78268ad99e.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=true
+flags/filter=false
+flags/mipmaps=true
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0
