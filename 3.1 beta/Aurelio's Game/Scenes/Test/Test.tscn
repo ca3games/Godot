@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Entities/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Entities/Camera.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Entities/Spawn.gd" type="Script" id=3]
 [ext_resource path="res://2D/Placeholder/Petro 01.jpg" type="Texture" id=4]
 [ext_resource path="res://2D/Placeholder/hqdefault.jpg" type="Texture" id=5]
+[ext_resource path="res://Scenes/Entities/Hitstun.tscn" type="PackedScene" id=6]
 
 [sub_resource type="NavigationMesh" id=1]
 vertices = PoolVector3Array( -9.4, 0.2, -5.2, -7.6, 0.2, -5.2, -7.3, 0.2, -7, -9.4, 0.2, -9.4, -7.3, 0.2, -7, -4.6, 0.2, -7, -4.6, 0.2, -9.4, -9.4, 0.2, -9.4, -7.3, 0.2, -3.4, -7.6, 0.2, -5.2, -9.4, 0.2, -5.2, -9.4, 0.2, 2, -4.6, 0.2, -9.4, -4.6, 0.2, -7, -4, 0.2, -6.7, 3.2, 0.2, -6.7, 5, 0.2, -7, 5, 0.2, -9.4, -9.4, 0.2, 2, -9.4, 0.2, 9.5, -0.0999994, 0.2, 9.5, 9.5, 0.2, 3.2, 3.2, 0.2, -3.7, -4.3, 0.2, -3.4, 3.2, 0.2, -3.7, 3.2, 0.2, -6.7, -4, 0.2, -6.7, -4.3, 0.2, -3.4, 9.5, 0.2, -3.1, 6.5, 0.2, -3.4, 3.2, 0.2, -3.7, 9.5, 0.2, 3.2, -4.3, 0.2, -3.4, -7.3, 0.2, -3.4, -9.4, 0.2, 2, -0.0999994, 0.2, 9.5, 9.5, 0.2, 9.5, 9.5, 0.2, 3.2, 5, 0.2, -9.4, 5, 0.2, -7, 6.8, 0.2, -6.7, 9.5, 0.2, -9.4, 6.8, 0.2, -6.7, 6.5, 0.2, -3.4, 9.5, 0.2, -3.1, 9.5, 0.2, -9.4 )
@@ -22,6 +23,7 @@ polygons = [ PoolIntArray( 3, 0, 2 ), PoolIntArray( 0, 1, 2 ), PoolIntArray( 7, 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0 )
 
 [node name="Camera" parent="." instance=ExtResource( 2 )]
+pause_mode = 2
 size = 2.0
 
 [node name="Spawner" type="Node" parent="."]
@@ -75,4 +77,6 @@ texture = ExtResource( 4 )
 [node name="Sprite3D2" type="Sprite3D" parent="."]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 1, -5.89597, 0.830622, -4.15832 )
 texture = ExtResource( 5 )
+
+[node name="HitStun" parent="." instance=ExtResource( 6 )]
 
