@@ -13,7 +13,7 @@ var walking_speed = 0.5
 func _Update():
 	if time:
 		_move(get_tree().get_root().get_node("Spatial/Player").transform.origin)
-		$"../../Timer".start(0.2)
+		$"../../Timer".start(0.8)
 		time = false
 	
 	if Root.Far == false:
@@ -21,10 +21,16 @@ func _Update():
 	
 	if Root.Near:
 		Root._ChangeStatus("idle")
+		
+	if Root.time_shooting:
+		$"../../Shoot".start(rand_range(1, 3))
+		Root.time_shooting = false
+		Root._ChangeStatus("shoot")
 	
 func _Physics():
 	if path_ind < path.size():
-		var move_vec = (path[path_ind] - $"../..".global_transform.origin)
+		var pos = $"../..".global_transform.origin
+		var move_vec = (path[path_ind] - pos)
 		if move_vec.length() < 0.1:
 			path_ind += 1
 			var direction = 1
@@ -51,12 +57,14 @@ func _Physics():
 				9:
 					if Ani.current_animation != "Front Dia Right Walking":
 						Ani.play("Back Dia Right Walking")
+
 		else:
-			$"../..".linear_velocity = move_vec.normalized() * walking_speed
+			var tmp = move_vec.normalized() * walking_speed
+			$"../..".linear_velocity = tmp
 
 func _move(target_pos):
 	Aurelio = target_pos
-	path = Nav.get_simple_path($"../..".global_transform.origin, target_pos)
+	path = Nav.get_simple_path($"../..".global_transform.origin, Aurelio)
 	path_ind = 0
 
 func _Timer_timeout():

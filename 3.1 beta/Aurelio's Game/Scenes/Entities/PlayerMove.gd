@@ -84,6 +84,12 @@ func _Animation():
 				A.play("Front Diagonal Right Walking")
 				
 func _Physics():
+	
+	if R.slow_walk:
+		R.vel = 0.15
+	else:
+		R.vel = 0.5
+	
 	match(R.direction):
 		4: R.speed = Vector2(-R.vel, 0)
 		2: R.speed = Vector2(0, R.vel)

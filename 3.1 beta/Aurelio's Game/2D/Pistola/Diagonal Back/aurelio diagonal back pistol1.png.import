@@ -4,6 +4,10 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/aurelio diagonal back pistol1.png-79fce9e50dbbdd63307bd92705ec340c.s3tc.stex"
 path.etc2="res://.import/aurelio diagonal back pistol1.png-79fce9e50dbbdd63307bd92705ec340c.etc2.stex"
+metadata={
+"imported_formats": [ "s3tc", "etc2" ],
+"vram_texture": true
+}
 
 [deps]
 

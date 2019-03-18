@@ -9,7 +9,7 @@ func _ready():
 
 func _process(delta):
 	if get_tree().get_nodes_in_group("Enemies").size() < 3 :
-		var mamer = Mamerto01.instance()
+		var mamer = Mamerto01.instance().duplicate()
 		var pos = Vector3(0,0,0)
 		pos.x = rand_range(TopLeft.transform.origin.x, BottomRight.transform.origin.x)
 		pos.z = rand_range(TopLeft.transform.origin.z, BottomRight.transform.origin.z)

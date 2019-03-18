@@ -2,14 +2,14 @@
 
 [ext_resource path="res://Scenes/Entities/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Entities/Camera.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Entities/Spawn.gd" type="Script" id=3]
-[ext_resource path="res://2D/Placeholder/Petro 01.jpg" type="Texture" id=4]
-[ext_resource path="res://2D/Placeholder/hqdefault.jpg" type="Texture" id=5]
-[ext_resource path="res://Scenes/Entities/Hitstun.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Plants/Palm.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Plants/StaticBody Tree 01.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Entities/Hitstun.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Entities/Mamerto 01.tscn" type="PackedScene" id=6]
 
 [sub_resource type="NavigationMesh" id=1]
-vertices = PoolVector3Array( -9.4, 0.2, -5.2, -7.6, 0.2, -5.2, -7.3, 0.2, -7, -9.4, 0.2, -9.4, -7.3, 0.2, -7, -4.6, 0.2, -7, -4.6, 0.2, -9.4, -9.4, 0.2, -9.4, -7.3, 0.2, -3.4, -7.6, 0.2, -5.2, -9.4, 0.2, -5.2, -9.4, 0.2, 2, -4.6, 0.2, -9.4, -4.6, 0.2, -7, -4, 0.2, -6.7, 3.2, 0.2, -6.7, 5, 0.2, -7, 5, 0.2, -9.4, -9.4, 0.2, 2, -9.4, 0.2, 9.5, -0.0999994, 0.2, 9.5, 9.5, 0.2, 3.2, 3.2, 0.2, -3.7, -4.3, 0.2, -3.4, 3.2, 0.2, -3.7, 3.2, 0.2, -6.7, -4, 0.2, -6.7, -4.3, 0.2, -3.4, 9.5, 0.2, -3.1, 6.5, 0.2, -3.4, 3.2, 0.2, -3.7, 9.5, 0.2, 3.2, -4.3, 0.2, -3.4, -7.3, 0.2, -3.4, -9.4, 0.2, 2, -0.0999994, 0.2, 9.5, 9.5, 0.2, 9.5, 9.5, 0.2, 3.2, 5, 0.2, -9.4, 5, 0.2, -7, 6.8, 0.2, -6.7, 9.5, 0.2, -9.4, 6.8, 0.2, -6.7, 6.5, 0.2, -3.4, 9.5, 0.2, -3.1, 9.5, 0.2, -9.4 )
-polygons = [ PoolIntArray( 3, 0, 2 ), PoolIntArray( 0, 1, 2 ), PoolIntArray( 7, 4, 6 ), PoolIntArray( 4, 5, 6 ), PoolIntArray( 11, 8, 10 ), PoolIntArray( 8, 9, 10 ), PoolIntArray( 17, 12, 16 ), PoolIntArray( 12, 15, 16 ), PoolIntArray( 12, 14, 15 ), PoolIntArray( 12, 13, 14 ), PoolIntArray( 23, 18, 22 ), PoolIntArray( 18, 19, 22 ), PoolIntArray( 19, 20, 22 ), PoolIntArray( 20, 21, 22 ), PoolIntArray( 27, 24, 26 ), PoolIntArray( 24, 25, 26 ), PoolIntArray( 31, 28, 30 ), PoolIntArray( 28, 29, 30 ), PoolIntArray( 34, 32, 33 ), PoolIntArray( 37, 35, 36 ), PoolIntArray( 41, 38, 40 ), PoolIntArray( 38, 39, 40 ), PoolIntArray( 45, 42, 44 ), PoolIntArray( 42, 43, 44 ) ]
+vertices = PoolVector3Array( -9.4, 0.2, -5.2, -7.6, 0.2, -5.2, -7.3, 0.2, -7, -9.4, 0.2, -9.4, 0.5, 0.2, -3.4, 1.4, 0.2, -2.5, 3.5, 0.2, -3.4, 3.5, 0.2, -7, -9.4, 0.2, -9.4, -7.3, 0.2, -7, -4.3, 0.2, -7, -0.0999994, 0.2, -9.4, -4.3, 0.2, -3.4, -1.6, 0.2, -2.5, -0.7, 0.2, -3.4, -4.3, 0.2, -7, 6.8, 0.2, -6.7, 6.5, 0.2, -3.4, 9.5, 0.2, -3.1, 9.5, 0.2, -9.4, 3.5, 0.2, -7, 6.8, 0.2, -6.7, 9.5, 0.2, -9.4, -0.0999994, 0.2, -9.4, -0.7, 0.2, -3.4, 0.5, 0.2, -3.4, 3.5, 0.2, -7, -0.0999994, 0.2, -9.4, -4.3, 0.2, -7, -7.3, 0.2, -3.4, -7.6, 0.2, -5.2, -9.4, 0.2, -5.2, -9.4, 0.2, 2, -1.3, 0.2, -1, -1.6, 0.2, -2.5, -4.3, 0.2, -3.4, -7.3, 0.2, -3.4, -9.4, 0.2, 2, 0.200001, 0.2, -0.7, -1.3, 0.2, -1, -9.4, 0.2, 2, -9.4, 0.2, 9.5, 0.200001, 0.2, 9.5, 3.5, 0.2, -3.4, 1.4, 0.2, -2.5, 1.4, 0.2, -1, 9.5, 0.2, 3.2, 9.5, 0.2, -3.1, 6.5, 0.2, -3.4, 9.5, 0.2, 3.2, 1.4, 0.2, -1, 0.200001, 0.2, -0.7, 0.200001, 0.2, 9.5, 9.5, 0.2, 9.5 )
+polygons = [ PoolIntArray( 3, 0, 2 ), PoolIntArray( 0, 1, 2 ), PoolIntArray( 7, 4, 6 ), PoolIntArray( 4, 5, 6 ), PoolIntArray( 11, 8, 10 ), PoolIntArray( 8, 9, 10 ), PoolIntArray( 15, 12, 14 ), PoolIntArray( 12, 13, 14 ), PoolIntArray( 19, 16, 18 ), PoolIntArray( 16, 17, 18 ), PoolIntArray( 23, 20, 22 ), PoolIntArray( 20, 21, 22 ), PoolIntArray( 28, 24, 27 ), PoolIntArray( 24, 25, 27 ), PoolIntArray( 25, 26, 27 ), PoolIntArray( 32, 29, 31 ), PoolIntArray( 29, 30, 31 ), PoolIntArray( 37, 33, 36 ), PoolIntArray( 33, 35, 36 ), PoolIntArray( 33, 34, 35 ), PoolIntArray( 42, 38, 41 ), PoolIntArray( 38, 39, 41 ), PoolIntArray( 39, 40, 41 ), PoolIntArray( 48, 43, 47 ), PoolIntArray( 43, 44, 47 ), PoolIntArray( 44, 45, 47 ), PoolIntArray( 45, 46, 47 ), PoolIntArray( 53, 49, 52 ), PoolIntArray( 49, 50, 52 ), PoolIntArray( 50, 51, 52 ) ]
 
 [sub_resource type="PlaneMesh" id=2]
 
@@ -20,14 +20,11 @@ polygons = [ PoolIntArray( 3, 0, 2 ), PoolIntArray( 0, 1, 2 ), PoolIntArray( 7, 
 [node name="Spatial" type="Spatial"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0268726, 0 )
 
 [node name="Camera" parent="." instance=ExtResource( 2 )]
 pause_mode = 2
 size = 2.0
-
-[node name="Spawner" type="Node" parent="."]
-script = ExtResource( 3 )
 
 [node name="Corners" type="Node" parent="."]
 editor/display_folded = true
@@ -39,12 +36,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.15093, 0, -3.14096 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0862, 0, 0.556362 )
 
 [node name="PathFinder" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Navigation" type="Navigation" parent="PathFinder"]
 
 [node name="NavigationMesh" type="NavigationMeshInstance" parent="PathFinder/Navigation"]
-editor/display_folded = true
 navmesh = SubResource( 1 )
 
 [node name="Ground" type="StaticBody" parent="PathFinder/Navigation/NavigationMesh"]
@@ -70,13 +65,47 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.87853, 0, -5.26819 )
 mesh = SubResource( 4 )
 material/0 = null
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 1, 0.294359, 1.05594, -9.89127 )
-texture = ExtResource( 4 )
+[node name="StaticBody" parent="PathFinder/Navigation/NavigationMesh" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.325857, -2.01714 )
 
-[node name="Sprite3D2" type="Sprite3D" parent="."]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 1, -5.89597, 0.830622, -4.15832 )
-texture = ExtResource( 5 )
+[node name="StaticBody2" parent="PathFinder/Navigation/NavigationMesh" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65198, 0, -8.07502 )
 
-[node name="HitStun" parent="." instance=ExtResource( 6 )]
+[node name="HitStun" parent="." instance=ExtResource( 5 )]
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="RigidBody" parent="Enemies" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0673315, -3.83545 )
+mamerto_type = 1
+
+[node name="RigidBody2" parent="Enemies" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.555804, -0.0673315, -3.83545 )
+
+[node name="RigidBody3" parent="Enemies" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.917953, -0.0673315, -3.83545 )
+mamerto_type = 6
+
+[node name="RigidBody4" parent="Enemies" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.917953, -0.0673315, -4.50226 )
+
+[node name="RigidBody5" parent="Enemies" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01952, -0.0673315, -4.50226 )
+mamerto_type = 3
+
+[node name="RigidBody6" parent="Enemies" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.636898, -0.0673315, -4.51225 )
+mamerto_type = 5
+
+[node name="RigidBody7" parent="Enemies" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.636898, -0.0673315, -5.23923 )
+mamerto_type = 6
+
+[node name="RigidBody8" parent="Enemies" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0479804, -0.0673315, -5.23923 )
+mamerto_type = 6
+
+[node name="RigidBody9" parent="Enemies" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.732955, -0.0673315, -5.23923 )
+mamerto_type = 6
 

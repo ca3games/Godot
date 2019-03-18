@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/front.png-705daff8141fd2fab327080b163c0a13.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
@@ -20,7 +23,7 @@ flags/repeat=true
 flags/filter=false
 flags/mipmaps=true
 flags/anisotropic=false
-flags/srgb=2
+flags/srgb=1
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false

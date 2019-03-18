@@ -28,6 +28,7 @@ func _physics_process(delta):
 			var body = Ray.get_collider()
 			
 			if body.is_in_group("Enemies"):
-				body._PistolHit()
+				body._PistolHit(1)
+				get_tree().get_root().get_node("Spatial")._SetEnemyCount()
 		
 		p_ray = false

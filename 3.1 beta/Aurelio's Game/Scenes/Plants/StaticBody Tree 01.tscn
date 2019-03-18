@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Plants/Tree 01.tscn" type="PackedScene" id=1]
+
+[sub_resource type="CylinderShape" id=1]
+radius = 0.477718
+height = 2.86873
+
+[node name="StaticBody" type="StaticBody"]
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.305946, -0.166161 )
+shape = SubResource( 1 )
+
+[node name="Scene Root" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -0.927366, 0 )
+

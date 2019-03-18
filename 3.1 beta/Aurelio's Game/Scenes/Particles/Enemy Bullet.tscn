@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Particles/Enemy Bullet.gd" type="Script" id=1]
+[ext_resource path="res://Shader/Enemy Bullet.tres" type="Material" id=2]
+[ext_resource path="res://2D/Bullet/molotov.png" type="Texture" id=3]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.0620195
+height = 0.162695
+
+[sub_resource type="SphereShape" id=2]
+radius = 0.14304
+
+[node name="Rigidbody" type="RigidBody"]
+collision_layer = 16
+collision_mask = 9
+mode = 2
+contacts_reported = 2
+contact_monitor = true
+axis_lock_linear_y = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform( 0.15, 0, 0, 0, 0.106066, 0.707107, 0, -0.106066, 0.707107, 0, 0, 0 )
+material_override = ExtResource( 2 )
+texture = ExtResource( 3 )
+
+[node name="Area" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 8.0
+autostart = true
+
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
