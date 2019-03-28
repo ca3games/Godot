@@ -114,6 +114,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.145149, 0 )
 shape = SubResource( 4 )
 
 [node name="Bricks" type="Spatial" parent="PathFinder/Navigation/NavigationMeshInstance"]
+editor/display_folded = true
 
 [node name="Scene Root" parent="PathFinder/Navigation/NavigationMeshInstance/Bricks" instance=ExtResource( 6 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -30.3513, 0.545532, 2.4817 )
@@ -220,6 +221,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5639, 0, 1.88493 )
 [node name="HitStun" parent="." instance=ExtResource( 11 )]
 
 [node name="Canvas" type="CanvasLayer" parent="."]
+editor/display_folded = true
 
 [node name="Sprite" type="Sprite" parent="Canvas"]
 modulate = Color( 0.803922, 0.870588, 0.913725, 1 )

@@ -4,18 +4,11 @@ onready var entrada = preload("res://Scenes/Level/Level01.tscn")
 
 onready var mamerto = preload("res://Scenes/Entities/Mamerto 01.tscn")
 
-enum nivel {
-	Entrada
-	}
-
-export (nivel) var Level
 
 func _ready():
 	var tmp
 	
-	match (Level):
-		nivel.Entrada:
-			tmp = entrada.instance()
+	tmp = entrada.instance()
 	
 	tmp.global_translate(Vector3(0,0,-8))
 	add_child(tmp)

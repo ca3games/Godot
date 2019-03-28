@@ -28,7 +28,7 @@ enum color_type {
 export (color_type) var mamerto_type = color_type.normal
 
 func _ready():
-	current = $STATES/IDLE
+	_ChangeStatus("idle")
 	if mamerto_type != color_type.random:
 		mamerto_color = getColor(mamerto_type)
 	else:
