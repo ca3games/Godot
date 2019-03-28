@@ -1,24 +1,24 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://Scenes/Entities/Mamerto AI.gd" type="Script" id=1]
 [ext_resource path="res://2D/Mamerto 01/Front/front.png" type="Texture" id=2]
-[ext_resource path="res://2D/Mamerto 01/Front/back diagonal.png" type="Texture" id=3]
-[ext_resource path="res://2D/Mamerto 01/Front/back.png" type="Texture" id=4]
-[ext_resource path="res://2D/Mamerto 01/Front/front diagonal.png" type="Texture" id=5]
-[ext_resource path="res://2D/Mamerto 01/Front/side.png" type="Texture" id=6]
-[ext_resource path="res://2D/Mamerto 01/dead/dead1.png" type="Texture" id=7]
-[ext_resource path="res://2D/Mamerto 01/dead/dead2.png" type="Texture" id=8]
-[ext_resource path="res://2D/Mamerto 01/dead/dead3.png" type="Texture" id=9]
-[ext_resource path="res://2D/Mamerto 01/dead/dead4.png" type="Texture" id=10]
-[ext_resource path="res://2D/Mamerto 01/dead/dead5.png" type="Texture" id=11]
-[ext_resource path="res://2D/Mamerto 01/Front diagonal walking/front diagonal1.png" type="Texture" id=12]
-[ext_resource path="res://2D/Mamerto 01/Front diagonal walking/front diagonal2.png" type="Texture" id=13]
-[ext_resource path="res://2D/Mamerto 01/Front diagonal walking/front diagonal3.png" type="Texture" id=14]
-[ext_resource path="res://2D/Mamerto 01/Front diagonal walking/front diagonal4.png" type="Texture" id=15]
-[ext_resource path="res://2D/Mamerto 01/Back diagonal walking/back diagonal1.png" type="Texture" id=16]
-[ext_resource path="res://2D/Mamerto 01/Back diagonal walking/back diagonal2.png" type="Texture" id=17]
-[ext_resource path="res://2D/Mamerto 01/Back diagonal walking/back diagonal3.png" type="Texture" id=18]
-[ext_resource path="res://2D/Mamerto 01/Back diagonal walking/back diagonal4.png" type="Texture" id=19]
+[ext_resource path="res://2D/Mamerto 01/dead/dead1.png" type="Texture" id=3]
+[ext_resource path="res://2D/Mamerto 01/dead/dead2.png" type="Texture" id=4]
+[ext_resource path="res://2D/Mamerto 01/dead/dead3.png" type="Texture" id=5]
+[ext_resource path="res://2D/Mamerto 01/dead/dead4.png" type="Texture" id=6]
+[ext_resource path="res://2D/Mamerto 01/dead/dead5.png" type="Texture" id=7]
+[ext_resource path="res://2D/Mamerto 01/Front diagonal walking/front diagonal1.png" type="Texture" id=8]
+[ext_resource path="res://2D/Mamerto 01/Front diagonal walking/front diagonal2.png" type="Texture" id=9]
+[ext_resource path="res://2D/Mamerto 01/Front diagonal walking/front diagonal3.png" type="Texture" id=10]
+[ext_resource path="res://2D/Mamerto 01/Front diagonal walking/front diagonal4.png" type="Texture" id=11]
+[ext_resource path="res://2D/Mamerto 01/Back diagonal walking/back diagonal1.png" type="Texture" id=12]
+[ext_resource path="res://2D/Mamerto 01/Back diagonal walking/back diagonal2.png" type="Texture" id=13]
+[ext_resource path="res://2D/Mamerto 01/Back diagonal walking/back diagonal3.png" type="Texture" id=14]
+[ext_resource path="res://2D/Mamerto 01/Back diagonal walking/back diagonal4.png" type="Texture" id=15]
+[ext_resource path="res://2D/Mamerto 01/Front/back diagonal.png" type="Texture" id=16]
+[ext_resource path="res://2D/Mamerto 01/Front/back.png" type="Texture" id=17]
+[ext_resource path="res://2D/Mamerto 01/Front/front diagonal.png" type="Texture" id=18]
+[ext_resource path="res://2D/Mamerto 01/Front/side.png" type="Texture" id=19]
 [ext_resource path="res://Scenes/Entities/AnimatedSprite3D.gd" type="Script" id=20]
 [ext_resource path="res://Scenes/Entities/AI/CHASING.gd" type="Script" id=21]
 [ext_resource path="res://Scenes/Entities/AI/IDLE.gd" type="Script" id=22]
@@ -28,6 +28,7 @@
 [ext_resource path="res://2D/Shadow.png" type="Texture" id=26]
 [ext_resource path="res://2D/GUI/Redbar.png" type="Texture" id=27]
 [ext_resource path="res://2D/GUI/Greenbar.png" type="Texture" id=28]
+[ext_resource path="res://Sounds/mamerto dead.wav" type="AudioStream" id=29]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.0789672
@@ -628,24 +629,24 @@ shader_param/texture_albedo = ExtResource( 2 )
 
 [sub_resource type="SpriteFrames" id=18]
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "IDLE",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "DIE",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "Diag Front",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ) ],
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
 "loop": true,
 "name": "Dia Back",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 2 ), ExtResource( 19 ) ],
+"loop": true,
+"name": "IDLE",
 "speed": 5.0
 } ]
 
@@ -693,8 +694,8 @@ anims/Shoot = SubResource( 13 )
 transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0 )
 material_override = SubResource( 17 )
 frames = SubResource( 18 )
-animation = "Dia Back"
-frame = 3
+animation = "DIE"
+frame = 4
 script = ExtResource( 20 )
 
 [node name="STATES" type="Node" parent="."]
@@ -751,9 +752,14 @@ value = 5.0
 texture_under = ExtResource( 27 )
 texture_progress = ExtResource( 28 )
 
+[node name="Dead" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 29 )
+bus = "Screams"
+
 [connection signal="body_entered" from="Near" to="." method="_Near_entered"]
 [connection signal="body_exited" from="Near" to="." method="_Near_exited"]
 [connection signal="body_entered" from="Far" to="." method="_Far_entered"]
 [connection signal="body_exited" from="Far" to="." method="_Far_exited"]
 [connection signal="timeout" from="Timer" to="STATES/CHASING" method="_Timer_timeout"]
 [connection signal="timeout" from="Shoot" to="." method="_on_Shoot_timeout"]
+[connection signal="finished" from="Dead" to="STATES/DEAD" method="kill"]

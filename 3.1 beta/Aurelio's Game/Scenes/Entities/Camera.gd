@@ -17,7 +17,9 @@ func _process(delta):
 		interpolate = false
 
 func _OUT(body):
+	print ("BODY OUT")
 	if body.is_in_group("Player"):
+		print ("PLAYER OUT")
 		out = true
 
 func _completed(object, key):
@@ -42,5 +44,7 @@ func _moveCamera():
 		T.start()
 
 func _body_entered(body):
+	print("BODY ENTERED")
 	if body.is_in_group("Player"):
+		print ("BODY IS PLAYER")
 		out = false

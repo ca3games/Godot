@@ -37,6 +37,10 @@ func _Hit(hit):
 	HP_bar.value = HP
 	
 	get_tree().get_root().get_node("Spatial/Canvas/Mana").value -= 3
+	if hit < 1:
+		$Grunt.play()
+	else:
+		$Healing.play()
 	
 	if HP < 1:
 		get_tree().get_root().get_node("Spatial").GameOver()
@@ -49,3 +53,12 @@ func _Slow():
 func _on_SlowWalk_timeout():
 	slow_walk = false
 	$AnimatedSprite3D.material_override.set("albedo_color", Color8(255,255,255,255))
+	
+func ShootAudio():
+	$Shoot.play()
+		
+func KnifeAudio():
+	$Knife.play()
+	
+func HitSound():
+	$Hit.play()

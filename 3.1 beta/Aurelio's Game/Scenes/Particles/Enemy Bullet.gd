@@ -9,7 +9,9 @@ var damage
 func _ready():
 	speed = self.global_transform.origin - get_tree().get_root().get_node("Spatial/Player").global_transform.origin
 	speed = (speed.normalized() * Variables.bullet_speed) * -1
-	$Sprite3D.material_override = shader.duplicate()
+	var s = shader.duplicate()
+	$Sprite3D.material_override = s
+	$Smoke.material_override = s
 
 func _physics_process(delta):
 	self.linear_velocity = speed

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Particles/Enemy Bullet.gd" type="Script" id=1]
 [ext_resource path="res://Shader/Enemy Bullet.tres" type="Material" id=2]
 [ext_resource path="res://2D/Bullet/molotov.png" type="Texture" id=3]
+[ext_resource path="res://Shader/Mamerto shader.tres" type="Material" id=4]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.0620195
@@ -10,6 +11,12 @@ height = 0.162695
 
 [sub_resource type="SphereShape" id=2]
 radius = 0.14304
+
+[sub_resource type="QuadMesh" id=3]
+material = ExtResource( 4 )
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0.00799196, 0.9994 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.709 ), 0.0, 0.0, 0, 0 ]
 
 [node name="Rigidbody" type="RigidBody"]
 collision_layer = 16
@@ -40,6 +47,18 @@ shape = SubResource( 2 )
 [node name="Timer" type="Timer" parent="."]
 wait_time = 8.0
 autostart = true
+
+[node name="Smoke" type="CPUParticles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0255127, 0.0482788, 0.00683594 )
+amount = 30
+lifetime = 0.18
+mesh = SubResource( 3 )
+emission_shape = 2
+emission_box_extents = Vector3( 0, 0, 0 )
+gravity = Vector3( 0, 5, -8 )
+angular_velocity = 0.0
+scale_amount = 0.07
+scale_amount_curve = SubResource( 4 )
 
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

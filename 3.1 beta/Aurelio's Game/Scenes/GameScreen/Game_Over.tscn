@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Code/Game_Over.gd" type="Script" id=1]
 [ext_resource path="res://2D/GUI/Menu screen.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Font/Buttons.tres" type="Theme" id=4]
 [ext_resource path="res://Font/Button Font.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Font/Text metal gear.TTF" type="DynamicFontData" id=6]
+[ext_resource path="res://Sounds/select.wav" type="AudioStream" id=7]
+[ext_resource path="res://Sounds/selection sound.wav" type="AudioStream" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -65,4 +67,14 @@ custom_colors/font_color = Color( 0.698039, 0.709804, 1, 1 )
 text = "99999999999999999999999"
 align = 1
 
+[node name="Start" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -15.0
+
+[node name="Hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -20.0
+
+[connection signal="mouse_entered" from="Button" to="." method="_hover"]
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="finished" from="Start" to="." method="_Start"]

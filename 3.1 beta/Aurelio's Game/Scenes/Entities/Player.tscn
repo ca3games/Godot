@@ -1,61 +1,61 @@
-[gd_scene load_steps=102 format=2]
+[gd_scene load_steps=107 format=2]
 
 [ext_resource path="res://Code/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://2D/Aurelio/Side/side1.png" type="Texture" id=2]
 [ext_resource path="res://2D/Aurelio/Side/side2.png" type="Texture" id=3]
 [ext_resource path="res://2D/Aurelio/Side/side3.png" type="Texture" id=4]
 [ext_resource path="res://2D/Aurelio/Side/side4.png" type="Texture" id=5]
-[ext_resource path="res://2D/Aurelio/Back/back1.png" type="Texture" id=6]
-[ext_resource path="res://2D/Aurelio/Back/back2.png" type="Texture" id=7]
-[ext_resource path="res://2D/Aurelio/Back/back3.png" type="Texture" id=8]
-[ext_resource path="res://2D/Aurelio/Back/back4.png" type="Texture" id=9]
-[ext_resource path="res://2D/Aurelio/Front/aurelio front01.png" type="Texture" id=10]
-[ext_resource path="res://2D/Aurelio/Front/aurelio front2.png" type="Texture" id=11]
-[ext_resource path="res://2D/Aurelio/Front/aurelio front3.png" type="Texture" id=12]
-[ext_resource path="res://2D/Aurelio/Front/aurelio front4.png" type="Texture" id=13]
-[ext_resource path="res://2D/Knife/Front/aurelio front1.png" type="Texture" id=14]
-[ext_resource path="res://2D/Knife/Front/aurelio front2.png" type="Texture" id=15]
-[ext_resource path="res://2D/Knife/Front/aurelio front3.png" type="Texture" id=16]
-[ext_resource path="res://2D/Pistola/Diagonal Back/aurelio diagonal back pistol1.png" type="Texture" id=17]
-[ext_resource path="res://2D/Pistola/Diagonal Back/aurelio diagonal back pistol2.png" type="Texture" id=18]
-[ext_resource path="res://2D/Pistola/Diagonal Back/aurelio diagonal back pistol3.png" type="Texture" id=19]
-[ext_resource path="res://2D/Pistola/Diagonal Back/aurelio diagonal back pistol4.png" type="Texture" id=20]
-[ext_resource path="res://2D/Knife/Back/back1.png" type="Texture" id=21]
-[ext_resource path="res://2D/Knife/Back/back2.png" type="Texture" id=22]
-[ext_resource path="res://2D/Knife/Back/back3.png" type="Texture" id=23]
-[ext_resource path="res://2D/Pistola/Side/side pistol1.png" type="Texture" id=24]
-[ext_resource path="res://2D/Pistola/Side/side pistol2.png" type="Texture" id=25]
-[ext_resource path="res://2D/Pistola/Side/side pistol3.png" type="Texture" id=26]
-[ext_resource path="res://2D/Pistola/Side/side pistol4.png" type="Texture" id=27]
-[ext_resource path="res://2D/Knife/Diagonal Back/aurelio diagonal back1.png" type="Texture" id=28]
-[ext_resource path="res://2D/Knife/Diagonal Back/aurelio diagonal back2.png" type="Texture" id=29]
-[ext_resource path="res://2D/Knife/Diagonal Back/aurelio diagonal back3.png" type="Texture" id=30]
-[ext_resource path="res://2D/Knife/Diagonal Front/aurelio diagonal front1.png" type="Texture" id=31]
-[ext_resource path="res://2D/Knife/Diagonal Front/aurelio diagonal front2.png" type="Texture" id=32]
-[ext_resource path="res://2D/Knife/Diagonal Front/aurelio diagonal front3.png" type="Texture" id=33]
-[ext_resource path="res://2D/Pistola/Diagonal Front/Aurelio diagonal front pistol1.png" type="Texture" id=34]
-[ext_resource path="res://2D/Pistola/Diagonal Front/Aurelio diagonal front pistol2.png" type="Texture" id=35]
-[ext_resource path="res://2D/Pistola/Diagonal Front/Aurelio diagonal front pistol3.png" type="Texture" id=36]
-[ext_resource path="res://2D/Pistola/Diagonal Front/Aurelio diagonal front pistol4.png" type="Texture" id=37]
-[ext_resource path="res://2D/Aurelio/Diagonal Front/aurelio diagonal front1.png" type="Texture" id=38]
-[ext_resource path="res://2D/Aurelio/Diagonal Front/aurelio diagonal front2.png" type="Texture" id=39]
-[ext_resource path="res://2D/Aurelio/Diagonal Front/aurelio diagonal front3.png" type="Texture" id=40]
-[ext_resource path="res://2D/Aurelio/Diagonal Front/aurelio diagonal front4.png" type="Texture" id=41]
-[ext_resource path="res://2D/Pistola/Back/back pistol1.png" type="Texture" id=42]
-[ext_resource path="res://2D/Pistola/Back/back pistol2.png" type="Texture" id=43]
-[ext_resource path="res://2D/Pistola/Back/back pistol3.png" type="Texture" id=44]
-[ext_resource path="res://2D/Pistola/Back/back pistol4.png" type="Texture" id=45]
-[ext_resource path="res://2D/Knife/Side/side1.png" type="Texture" id=46]
-[ext_resource path="res://2D/Knife/Side/side2.png" type="Texture" id=47]
-[ext_resource path="res://2D/Knife/Side/side3.png" type="Texture" id=48]
-[ext_resource path="res://2D/Pistola/Front/aurelio front pistol1.png" type="Texture" id=49]
-[ext_resource path="res://2D/Pistola/Front/aurelio front pistol2.png" type="Texture" id=50]
-[ext_resource path="res://2D/Pistola/Front/aurelio front pistol3.png" type="Texture" id=51]
-[ext_resource path="res://2D/Pistola/Front/aurelio front pistol4.png" type="Texture" id=52]
-[ext_resource path="res://2D/Aurelio/Diagonal back/aurelio diagonal back1.png" type="Texture" id=53]
-[ext_resource path="res://2D/Aurelio/Diagonal back/aurelio diagonal back2.png" type="Texture" id=54]
-[ext_resource path="res://2D/Aurelio/Diagonal back/aurelio diagonal back3.png" type="Texture" id=55]
-[ext_resource path="res://2D/Aurelio/Diagonal back/aurelio diagonal back4.png" type="Texture" id=56]
+[ext_resource path="res://2D/Aurelio/Front/aurelio front01.png" type="Texture" id=6]
+[ext_resource path="res://2D/Aurelio/Front/aurelio front2.png" type="Texture" id=7]
+[ext_resource path="res://2D/Aurelio/Front/aurelio front3.png" type="Texture" id=8]
+[ext_resource path="res://2D/Aurelio/Front/aurelio front4.png" type="Texture" id=9]
+[ext_resource path="res://2D/Aurelio/Back/back1.png" type="Texture" id=10]
+[ext_resource path="res://2D/Aurelio/Back/back2.png" type="Texture" id=11]
+[ext_resource path="res://2D/Aurelio/Back/back3.png" type="Texture" id=12]
+[ext_resource path="res://2D/Aurelio/Back/back4.png" type="Texture" id=13]
+[ext_resource path="res://2D/Pistola/Diagonal Back/aurelio diagonal back pistol1.png" type="Texture" id=14]
+[ext_resource path="res://2D/Pistola/Diagonal Back/aurelio diagonal back pistol2.png" type="Texture" id=15]
+[ext_resource path="res://2D/Pistola/Diagonal Back/aurelio diagonal back pistol3.png" type="Texture" id=16]
+[ext_resource path="res://2D/Pistola/Diagonal Back/aurelio diagonal back pistol4.png" type="Texture" id=17]
+[ext_resource path="res://2D/Knife/Back/back1.png" type="Texture" id=18]
+[ext_resource path="res://2D/Knife/Back/back2.png" type="Texture" id=19]
+[ext_resource path="res://2D/Knife/Back/back3.png" type="Texture" id=20]
+[ext_resource path="res://2D/Pistola/Side/side pistol1.png" type="Texture" id=21]
+[ext_resource path="res://2D/Pistola/Side/side pistol2.png" type="Texture" id=22]
+[ext_resource path="res://2D/Pistola/Side/side pistol3.png" type="Texture" id=23]
+[ext_resource path="res://2D/Pistola/Side/side pistol4.png" type="Texture" id=24]
+[ext_resource path="res://2D/Knife/Diagonal Back/aurelio diagonal back1.png" type="Texture" id=25]
+[ext_resource path="res://2D/Knife/Diagonal Back/aurelio diagonal back2.png" type="Texture" id=26]
+[ext_resource path="res://2D/Knife/Diagonal Back/aurelio diagonal back3.png" type="Texture" id=27]
+[ext_resource path="res://2D/Knife/Diagonal Front/aurelio diagonal front1.png" type="Texture" id=28]
+[ext_resource path="res://2D/Knife/Diagonal Front/aurelio diagonal front2.png" type="Texture" id=29]
+[ext_resource path="res://2D/Knife/Diagonal Front/aurelio diagonal front3.png" type="Texture" id=30]
+[ext_resource path="res://2D/Pistola/Diagonal Front/Aurelio diagonal front pistol1.png" type="Texture" id=31]
+[ext_resource path="res://2D/Pistola/Diagonal Front/Aurelio diagonal front pistol2.png" type="Texture" id=32]
+[ext_resource path="res://2D/Pistola/Diagonal Front/Aurelio diagonal front pistol3.png" type="Texture" id=33]
+[ext_resource path="res://2D/Pistola/Diagonal Front/Aurelio diagonal front pistol4.png" type="Texture" id=34]
+[ext_resource path="res://2D/Aurelio/Diagonal Front/aurelio diagonal front1.png" type="Texture" id=35]
+[ext_resource path="res://2D/Aurelio/Diagonal Front/aurelio diagonal front2.png" type="Texture" id=36]
+[ext_resource path="res://2D/Aurelio/Diagonal Front/aurelio diagonal front3.png" type="Texture" id=37]
+[ext_resource path="res://2D/Aurelio/Diagonal Front/aurelio diagonal front4.png" type="Texture" id=38]
+[ext_resource path="res://2D/Pistola/Back/back pistol1.png" type="Texture" id=39]
+[ext_resource path="res://2D/Pistola/Back/back pistol2.png" type="Texture" id=40]
+[ext_resource path="res://2D/Pistola/Back/back pistol3.png" type="Texture" id=41]
+[ext_resource path="res://2D/Pistola/Back/back pistol4.png" type="Texture" id=42]
+[ext_resource path="res://2D/Knife/Side/side1.png" type="Texture" id=43]
+[ext_resource path="res://2D/Knife/Side/side2.png" type="Texture" id=44]
+[ext_resource path="res://2D/Knife/Side/side3.png" type="Texture" id=45]
+[ext_resource path="res://2D/Pistola/Front/aurelio front pistol1.png" type="Texture" id=46]
+[ext_resource path="res://2D/Pistola/Front/aurelio front pistol2.png" type="Texture" id=47]
+[ext_resource path="res://2D/Pistola/Front/aurelio front pistol3.png" type="Texture" id=48]
+[ext_resource path="res://2D/Pistola/Front/aurelio front pistol4.png" type="Texture" id=49]
+[ext_resource path="res://2D/Aurelio/Diagonal back/aurelio diagonal back1.png" type="Texture" id=50]
+[ext_resource path="res://2D/Aurelio/Diagonal back/aurelio diagonal back2.png" type="Texture" id=51]
+[ext_resource path="res://2D/Aurelio/Diagonal back/aurelio diagonal back3.png" type="Texture" id=52]
+[ext_resource path="res://2D/Aurelio/Diagonal back/aurelio diagonal back4.png" type="Texture" id=53]
+[ext_resource path="res://2D/Knife/Front/aurelio front1.png" type="Texture" id=54]
+[ext_resource path="res://2D/Knife/Front/aurelio front2.png" type="Texture" id=55]
+[ext_resource path="res://2D/Knife/Front/aurelio front3.png" type="Texture" id=56]
 [ext_resource path="res://Scenes/Entities/PlayerMove.gd" type="Script" id=57]
 [ext_resource path="res://Scenes/Entities/IDLE.gd" type="Script" id=58]
 [ext_resource path="res://Scenes/Entities/SHOOT.gd" type="Script" id=59]
@@ -64,6 +64,11 @@
 [ext_resource path="res://2D/Shadow.png" type="Texture" id=62]
 [ext_resource path="res://Scenes/Entities/melee area.gd" type="Script" id=63]
 [ext_resource path="res://Scenes/Entities/AIM.gd" type="Script" id=64]
+[ext_resource path="res://Sounds/Shot.wav" type="AudioStream" id=65]
+[ext_resource path="res://Sounds/sword.wav" type="AudioStream" id=66]
+[ext_resource path="res://Sounds/Aurelio grunt.wav" type="AudioStream" id=67]
+[ext_resource path="res://Sounds/mamerto hit.wav" type="AudioStream" id=68]
+[ext_resource path="res://Sounds/healing effect.wav" type="AudioStream" id=69]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.0810849
@@ -83,72 +88,72 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": true,
-"name": "Back",
+"name": "Front",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
 "loop": true,
-"name": "Front",
+"name": "Back",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
-"loop": true,
-"name": "Front Knife",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ) ],
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
 "loop": true,
 "name": "Back Dia Pistol",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ) ],
+"frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ) ],
 "loop": true,
 "name": "Back Knife",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ) ],
+"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ],
 "loop": true,
 "name": "Side Pistol",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ) ],
+"frames": [ ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ) ],
 "loop": true,
 "name": "Back Dia Knife",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ) ],
+"frames": [ ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ) ],
 "loop": true,
 "name": "Front Dia Knife",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ) ],
+"frames": [ ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ) ],
 "loop": true,
 "name": "Front Dia Pistol",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ) ],
+"frames": [ ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ) ],
 "loop": true,
 "name": "Front Diagonal",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ) ],
+"frames": [ ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ) ],
 "loop": true,
 "name": "Back Pistol",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ) ],
+"frames": [ ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ) ],
 "loop": true,
 "name": "Side Knife",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ) ],
+"frames": [ ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ) ],
 "loop": true,
 "name": "Front Pistol",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 53 ), ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ) ],
+"frames": [ ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ) ],
 "loop": true,
 "name": "Back Diagonal",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ) ],
+"loop": true,
+"name": "Front Knife",
 "speed": 5.0
 } ]
 
@@ -403,6 +408,20 @@ tracks/8/keys = {
 "update": 0,
 "values": [ Vector3( -4.5, 0.1, -2.5 ) ]
 }
+tracks/9/type = "method"
+tracks/9/path = NodePath(".")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "KnifeAudio"
+} ]
+}
 
 [sub_resource type="Animation" id=6]
 resource_name = "Back Dia Knife Right"
@@ -517,6 +536,20 @@ tracks/8/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector3( 4.2, 0.1, -3 ) ]
+}
+tracks/9/type = "method"
+tracks/9/path = NodePath(".")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "KnifeAudio"
+} ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -670,6 +703,20 @@ tracks/11/keys = {
 "update": 0,
 "values": [ Vector3( -4.5, 0.1, -2.5 ) ]
 }
+tracks/12/type = "method"
+tracks/12/path = NodePath(".")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "ShootAudio"
+} ]
+}
 
 [sub_resource type="Animation" id=8]
 length = 0.8
@@ -821,6 +868,20 @@ tracks/11/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector3( 4.2, 0.1, -3 ) ]
+}
+tracks/12/type = "method"
+tracks/12/path = NodePath(".")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "ShootAudio"
+} ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -1365,6 +1426,20 @@ tracks/8/keys = {
 "update": 0,
 "values": [ Vector3( 0, 0.1, -5 ) ]
 }
+tracks/9/type = "method"
+tracks/9/path = NodePath(".")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "KnifeAudio"
+} ]
+}
 
 [sub_resource type="Animation" id=14]
 length = 0.8
@@ -1516,6 +1591,20 @@ tracks/11/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector3( 0, 0.1, -5 ) ]
+}
+tracks/12/type = "method"
+tracks/12/path = NodePath(".")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "ShootAudio"
+} ]
 }
 
 [sub_resource type="Animation" id=15]
@@ -1870,6 +1959,20 @@ tracks/8/keys = {
 "update": 0,
 "values": [ Vector3( -0.273508, 0, 0.294297 ) ]
 }
+tracks/9/type = "method"
+tracks/9/path = NodePath(".")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "KnifeAudio"
+} ]
+}
 
 [sub_resource type="Animation" id=18]
 resource_name = "Front Dia Knife Right"
@@ -1984,6 +2087,20 @@ tracks/8/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector3( 0.290476, 0, 0.211192 ) ]
+}
+tracks/9/type = "method"
+tracks/9/path = NodePath(".")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "KnifeAudio"
+} ]
 }
 
 [sub_resource type="Animation" id=19]
@@ -2236,6 +2353,20 @@ tracks/11/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector3( -0.273508, 0, 0.294297 ) ]
+}
+tracks/12/type = "method"
+tracks/12/path = NodePath(".")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "ShootAudio"
+} ]
 }
 
 [sub_resource type="Animation" id=21]
@@ -2602,6 +2733,20 @@ tracks/12/keys = {
 "update": 0,
 "values": [ Vector3( 0.290476, 0, 0.211192 ) ]
 }
+tracks/13/type = "method"
+tracks/13/path = NodePath(".")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "ShootAudio"
+} ]
+}
 
 [sub_resource type="Animation" id=24]
 length = 0.8
@@ -2817,6 +2962,20 @@ tracks/8/keys = {
 "update": 0,
 "values": [ Vector3( 0, 0.1, 4 ) ]
 }
+tracks/9/type = "method"
+tracks/9/path = NodePath(".")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "KnifeAudio"
+} ]
+}
 
 [sub_resource type="Animation" id=26]
 length = 0.8
@@ -2968,6 +3127,20 @@ tracks/11/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector3( 0, 0.1, 4 ) ]
+}
+tracks/12/type = "method"
+tracks/12/path = NodePath(".")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "ShootAudio"
+} ]
 }
 
 [sub_resource type="Animation" id=27]
@@ -3173,6 +3346,20 @@ tracks/7/keys = {
 "update": 0,
 "values": [ Vector3( -0.5, 0, 0 ) ]
 }
+tracks/8/type = "method"
+tracks/8/path = NodePath(".")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "KnifeAudio"
+} ]
+}
 
 [sub_resource type="Animation" id=29]
 resource_name = "Side Knife Right"
@@ -3287,6 +3474,20 @@ tracks/8/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector3( 8, 0.1, 0.1 ) ]
+}
+tracks/9/type = "method"
+tracks/9/path = NodePath(".")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "KnifeAudio"
+} ]
 }
 
 [sub_resource type="Animation" id=30]
@@ -3576,6 +3777,20 @@ tracks/11/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector3( -8, 0.1, 0.1 ) ]
+}
+tracks/12/type = "method"
+tracks/12/path = NodePath(".")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "ShootAudio"
+} ]
 }
 
 [sub_resource type="Animation" id=32]
@@ -3967,6 +4182,20 @@ tracks/11/keys = {
 "update": 0,
 "values": [ Vector3( 8, 0.1, 0.1 ) ]
 }
+tracks/12/type = "method"
+tracks/12/path = NodePath(".")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "ShootAudio"
+} ]
+}
 
 [sub_resource type="Animation" id=35]
 length = 0.8
@@ -4093,12 +4322,12 @@ transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0.04
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -0.11194, -0.103436, 0.123114 )
+transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -0.159318, -0.103436, 0.123114 )
 material_override = SubResource( 2 )
 centered = false
 frames = SubResource( 3 )
-animation = "Back Pistol"
-frame = 1
+animation = "Front Pistol"
+frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Front"
@@ -4154,16 +4383,16 @@ script = ExtResource( 60 )
 [node name="Draw" parent="." instance=ExtResource( 61 )]
 
 [node name="End" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.143807, 0.141071, -4.52317 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0774295, 0, 3.66631 )
 
 [node name="RayCast" type="RayCast" parent="."]
 enabled = true
-cast_to = Vector3( 0, 0.1, -5 )
+cast_to = Vector3( 0, 0.1, 4 )
 collision_mask = 4
 
 [node name="HelperRaycast" type="RayCast" parent="."]
 enabled = true
-cast_to = Vector3( 0, 0.1, -5 )
+cast_to = Vector3( 0, 0.1, 4 )
 collision_mask = 4
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
@@ -4174,11 +4403,12 @@ texture = ExtResource( 62 )
 script = ExtResource( 63 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.145721 )
 shape = SubResource( 36 )
 disabled = true
 
 [node name="Helper" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5 )
 
 [node name="AIM" type="ImmediateGeometry" parent="."]
 material_override = SubResource( 37 )
@@ -4187,6 +4417,26 @@ script = ExtResource( 64 )
 [node name="Timer" type="Timer" parent="."]
 
 [node name="SlowWalk" type="Timer" parent="."]
+
+[node name="Shoot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 65 )
+bus = "Shoot"
+
+[node name="Knife" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 66 )
+bus = "Knife"
+
+[node name="Grunt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 67 )
+bus = "Grunt"
+
+[node name="Hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 68 )
+bus = "BodyHit"
+
+[node name="Healing" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 69 )
+bus = "Healing"
 
 [connection signal="body_entered" from="Area" to="Area" method="_MeleeHit"]
 [connection signal="timeout" from="SlowWalk" to="." method="_on_SlowWalk_timeout"]
