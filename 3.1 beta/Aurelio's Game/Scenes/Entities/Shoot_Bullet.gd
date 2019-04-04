@@ -7,7 +7,7 @@ onready var Root = $"../.."
 func _Update():
 	if Ani.current_animation != "Shoot":
 		Ani.play("Shoot")
-		var tmp = Bullet.instance().duplicate()
+		var tmp = Bullet.instance()
 		tmp.global_transform.origin = Root.global_transform.origin
 		var color = Root.mamerto_color
 		if color.r == 0 and color.g == 0 and color.b == 0:

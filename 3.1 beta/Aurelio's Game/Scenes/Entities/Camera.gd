@@ -5,7 +5,7 @@ onready var Player = get_tree().get_root().get_node("Spatial/Player")
 onready var Pos = $Position3D
 var dist = 0.5
 var interpolate = true
-var out = false
+var out = true
 
 func _ready():
 	pass 

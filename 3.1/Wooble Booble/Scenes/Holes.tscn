@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://2D/Galaxy.png" type="Texture" id=1]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 31.8335
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=[
+"HOLE",
+]]
+shape = SubResource( 1 )
+
+[node name="Galaxy" type="Sprite" parent="."]
+position = Vector2( -0.207491, -0.361466 )
+scale = Vector2( 0.416231, 0.37432 )
+texture = ExtResource( 1 )
+

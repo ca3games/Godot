@@ -98,6 +98,7 @@ script = ExtResource( 1 )
 [node name="PathFinder" type="Spatial" parent="."]
 
 [node name="Navigation" type="Navigation" parent="PathFinder"]
+editor/display_folded = true
 
 [node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="PathFinder/Navigation"]
 navmesh = SubResource( 1 )
