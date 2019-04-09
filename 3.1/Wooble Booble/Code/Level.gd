@@ -23,6 +23,5 @@ func _process(delta):
 func _ScoreTweenCompleted(object, key):
 	get_tree().get_root().get_node("Root/GUI/Score").set("custom_colors/font_color", Color8(202,255,249))
 
-
 func _TimeLeft_timeout():
 	Variables.TimeOver()

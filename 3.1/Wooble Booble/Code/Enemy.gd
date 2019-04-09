@@ -7,6 +7,7 @@ onready var TweenNode = $Tween
 var vel = 50
 var Idle = true
 var right = true
+onready var Particle = preload("res://Scenes/Particle.tscn")
 
 func _ready():
 	_SetSpeed()
@@ -41,9 +42,12 @@ func _body_entered(body):
 	if body.is_in_group("BALL"):
 		$AnimationPlayer.play("Bounce")
 		$Timer.start(3)
+		body._Bounce()
 		Idle = false
 		Variables.score += 5
 		Variables.SetScoreLabel()
+		if body.super:
+			_ToDie()
 	
 	if body.is_in_group("LEFT"):
 		$AnimationPlayer.play("Bounce")
@@ -74,6 +78,10 @@ func _Timer_timeout():
 	toIdle = true
 	
 func _ToDie():
+	var p = Particle.instance()
+	p.position = self.position
+	get_tree().get_root().get_node("Root/Enemies").add_child(p)
+	
 	var number = int (Variables.GetTimeLeft() * (Variables.level + 1))
 	Variables.TweenScoreLabel(number)
 	Variables.SetLeftLabel()
