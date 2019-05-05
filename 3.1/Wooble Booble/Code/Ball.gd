@@ -43,7 +43,7 @@ func _physics_process(delta):
 		
 func _Bounce():
 	$AnimationPlayer.play("Bounce")
-	$AudioStreamPlayer.play()
+	$Bounce.play()
 	
 func _Super():
 	$ball.modulate = Color8(255,0,0)

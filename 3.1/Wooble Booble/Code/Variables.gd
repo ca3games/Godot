@@ -4,18 +4,17 @@ var level = 0
 var score = 0
 var tweenscore = 0
 
-onready var scoretween = get_tree().get_root().get_node("Root/GUI/ScoreTween")
-onready var scorelabel = get_tree().get_root().get_node("Root/GUI/Score")
+onready var scoretween
+onready var scorelabel
 
 func _deadBall():
 	var enemies = get_tree().get_nodes_in_group("Enemy").size()
 	if enemies < 2:
-		$Select.stop()
-		$Crash.stop()
-		$Special.stop()
 		level += 1
 		get_tree().get_root().get_node("Root/Transition")._ToLeave()
 		get_tree().paused = true
+		scoretween = get_tree().get_root().get_node("Root/GUI/ScoreTween")
+		scorelabel = get_tree().get_root().get_node("Root/GUI/Score")
 	else:
 		Crash()
 
@@ -61,17 +60,18 @@ func ScoreTween(number):
 
 func StartGame():
 	$Select.play()
-	yield($Select, "finished")
+	#yield($Select, "finished")
 	score = 0
 	get_tree().change_scene("res://Scenes/Level.tscn")
+	scoretween = find_node("Root/GUI/ScoreTween")
+	scorelabel = find_node("Root/GUI/Score")
 	
 func Select():
 	$Select.play()
-	yield($Select, "finished")
+	#yield($Select, "finished")
 
 func Crash():
-	$Crash.play()
-	yield($Crash, "finished")
+	get_tree().get_root().get_node("Root/Crash").play()
 	
 func Special():
-	$Special.play()
+	get_tree().get_root().get_node("Root/Special").play()

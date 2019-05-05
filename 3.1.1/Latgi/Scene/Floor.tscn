@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://PBR/wood_texture_3_by_rifificz_d38h5zl-fullview.jpg" type="Texture" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="wood_texture_3_by_rifificz_d38h5zl-fullview" type="Sprite" parent="."]
+position = Vector2( 511.727, 298.974 )
+scale = Vector2( 1.15115, 0.861109 )
+texture = ExtResource( 1 )

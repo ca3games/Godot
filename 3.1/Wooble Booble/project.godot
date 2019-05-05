@@ -19,8 +19,9 @@ modules="org/godotengine/godot/GodotAdMob"
 
 [application]
 
-config/name="Wooble Booble"
+config/name="Arcalon"
 run/main_scene="res://Scenes/Title.tscn"
+boot_splash/image="res://2D/Splash Screen.png"
 config/icon="res://icon.png"
 
 [autoload]

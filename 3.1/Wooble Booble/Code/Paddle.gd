@@ -11,11 +11,10 @@ func _input(event):
 		if event.speed.x != 0:
 			speed = event.speed
 	
-	if event is InputEventKey:
-		if event.is_action("LEFT"):
-			speed.x = -150
-		if event.is_action("RIGHT"):
-			speed.x = 150
+	if Input.is_action_pressed("LEFT"):
+		speed.x = -150
+	if Input.is_action_pressed("RIGHT"):
+		speed.x = 150
 
 func _physics_process(delta):
 	speed.y = 0

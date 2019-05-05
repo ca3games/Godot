@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Code/Level.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=2]
@@ -10,6 +10,9 @@
 [ext_resource path="res://Font/alarm clock.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://Scenes/Button.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Transition.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Music/Trance song.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Music/crash.wav" type="AudioStream" id=12]
+[ext_resource path="res://Music/Special.wav" type="AudioStream" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 24.2734, 703.637 )
@@ -184,6 +187,7 @@ collision_layer = 16
 collision_mask = 8
 
 [node name="GUI" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Blank" type="Sprite" parent="GUI"]
 modulate = Color( 0, 0, 0, 1 )
@@ -279,6 +283,22 @@ autostart = true
 
 [node name="Transition" parent="." instance=ExtResource( 10 )]
 pause_mode = 2
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 11 )
+autoplay = true
+bus = "Song"
+
+[node name="Crash" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 12 )
+bus = "Crash"
+
+[node name="Special" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 13 )
+bus = "Special"
 
 [connection signal="tween_completed" from="GUI/ScoreTween" to="." method="_ScoreTweenCompleted"]
 [connection signal="timeout" from="TimeLeft" to="." method="_TimeLeft_timeout"]

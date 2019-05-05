@@ -1,9 +1,11 @@
 extends Node
 
 var admob = null
-var isReal = false
+var isReal = true
 var isTop = true
-var adBannerId = "ca-app-pub-3940256099942544/6300978111" # [Replace with your Ad Unit ID and delete this message.]
+var adBannerId = "ca-app-pub-5865058758227989/7849903116" 
+
+
 
 
 func _ready():

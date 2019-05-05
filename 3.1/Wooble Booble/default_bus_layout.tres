@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=5 format=2]
+[gd_resource type="AudioBusLayout" load_steps=6 format=2]
 
 [sub_resource type="AudioEffectCompressor" id=1]
 resource_name = "Compressor"
@@ -12,7 +12,11 @@ resource_name = "Chorus"
 [sub_resource type="AudioEffectReverb" id=4]
 resource_name = "Reverb"
 
+[sub_resource type="AudioEffectCompressor" id=5]
+resource_name = "Compressor"
+
 [resource]
+bus/0/volume_db = -2.0
 bus/0/effect/0/effect = SubResource( 1 )
 bus/0/effect/0/enabled = true
 bus/1/name = "Ball"
@@ -45,4 +49,12 @@ bus/4/mute = false
 bus/4/bypass_fx = false
 bus/4/volume_db = -11.3
 bus/4/send = "Master"
+bus/5/name = "Song"
+bus/5/solo = false
+bus/5/mute = false
+bus/5/bypass_fx = false
+bus/5/volume_db = -16.9
+bus/5/send = "Master"
+bus/5/effect/0/effect = SubResource( 5 )
+bus/5/effect/0/enabled = true
 

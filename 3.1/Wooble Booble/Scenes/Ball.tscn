@@ -92,7 +92,8 @@ scale_amount = 12.0
 scale_amount_curve = SubResource( 3 )
 color_ramp = SubResource( 4 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Bounce" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 3 )
 bus = "Ball"
 
