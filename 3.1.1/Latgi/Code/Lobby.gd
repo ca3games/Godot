@@ -3,6 +3,7 @@ extends Node2D
 const DEFAULT_PORT = 8000
 
 var game
+var upnp
 
 func _player_connected(id):
 	$Panel.hide()
@@ -38,13 +39,10 @@ func _end_game(with_error=""):
 	$Panel/Info.text = with_error
 
 func GAMEOVER(boolean):
-	if is_network_master():
-		print("network server master")
-	else:
-		print("network client slave")
 	
 	game.queue_free()
 	get_tree().set_network_peer(null)
+	upnp.delete_port_mapping(8000)
 	Variables.GameOver(boolean)
 	
 
@@ -56,10 +54,16 @@ func _ready():
 	get_tree().connect("connection_failed",self,"_connected_fail")
 	get_tree().connect("server_disconnected",self,"_server_disconnected")
 	
+	upnp = UPNP.new()
+	upnp.discover()
+	if upnp.get_gateway() and upnp.get_gateway().is_valid_gateway():
+    	upnp.add_port_mapping(DEFAULT_PORT, DEFAULT_PORT, 'Godot', 'UDP')
+    	upnp.add_port_mapping(DEFAULT_PORT, DEFAULT_PORT, 'Godot', 'TCP')
+	
 
 func host_room():
 	var host = NetworkedMultiplayerENet.new()
-	var error = host.create_server(DEFAULT_PORT, 1)
+	var error = host.create_server(DEFAULT_PORT, 2)
 	if (error != OK):
 		$Panel/Info.text = "Can't host"
 		return
