@@ -1,0 +1,77 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://2D/MC/Idle/Hero idle.png" type="Texture" id=1]
+[ext_resource path="res://2D/MC/test/01_resultado.png" type="Texture" id=2]
+[ext_resource path="res://2D/MC/test/02_resultado.png" type="Texture" id=3]
+[ext_resource path="res://2D/MC/test/03_resultado.png" type="Texture" id=4]
+[ext_resource path="res://2D/MC/test/04_resultado.png" type="Texture" id=5]
+[ext_resource path="res://2D/MC/test/05_resultado.png" type="Texture" id=6]
+[ext_resource path="res://2D/MC/test/06_resultado.png" type="Texture" id=7]
+[ext_resource path="res://2D/MC/test/07_resultado.png" type="Texture" id=8]
+[ext_resource path="res://2D/MC/test/08_resultado.png" type="Texture" id=9]
+[ext_resource path="res://2D/MC/test/09_resultado.png" type="Texture" id=10]
+[ext_resource path="res://2D/MC/test/10_resultado.png" type="Texture" id=11]
+[ext_resource path="res://2D/MC/test/11_resultado.png" type="Texture" id=12]
+[ext_resource path="res://2D/MC/test/12_resultado.png" type="Texture" id=13]
+[ext_resource path="res://2D/MC/test/13_resultado.png" type="Texture" id=14]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 10.456
+height = 7.93906
+
+[sub_resource type="Animation" id=3]
+resource_name = "IDLE"
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 10.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 5, -0.7 ) ]
+}
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 5, -0.7 )
+rotation = 0.174533
+frames = SubResource( 1 )
+animation = "Idle"
+frame = 8
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.543888, 32.3271 )
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/IDLE = SubResource( 3 )

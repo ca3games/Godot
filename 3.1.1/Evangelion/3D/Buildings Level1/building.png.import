@@ -1,0 +1,36 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path.s3tc="res://.import/building.png-84e12151374b1da6b03c176987f85b08.s3tc.stex"
+path.etc="res://.import/building.png-84e12151374b1da6b03c176987f85b08.etc.stex"
+metadata={
+"imported_formats": [ "s3tc", "etc" ],
+"vram_texture": true
+}
+
+[deps]
+
+source_file="res://3D/Buildings Level1/building.png"
+dest_files=[ "res://.import/building.png-84e12151374b1da6b03c176987f85b08.s3tc.stex", "res://.import/building.png-84e12151374b1da6b03c176987f85b08.etc.stex" ]
+
+[params]
+
+compress/mode=2
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=true
+flags/filter=true
+flags/mipmaps=true
+flags/anisotropic=false
+flags/srgb=1
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0
