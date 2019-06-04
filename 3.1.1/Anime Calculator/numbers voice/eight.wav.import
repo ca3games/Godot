@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/eight.wav-b466d42d7af2784f9887dd37168dacd3.sample"
+
+[deps]
+
+source_file="res://numbers voice/eight.wav"
+dest_files=[ "res://.import/eight.wav-b466d42d7af2784f9887dd37168dacd3.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

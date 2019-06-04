@@ -1,0 +1,66 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Code/Sounds.gd" type="Script" id=1]
+[ext_resource path="res://numbers voice/zero.wav" type="AudioStream" id=2]
+[ext_resource path="res://numbers voice/one.wav" type="AudioStream" id=3]
+[ext_resource path="res://numbers voice/two.wav" type="AudioStream" id=4]
+[ext_resource path="res://numbers voice/three.wav" type="AudioStream" id=5]
+[ext_resource path="res://numbers voice/four.wav" type="AudioStream" id=6]
+[ext_resource path="res://numbers voice/five.wav" type="AudioStream" id=7]
+[ext_resource path="res://numbers voice/six.wav" type="AudioStream" id=8]
+[ext_resource path="res://numbers voice/seven.wav" type="AudioStream" id=9]
+[ext_resource path="res://numbers voice/eight.wav" type="AudioStream" id=10]
+[ext_resource path="res://numbers voice/nine.wav" type="AudioStream" id=11]
+[ext_resource path="res://numbers voice/dot.wav" type="AudioStream" id=12]
+[ext_resource path="res://numbers voice/negative.wav" type="AudioStream" id=13]
+
+[node name="Sounds" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Zero" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+bus = "Miku"
+
+[node name="One" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+bus = "Miku"
+
+[node name="Two" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+bus = "Miku"
+
+[node name="Three" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+bus = "Miku"
+
+[node name="Four" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+bus = "Miku"
+
+[node name="Five" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+bus = "Miku"
+
+[node name="Six" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+bus = "Miku"
+
+[node name="Seven" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+bus = "Miku"
+
+[node name="Eight" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+bus = "Miku"
+
+[node name="Nine" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+bus = "Miku"
+
+[node name="Dot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+bus = "Miku"
+
+[node name="Negative" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+bus = "Miku"

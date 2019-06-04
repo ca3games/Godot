@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sounds/Notes/C.wav" type="AudioStream" id=1]
+[ext_resource path="res://Sounds/Notes/Erase.wav" type="AudioStream" id=2]
+[ext_resource path="res://Sounds/Notes/Clean.wav" type="AudioStream" id=3]
+
+[node name="SoundOperations" type="Node2D"]
+
+[node name="C" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+bus = "operations"
+
+[node name="Delete" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+bus = "error"
+
+[node name="Clean" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+bus = "operations"

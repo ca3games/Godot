@@ -1,0 +1,260 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://addons/midi/MidiPlayer.gd" type="Script" id=1]
+[ext_resource path="res://addons/midi/icon.png" type="Texture" id=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node
+
+onready var midi_player = $GodotMIDIPlayer
+var tempo_changing = false
+#var ui_channels
+var SMF = preload( \"res://addons/midi/SMF.gd\" )
+var file = \"\"
+
+var names = load(\"res://Scripts/MIDInames.gd\")
+var midi_names
+
+onready var level = preload(\"res://Scenes/Level.tscn\")
+
+\"\"\"
+	Initializes
+\"\"\"
+func _ready( ):
+	$CanvasLayer/FileDialog.current_dir = OS.get_system_dir(OS.SYSTEM_DIR_DOWNLOADS)
+	
+	midi_names = names.new()
+	#self._setup_channel_status_viewers( )
+	$GodotMIDIPlayer.connect( \"midi_event\", self, \"_on_midi_event\" )
+	var tmp = level.instance()
+	$Cats.add_child(tmp)
+
+
+func _setup_channel_status_viewers( ):
+	for i in range( 0, len( self.midi_player.channel_status ) ):
+		var status = CheckBox.new( )
+		status.pressed = false
+		self.ui_channels.append( status )
+		$VBoxContainer.add_child( status )
+
+\"\"\"
+	Process
+\"\"\"
+func _process( delta:float ):
+	self._process_update_apply_ui( )
+	#self._process_update_channel_status( )
+
+func _process_update_apply_ui( ):
+	# Update some values
+	self.midi_player.volume_db = $CanvasLayer/VBoxContainer/HBoxContainer2/VolumeBar.value
+
+func _process_update_channel_status( ):
+	for i in range( 0, len( self.midi_player.channel_status ) ):
+		var channel = self.midi_player.channel_status[i]
+		var checkbox = self.ui_channels[i]
+
+		# Set channel mute
+		self.midi_player.channel_mute[i] = checkbox.pressed
+
+		# Get the channel information and Display it
+		checkbox.text = \"CH%2d program:#%3d notes:%2d volume:%8.5f expression:%8.5f pan:%8.5f pitch:%8.5f\" % [
+			i,
+			channel.program,
+			len( channel.note_on.keys( ) ),
+			channel.volume,
+			channel.expression,
+			channel.pan,
+			channel.pitch_bend,
+		]
+
+\"\"\"
+	Signals
+\"\"\"
+func _on_ui_seek_bar_scrolling( ):
+	if not self.midi_player.playing:
+		self.midi_player.play( )
+	self.midi_player.seek( $VBoxContainer/HBoxContainer4/SeekBar.value )
+
+func _on_ui_tempo_focus_entered( ):
+	self.tempo_changing = true
+
+func _on_ui_tempo_focus_exited( ):
+	self.tempo_changing = false
+
+func _on_ui_tempo_entered( o ):
+	var bpm:int = int( $CanvasLayer/VBoxContainer/HBoxContainer3/Tempo.text )
+	if 0 <= bpm:
+		self.midi_player.tempo = bpm
+
+func _on_OpenButton_pressed( ):
+	$CanvasLayer/FileDialog.visible = true
+
+func _on_FileDialog_file_selected( path ):
+	$GodotMIDIPlayer.stop( )
+	file = path
+	$GodotMIDIPlayer.file = file
+	$CanvasLayer/VBoxContainer/HBoxContainer3/File.text = str(path)
+	
+	get_tree().get_root().get_node(\"MIDI/Cats/Level\").HideCats()
+	
+
+func _on_midi_event( channel, event ):
+	# channel is same as $GodotMidiPlayer.channel_status[track_id]
+	# event is event parameter. see SMF.gd and MidiPlayer.gd
+
+	#if not $VBoxContainer/HBoxContainer3/OutputEvent.pressed: return
+	
+	# Output event data to stdout
+	var event_string = \"\"
+	match event.type:
+		SMF.MIDIEventType.note_off:
+			get_tree().get_root().get_node(\"MIDI/Cats/Level\")._noteON(channel.number, channel.program, event.note)
+		SMF.MIDIEventType.note_on:
+			get_tree().get_root().get_node(\"MIDI/Cats/Level\")._noteOFF(channel.number)
+		#SMF.MIDIEventType.program_change:
+			#event_string = \"ProgramChange %d\" % event.number
+		#SMF.MIDIEventType.control_change:
+		#	event_string = \"ControlChange %d\" % event.number
+		#SMF.MIDIEventType.pitch_bend:
+		#	event_string = \"PitchBend %d\" % event.value
+		#SMF.MIDIEventType.system_event:
+		#	event_string = \"SystemEvent %d\" % event.args.type
+	
+	#if channel.number == 9  and event.type == SMF.MIDIEventType.note_on:
+		#ui_channels[channel.number].text = \"PERCUSSION \" + str(\"\") + \" : \" + str(midi_names.percussion[event.note])
+	#else:
+		#ui_channels[channel.number].text = \"CHANNEL \" + str(midi_names.instrument[channel.program]) + \" : \" + event_string
+	
+	#print( channel, event, \"channel:%d event-type:%s\" % [
+	#	channel.number,
+	#	event_string,
+	#])
+
+
+func _on_Play_pressed():
+	if file != \"\":
+		get_tree().get_root().get_node(\"MIDI/Cats/Level\").HideCats()
+		self.midi_player.play( )
+
+
+func _on_STOP_pressed():
+	self.midi_player.stop()
+	get_tree().get_root().get_node(\"MIDI/Cats/Level\").HideCats()
+"
+
+[node name="MIDI" type="Node"]
+script = SubResource( 1 )
+
+[node name="GodotMIDIPlayer" type="Node" parent="."]
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_icon": ExtResource( 2 )
+}
+file = "res://data/awakenin.mid"
+playing = true
+soundfont = "res://data/Aspirin-Stereo.sf2"
+bus = "Rev"
+
+[node name="Cats" type="Node2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+editor/display_folded = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 7.68323
+margin_top = 3.90173
+margin_right = -8.31677
+margin_bottom = -558.098
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+editor/display_folded = true
+margin_right = 784.0
+margin_bottom = 20.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="OpenButton" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer3"]
+margin_right = 47.0
+margin_bottom = 20.0
+text = "Open"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PLAY" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer3"]
+margin_left = 51.0
+margin_right = 94.0
+margin_bottom = 20.0
+text = "PLAY"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="STOP" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer3"]
+margin_left = 98.0
+margin_right = 143.0
+margin_bottom = 20.0
+text = "STOP"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="File" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer3"]
+margin_left = 147.0
+margin_top = 3.0
+margin_right = 263.0
+margin_bottom = 17.0
+text = "FILE NOT LOADED"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+editor/display_folded = true
+margin_top = 24.0
+margin_right = 784.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
+
+[node name="Label3" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer2"]
+margin_right = 49.0
+margin_bottom = 14.0
+text = "Volume"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="VolumeBar" type="HScrollBar" parent="CanvasLayer/VBoxContainer/HBoxContainer2"]
+margin_left = 53.0
+margin_right = 784.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+min_value = -50.0
+max_value = -10.0
+value = -30.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="FileDialog" type="FileDialog" parent="CanvasLayer"]
+margin_left = 17.1475
+margin_top = 230.563
+margin_right = 542.147
+margin_bottom = 575.563
+rect_scale = Vector2( 0.9, 0.9 )
+window_title = "Abrir un archivo"
+mode = 0
+access = 2
+filters = PoolStringArray( "*.mid" )
+current_dir = "/home/cristian/Documentos/Github"
+current_path = "/home/cristian/Documentos/Github/"
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer3/OpenButton" to="." method="_on_OpenButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer3/PLAY" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer3/STOP" to="." method="_on_STOP_pressed"]
+[connection signal="file_selected" from="CanvasLayer/FileDialog" to="." method="_on_FileDialog_file_selected"]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/two.wav-75e6e6eef1934957b6f8044b792e76d1.sample"
+
+[deps]
+
+source_file="res://numbers voice/two.wav"
+dest_files=[ "res://.import/two.wav-75e6e6eef1934957b6f8044b792e76d1.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
