@@ -115,7 +115,7 @@ func Operation(operation):
 			$SoundOperations/C.play()
 		"div" :
 			if tmp != 0:
-				tmp_result /= tmp
+				tmp_result = float(tmp_result / tmp)
 				ErrorCode("NO ERROR", Color.darkblue)
 				$SoundOperations/C.play()
 			else:
@@ -131,7 +131,7 @@ func Operation(operation):
 			if tmp_result < tmp:
 				ErrorCode("CANT MODULO WITH A SMALLER NUMBER", Color.red)				
 			if tmp != 0 and tmp_result >= tmp:
-				tmp_result %= tmp
+				tmp_result = int(tmp_result) % int(tmp)
 				ErrorCode("NO ERROR", Color.darkblue)
 				$SoundOperations/C.play()
 			else:
@@ -168,15 +168,8 @@ func Result():
 
 func SetLabels():
 	var size = GetSizeFloating()
-	if size.x == 0:
-		$Calculator/Tmp.text = "%d" % tmp
-	else:
-		SetLabel($Calculator/Tmp, tmp, size.x)
-	
-	if size.y == 0:
-		$Calculator/Result.text = "%d" % result
-	else:
-		SetLabel($Calculator/Result, result, size.y)
+	SetLabel($Calculator/Tmp, tmp, size.x)
+	SetLabel($Calculator/Result, result, size.y)
 		
 
 func SetLabel(label, text, size):

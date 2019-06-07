@@ -65,16 +65,16 @@ __meta__ = {
 position = Vector2( 240.055, 400.277 )
 scale = Vector2( 1.05465, 1.02812 )
 frames = SubResource( 1 )
-frame = 10
+frame = 40
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Calculator" parent="." instance=ExtResource( 43 )]
-margin_left = 30.9117
-margin_top = 216.721
-margin_right = 407.912
-margin_bottom = 708.721
+margin_left = 64.2229
+margin_top = 201.916
+margin_right = 441.223
+margin_bottom = 693.916
 
 [node name="TimerTmp" type="Tween" parent="."]
 

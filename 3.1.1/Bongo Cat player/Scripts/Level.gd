@@ -4,7 +4,7 @@ var bongo_cat = []
 var offset = Vector2(250,250)
 var cell = load("res://Scripts/Cell.gd")
 onready var cat = preload("res://Scenes/BongoCat.tscn")
-var camera_offset = Vector2(-150,-250)
+var camera_offset = Vector2(-150, -50)
 var MIDI_names = load("res://Scripts/MIDInames.gd")
 var names
 
@@ -22,7 +22,7 @@ func _ready():
 			bongo_cat[x][y] = block
 			self.add_child(bongo_cat[x][y].bongo_cat)
 			bongo_cat[x][y].bongo_cat.hide()
-	
+	ShowNames(false)
 	$Camera2D.position = Vector2(2 * offset.x, 2 * offset.y) + camera_offset
 
 func _noteON(channel, program, note):
@@ -46,3 +46,11 @@ func HideCats():
 	for x in range(0, 4):
 		for y in range(0, 4):
 			bongo_cat[x][y].bongo_cat.hide()
+			
+func ShowNames(boolean):
+	for x in range(0, 4):
+		for y in range(0, 4):
+			if boolean:
+				bongo_cat[x][y].bongo_cat.get_node("Name").show()
+			else:
+				bongo_cat[x][y].bongo_cat.get_node("Name").hide()

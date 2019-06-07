@@ -140,6 +140,10 @@ func _on_Play_pressed():
 func _on_STOP_pressed():
 	self.midi_player.stop()
 	get_tree().get_root().get_node(\"MIDI/Cats/Level\").HideCats()
+
+
+func _on_Names_toggled(button_pressed):
+	get_tree().get_root().get_node(\"MIDI/Cats/Level\").ShowNames(button_pressed)
 "
 
 [node name="MIDI" type="Node"]
@@ -163,24 +167,23 @@ bus = "Rev"
 editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 7.68323
-margin_top = 3.90173
-margin_right = -8.31677
-margin_bottom = -558.098
+margin_left = 8.0
+margin_top = 4.0
+margin_right = -8.0
+margin_bottom = -736.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
-editor/display_folded = true
 margin_right = 784.0
-margin_bottom = 20.0
+margin_bottom = 24.0
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="OpenButton" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer3"]
 margin_right = 47.0
-margin_bottom = 20.0
+margin_bottom = 24.0
 text = "Open"
 __meta__ = {
 "_edit_lock_": true
@@ -189,7 +192,7 @@ __meta__ = {
 [node name="PLAY" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer3"]
 margin_left = 51.0
 margin_right = 94.0
-margin_bottom = 20.0
+margin_bottom = 24.0
 text = "PLAY"
 __meta__ = {
 "_edit_lock_": true
@@ -198,17 +201,23 @@ __meta__ = {
 [node name="STOP" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer3"]
 margin_left = 98.0
 margin_right = 143.0
-margin_bottom = 20.0
+margin_bottom = 24.0
 text = "STOP"
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="File" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer3"]
+[node name="Names" type="CheckBox" parent="CanvasLayer/VBoxContainer/HBoxContainer3"]
 margin_left = 147.0
-margin_top = 3.0
-margin_right = 263.0
-margin_bottom = 17.0
+margin_right = 220.0
+margin_bottom = 24.0
+text = "Names"
+
+[node name="File" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer3"]
+margin_left = 224.0
+margin_top = 5.0
+margin_right = 340.0
+margin_bottom = 19.0
 text = "FILE NOT LOADED"
 __meta__ = {
 "_edit_lock_": true
@@ -216,9 +225,9 @@ __meta__ = {
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
 editor/display_folded = true
-margin_top = 24.0
+margin_top = 28.0
 margin_right = 784.0
-margin_bottom = 38.0
+margin_bottom = 42.0
 size_flags_horizontal = 3
 
 [node name="Label3" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer2"]
@@ -257,4 +266,5 @@ current_path = "/home/cristian/Documentos/Github/"
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer3/OpenButton" to="." method="_on_OpenButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer3/PLAY" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer3/STOP" to="." method="_on_STOP_pressed"]
+[connection signal="toggled" from="CanvasLayer/VBoxContainer/HBoxContainer3/Names" to="." method="_on_Names_toggled"]
 [connection signal="file_selected" from="CanvasLayer/FileDialog" to="." method="_on_FileDialog_file_selected"]

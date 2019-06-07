@@ -65,8 +65,11 @@ func Note_ON(note, program):
 	notes[note].modulate = Color.red
 	$Cat.offset = offset[note]
 	
-	if program <= 9:
+	if program <= $Block/AnimatedSprite.frames.get_frame_count("default"):
+		$Block/AnimatedSprite.show()
 		$Block/AnimatedSprite.frame = program
+	else:
+		$Block/AnimatedSprite.hide()
 
 func Note_OFF():
 	$Timer.start(0.8)
