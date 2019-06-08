@@ -42,30 +42,15 @@ func _setup_channel_status_viewers( ):
 \"\"\"
 func _process( delta:float ):
 	self._process_update_apply_ui( )
-	#self._process_update_channel_status( )
+	$CanvasLayer/VBoxContainer/HBoxContainer4/TimeBar.min_value = 0
+	$CanvasLayer/VBoxContainer/HBoxContainer4/TimeBar.max_value = self.midi_player.last_position
+	
+	$CanvasLayer/VBoxContainer/HBoxContainer4/TimeBar.value = self.midi_player.position
 
 func _process_update_apply_ui( ):
 	# Update some values
 	self.midi_player.volume_db = $CanvasLayer/VBoxContainer/HBoxContainer2/VolumeBar.value
 
-func _process_update_channel_status( ):
-	for i in range( 0, len( self.midi_player.channel_status ) ):
-		var channel = self.midi_player.channel_status[i]
-		var checkbox = self.ui_channels[i]
-
-		# Set channel mute
-		self.midi_player.channel_mute[i] = checkbox.pressed
-
-		# Get the channel information and Display it
-		checkbox.text = \"CH%2d program:#%3d notes:%2d volume:%8.5f expression:%8.5f pan:%8.5f pitch:%8.5f\" % [
-			i,
-			channel.program,
-			len( channel.note_on.keys( ) ),
-			channel.volume,
-			channel.expression,
-			channel.pan,
-			channel.pitch_bend,
-		]
 
 \"\"\"
 	Signals
@@ -164,7 +149,6 @@ bus = "Rev"
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
-editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 8.0
@@ -175,6 +159,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+editor/display_folded = true
 margin_right = 784.0
 margin_bottom = 24.0
 __meta__ = {
@@ -247,6 +232,30 @@ size_flags_vertical = 3
 min_value = -50.0
 max_value = -10.0
 value = -30.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+margin_top = 46.0
+margin_right = 784.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+
+[node name="Label3" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer4"]
+margin_right = 32.0
+margin_bottom = 14.0
+text = "Time"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TimeBar" type="HScrollBar" parent="CanvasLayer/VBoxContainer/HBoxContainer4"]
+margin_left = 36.0
+margin_right = 784.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 __meta__ = {
 "_edit_lock_": true
 }

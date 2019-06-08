@@ -56,7 +56,7 @@ func Reset_Colors():
 	notes[8].modulate = Color.black
 	notes[10].modulate = Color.black
 	
-func Note_ON(note, program):
+func Note_ON(note, program, channel):
 	Reset_Colors()
 	if note <= 5:
 		$Cat.animation = "right on"
@@ -71,8 +71,11 @@ func Note_ON(note, program):
 	else:
 		$Block/AnimatedSprite.hide()
 
-func Note_OFF():
-	$Timer.start(0.8)
+func Note_OFF(channel):
+	if channel == 9:
+		$Timer.start(0.2)
+	else:
+		$Timer.start(0.6)
 
 func _on_Timer_timeout():
 	Reset_Colors()

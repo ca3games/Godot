@@ -4,7 +4,7 @@ var bongo_cat = []
 var offset = Vector2(250,250)
 var cell = load("res://Scripts/Cell.gd")
 onready var cat = preload("res://Scenes/BongoCat.tscn")
-var camera_offset = Vector2(-150, -50)
+var camera_offset = Vector2(-150, -150)
 var MIDI_names = load("res://Scripts/MIDInames.gd")
 var names
 
@@ -28,7 +28,7 @@ func _ready():
 func _noteON(channel, program, note):
 	var id = Vector2(channel%4, channel/4)
 	bongo_cat[id.x][id.y].bongo_cat.show()
-	bongo_cat[id.x][id.y].bongo_cat.Note_ON(note%12, program)
+	bongo_cat[id.x][id.y].bongo_cat.Note_ON(note%12, program, channel)
 	if channel == 9 :
 		if note >= 35 and note <= 81:
 			bongo_cat[id.x][id.y].bongo_cat.get_node("Name").text = names.percussion[note]
@@ -40,7 +40,7 @@ func _noteON(channel, program, note):
 	
 func _noteOFF(channel):
 	var id = Vector2(channel%4, channel/4)
-	bongo_cat[id.x][id.y].bongo_cat.Note_OFF()
+	bongo_cat[id.x][id.y].bongo_cat.Note_OFF(channel)
 
 func HideCats():
 	for x in range(0, 4):
