@@ -140,6 +140,7 @@ func read_file( path:String ):
 	var f = File.new( )
 
 	if f.open( path, f.READ ) != OK:
+		print(path)
 		push_error( "cant read file %s" % path )
 		breakpoint
 	var stream:StreamPeerBuffer = StreamPeerBuffer.new( )

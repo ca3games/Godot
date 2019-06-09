@@ -28,15 +28,15 @@ func _ready():
 func _noteON(channel, program, note):
 	var id = Vector2(channel%4, channel/4)
 	bongo_cat[id.x][id.y].bongo_cat.show()
-	bongo_cat[id.x][id.y].bongo_cat.Note_ON(note%12, program, channel)
 	if channel == 9 :
+		bongo_cat[id.x][id.y].bongo_cat.Note_ON(note-35, program, channel)
 		if note >= 35 and note <= 81:
 			bongo_cat[id.x][id.y].bongo_cat.get_node("Name").text = names.percussion[note]
 		else:
 			bongo_cat[id.x][id.y].bongo_cat.get_node("Name").text = "percussion"
 	else:
 		bongo_cat[id.x][id.y].bongo_cat.get_node("Name").text = names.instrument[program]
-	
+		bongo_cat[id.x][id.y].bongo_cat.Note_ON(note%12, program, channel)
 	
 func _noteOFF(channel):
 	var id = Vector2(channel%4, channel/4)

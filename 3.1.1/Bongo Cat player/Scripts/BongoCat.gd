@@ -58,18 +58,24 @@ func Reset_Colors():
 	
 func Note_ON(note, program, channel):
 	Reset_Colors()
-	if note <= 5:
-		$Cat.animation = "right on"
+	if channel == 9:
+		if note%12 <= 5:
+			$Cat.animation = "right on"
+		else:
+			$Cat.animation = "left on"
+		notes[note%12].modulate = Color.red
+		$Cat.offset = offset[note%12]
+		$Block/AnimatedSprite.animation = "Percussion"
+		$Block/AnimatedSprite.frame = note
 	else:
-		$Cat.animation = "left on"
-	notes[note].modulate = Color.red
-	$Cat.offset = offset[note]
-	
-	if program <= $Block/AnimatedSprite.frames.get_frame_count("default"):
-		$Block/AnimatedSprite.show()
+		if note <= 5:
+			$Cat.animation = "right on"
+		else:
+			$Cat.animation = "left on"
+		notes[note].modulate = Color.red
+		$Cat.offset = offset[note]
+		$Block/AnimatedSprite.animation = "Instruments"
 		$Block/AnimatedSprite.frame = program
-	else:
-		$Block/AnimatedSprite.hide()
 
 func Note_OFF(channel):
 	if channel == 9:
