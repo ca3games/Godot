@@ -1,6 +1,5 @@
 extends Node
 
-var soundbank = ""
 var midi = ""
 
 func _ready():
@@ -9,7 +8,6 @@ func _ready():
 
 func save_config(path):
 	var bongo_cat = ConfigFile.new()
-	bongo_cat.set_value("Location", "soundbank", soundbank)
 	bongo_cat.set_value("Location", "midi", midi)
 	bongo_cat.save(path)
 
@@ -25,5 +23,4 @@ func Load():
 		save_config(music + "/" + "bongo_cat.cfg")
 		Load()
 	else:
-		soundbank = bongo_cat.get_value("Location", "soundbank", "")
 		midi = bongo_cat.get_value("Location", "midi", "")

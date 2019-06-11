@@ -31,11 +31,7 @@ func _ready( ):
 	else:
 		$CanvasLayer/VBoxContainer/HBoxContainer3/File.text = file
 
-	$GodotMIDIPlayer.soundfont = Config.soundbank
-	if $GodotMIDIPlayer.soundfont == \"\":
-		$CanvasLayer/HBoxContainer/Label.text = \"SF2 file not loaded\"
-	else:
-		$CanvasLayer/HBoxContainer/Label.text = $GodotMIDIPlayer.soundfont
+	$GodotMIDIPlayer.soundfont = \"res://data/MIDI.sf2\"
 	
 	midi_names = names.new()
 	#self._setup_channel_status_viewers( )
@@ -138,9 +134,9 @@ func _on_midi_event( channel, event ):
 func _on_Play_pressed():
 	if $GodotMIDIPlayer.file != \"\" and $GodotMIDIPlayer.soundfont != \"\":
 		$GodotMIDIPlayer.stop( )
+		self.midi_player.position = 0.0
 		get_tree().get_root().get_node(\"MIDI/Cats/Level\").HideCats()
 		$GodotMIDIPlayer.file = Config.midi
-		$GodotMIDIPlayer.soundfont = Config.soundbank
 		self.midi_player.play( )
 
 
@@ -151,24 +147,7 @@ func _on_STOP_pressed():
 
 
 func _on_Names_toggled(button_pressed):
-	get_tree().get_root().get_node(\"MIDI/Cats/Level\").ShowNames(button_pressed)
-
-
-func _on_SoundBank_file_selected(path):
-	$GodotMIDIPlayer.stop( )
-	Config.soundbank = path
-	Config.Save()
-	Config.Load()
-	$GodotMIDIPlayer.soundfont = Config.soundbank
-	$CanvasLayer/HBoxContainer/Label.text = $GodotMIDIPlayer.soundfont
-	
-	get_tree().get_root().get_node(\"MIDI/Cats/Level\").HideCats()
-	
-
-
-func _on_LoadSoundbank_pressed():
-	$CanvasLayer/SoundBank.visible = true
-"
+	get_tree().get_root().get_node(\"MIDI/Cats/Level\").ShowNames(button_pressed)"
 
 [sub_resource type="Theme" id=2]
 
@@ -327,45 +306,8 @@ access = 2
 filters = PoolStringArray( "*.mid" )
 current_dir = "/home/cristian/Documentos/Github"
 current_path = "/home/cristian/Documentos/Github/"
-
-[node name="SoundBank" type="FileDialog" parent="CanvasLayer"]
-margin_left = 17.1475
-margin_top = 230.563
-margin_right = 542.147
-margin_bottom = 575.563
-rect_scale = Vector2( 0.9, 0.9 )
-theme = SubResource( 2 )
-window_title = "Abrir un archivo"
-resizable = true
-mode = 0
-access = 2
-filters = PoolStringArray( "*.sf2" )
-current_dir = "/home/cristian/Documentos/Github"
-current_path = "/home/cristian/Documentos/Github/"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
-margin_left = 4.0
-margin_top = 767.339
-margin_right = 795.0
-margin_bottom = 794.339
-
-[node name="LoadSoundbank" type="Button" parent="CanvasLayer/HBoxContainer"]
-margin_right = 35.0
-margin_bottom = 27.0
-theme = ExtResource( 3 )
-text = "Open"
-
-[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer"]
-margin_left = 39.0
-margin_top = 5.0
-margin_right = 150.0
-margin_bottom = 22.0
-theme = ExtResource( 3 )
-text = "SF2 NOT LOADED"
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer3/OpenButton" to="." method="_on_OpenButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer3/PLAY" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer3/STOP" to="." method="_on_STOP_pressed"]
 [connection signal="toggled" from="CanvasLayer/VBoxContainer/HBoxContainer3/Names" to="." method="_on_Names_toggled"]
 [connection signal="file_selected" from="CanvasLayer/FileDialog" to="." method="_on_FileDialog_file_selected"]
-[connection signal="file_selected" from="CanvasLayer/SoundBank" to="." method="_on_SoundBank_file_selected"]
-[connection signal="pressed" from="CanvasLayer/HBoxContainer/LoadSoundbank" to="." method="_on_LoadSoundbank_pressed"]
