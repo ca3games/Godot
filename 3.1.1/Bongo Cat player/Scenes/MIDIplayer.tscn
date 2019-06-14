@@ -23,15 +23,12 @@ onready var level = preload(\"res://Scenes/Level.tscn\")
 \"\"\"
 func _ready( ):
 	$CanvasLayer/FileDialog.current_dir = OS.get_system_dir(OS.SYSTEM_DIR_DOWNLOADS)
-	$CanvasLayer/SoundBank.current_dir = OS.get_system_dir(OS.SYSTEM_DIR_DOWNLOADS)
 	
 	file = Config.midi
 	if file == \"\":
 		$CanvasLayer/VBoxContainer/HBoxContainer3/File.text = \"FILE NOT LOADED\"
 	else:
 		$CanvasLayer/VBoxContainer/HBoxContainer3/File.text = file
-
-	$GodotMIDIPlayer.soundfont = \"res://data/MIDI.sf2\"
 	
 	midi_names = names.new()
 	#self._setup_channel_status_viewers( )
@@ -161,7 +158,7 @@ __meta__ = {
 }
 file = "res://data/awakenin.mid"
 playing = true
-soundfont = "res://data/Aspirin-Stereo.sf2"
+soundfont = "res://data/MIDI.sf2"
 bus = "Rev"
 
 [node name="Cats" type="Node2D" parent="."]

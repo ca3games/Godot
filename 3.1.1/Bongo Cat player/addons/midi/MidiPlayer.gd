@@ -96,6 +96,10 @@ func _init_track( ):
 		"event_pointer": 0,
 	}
 
+	if self.smf_data == null:
+		OS.alert("Invalid data")
+		return
+
 	if len( self.smf_data.tracks ) == 1:
 		self.track_status.events = self.smf_data.tracks[0].events
 	else:

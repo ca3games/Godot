@@ -141,8 +141,8 @@ func read_file( path:String ):
 
 	if f.open( path, f.READ ) != OK:
 		print(path)
-		push_error( "cant read file %s" % path )
-		breakpoint
+		OS.alert("Can't find file on " + path)
+		return
 	var stream:StreamPeerBuffer = StreamPeerBuffer.new( )
 	stream.set_data_array( f.get_buffer( f.get_len( ) ) )
 	stream.big_endian = true

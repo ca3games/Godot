@@ -81,7 +81,7 @@ func Note_OFF(channel):
 	if channel == 9:
 		$Timer.start(0.2)
 	else:
-		$Timer.start(0.6)
+		$Timer.start(1)
 
 func _on_Timer_timeout():
 	Reset_Colors()
