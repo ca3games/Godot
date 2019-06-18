@@ -1,9 +1,9 @@
 [gd_scene load_steps=102 format=2]
 
 [ext_resource path="res://Scripts/BongoCat.gd" type="Script" id=1]
-[ext_resource path="res://2D/Cat/bongo cat both off.png" type="Texture" id=2]
-[ext_resource path="res://2D/Cat/bongo cat left on.png" type="Texture" id=3]
-[ext_resource path="res://2D/Cat/bongo cat right on.png" type="Texture" id=4]
+[ext_resource path="res://2D/Cat/inu both off.png" type="Texture" id=2]
+[ext_resource path="res://2D/Cat/inu left on.png" type="Texture" id=3]
+[ext_resource path="res://2D/Cat/inu right on.png" type="Texture" id=4]
 [ext_resource path="res://Font/Roboto-Regular.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://2D/Piano/B.png" type="Texture" id=6]
 [ext_resource path="res://2D/Piano/A.png" type="Texture" id=7]

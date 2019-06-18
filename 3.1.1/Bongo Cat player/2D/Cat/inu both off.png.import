@@ -2,12 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/icon.png-487276ed1e3a0c39cad0279d744ee560.stex"
+path="res://.import/inu both off.png-9171057cbbc606c79f40b8775cd0e96a.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://icon.png"
-dest_files=[ "res://.import/icon.png-487276ed1e3a0c39cad0279d744ee560.stex" ]
+source_file="res://2D/Cat/inu both off.png"
+dest_files=[ "res://.import/inu both off.png-9171057cbbc606c79f40b8775cd0e96a.stex" ]
 
 [params]
 

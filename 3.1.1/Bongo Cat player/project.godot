@@ -15,9 +15,9 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Bongo Cat Player"
+config/name="Bongo Dog Player"
 run/main_scene="res://Scenes/MIDIplayer.tscn"
-config/icon="res://2D/Cat/bongo cat both off.png"
+config/icon="res://2D/Cat/inu both off.png"
 
 [autoload]
 
