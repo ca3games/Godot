@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/BadGuy.png-206e364366c2b8023ed28b0ed3ec904d.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://2D/BadGuy.png"
+dest_files=[ "res://.import/BadGuy.png-206e364366c2b8023ed28b0ed3ec904d.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0
