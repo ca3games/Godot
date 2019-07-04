@@ -27,11 +27,11 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 vertices = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 
-[sub_resource type="NavigationPolygon" id=7]
+[sub_resource type="NavigationPolygon" id=6]
 vertices = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 
-[sub_resource type="TileSet" id=6]
+[sub_resource type="TileSet" id=7]
 0/name = "Tiles.png 0"
 0/texture = ExtResource( 4 )
 0/tex_offset = Vector2( 0, 0 )
@@ -105,7 +105,7 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 6/tile_mode = 0
 6/occluder_offset = Vector2( 0, 0 )
 6/navigation_offset = Vector2( 0, 0 )
-6/navigation = SubResource( 7 )
+6/navigation = SubResource( 6 )
 6/shapes = [  ]
 6/z_index = 0
 
@@ -129,7 +129,7 @@ script = ExtResource( 3 )
 [node name="Tiles" type="Node2D" parent="."]
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource( 6 )
+tile_set = SubResource( 7 )
 cell_size = Vector2( 32, 32 )
 format = 1
 
