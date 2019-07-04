@@ -2,6 +2,7 @@ extends Node2D
 
 const PORT = 3000
 const MAX_USERS = 4
+var upnp
 
 func _ready():
 	$Leave.hide()
@@ -9,6 +10,10 @@ func _ready():
 	get_tree().connect("network_peer_connected", self, "user_entered")
 	get_tree().connect("network_peer_disconnected", self, "user_exited")
 	get_tree().connect("server_disconnected", self, "_server_disconnected")
+	upnp = UPNP.new()
+	upnp.discover()
+	upnp.add_port_mapping(3000)
+	
 
 func _server_disconnected():
 	$Panel/TextEdit.text += "Disconnected from Server\n"
@@ -61,6 +66,7 @@ func Leave_room():
 	$IP.show()
 	var id = get_tree().get_network_unique_id()
 	user_exited(id)
+	upnp.delete_port_mapping(3000)
 
 func Host_room():
 	var host = NetworkedMultiplayerENet.new()
