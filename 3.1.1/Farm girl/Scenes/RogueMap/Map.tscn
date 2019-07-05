@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Code/Map.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Code/MapGenerator.gd" type="Script" id=2]
+
+[node name="Map" type="Spatial"]
+
+[node name="Tiles" type="Spatial" parent="."]
+
+[node name="Entities" type="Spatial" parent="."]
+
+[node name="Scripts" type="Node" parent="."]
+script = ExtResource( 1 )
+
+[node name="MapGenerator" type="Node" parent="Scripts"]
+script = ExtResource( 2 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 0.535311, 1.53762 )
+current = true
+
+[node name="CameraTween" type="Tween" parent="."]
+
+[node name="Movement" type="Timer" parent="."]
+[connection signal="timeout" from="Movement" to="Scripts" method="_on_Movement_timeout"]

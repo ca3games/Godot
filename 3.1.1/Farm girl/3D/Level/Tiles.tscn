@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://3D/Level/grass.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://3D/Level/dirt.obj" type="ArrayMesh" id=2]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="grass" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="dirt" type="MeshInstance" parent="."]
+mesh = ExtResource( 2 )
+material/0 = null
