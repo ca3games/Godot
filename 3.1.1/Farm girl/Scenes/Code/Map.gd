@@ -1,12 +1,14 @@
 extends Node
 
 var Map
-var mapsize = Vector2(30,30)
+var mapsize = Vector2(50,50)
 var offset = 0.31
 onready var start_pos = Vector2(mapsize.x / 2, mapsize.y-4)
 onready var camera = get_tree().get_root().get_node("Map/Camera")
 onready var Player = load("res://Scenes/Code/Player.gd")
 onready var player_node = preload("res://Scenes/RogueMap/Pacifica.tscn")
+onready var Cell = load("res://Scenes/Code/Cell.gd")
+onready var InfoLabel = $"../CanvasLayer/Panel/VBoxContainer/HBoxContainer/Info"
 var player
 var camerapos
 onready var cameratween = get_tree().get_root().get_node("Map/CameraTween")
@@ -15,6 +17,7 @@ var idle = true
 
 func _ready():
 	Map = $MapGenerator.GenerateMap(mapsize, offset)
+	$MapGenerator.GenerateRocks(Map, mapsize)
 	$MapGenerator.InstantiateMap(Map, mapsize)
 	camera.global_transform.origin = Vector3(start_pos.x*offset, 1, start_pos.y*offset)
 	player = Player.new()
@@ -24,6 +27,8 @@ func _ready():
 	camerapos = start_pos
 	player.Player.global_transform.origin = Vector3(player_pos.x*offset, 0.2, (player_pos.y)*offset)
 	get_parent().get_node("Entities").add_child(player.Player)
+	$MapGenerator.SetDarkMap(Map, mapsize, player.pos)
+	Map[player.pos.x][player.pos.y].Tile.ChangeColor(Color.red)
 
 func _process(delta):
 	if idle and idlecamera:
@@ -40,13 +45,13 @@ func CheckMovement():
 	var down = false
 	var up = false
 	
-	if Input.is_action_pressed("LEFT"):
+	if Input.is_action_just_released("LEFT") or Input.is_action_pressed("LEFT"):
 		left = true
-	if Input.is_action_pressed("RIGHT"):
+	if Input.is_action_just_released("RIGHT") or Input.is_action_pressed("RIGHT"):
 		right = true
-	if Input.is_action_pressed("UP"):
+	if Input.is_action_just_released("UP") or Input.is_action_pressed("UP"):
 		up = true
-	if Input.is_action_pressed("DOWN"):
+	if Input.is_action_just_released("DOWN") or Input.is_action_pressed("DOWN"):
 		down = true
 	
 	if left and !right and !up and !down:
@@ -100,16 +105,23 @@ func GetPosition(pos):
 	return Vector3(Map[pos.x][pos.y].position.x, 0, Map[pos.x][pos.y].position.y)
 
 func SetPlayerPos(new):
+	PrintInfo(player.pos + new)
 	if IsValid(player.pos + new):
 		player.pos += new
 		var new_pos = GetPosition(player.pos)
 		new_pos.y += 0.2
 		player.Player.global_transform.origin = new_pos
-	
+		
+		$MapGenerator.SetDarkMap(Map, mapsize, player.pos)
+		Map[player.pos.x][player.pos.y].Tile.ChangeColor(Color.red)
+
+func PrintInfo(pos):
+	if pos.x >= 0 and pos.y >= 0 and pos.x <= mapsize.x-1 and pos.y <= mapsize.y:
+		InfoLabel.text = "Info : " + str(Map[pos.x][pos.y].Gettype())
 
 func IsValid(pos):
 	if pos.x > 0 and pos.y > 0 and pos.x < mapsize.x and pos.y < mapsize.y:
-		if !Map[pos.x][pos.y].wall:
+		if Map[pos.x][pos.y].item == Cell.type.empty:
 			return true
 	return false
 

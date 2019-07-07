@@ -1,17 +1,12 @@
 extends Spatial
 
 func Move_Anim(move):
-	$AnimatedSprite.animation = "IDLE"
 	match (move):
 		"front" : 
-			$AnimatedSprite.frame = 1
-			$AnimatedSprite.flip_h = false
+			$Pacifica.rotation_degrees = Vector3.ZERO
 		"left" :
-			$AnimatedSprite.frame = 2
-			$AnimatedSprite.flip_h = true
+			$Pacifica.rotation_degrees = Vector3(0, 270, 0)
 		"right" :
-			$AnimatedSprite.frame = 2
-			$AnimatedSprite.flip_h = false
+			$Pacifica.rotation_degrees = Vector3(0, 90, 0)
 		"back" :
-			$AnimatedSprite.frame = 0
-			$AnimatedSprite.flip_h = false
+			$Pacifica.rotation_degrees = Vector3(0, 180, 0)

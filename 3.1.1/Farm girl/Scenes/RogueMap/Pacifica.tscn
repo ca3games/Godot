@@ -1,30 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/Code/Pacifica.gd" type="Script" id=1]
-[ext_resource path="res://2D/Pacifica/back idle.png" type="Texture" id=2]
-[ext_resource path="res://2D/Pacifica/front idle.png" type="Texture" id=3]
-[ext_resource path="res://2D/Pacifica/side idle.png" type="Texture" id=4]
-
-[sub_resource type="SpatialMaterial" id=1]
-flags_transparent = true
-flags_unshaded = true
-params_cull_mode = 2
-params_depth_draw_mode = 3
-params_billboard_mode = 1
-
-[sub_resource type="SpriteFrames" id=2]
-animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "IDLE",
-"speed": 5.0
-} ]
+[ext_resource path="res://3D/Pacifica/pacifica.tscn" type="PackedScene" id=2]
 
 [node name="Node2D" type="Spatial"]
 script = ExtResource( 1 )
 
-[node name="AnimatedSprite" type="AnimatedSprite3D" parent="."]
-material_override = SubResource( 1 )
-alpha_cut = 2
-frames = SubResource( 2 )
-animation = "IDLE"
+[node name="Pacifica" parent="." instance=ExtResource( 2 )]
+transform = Transform( -2.18557e-09, 0, -0.05, 0, 0.05, 0, 0.05, 0, -2.18557e-09, 0, -0.0135806, 0 )
