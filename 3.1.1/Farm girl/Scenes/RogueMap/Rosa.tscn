@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Code/Pacifica.gd" type="Script" id=1]
+[ext_resource path="res://3D/Pacifica/Rosa.tscn" type="PackedScene" id=2]
+[ext_resource path="res://3D/Objects/backpad.obj" type="ArrayMesh" id=3]
+
+[sub_resource type="SpatialMaterial" id=1]
+params_cull_mode = 2
+albedo_color = Color( 0.0941176, 0.109804, 0.258824, 1 )
+
+[node name="Node2D" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="Pacifica" parent="." instance=ExtResource( 2 )]
+transform = Transform( -2.18557e-09, 0, -0.05, 0, 0.05, 0, 0.05, 0, -2.18557e-09, 0, 0, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( -0.05, 0, 4.37114e-09, 0, 0.05, 0, -4.37114e-09, 0, -0.05, 0.0695787, 0.0122983, 3.10862e-15 )
+mesh = ExtResource( 3 )
+material/0 = SubResource( 1 )

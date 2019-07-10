@@ -3,11 +3,14 @@ var pos
 var position
 enum type {
 	wall, rock, empty, grass, dirt,
-	sprout
+	sprout,
+	enemy
 	}
 
 var item = type.empty
 var object
+var cost = 0
+var cost2 = 0
 
 func Gettype():
 	var tmp = "EMPTY"
