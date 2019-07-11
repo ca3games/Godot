@@ -19,7 +19,11 @@ script = ExtResource( 2 )
 [node name="AStar" type="Node" parent="Scripts"]
 script = ExtResource( 3 )
 
-[node name="Timer" type="Timer" parent="Scripts/AStar"]
+[node name="Timer" type="Timer" parent="Scripts"]
+
+[node name="Move" type="Tween" parent="Scripts"]
+
+[node name="LoopMovementBug" type="Timer" parent="Scripts"]
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 0.535311, 1.53762 )
@@ -52,4 +56,5 @@ margin_bottom = 14.0
 margin_right = 29.0
 margin_bottom = 14.0
 text = "Info:"
+[connection signal="timeout" from="Scripts/LoopMovementBug" to="Scripts" method="_on_LoopMovementBug_timeout"]
 [connection signal="timeout" from="Movement" to="Scripts" method="_on_Movement_timeout"]

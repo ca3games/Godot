@@ -10,3 +10,11 @@ func Move_Anim(move):
 			$Pacifica.rotation_degrees = Vector3(0, 90, 0)
 		"back" :
 			$Pacifica.rotation_degrees = Vector3(0, 180, 0)
+		"front left":
+			$Pacifica.rotation_degrees = Vector3(0, 270+40, 0)
+		"front right":
+			$Pacifica.rotation_degrees = Vector3(0, 45, 0)
+		"back left":
+			$Pacifica.rotation_degrees = Vector3(0, 180+40, 0)
+		"back right":
+			$Pacifica.rotation_degrees = Vector3(0, 180-40, 0)

@@ -32,12 +32,14 @@ modulate = Color( 1, 0, 0, 1 )
 texture = ExtResource( 4 )
 
 [node name="Label" type="Label" parent="."]
+visible = false
 margin_right = 40.0
 margin_bottom = 14.0
 custom_colors/font_color = Color( 0.0313726, 0.0235294, 0.356863, 1 )
 text = "99"
 
 [node name="Info2" type="Label" parent="Label"]
+visible = false
 margin_left = -0.37735
 margin_top = 14.7168
 margin_right = 39.6227

@@ -17,11 +17,11 @@ onready var cameratween = get_tree().get_root().get_node("Map/CameraTween")
 var idlecamera = true
 var idle = true
 var Enemies
-onready var Astar
+onready var RosaAstar
 
 
 func _ready():
-	Astar = $AStar
+	RosaAstar = $AStar
 	Map = $MapGenerator.GenerateMap(mapsize, offset)
 	$MapGenerator.GenerateRocks(Map, mapsize)
 	$MapGenerator.InstantiateMap(Map, mapsize)
@@ -46,13 +46,15 @@ func _ready():
 	$MapGenerator.SpawnEnemies(Map, Enemies)
 
 func _process(delta):
-	if idlecamera:
+	if idlecamera and idle:
 		CheckMovement()
+		if GetDistance(player.pos, rosa.pos) > 4:
+			RosaFollow()
 	
 	if idlecamera:
 		CheckCameraMove()
 	
-	$MapGenerator.PrintInfo(Map, mapsize)
+	#$MapGenerator.PrintInfo(Map, mapsize)
 
 func CheckMovement():
 	var left = false
@@ -91,38 +93,47 @@ func CheckMovement():
 		player.Player.Move_Anim("front")
 
 
+func GetDistance(pos, target):
+	return abs(pos.x - target.x) + abs(pos.y - target.y)
+
 func CheckCameraMove():
-	var distance_x = abs (camerapos.x - player.pos.x)
-	if distance_x > 3:
-		if camerapos.x - player.pos.x > 0 :
-			MoveCamera(Vector2(-3, 0))
-		else:
-			MoveCamera(Vector2(3, 0))
-	var distance_y = abs(player.pos.y - camerapos.y)
-	if distance_y > 8:
-		MoveCamera(Vector2(0, -8))
-	if distance_y < 3:
-		MoveCamera(Vector2(0, 2))
+	MoveCamera()
+	
 
-func MoveCamera(pos):
-	if IsValid(camerapos + pos):
-		idlecamera = false
-		camerapos += pos
-		var new_pos = GetPosition(camerapos)
-		new_pos.y += 1
-		cameratween.interpolate_property(camera, "translation", camera.global_transform.origin, new_pos, 1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-		cameratween.start()
-		idlecamera = true
-	elif camerapos.y + pos.y >= mapsize.y:
-		var new_pos = camerapos + pos
-		var tmp = GetPosition(Vector2(new_pos.x, mapsize.y-1))
-		idlecamera = false
-		tmp.y = 1
-		tmp.z += offset * 4
-		cameratween.interpolate_property(camera, "translation", camera.global_transform.origin, tmp, 1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-		cameratween.start()
-		idlecamera = true
+func GetDirection(pos, target):
+	return (pos.x - target.x) + (pos.y + target.y)
 
+func GetDistanceX(pos, target):
+	return pos.x - target.x
+
+func GetDistanceY(pos, target):
+	return pos.y - target.y
+
+func MoveCamera():
+	var direction = 5
+	var new_pos = camerapos * offset
+	if camerapos.x < player.pos.x - 4:
+		camerapos.x += 1
+		new_pos = camerapos * offset
+	if camerapos.x > player.pos.x + 4:
+		camerapos.x -= 1
+		new_pos = camerapos * offset
+	var distanceY = camerapos.y - player.pos.y
+	#CAMERA DOWN
+	if distanceY > 7:
+		#print("camera down")
+		camerapos.y -= 1
+		new_pos =  camerapos * offset
+	#CAMERA UP
+	if distanceY < 5:
+		#print("camera up")
+		camerapos.y += 1
+		new_pos = camerapos * offset
+	idlecamera = false
+	var pos = Vector3(new_pos.x, 1, new_pos.y)
+	cameratween.interpolate_property(camera, "translation", camera.global_transform.origin, pos, 1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	cameratween.start()
+	idlecamera = true
 
 func GetPosition(pos):
 	return Vector3(Map[pos.x][pos.y].position.x, 0, Map[pos.x][pos.y].position.y)
@@ -137,10 +148,72 @@ func SetPlayerPos(new):
 		
 		$MapGenerator.SetDarkMap(Map, mapsize, player.pos)
 		Map[player.pos.x][player.pos.y].Tile.ChangeColor(Color.red)
-		RosaFollow()
 
 func RosaFollow():
-	Astar.FindPath(Map, rosa.pos, player.pos, mapsize)
+	idle = false
+	RosaAstar.FindPath(Map, rosa.pos, player.pos, mapsize)
+	var new_pos
+	if $LoopMovementBug.time_left <= 0:
+		$LoopMovementBug.start(1)
+		rosa.loop_bug = 1
+		new_pos = RosaAstar.getNext(rosa.loop_bug)
+	else:
+		rosa.loop_bug += 1
+		if rosa.loop_bug > 2:
+			rosa.loop_bug = 3
+		new_pos = RosaAstar.getNext(rosa.loop_bug)	
+	rosa.pos = new_pos
+	MoveNode(rosa.Player, Vector3(rosa.pos.x * offset, 0.2, rosa.pos.y * offset))
+	
+	var dis_x = GetDistanceX(rosa.pos, player.pos)
+	var dis_y = GetDistanceY(rosa.pos, player.pos)
+	var left = false
+	var right = false
+	var up = false
+	var down = false
+	
+	var direction = 5
+	if dis_x < -2:
+		left = true
+	if dis_x > 2:
+		right = true
+	if dis_y < -2:
+		down = true
+	if dis_y > 2:
+		up = true
+	
+	if up:
+		direction = 8
+	if down:
+		direction = 2
+	if left:
+		direction = 4
+	if up and left:
+		direction = 7
+	if down and left:
+		direction = 1
+	if right:
+		direction = 6
+	if up and right:
+		direction = 9
+	if down and right:
+		direction = 3
+	
+	match(direction):
+		4: rosa.Player.Move_Anim("right")
+		6: rosa.Player.Move_Anim("left")
+		2: rosa.Player.Move_Anim("front")
+		1: rosa.Player.Move_Anim("front left")
+		8: rosa.Player.Move_Anim("back")
+		3: rosa.Player.Move_Anim("front right")
+		7: rosa.Player.Move_Anim("back left")
+		9: rosa.Player.Move_Anim("back right")
+	
+	idle = true
+
+func MoveNode(node, newpos):
+	$Move.interpolate_property(node, "translation", node.global_transform.origin, newpos, 0.5, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$Move.start()
 
 func PrintInfo(pos):
 	if pos.x >= 0 and pos.y >= 0 and pos.x <= mapsize.x-1 and pos.y <= mapsize.y:
@@ -155,3 +228,7 @@ func IsValid(pos):
 
 func _on_Movement_timeout():
 	idle = true
+
+
+func _on_LoopMovementBug_timeout():
+	rosa.loop_bug = 1
