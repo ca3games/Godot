@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Maria"
-run/main_scene="res://Scenes/RogueMap/Map.tscn"
+run/main_scene="res://Scenes/Main.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -48,4 +48,5 @@ DOWN={
 
 [rendering]
 
+quality/driver/driver_name="GLES2"
 environment/default_environment="res://default_env.tres"

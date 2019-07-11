@@ -32,29 +32,5 @@ current = true
 [node name="CameraTween" type="Tween" parent="."]
 
 [node name="Movement" type="Timer" parent="."]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-editor/display_folded = true
-
-[node name="Panel" type="Panel" parent="CanvasLayer"]
-margin_left = 3.15868
-margin_top = 2.99521
-margin_right = 259.159
-margin_bottom = 112.995
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel"]
-margin_left = 6.0
-margin_top = 6.0
-margin_right = 249.0
-margin_bottom = 102.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel/VBoxContainer"]
-margin_right = 243.0
-margin_bottom = 14.0
-
-[node name="Info" type="Label" parent="CanvasLayer/Panel/VBoxContainer/HBoxContainer"]
-margin_right = 29.0
-margin_bottom = 14.0
-text = "Info:"
 [connection signal="timeout" from="Scripts/LoopMovementBug" to="Scripts" method="_on_LoopMovementBug_timeout"]
 [connection signal="timeout" from="Movement" to="Scripts" method="_on_Movement_timeout"]

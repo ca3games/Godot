@@ -4,16 +4,16 @@ var Map
 var mapsize = Vector2(50,50)
 var offset = 0.31
 onready var start_pos = Vector2(mapsize.x / 2, mapsize.y-4)
-onready var camera = get_tree().get_root().get_node("Map/Camera")
+onready var camera
 onready var Player = load("res://Scenes/Code/Player.gd")
 onready var player_node = preload("res://Scenes/RogueMap/Pacifica.tscn")
 onready var rosa_node = preload("res://Scenes/RogueMap/Rosa.tscn")
 onready var Cell = load("res://Scenes/Code/Cell.gd")
-onready var InfoLabel = $"../CanvasLayer/Panel/VBoxContainer/HBoxContainer/Info"
+onready var InfoLabel = $"../../../../CanvasLayer/Panel/VBoxContainer/HBoxContainer/Info"
 var player
 var rosa
 var camerapos
-onready var cameratween = get_tree().get_root().get_node("Map/CameraTween")
+onready var cameratween
 var idlecamera = true
 var idle = true
 var Enemies
@@ -21,6 +21,8 @@ onready var RosaAstar
 
 
 func _ready():
+	camera = get_tree().get_root().get_node("Root/ViewportContainer/Viewport/Map/Camera")
+	cameratween = get_tree().get_root().get_node("Root/ViewportContainer/Viewport/Map/CameraTween")
 	RosaAstar = $AStar
 	Map = $MapGenerator.GenerateMap(mapsize, offset)
 	$MapGenerator.GenerateRocks(Map, mapsize)
