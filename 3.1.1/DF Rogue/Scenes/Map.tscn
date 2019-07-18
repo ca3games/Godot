@@ -139,6 +139,7 @@ current = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Sprite" type="Sprite" parent="CanvasLayer"]
+visible = false
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 396.079, 294.631 )
 scale = Vector2( 25.755, 19.5494 )

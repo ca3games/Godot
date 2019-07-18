@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Code/Player/Player.gd" type="Script" id=1]
+[ext_resource path="res://2D/GUI/Select.png" type="Texture" id=2]
+[ext_resource path="res://2D/girls.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Player/SelectArea.tscn" type="PackedScene" id=4]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 5.72637
+height = 2.58826
+
+[node name="German" type="KinematicBody2D"]
+script = ExtResource( 1 )
+
+[node name="Select" type="Sprite" parent="."]
+position = Vector2( -0.457108, 12.9642 )
+texture = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 128, 0, 32, 32 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 9.27525 )
+shape = SubResource( 1 )
+
+[node name="SelectArea" parent="." instance=ExtResource( 4 )]
+[connection signal="mouse_entered" from="SelectArea" to="." method="_on_SelectArea_mouse_entered"]
+[connection signal="mouse_exited" from="SelectArea" to="." method="_on_SelectArea_mouse_exited"]
