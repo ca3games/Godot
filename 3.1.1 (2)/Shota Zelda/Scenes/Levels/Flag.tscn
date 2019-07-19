@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://2D/GUI/Flag.png" type="Texture" id=1]
-
-[node name="Flag" type="Node2D"]
-
-[node name="Flag" type="Sprite" parent="."]
-position = Vector2( 1.54166, -0.688629 )
-texture = ExtResource( 1 )
