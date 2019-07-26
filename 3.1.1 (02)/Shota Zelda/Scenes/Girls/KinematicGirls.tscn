@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Code/Girls code/Girls.gd" type="Script" id=1]
 [ext_resource path="res://2D/GUI/Ring.png" type="Texture" id=2]
@@ -79,6 +79,9 @@ animations = [ {
 radius = 7.52752
 height = 2.07791
 
+[sub_resource type="CircleShape2D" id=10]
+radius = 3.80246
+
 [node name="Girls" type="KinematicBody2D"]
 pause_mode = 2
 script = ExtResource( 1 )
@@ -157,3 +160,12 @@ shape = SubResource( 9 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Area2D" type="Area2D" parent="." groups=[
+"Waifu",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 10 )

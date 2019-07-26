@@ -2,7 +2,7 @@ extends Node
 
 var direction = Vector2(0,0)
 var vel = 0.5
-var old_direction
+var old_direction = Vector2(0,1)
 
 var current
 

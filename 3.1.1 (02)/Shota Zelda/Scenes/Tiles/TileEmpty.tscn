@@ -18,7 +18,9 @@ extents = Vector2( 7.88509, 8.0383 )
 frames = SubResource( 1 )
 script = ExtResource( 2 )
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=[
+"Tile",
+]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 2 )

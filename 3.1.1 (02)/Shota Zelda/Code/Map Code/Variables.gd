@@ -6,9 +6,10 @@ onready var Player_scene = preload("res://Scenes/Player/Player.tscn")
 onready var Map = $"../Map"
 var Waifu
 onready var Waifu_scene = preload("res://Scenes/Girls/KinematicGirls.tscn")
-
+onready var corpse = preload("res://Scenes/Enemies/Corpse.tscn")
 onready var Goblin = preload("res://Scenes/Enemies/Goblin.tscn")
 var Enemies = []
+var enemies_left = 0
 
 func _ready():
 	randomize()
@@ -23,16 +24,12 @@ func _ready():
 	Waifu = HPvar.new()
 	Waifu.pos = Vector2(Map.mapsize.x / 2, Map.mapsize.y / 2)
 	Waifu.Scene = Waifu_scene.instance()
+	Waifu.Scene.pos = Waifu.pos
 	Waifu.Scene.position = Waifu.pos * Map.mapoffset + Map.mappos
 	$"../../YSort".add_child(Waifu.Scene)
 	
 	
 	MakeEnemies()
-	
-
-func _input(event):
-	if Input.is_action_just_released("ENTER"):
-		Variables.ResetMap()
 
 func MakeEnemies():
 	for i in range(0, 3):
@@ -52,9 +49,26 @@ func SpawnEnemy(x, y, x1, y1):
 		SpawnEnemy(x2, y2, x1, y1)
 
 func AddEnemy(x, y):
+	enemies_left += 1
 	Enemies.append(HPvar.new())
 	Enemies[len(Enemies)-1].HP = 50
 	Enemies[len(Enemies)-1].pos = Vector2(x, y)
 	Enemies[len(Enemies)-1].Scene = Goblin.instance()
+	Enemies[len(Enemies)-1].Scene.pos = Vector2(x, y)
+	Enemies[len(Enemies)-1].Scene.id = len(Enemies)-1
 	Enemies[len(Enemies)-1].Scene.position = Enemies[len(Enemies)-1].pos * Map.mapoffset + Map.mappos
 	$"../../YSort".add_child(Enemies[len(Enemies)-1].Scene)
+	
+func DamageEnemy(id):
+	Enemies[id].HP -= Variables.playerattack
+	Enemies[id].Scene.ChangeHP(Enemies[id].HP)
+	if Enemies[id].HP < 1:
+		var tmp = corpse.instance()
+		tmp.position = Enemies[id].Scene.position
+		Enemies[id].Scene.queue_free()
+		Enemies[id] = null
+		$"../../YSort".add_child(tmp)
+		enemies_left -= 1
+	
+	if enemies_left < 1:
+		Variables.ResetMap()

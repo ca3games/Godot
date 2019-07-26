@@ -1,13 +1,22 @@
 extends KinematicBody2D
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var idle = true
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func _process(delta):
+	
+	var stamina = $"../../GUI".get_node("Stamina").value
+	if Input.is_action_pressed("ATTACK") and idle and stamina >= 10:
+		idle = false
+		$"../../GUI".get_node("Stamina").value -= 10
+		match($STATES.old_direction):
+			Vector2(1, 0): $Images/SlashAni.play("Side")
+			Vector2(-1, 0): $Images/SlashAni.play("Side")
+			Vector2(0, 1): $Images/SlashAni.play("Front")
+			Vector2(0, -1): $Images/SlashAni.play("Back")
+			Vector2(1, 1): $Images/SlashAni.play("Front D")
+			Vector2(-1, 1): $Images/SlashAni.play("Front D")
+			Vector2(1, -1): $Images/SlashAni.play("Back D")
+			Vector2(-1, -1): $Images/SlashAni.play("Back D")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _on_SlashAni_animation_finished(anim_name):
+	idle = true
