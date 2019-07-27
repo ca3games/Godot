@@ -1,0 +1,91 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Code/Menues/Test.gd" type="Script" id=1]
+[ext_resource path="res://2D/Tiles/manizales-colombia.png" type="Texture" id=2]
+[ext_resource path="res://Code/Map Code/MapGenerator.gd" type="Script" id=3]
+[ext_resource path="res://Code/Map Code/Variables.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/GUI/GUI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Font/pixelart.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Code/Player code/ScreenShake.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/GUI/CRT.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/GUI/Shader.tscn" type="PackedScene" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 25
+font_data = ExtResource( 6 )
+
+[node name="Map" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="manizales-colombia" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.145098 )
+position = Vector2( 176.247, 34.9537 )
+scale = Vector2( 1.02341, 0.716387 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Ground" type="Node2D" parent="."]
+
+[node name="Corpses" type="Node2D" parent="."]
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Scripts" type="Node" parent="."]
+editor/display_folded = true
+
+[node name="Map" type="Node" parent="Scripts"]
+script = ExtResource( 3 )
+
+[node name="Variables" type="Node" parent="Scripts"]
+script = ExtResource( 4 )
+
+[node name="GUI" parent="." instance=ExtResource( 5 )]
+pause_mode = 2
+position = Vector2( 1.7064, -6.82561 )
+
+[node name="Paused" type="Label" parent="."]
+visible = false
+margin_left = 126.436
+margin_top = 125.701
+margin_right = 240.436
+margin_bottom = 147.701
+custom_fonts/font = SubResource( 1 )
+text = "PAUSED"
+
+[node name="ScreenShake" type="Node" parent="."]
+pause_mode = 2
+editor/display_folded = true
+script = ExtResource( 7 )
+
+[node name="Timer" type="Timer" parent="ScreenShake"]
+
+[node name="Camera2D" type="Camera2D" parent="ScreenShake"]
+position = Vector2( 174.875, 127.222 )
+current = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CRT" parent="." instance=ExtResource( 8 )]
+
+[node name="Shader" parent="." instance=ExtResource( 9 )]
+visible = false
+
+[node name="Dead" type="ColorRect" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -5.0
+margin_top = -3.0
+margin_right = 355.0
+margin_bottom = 259.0
+color = Color( 0.470588, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Tween" type="Tween" parent="Dead"]

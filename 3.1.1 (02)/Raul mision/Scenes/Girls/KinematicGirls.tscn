@@ -1,0 +1,194 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://Code/Girls code/Girls.gd" type="Script" id=1]
+[ext_resource path="res://2D/GUI/Ring.png" type="Texture" id=2]
+[ext_resource path="res://2D/Girls/Candy/Idle/idle.png" type="Texture" id=3]
+[ext_resource path="res://2D/Girls/Aisha/idle/idle.png" type="Texture" id=4]
+[ext_resource path="res://2D/Girls/Anna/Idle/Idle.png" type="Texture" id=5]
+[ext_resource path="res://2D/Girls/Cadence/Idle/Idle.png" type="Texture" id=6]
+[ext_resource path="res://2D/Girls/Jasmene/Idle/Idle.png" type="Texture" id=7]
+[ext_resource path="res://2D/Girls/Leia/idle/idle.png" type="Texture" id=8]
+[ext_resource path="res://2D/Girls/Maria/Idle/Idle.png" type="Texture" id=9]
+[ext_resource path="res://2D/Girls/Mia/Idle/Idle.png" type="Texture" id=10]
+[ext_resource path="res://2D/GUI/heart.png" type="Texture" id=11]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "IDLE",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "IDLE",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "IDLE",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "IDLE",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "IDLE",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "IDLE",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "IDLE",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "IDLE",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=9]
+radius = 7.52752
+height = 2.07791
+
+[sub_resource type="CircleShape2D" id=10]
+radius = 3.80246
+
+[sub_resource type="CapsuleShape2D" id=11]
+radius = 33.2463
+height = 4.38105
+
+[node name="Girls" type="KinematicBody2D"]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0.475647, 5.23219 )
+texture = ExtResource( 2 )
+
+[node name="Candy" type="AnimatedSprite" parent="."]
+position = Vector2( 2.64146, -8.30178 )
+frames = SubResource( 1 )
+animation = "IDLE"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Aisha" type="AnimatedSprite" parent="."]
+position = Vector2( -0.951309, -8.56177 )
+frames = SubResource( 2 )
+animation = "IDLE"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Anna" type="AnimatedSprite" parent="."]
+position = Vector2( 1.18913, -7.37263 )
+frames = SubResource( 3 )
+animation = "IDLE"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Cadence" type="AnimatedSprite" parent="."]
+position = Vector2( 0.475655, -7.1348 )
+frames = SubResource( 4 )
+animation = "IDLE"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Jasmene" type="AnimatedSprite" parent="."]
+position = Vector2( 1.42696, -6.89698 )
+frames = SubResource( 5 )
+animation = "IDLE"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="LEIA" type="AnimatedSprite" parent="."]
+position = Vector2( 1.66479, -6.65916 )
+frames = SubResource( 6 )
+animation = "IDLE"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Maria" type="AnimatedSprite" parent="."]
+position = Vector2( 0.237823, -6.1835 )
+frames = SubResource( 7 )
+animation = "IDLE"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Mia" type="AnimatedSprite" parent="."]
+position = Vector2( 0.237823, -5.94567 )
+frames = SubResource( 8 )
+animation = "IDLE"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.836227, 0.377357 )
+shape = SubResource( 9 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Area2D" type="Area2D" parent="." groups=[
+"Waifu",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 10 )
+
+[node name="heart" type="Sprite" parent="."]
+visible = false
+position = Vector2( 14.7349, -24.8996 )
+texture = ExtResource( 11 )
+
+[node name="heartimer" type="Timer" parent="."]
+
+[node name="Mana" type="Timer" parent="."]
+
+[node name="kiss" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="kiss"]
+position = Vector2( 0.996765, -4.41427 )
+shape = SubResource( 11 )
+[connection signal="timeout" from="heartimer" to="." method="_on_heartimer_timeout"]
+[connection signal="timeout" from="Mana" to="." method="_on_Mana_timeout"]
+[connection signal="body_entered" from="kiss" to="." method="_on_kiss_body_entered"]
+[connection signal="body_exited" from="kiss" to="." method="_on_kiss_body_exited"]
