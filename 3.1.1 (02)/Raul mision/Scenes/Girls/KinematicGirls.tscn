@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Code/Girls code/Girls.gd" type="Script" id=1]
 [ext_resource path="res://2D/GUI/Ring.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://2D/Girls/Maria/Idle/Idle.png" type="Texture" id=9]
 [ext_resource path="res://2D/Girls/Mia/Idle/Idle.png" type="Texture" id=10]
 [ext_resource path="res://2D/GUI/heart.png" type="Texture" id=11]
+[ext_resource path="res://Sounds/Kiss.wav" type="AudioStream" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -188,6 +189,10 @@ texture = ExtResource( 11 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="kiss"]
 position = Vector2( 0.996765, -4.41427 )
 shape = SubResource( 11 )
+
+[node name="Kiss" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+bus = "Kiss"
 [connection signal="timeout" from="heartimer" to="." method="_on_heartimer_timeout"]
 [connection signal="timeout" from="Mana" to="." method="_on_Mana_timeout"]
 [connection signal="body_entered" from="kiss" to="." method="_on_kiss_body_entered"]

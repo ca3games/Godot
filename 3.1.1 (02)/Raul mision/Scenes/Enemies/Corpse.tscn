@@ -1,8 +1,14 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://2D/Monsters/dead.png" type="Texture" id=1]
+[ext_resource path="res://Sounds/grunt.wav" type="AudioStream" id=2]
 
 [node name="dead" type="Sprite"]
 position = Vector2( 0.760368, -8.05112 )
 texture = ExtResource( 1 )
 offset = Vector2( -0.315544, 5.83783 )
+
+[node name="Dead" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+autoplay = true
+bus = "Grunt"

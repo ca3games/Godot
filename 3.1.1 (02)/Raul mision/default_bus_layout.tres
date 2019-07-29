@@ -1,0 +1,69 @@
+[gd_resource type="AudioBusLayout" load_steps=6 format=2]
+
+[sub_resource type="AudioEffectReverb" id=1]
+resource_name = "Reverb"
+room_size = 0.14
+damping = 0.21
+spread = 0.31
+wet = 0.23
+
+[sub_resource type="AudioEffectReverb" id=2]
+resource_name = "Reverb"
+room_size = 0.24
+damping = 0.25
+wet = 0.29
+
+[sub_resource type="AudioEffectReverb" id=3]
+resource_name = "Reverb"
+room_size = 0.62
+damping = 0.33
+
+[sub_resource type="AudioEffectReverb" id=4]
+resource_name = "Reverb"
+room_size = 0.66
+
+[sub_resource type="AudioEffectCompressor" id=5]
+resource_name = "Compressor"
+
+[resource]
+bus/0/volume_db = -15.0
+bus/1/name = "Kiss"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = -21.5
+bus/1/send = "Master"
+bus/1/effect/0/effect = SubResource( 1 )
+bus/1/effect/0/enabled = true
+bus/2/name = "Slash"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = -19.6
+bus/2/send = "Master"
+bus/3/name = "Ugh"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = -26.1
+bus/3/send = "Master"
+bus/3/effect/0/effect = SubResource( 2 )
+bus/3/effect/0/enabled = true
+bus/4/name = "menu"
+bus/4/solo = false
+bus/4/mute = false
+bus/4/bypass_fx = false
+bus/4/volume_db = -20.6
+bus/4/send = "Master"
+bus/4/effect/0/effect = SubResource( 3 )
+bus/4/effect/0/enabled = true
+bus/5/name = "Grunt"
+bus/5/solo = false
+bus/5/mute = false
+bus/5/bypass_fx = false
+bus/5/volume_db = -19.7
+bus/5/send = "Master"
+bus/5/effect/0/effect = SubResource( 4 )
+bus/5/effect/0/enabled = true
+bus/5/effect/1/effect = SubResource( 5 )
+bus/5/effect/1/enabled = false

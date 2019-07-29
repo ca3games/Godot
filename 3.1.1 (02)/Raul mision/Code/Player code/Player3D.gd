@@ -9,6 +9,7 @@ func _process(delta):
 	
 	var stamina = $"../../GUI".get_node("Stamina").value
 	if Input.is_action_pressed("ATTACK") and idle and stamina >= 10:
+		$Slash.play()
 		idle = false
 		$"../../GUI".get_node("Stamina").value -= 10
 		match($STATES.old_direction):
@@ -25,5 +26,6 @@ func _on_SlashAni_animation_finished(anim_name):
 	idle = true
 	
 func Hit():
+	$Ugh.play()
 	$Images/Hit.play("Hit")
 	$"../../ScreenShake".Start(3)

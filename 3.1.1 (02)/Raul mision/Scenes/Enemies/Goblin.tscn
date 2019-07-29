@@ -1,14 +1,17 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Code/Enemies code/Goblin.gd" type="Script" id=1]
 [ext_resource path="res://2D/Monsters/Goblin/Idle/idle.png" type="Texture" id=2]
-[ext_resource path="res://2D/GUI/Under HP.png" type="Texture" id=3]
-[ext_resource path="res://2D/GUI/Over HP.png" type="Texture" id=4]
-[ext_resource path="res://2D/GUI/HP.png" type="Texture" id=5]
+[ext_resource path="res://2D/Monsters/Goblin/Idle/White mage.png" type="Texture" id=3]
+[ext_resource path="res://2D/Monsters/Goblin/Idle/Summoner.png" type="Texture" id=4]
+[ext_resource path="res://2D/Monsters/Goblin/Idle/Archer.png" type="Texture" id=5]
+[ext_resource path="res://2D/GUI/Under HP.png" type="Texture" id=6]
+[ext_resource path="res://2D/GUI/Over HP.png" type="Texture" id=7]
+[ext_resource path="res://2D/GUI/HP.png" type="Texture" id=8]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "IDLE",
 "speed": 5.0
@@ -55,14 +58,19 @@ margin_right = 89.102
 margin_bottom = 12.4145
 rect_scale = Vector2( 0.2, 0.2 )
 value = 100.0
-texture_under = ExtResource( 3 )
-texture_over = ExtResource( 4 )
-texture_progress = ExtResource( 5 )
+texture_under = ExtResource( 6 )
+texture_over = ExtResource( 7 )
+texture_progress = ExtResource( 8 )
 
 [node name="aTTACK" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="aTTACK"]
 position = Vector2( 0.66433, -10.2972 )
 shape = SubResource( 4 )
+
+[node name="Hit" type="Tween" parent="."]
+
+[node name="Arrow" type="Timer" parent="."]
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="body_entered" from="aTTACK" to="." method="_on_aTTACK_body_entered"]
+[connection signal="timeout" from="Arrow" to="." method="_on_Arrow_timeout"]

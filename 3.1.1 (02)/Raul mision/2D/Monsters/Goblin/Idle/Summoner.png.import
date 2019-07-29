@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/idle-export.png-3332273abc43545eb98250530a14210b.stex"
+path="res://.import/Summoner.png-d29f1c135b8078d583eb497f12f15212.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://2D/Monsters/Goblin/Idle/idle-export.png"
-dest_files=[ "res://.import/idle-export.png-3332273abc43545eb98250530a14210b.stex" ]
+source_file="res://2D/Monsters/Goblin/Idle/Summoner.png"
+dest_files=[ "res://.import/Summoner.png-d29f1c135b8078d583eb497f12f15212.stex" ]
 
 [params]
 

@@ -18,6 +18,7 @@ func _process(delta):
 		if game_over:
 			Variables.Back()
 		else:
+			$Click.play()
 			$Shader.get_node("Timer").start(1.1)
 			$Shader.Start()
 			yield($Shader.get_node("Timer"), "timeout")

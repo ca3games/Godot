@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Code/Menues/GAMEOVER.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/GUI/CRT.tscn" type="PackedScene" id=2]
 [ext_resource path="res://2D/Tiles/manizales-colombia.png" type="Texture" id=3]
 [ext_resource path="res://Font/pixelart.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Scenes/GUI/Shader.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sounds/bell.wav" type="AudioStream" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 4 )
@@ -64,7 +65,6 @@ custom_colors/font_color = Color( 0.47451, 0.462745, 0.32549, 1 )
 text = "ca3 2019"
 
 [node name="Label3" type="Label" parent="."]
-visible = false
 margin_left = 140.01
 margin_top = 170.0
 margin_right = 213.01
@@ -79,3 +79,11 @@ visible = false
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Title"
 anims/Title = SubResource( 4 )
+
+[node name="Popup" type="Popup" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+bus = "menu"

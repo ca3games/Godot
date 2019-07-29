@@ -145,6 +145,7 @@ func SetGirl(name):
 			
 func Love():
 	$heart.show()
+	$Kiss.play()
 	$heartimer.start(1)
 
 func _on_heartimer_timeout():

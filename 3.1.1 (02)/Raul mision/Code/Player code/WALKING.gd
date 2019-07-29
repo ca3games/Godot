@@ -53,7 +53,7 @@ func Physics(delta):
 		if ani.current_animation != "Back Walk":
 			ani.play("Back Walk")
 	
-	$"../../".move_and_collide(root.direction * root.vel * 1.2)
+	$"../../".move_and_collide(root.direction * root.vel * 1.8)
 	if root.direction.x < 0:
 		$"../../Images".scale.x = -1
 	else:

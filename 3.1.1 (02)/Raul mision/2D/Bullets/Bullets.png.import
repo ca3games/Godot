@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/idle-export.png-3332273abc43545eb98250530a14210b.stex"
+path="res://.import/Bullets.png-5d2618e68c1d561a4e453a2402be0ca7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://2D/Monsters/Goblin/Idle/idle-export.png"
-dest_files=[ "res://.import/idle-export.png-3332273abc43545eb98250530a14210b.stex" ]
+source_file="res://2D/Bullets/Bullets.png"
+dest_files=[ "res://.import/Bullets.png-5d2618e68c1d561a4e453a2402be0ca7.stex" ]
 
 [params]
 

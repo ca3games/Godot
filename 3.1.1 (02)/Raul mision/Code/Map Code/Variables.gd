@@ -30,28 +30,48 @@ func _ready():
 	MakeEnemies()
 
 func MakeEnemies():
-	for i in range(0, 3):
-		var x2 = rand_range(0, Map.mapsize.x)
-		var y2 = rand_range(0, Map.mapsize.y)
-		SpawnEnemy(x2, y2, 1, 1)
-		SpawnEnemy(x2, y2, Map.mapsize.x-2, Map.mapsize.y-2)
-		
-func SpawnEnemy(x, y, x1, y1):
+	for i in range(0, 2):
+		SpawnEnemyOP("warrior", true)
+		SpawnEnemyOP("warrior", false)
+		SpawnEnemyOP("archer", true)
+		var chance = randi()%3 + 1
+		if chance < 2:
+			SpawnEnemyOP("warrior", false)
+		else:
+			SpawnEnemyOP("archer", true)
+	var chance = randi()%3 + 1
+	if chance < 2:
+		SpawnEnemyOP("summoner", false)
+		SpawnEnemyOP("white", true)
+	else:
+		SpawnEnemyOP("summoner", true)
+		SpawnEnemyOP("white", false)
+
+func SpawnEnemyOP(type, left):
+	var x2 = rand_range(0, Map.mapsize.x)
+	var y2 = rand_range(0, Map.mapsize.y)
+	if left:
+		SpawnEnemy(x2, y2, 1, 1, type)
+	else:
+		SpawnEnemy(x2, y2, Map.mapsize.x-2, 1, type)
+
+func SpawnEnemy(x, y, x1, y1, type):
 	if Map.Map[x1][y].type == "empty":
-		AddEnemy(x1, y)
+		AddEnemy(x1, y, type)
 	elif Map.Map[x][y1].type == "empty":
-		AddEnemy(x, y1)
+		AddEnemy(x, y1, type)
 	else:
 		var x2 = rand_range(0, Map.mapsize.x)
 		var y2 = rand_range(0, Map.mapsize.y)
-		SpawnEnemy(x2, y2, x1, y1)
+		SpawnEnemy(x2, y2, x1, y1, type)
 
-func AddEnemy(x, y):
+func AddEnemy(x, y, type):
 	enemies_left += 1
 	Enemies.append(HPvar.new())
 	Enemies[len(Enemies)-1].HP = 50
 	Enemies[len(Enemies)-1].pos = Vector2(x, y)
 	Enemies[len(Enemies)-1].Scene = Goblin.instance()
+	Enemies[len(Enemies)-1].Scene.SetType(type)
 	Enemies[len(Enemies)-1].Scene.pos = Vector2(x, y)
 	Enemies[len(Enemies)-1].Scene.id = len(Enemies)-1
 	Enemies[len(Enemies)-1].Scene.position = Enemies[len(Enemies)-1].pos * Map.mapoffset + Map.mappos

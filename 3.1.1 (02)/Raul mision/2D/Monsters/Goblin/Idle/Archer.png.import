@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/idle-export.png-3332273abc43545eb98250530a14210b.stex"
+path="res://.import/Archer.png-685f4f4193141bd6204a76f7856aaa76.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://2D/Monsters/Goblin/Idle/idle-export.png"
-dest_files=[ "res://.import/idle-export.png-3332273abc43545eb98250530a14210b.stex" ]
+source_file="res://2D/Monsters/Goblin/Idle/Archer.png"
+dest_files=[ "res://.import/Archer.png-685f4f4193141bd6204a76f7856aaa76.stex" ]
 
 [params]
 
