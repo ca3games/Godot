@@ -8,10 +8,10 @@ func _ready():
 func _process(delta):
 	
 	var stamina = $"../../GUI".get_node("Stamina").value
-	if Input.is_action_pressed("ATTACK") and idle and stamina >= 10:
+	if Input.is_action_pressed("ATTACK") and idle and stamina >= 5:
 		$Slash.play()
 		idle = false
-		$"../../GUI".get_node("Stamina").value -= 10
+		$"../../GUI".get_node("Stamina").value -= 5
 		match($STATES.old_direction):
 			Vector2(1, 0): $Images/SlashAni.play("Side")
 			Vector2(-1, 0): $Images/SlashAni.play("Side")

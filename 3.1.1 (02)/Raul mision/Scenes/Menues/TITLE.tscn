@@ -46,6 +46,9 @@ modulate = Color( 1, 1, 1, 0.239216 )
 position = Vector2( 175, 42 )
 scale = Vector2( 1, 0.880252 )
 texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Label" type="Label" parent="."]
 margin_left = 126.68

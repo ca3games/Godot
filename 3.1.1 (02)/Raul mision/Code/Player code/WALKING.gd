@@ -2,6 +2,7 @@ extends Node
 
 onready var root = get_parent()
 onready var ani = $"../../Images/AnimationPlayer"
+var dead = false
 
 func Update(delta):
 	
@@ -53,7 +54,8 @@ func Physics(delta):
 		if ani.current_animation != "Back Walk":
 			ani.play("Back Walk")
 	
-	$"../../".move_and_collide(root.direction * root.vel * 1.8)
+	if not dead:
+		$"../../".move_and_collide(root.direction * root.vel * 1.8)
 	if root.direction.x < 0:
 		$"../../Images".scale.x = -1
 	else:

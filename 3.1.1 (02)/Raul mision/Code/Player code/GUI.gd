@@ -55,7 +55,7 @@ func SetGirl(id):
 func _on_Timer_timeout():
 	$Timer.start(1)
 	if not paused:
-		$Stamina.value += 5
+		$Stamina.value += 10
 
 func Hit():
 	$HP.value = Variables.HP

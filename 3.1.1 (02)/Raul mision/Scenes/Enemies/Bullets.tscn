@@ -7,7 +7,7 @@
 radius = 6.23301
 
 [node name="Bullets" type="Sprite"]
-modulate = Color( 0.631373, 1, 0.976471, 1 )
+modulate = Color( 1, 0.0313726, 0.0313726, 1 )
 position = Vector2( 0.168135, 0.133999 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )

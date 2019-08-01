@@ -20,7 +20,7 @@ func _process(delta):
 			if $"../../GUI/Mana".value > 30:
 				$"../../GUI/kiss".text = "PRESS X"
 				$"../../GUI/Mana".value -= 30
-				$"../../Scripts/Variables".Hit(20)
+				$"../../Scripts/Variables".Hit(35)
 				Love()
 			else:
 				$"../../GUI/kiss".text = "NOT MANA"

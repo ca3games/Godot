@@ -1,14 +1,24 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://2D/Monsters/dead.png" type="Texture" id=1]
-[ext_resource path="res://Sounds/grunt.wav" type="AudioStream" id=2]
+[ext_resource path="res://Code/Enemies code/Corpse.gd" type="Script" id=2]
+[ext_resource path="res://Sounds/grunt.wav" type="AudioStream" id=3]
+[ext_resource path="res://2D/GUI/Ring.png" type="Texture" id=4]
 
 [node name="dead" type="Sprite"]
 position = Vector2( 0.760368, -8.05112 )
 texture = ExtResource( 1 )
 offset = Vector2( -0.315544, 5.83783 )
+script = ExtResource( 2 )
 
 [node name="Dead" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 2 )
+stream = ExtResource( 3 )
 autoplay = true
 bus = "Grunt"
+
+[node name="Ring" type="Sprite" parent="."]
+visible = false
+position = Vector2( -0.899131, 7.81098 )
+texture = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="."]
