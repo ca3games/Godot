@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Code/Menues/Test.gd" type="Script" id=1]
 [ext_resource path="res://2D/Tiles/manizales-colombia.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Code/Player code/ScreenShake.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/GUI/CRT.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/GUI/Shader.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Music/Mysong.ogg" type="AudioStream" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 25
@@ -88,3 +89,9 @@ __meta__ = {
 }
 
 [node name="Tween" type="Tween" parent="Dead"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 10 )
+autoplay = true
+bus = "Song"

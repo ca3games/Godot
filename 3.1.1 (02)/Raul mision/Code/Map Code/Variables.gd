@@ -123,8 +123,8 @@ func DamageEnemy(id):
 		Variables.ResetMap()
 
 func Hit(new):
-	$"../../GUI/".Hit()
 	Variables.HP += new
+	$"../../GUI/".Hit()
 	if Variables.HP > 100:
 		Variables.HP = 100
 	if Variables.HP < 1:
