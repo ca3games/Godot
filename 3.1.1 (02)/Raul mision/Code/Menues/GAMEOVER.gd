@@ -13,7 +13,7 @@ func _ready():
 
 
 func _process(delta):
-	if Input.is_action_just_released("ENTER"):
+	if Input.is_action_just_released("ENTER") or Input.is_action_pressed("PAD_START"):
 		print("ENTER")
 		if game_over:
 			Variables.Back()

@@ -11,13 +11,13 @@ func Update(delta):
 	var top = false
 	var bottom = false
 	
-	if Input.is_action_pressed("LEFT"):
+	if Input.is_action_pressed("LEFT") or Input.is_action_pressed("PAD_LEFT"):
 		left = true
-	if Input.is_action_pressed("RIGHT"):
+	if Input.is_action_pressed("RIGHT") or Input.is_action_pressed("PAD_RIGHT"):
 		right = true
-	if Input.is_action_pressed("TOP"):
+	if Input.is_action_pressed("UP") or Input.is_action_pressed("PAD_UP"):
 		top = true
-	if Input.is_action_pressed("DOWN"):
+	if Input.is_action_pressed("DOWN") or Input.is_action_pressed("PAD_DOWN"):
 		bottom = true
 	
 	if left or right or top or bottom:

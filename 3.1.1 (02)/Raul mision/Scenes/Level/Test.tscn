@@ -1,19 +1,15 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Code/Menues/Test.gd" type="Script" id=1]
 [ext_resource path="res://2D/Tiles/manizales-colombia.png" type="Texture" id=2]
 [ext_resource path="res://Code/Map Code/MapGenerator.gd" type="Script" id=3]
 [ext_resource path="res://Code/Map Code/Variables.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/GUI/GUI.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Font/pixelart.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Scenes/GUI/Paused.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Code/Player code/ScreenShake.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/GUI/CRT.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/GUI/Shader.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Music/Mysong.ogg" type="AudioStream" id=10]
-
-[sub_resource type="DynamicFont" id=1]
-size = 25
-font_data = ExtResource( 6 )
 
 [node name="Map" type="Node2D"]
 script = ExtResource( 1 )
@@ -48,14 +44,8 @@ script = ExtResource( 4 )
 pause_mode = 2
 position = Vector2( 1.7064, -6.82561 )
 
-[node name="Paused" type="Label" parent="."]
+[node name="Paused" parent="." instance=ExtResource( 6 )]
 visible = false
-margin_left = 126.436
-margin_top = 125.701
-margin_right = 240.436
-margin_bottom = 147.701
-custom_fonts/font = SubResource( 1 )
-text = "PAUSED"
 
 [node name="ScreenShake" type="Node" parent="."]
 pause_mode = 2
@@ -90,7 +80,7 @@ __meta__ = {
 
 [node name="Tween" type="Tween" parent="Dead"]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Music" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 10 )
 autoplay = true

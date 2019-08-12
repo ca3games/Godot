@@ -16,7 +16,7 @@ var kiss = false
 
 func _process(delta):
 	if kiss:
-		if Input.is_action_just_released("X"):
+		if Input.is_action_just_released("X") or Input.is_action_just_released("PAD_X"):
 			if $"../../GUI/Mana".value > 30:
 				$"../../GUI/kiss".text = "PRESS X"
 				$"../../GUI/Mana".value -= 30

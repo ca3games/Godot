@@ -8,7 +8,7 @@ func _ready():
 func _process(delta):
 	
 	var stamina = $"../../GUI".get_node("Stamina").value
-	if Input.is_action_pressed("ATTACK") and idle and stamina >= 5:
+	if (Input.is_action_pressed("ATTACK") or Input.is_action_pressed("PAD_ATTACK"))and idle and stamina >= 5:
 		$Slash.play()
 		idle = false
 		$"../../GUI".get_node("Stamina").value -= 5

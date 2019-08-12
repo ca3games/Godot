@@ -1,0 +1,181 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Font/pixelart.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Code/GUI code/Paused.gd" type="Script" id=2]
+[ext_resource path="res://Font/Button.tres" type="Theme" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 25
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 10
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 12
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 8
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 12
+font_data = ExtResource( 1 )
+
+[node name="Paused" type="Label"]
+pause_mode = 2
+margin_left = 117.436
+margin_top = 114.701
+margin_right = 231.436
+margin_bottom = 136.701
+custom_fonts/font = SubResource( 1 )
+text = "PAUSED"
+script = ExtResource( 2 )
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = -89.0
+margin_top = -89.0
+margin_right = 206.0
+margin_bottom = 116.0
+
+[node name="Label" type="Label" parent="Panel"]
+margin_left = 32.3879
+margin_top = 22.8123
+margin_right = 85.3879
+margin_bottom = 36.8123
+custom_fonts/font = SubResource( 2 )
+text = "BG MUSIC"
+
+[node name="Label2" type="Label" parent="Panel"]
+margin_left = 31.8475
+margin_top = 51.4513
+margin_right = 84.8475
+margin_bottom = 65.4513
+custom_fonts/font = SubResource( 2 )
+text = "SFX"
+
+[node name="MUSIC" type="HSlider" parent="Panel"]
+margin_left = 136.292
+margin_top = 20.1121
+margin_right = 237.292
+margin_bottom = 36.1121
+min_value = -10.0
+max_value = 10.0
+ticks_on_borders = true
+
+[node name="SFX" type="HSlider" parent="Panel"]
+margin_left = 135.839
+margin_top = 48.5717
+margin_right = 235.839
+margin_bottom = 64.5717
+min_value = -10.0
+max_value = 10.0
+
+[node name="Label3" type="Label" parent="Panel"]
+margin_left = 16.1681
+margin_top = 112.33
+margin_right = 89.1681
+margin_bottom = 126.33
+custom_fonts/font = SubResource( 3 )
+text = "CONTROLS"
+
+[node name="LEFT" type="Button" parent="Panel"]
+margin_left = 38.6771
+margin_top = 155.0
+margin_right = 87.6771
+margin_bottom = 175.0
+theme = ExtResource( 3 )
+text = "LEFT"
+
+[node name="UP" type="Button" parent="Panel"]
+margin_left = 64.0
+margin_top = 132.0
+margin_right = 120.0
+margin_bottom = 152.0
+theme = ExtResource( 3 )
+text = "up"
+
+[node name="RIGHT" type="Button" parent="Panel"]
+margin_left = 97.7578
+margin_top = 154.621
+margin_right = 149.758
+margin_bottom = 174.621
+theme = ExtResource( 3 )
+text = "RIGHT"
+
+[node name="DOWN" type="Button" parent="Panel"]
+margin_left = 64.8432
+margin_top = 178.319
+margin_right = 120.843
+margin_bottom = 198.319
+theme = ExtResource( 3 )
+text = "DOWN"
+
+[node name="ATTACK" type="Button" parent="Panel"]
+margin_left = 193.839
+margin_top = 131.193
+margin_right = 241.839
+margin_bottom = 151.193
+theme = ExtResource( 3 )
+text = "A"
+
+[node name="X" type="Button" parent="Panel"]
+margin_left = 194.379
+margin_top = 156.112
+margin_right = 241.379
+margin_bottom = 176.112
+theme = ExtResource( 3 )
+text = "B"
+
+[node name="Info" type="Label" parent="Panel"]
+margin_left = 154.46
+margin_top = 184.0
+margin_right = 282.46
+margin_bottom = 198.0
+custom_fonts/font = SubResource( 4 )
+text = "pls press key"
+align = 1
+
+[node name="Size" type="Label" parent="Panel"]
+margin_left = 31.3409
+margin_top = 76.1907
+margin_right = 71.3409
+margin_bottom = 90.1907
+custom_fonts/font = SubResource( 5 )
+text = "size"
+
+[node name="1x" type="Button" parent="Panel/Size"]
+margin_left = 64.8431
+margin_top = -2.7018
+margin_right = 91.8431
+margin_bottom = 17.2982
+theme = ExtResource( 3 )
+text = "1x"
+
+[node name="2x" type="Button" parent="Panel/Size"]
+margin_left = 104.289
+margin_top = -3.24216
+margin_right = 131.289
+margin_bottom = 16.7578
+theme = ExtResource( 3 )
+text = "2x"
+
+[node name="3x" type="Button" parent="Panel/Size"]
+margin_left = 146.437
+margin_top = -3.24216
+margin_right = 173.437
+margin_bottom = 16.7578
+theme = ExtResource( 3 )
+text = "3x"
+
+[node name="4x" type="Button" parent="Panel/Size"]
+margin_left = 191.287
+margin_top = -3.78252
+margin_right = 218.287
+margin_bottom = 16.2175
+theme = ExtResource( 3 )
+text = "4x"
+[connection signal="value_changed" from="Panel/MUSIC" to="." method="_on_MUSIC_value_changed"]
+[connection signal="value_changed" from="Panel/SFX" to="." method="_on_SFX_value_changed"]

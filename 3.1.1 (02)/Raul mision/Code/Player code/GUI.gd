@@ -1,6 +1,7 @@
 extends Node2D
 
 var paused = false
+var playtime
 
 func _ready():
 	Hit()
@@ -14,8 +15,10 @@ func _process(delta):
 	if $Time.time_left < 1 :
 		Variables.GameOver()
 	
-	if Input.is_action_just_released("ESC"):
+	if Input.is_action_just_released("ESC") or Input.is_action_pressed("PAD_START"):
 		if paused:
+			$"../Music".play()
+			$"../Music".seek(playtime)
 			get_tree().paused = false
 			paused = false
 			$"../Paused".hide()
@@ -23,6 +26,8 @@ func _process(delta):
 			get_tree().paused = true
 			paused = true
 			$"../Paused".show()
+			playtime = $"../Music".get_playback_position()
+			$"../Music".stop()
 
 func SetGirl(id):
 	match(id):
