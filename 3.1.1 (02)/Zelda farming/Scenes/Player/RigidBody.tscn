@@ -3,11 +3,11 @@
 [ext_resource path="res://Code/Player Code/Player.gd" type="Script" id=1]
 [ext_resource path="res://Code/Player Code/STATES.gd" type="Script" id=2]
 [ext_resource path="res://Code/Player Code/IDLE.gd" type="Script" id=3]
-[ext_resource path="res://2D/Pacifica/front/Back Diagonal.PNG" type="Texture" id=4]
-[ext_resource path="res://2D/Pacifica/front/Back.PNG" type="Texture" id=5]
-[ext_resource path="res://2D/Pacifica/front/Front Diagonal.PNG" type="Texture" id=6]
-[ext_resource path="res://2D/Pacifica/front/Front.PNG" type="Texture" id=7]
-[ext_resource path="res://2D/Pacifica/front/Side.PNG" type="Texture" id=8]
+[ext_resource path="res://2D/Pacifica/IDLE/Back Diagonal.png" type="Texture" id=4]
+[ext_resource path="res://2D/Pacifica/IDLE/Back.png" type="Texture" id=5]
+[ext_resource path="res://2D/Pacifica/IDLE/Front Diagonal.png" type="Texture" id=6]
+[ext_resource path="res://2D/Pacifica/IDLE/Front.png" type="Texture" id=7]
+[ext_resource path="res://2D/Pacifica/IDLE/Side.png" type="Texture" id=8]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 11.1465
@@ -21,7 +21,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="RigidBody" type="KinematicBody2D"]
+[node name="Pacifica" type="KinematicBody2D"]
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -39,7 +39,5 @@ script = ExtResource( 3 )
 [node name="Player" type="Node2D" parent="."]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
-position = Vector2( -2.09061, 0 )
-scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 2 )
 animation = "IDLE"
