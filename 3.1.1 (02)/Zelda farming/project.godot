@@ -19,6 +19,12 @@ config/name="Farming Zelda"
 run/main_scene="res://Scenes/Levels/Test.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=1280
+window/size/height=720
+window/stretch/mode="2d"
+
 [input]
 
 LEFT={
@@ -45,5 +51,7 @@ DOWN={
 [rendering]
 
 quality/driver/driver_name="GLES2"
-environment/default_clear_color=Color( 0.980392, 0.980392, 0.980392, 1 )
+quality/driver/fallback_to_gles2=true
+quality/2d/use_pixel_snap=true
+environment/default_clear_color=Color( 0.541176, 0.541176, 0.541176, 1 )
 environment/default_environment="res://default_env.tres"

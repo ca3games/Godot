@@ -5,9 +5,9 @@
 [node name="Level" type="Node2D"]
 
 [node name="Pacifica" parent="." instance=ExtResource( 1 )]
-position = Vector2( 501.101, 295.614 )
+position = Vector2( 633.814, 412.907 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 508.311, 302.824 )
+position = Vector2( 641.31, 357.755 )
 current = true
-zoom = Vector2( 3, 3 )
+zoom = Vector2( 1.5, 1.5 )
