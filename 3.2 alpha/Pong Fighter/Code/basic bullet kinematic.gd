@@ -14,7 +14,7 @@ func _ready():
 		speed = -vel
 		self.set_collision_layer(1)
 		self.set_collision_mask(1)
-		$"basic bullet/Sphere".get_surface_material(0).albedo_color = Color.green
+		$"basic bullet/Sphere".get_surface_material(0).albedo_color = Color.red
 
 func _process(delta):
 	var colision = move_and_collide(Vector3(speed, 0, 0) * delta)
@@ -29,7 +29,15 @@ func _process(delta):
 		
 		if colision.collider.is_in_group("Wall"):
 			self.queue_free()
-			
+		
+		if colision.collider.is_in_group("Enemy"):
+			colision.collider.Hit()
+			if P1:
+				$"../../GUI".ChangeHP(false, -10)
+			else:
+				$"../../GUI".ChangeHP(true, -10)
+			self.queue_free()
+		
 		if P1 and colision.collider.is_in_group("P2"):
 			$"../../GUI".ChangeHP(false, -5)
 			self.queue_free()

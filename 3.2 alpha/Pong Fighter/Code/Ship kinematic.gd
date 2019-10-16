@@ -12,9 +12,11 @@ func _ready():
 	$ship.get_node("Cube/MeshInstance").get_surface_material(0).albedo_color = outline
 	
 	if P1:
+		get_node("ship/Cube").get_surface_material(2).albedo_color = Color.greenyellow
 		self.set_collision_layer(1)
 		self.set_collision_mask(1)
 	else:
+		get_node("ship/Cube").get_surface_material(2).albedo_color = Color.orangered
 		$Timer.start(0.4)
 		self.set_collision_layer(2)
 		self.set_collision_mask(2)

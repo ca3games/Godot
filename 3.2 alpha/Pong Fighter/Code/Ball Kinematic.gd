@@ -40,3 +40,4 @@ func Reverse(p1):
 		speed.x = 10
 	else:
 		speed.x = -10
+
