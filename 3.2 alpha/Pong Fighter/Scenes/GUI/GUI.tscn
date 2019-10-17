@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://2D/GUI/over right.png" type="Texture" id=1]
 [ext_resource path="res://2D/GUI/border.png" type="Texture" id=2]
@@ -6,10 +6,16 @@
 [ext_resource path="res://2D/GUI/Mana.png" type="Texture" id=4]
 [ext_resource path="res://2D/GUI/over left.png" type="Texture" id=5]
 [ext_resource path="res://Fonts/LOOPY___.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Fonts/Text metal gear.TTF" type="DynamicFontData" id=7]
+[ext_resource path="res://2D/Faces/azuka.png" type="Texture" id=8]
+[ext_resource path="res://2D/Faces/rei.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
 font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 7 )
 
 [node name="GUI" type="Node2D"]
 script = ExtResource( 3 )
@@ -107,5 +113,39 @@ __meta__ = {
 [node name="TimeLeft" type="Timer" parent="."]
 
 [node name="HPrecovery" type="Timer" parent="."]
+
+[node name="Label" type="Label" parent="."]
+margin_left = 32.864
+margin_top = 75.568
+margin_right = 144.864
+margin_bottom = 115.568
+custom_fonts/font = SubResource( 2 )
+text = "SOFI"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 851.953
+margin_top = 76.2721
+margin_right = 983.953
+margin_bottom = 116.272
+custom_fonts/font = SubResource( 2 )
+text = "CAMMY"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="azuka" type="Sprite" parent="."]
+position = Vector2( 955.522, 506.832 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 8 )
+flip_h = true
+
+[node name="rei" type="Sprite" parent="."]
+position = Vector2( 65.3156, 510.421 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 9 )
+flip_h = true
 [connection signal="timeout" from="Mana" to="." method="_on_Mana_timeout"]
 [connection signal="timeout" from="HPrecovery" to="." method="_on_HPrecovery_timeout"]

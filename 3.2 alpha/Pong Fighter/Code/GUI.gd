@@ -23,6 +23,13 @@ func ChangeHP(p1, hp):
 	else:
 		P2HP += hp
 		$"P2 HP".value = P2HP
+	
+	if P1HP < 1:
+		Variables.winner = true
+		Variables.GameOver()
+	if P2HP < 1:
+		Variables.winner = false
+		Variables.GameOver()
 		
 func ChangeMana(p1, mana):
 	if p1:

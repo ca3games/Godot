@@ -19,6 +19,10 @@ config/name="Pong Fighter"
 run/main_scene="res://Scenes/Level/Battle.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Variables="*res://Scenes/Menues/Variables.tscn"
+
 [input]
 
 TOP={
