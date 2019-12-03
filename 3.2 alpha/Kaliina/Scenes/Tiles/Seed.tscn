@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://2D/Plants/flower.png" type="Texture" id=1]
+
+[sub_resource type="CylinderShape" id=1]
+radius = 0.0426873
+height = 0.228714
+
+[node name="Area" type="Area"]
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00455609, 0 )
+shape = SubResource( 1 )
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0277216, 0 )
+billboard = 1
+alpha_cut = 2
+texture = ExtResource( 1 )
