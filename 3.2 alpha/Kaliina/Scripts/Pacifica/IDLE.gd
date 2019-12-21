@@ -8,7 +8,6 @@ func Update(delta):
 		Root.ChangeState("WALK")
 		
 	if Input.is_action_pressed("SEED"):
-		print("IDLE SEED")
 		Root.ChangeState("SEED")
 		
 func Physics(delta):

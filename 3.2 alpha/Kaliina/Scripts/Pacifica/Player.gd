@@ -8,3 +8,4 @@ func SEED():
 	pos.z += 0.2
 	tmp.global_transform.origin = pos
 	get_parent().get_node("SEEDS").add_child(tmp)
+

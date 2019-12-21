@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://2D/Plants/venus flytrap1.png" type="Texture" id=1]
 [ext_resource path="res://2D/Plants/venus flytrap2.png" type="Texture" id=2]
 [ext_resource path="res://2D/Plants/venus flytrap3.png" type="Texture" id=3]
 [ext_resource path="res://2D/Plants/venus flytrap4.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/Plants/Flytrap.gd" type="Script" id=5]
 
 [sub_resource type="CylinderShape" id=1]
 radius = 0.146713
@@ -16,6 +17,22 @@ animations = [ {
 "name": "Flytrap",
 "speed": 5.0
 } ]
+
+[sub_resource type="Animation" id=5]
+resource_name = "Attack"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite3D:opacity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 0.0, 1.0 ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "Flytrap Growth"
@@ -45,8 +62,27 @@ tracks/1/keys = {
 "update": 1,
 "values": [ 0, 1, 2, 3 ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 14 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "SetReady"
+} ]
+}
+
+[sub_resource type="CylinderShape" id=4]
+radius = 0.449029
+height = 1.01728
 
 [node name="StaticBody" type="StaticBody"]
+script = ExtResource( 5 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 1 )
@@ -55,8 +91,15 @@ shape = SubResource( 1 )
 billboard = 1
 frames = SubResource( 2 )
 animation = "Flytrap"
-frame = 1
+frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Flytrap Growth"
+anims/Attack = SubResource( 5 )
 "anims/Flytrap Growth" = SubResource( 3 )
+
+[node name="Area" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 4 )
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
