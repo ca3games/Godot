@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Water Shader.tres" type="Material" id=1]
+[ext_resource path="res://2D/Background/water.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Falling"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("water2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3.1, 4, 4.3, 4.99903, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 323, -302.961 ), Vector2( 323, 34.1201 ), Vector2( 323, 132.218 ), Vector2( 323, 165.284 ), Vector2( 323, 239 ), Vector2( 323, 240.297 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("water:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 4.9, 5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 323, 239 ), Vector2( 323, 771.388 ), Vector2( 323, 783.274 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.2, 2.5, 3.6, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -30, 0 ), Vector2( 0, 0 ), Vector2( 25, 0 ), Vector2( 0, 0 ) ]
+}
+
+[node name="Water" type="Node2D"]
+position = Vector2( 25, 0 )
+
+[node name="water" type="Sprite" parent="."]
+material = ExtResource( 1 )
+position = Vector2( 323, 630.143 )
+scale = Vector2( 0.608095, 0.472576 )
+texture = ExtResource( 2 )
+
+[node name="water2" type="Sprite" parent="."]
+position = Vector2( 323, 88.619 )
+scale = Vector2( 0.608095, 0.472576 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Falling"
+playback_speed = 0.5
+anims/Falling = SubResource( 1 )
