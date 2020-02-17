@@ -1,0 +1,98 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://2D/Sprites/Enemy01.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Code/Objects code/Enemies.gd" type="Script" id=2]
+[ext_resource path="res://2D/Lifebars/white.png" type="Texture" id=3]
+[ext_resource path="res://2D/Lifebars/overlay.png" type="Texture" id=4]
+[ext_resource path="res://2D/Sprites/Enemy01-2.png" type="Texture" id=5]
+[ext_resource path="res://2D/Sprites/Enemy01-3.png" type="Texture" id=6]
+[ext_resource path="res://2D/Sprites/Enemy01-4.png" type="Texture" id=7]
+[ext_resource path="res://2D/Sprites/Enemy03.png" type="Texture" id=8]
+[ext_resource path="res://2D/Sprites/Enemy02.png" type="Texture" id=9]
+[ext_resource path="res://2D/Sprites/Enemy04.png" type="Texture" id=10]
+[ext_resource path="res://2D/Sprites/Enemy05.png" type="Texture" id=11]
+[ext_resource path="res://2D/Sprites/Enemy_C3.png" type="Texture" id=12]
+[ext_resource path="res://2D/Sprites/Enemy_C2.png" type="Texture" id=13]
+[ext_resource path="res://2D/Sprites/Enemy_C1.png" type="Texture" id=14]
+[ext_resource path="res://2D/Sprites/Enemy_C4.png" type="Texture" id=15]
+[ext_resource path="res://2D/Sprites/Enemy_D1.png" type="Texture" id=16]
+[ext_resource path="res://2D/Sprites/Enemy_D2.png" type="Texture" id=17]
+[ext_resource path="res://2D/Sprites/Enemy_D3.png" type="Texture" id=18]
+[ext_resource path="res://2D/Sprites/Enemy_D4.png" type="Texture" id=19]
+
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 5000.0
+bounce = 0.5
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ) ],
+"loop": true,
+"name": "4",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 13 ), ExtResource( 12 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "2",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 33.2006
+
+[node name="Enemy" type="RigidBody2D" groups=[
+"ENEMY",
+]]
+collision_mask = 32803
+physics_material_override = SubResource( 1 )
+gravity_scale = 0.0
+contacts_reported = 1
+contact_monitor = true
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -0.540359 )
+scale = Vector2( 5, 5 )
+frames = SubResource( 2 )
+animation = "4"
+speed_scale = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TextureProgress" type="TextureProgress" parent="."]
+margin_left = -17.2356
+margin_top = -36.9355
+margin_right = 15.7644
+margin_bottom = -27.9355
+rect_scale = Vector2( 2, 1 )
+rect_pivot_offset = Vector2( 16, 3 )
+value = 50.0
+texture_under = ExtResource( 3 )
+texture_over = ExtResource( 4 )
+texture_progress = ExtResource( 3 )
+tint_under = Color( 1, 0, 0, 1 )
+tint_progress = Color( 0.976471, 1, 0.215686, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+[connection signal="body_entered" from="." to="." method="_on_Enemy_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

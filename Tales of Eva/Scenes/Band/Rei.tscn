@@ -54,12 +54,13 @@ radius = 30.0
 height = 166.0
 
 [node name="Rei" type="KinematicBody2D"]
+collision_layer = 4
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 12.9722, 0 )
 frames = SubResource( 1 )
 animation = "IDLE"
-frame = 4
+frame = 30
 speed_scale = 4.0
 playing = true
 

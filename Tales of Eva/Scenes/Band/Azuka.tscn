@@ -54,11 +54,12 @@ radius = 24.4322
 height = 188.023
 
 [node name="Azuka" type="KinematicBody2D"]
+collision_layer = 4
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "IDLE"
-frame = 6
+frame = 28
 speed_scale = 4.0
 playing = true
 

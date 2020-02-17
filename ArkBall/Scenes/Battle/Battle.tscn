@@ -1,0 +1,399 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://Scenes/Objects/Paddle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Objects/Ball.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Code/Battle code/Enemy Manager.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Objects/Sun.tscn" type="PackedScene" id=4]
+[ext_resource path="res://2D/Lifebars/white.png" type="Texture" id=5]
+[ext_resource path="res://2D/Lifebars/overlay.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Code/Battle code/Battle.gd" type="Script" id=7]
+[ext_resource path="res://2D/Background/Nebulae.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/Battle/Fade in.tscn" type="PackedScene" id=9]
+[ext_resource path="res://2D/icons/Icon2.png" type="Texture" id=10]
+[ext_resource path="res://2D/icons/Icon2 desaturated.png" type="Texture" id=11]
+[ext_resource path="res://Scenes/Code/Battle code/GUI.gd" type="Script" id=12]
+[ext_resource path="res://2D/icons/icon b.png" type="Texture" id=13]
+[ext_resource path="res://2D/icons/icon b desaturated.png" type="Texture" id=14]
+[ext_resource path="res://Font/Sarpanch-Bold.ttf" type="DynamicFontData" id=15]
+[ext_resource path="res://2D/icons/Icon1 desaturated.png" type="Texture" id=16]
+[ext_resource path="res://2D/icons/Icon1.png" type="Texture" id=17]
+[ext_resource path="res://2D/Lifebars/Circle.png" type="Texture" id=18]
+[ext_resource path="res://Scenes/Code/Battle code/Time.gd" type="Script" id=19]
+[ext_resource path="res://2D/icons/Icon3.png" type="Texture" id=20]
+[ext_resource path="res://2D/icons/Icon3 desaturated.png" type="Texture" id=21]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 81.1306, 766.163 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 61.9177, 786.347 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 503.756, 52.8511 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 413.182, 23.7267 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 434.651, 172.168 )
+
+[sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 15 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 30
+font_data = ExtResource( 15 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 25
+font_data = ExtResource( 15 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 30
+font_data = ExtResource( 15 )
+
+[node name="Root" type="Node2D"]
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Nebulae" type="Sprite" parent="."]
+position = Vector2( 365, 641 )
+scale = Vector2( 0.8, 0.7 )
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -18.0
+margin_top = 1155.0
+margin_right = 735.0
+margin_bottom = 1293.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="SUN" type="Node2D" parent="."]
+
+[node name="Sun" parent="SUN" instance=ExtResource( 4 )]
+position = Vector2( 53.9618, 198.579 )
+
+[node name="Sun2" parent="SUN" instance=ExtResource( 4 )]
+position = Vector2( 669.126, 196.421 )
+
+[node name="Sun3" parent="SUN" instance=ExtResource( 4 )]
+position = Vector2( 360.465, 194.262 )
+
+[node name="Paddle" parent="." instance=ExtResource( 1 )]
+position = Vector2( 360.632, 1128.3 )
+
+[node name="Ball" parent="." instance=ExtResource( 2 )]
+position = Vector2( 369.136, 682.28 )
+collision_layer = 4
+
+[node name="WALLS" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="LEFT" type="StaticBody2D" parent="WALLS" groups=[
+"LEFT",
+"WALL",
+]]
+position = Vector2( -71.6376, 605.81 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WALLS/LEFT"]
+position = Vector2( 4.75, 24.2254 )
+shape = SubResource( 1 )
+
+[node name="RIGHT" type="StaticBody2D" parent="WALLS" groups=[
+"RIGHT",
+"WALL",
+]]
+position = Vector2( 768.006, 624.58 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WALLS/RIGHT"]
+shape = SubResource( 2 )
+
+[node name="TOP" type="StaticBody2D" parent="WALLS" groups=[
+"TOP",
+"WALL",
+]]
+position = Vector2( 346.733, 100.15 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WALLS/TOP"]
+shape = SubResource( 3 )
+
+[node name="BOTTOM" type="StaticBody2D" parent="WALLS" groups=[
+"BOTTOM",
+"WALL",
+]]
+position = Vector2( 356.588, 1279.97 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WALLS/BOTTOM"]
+shape = SubResource( 4 )
+
+[node name="CENTER" type="StaticBody2D" parent="WALLS"]
+position = Vector2( 360.598, 1089.65 )
+collision_layer = 2
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WALLS/CENTER"]
+shape = SubResource( 5 )
+
+[node name="Enemies" type="Node2D" parent="."]
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Start" type="Position2D" parent="Enemies"]
+position = Vector2( 110.082, 345.355 )
+
+[node name="Explosions" type="Node2D" parent="."]
+
+[node name="BULLETS" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 361.144, 640.949 )
+current = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="GUI" type="CanvasLayer" parent="."]
+script = ExtResource( 12 )
+
+[node name="HP" type="TextureProgress" parent="GUI"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 9.0
+margin_top = -22.0
+margin_right = 44.0
+margin_bottom = -12.0
+rect_scale = Vector2( 10, 2 )
+value = 50.0
+texture_under = ExtResource( 5 )
+texture_over = ExtResource( 6 )
+texture_progress = ExtResource( 5 )
+tint_under = Color( 1, 0, 0, 1 )
+tint_progress = Color( 0.0352941, 0.984314, 0.027451, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health" type="TextureButton" parent="GUI"]
+margin_left = 75.281
+margin_top = 964.0
+margin_right = 155.281
+margin_bottom = 1044.0
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 10 )
+texture_hover = ExtResource( 10 )
+texture_disabled = ExtResource( 11 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mana" type="TextureProgress" parent="GUI"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -199.45
+margin_top = -21.0146
+margin_right = -167.45
+margin_bottom = -13.0146
+rect_scale = Vector2( 6, 2 )
+texture_under = ExtResource( 5 )
+texture_over = ExtResource( 6 )
+texture_progress = ExtResource( 5 )
+tint_under = Color( 0.00784314, 0.815686, 1, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Switch" type="TextureButton" parent="GUI"]
+margin_left = 555.98
+margin_top = 960.335
+margin_right = 635.98
+margin_bottom = 1040.33
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 13 )
+texture_hover = ExtResource( 13 )
+texture_disabled = ExtResource( 14 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HP2" type="Label" parent="GUI"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -25.5596
+margin_top = -25.1189
+margin_right = 14.4404
+margin_bottom = -2.1189
+custom_fonts/font = SubResource( 6 )
+text = "HP"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MP" type="Label" parent="GUI"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 129.625
+margin_top = -25.9763
+margin_right = 179.625
+margin_bottom = -2.97632
+custom_fonts/font = SubResource( 6 )
+text = "MP"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spell" type="TextureButton" parent="GUI"]
+margin_left = 230.884
+margin_top = 962.667
+margin_right = 310.884
+margin_bottom = 1042.67
+texture_normal = ExtResource( 17 )
+texture_pressed = ExtResource( 17 )
+texture_hover = ExtResource( 17 )
+texture_disabled = ExtResource( 16 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Time" type="TextureProgress" parent="GUI"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -320.019
+margin_top = -979.544
+margin_right = -256.019
+margin_bottom = -915.544
+rect_scale = Vector2( 1.5, 1.5 )
+max_value = 60.0
+value = 50.0
+texture_under = ExtResource( 18 )
+texture_progress = ExtResource( 18 )
+fill_mode = 4
+tint_under = Color( 0.415686, 0.415686, 0.415686, 1 )
+tint_progress = Color( 1, 0.984314, 0.113725, 1 )
+script = ExtResource( 19 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TimeLabel" type="Label" parent="GUI/Time"]
+anchor_left = 0.5
+anchor_top = 0.989
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -19.7099
+margin_top = -53.2702
+margin_right = 20.2901
+margin_bottom = -10.9742
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0.956863, 0.988235, 0.0117647, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "99"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimeTimer" type="Timer" parent="GUI/Time"]
+wait_time = 60.0
+one_shot = true
+autostart = true
+
+[node name="Level" type="Label" parent="GUI"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 20.7335
+margin_top = -120.393
+margin_right = 425.733
+margin_bottom = -80.3931
+custom_fonts/font = SubResource( 8 )
+text = "LEVEL :"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimeButton" type="TextureButton" parent="GUI"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 39.1976
+margin_top = -315.825
+margin_right = 119.198
+margin_bottom = -235.825
+texture_normal = ExtResource( 20 )
+texture_pressed = ExtResource( 20 )
+texture_hover = ExtResource( 20 )
+texture_disabled = ExtResource( 21 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SCORE" type="Label" parent="GUI"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 17.7904
+margin_top = -80.8228
+margin_right = 342.79
+margin_bottom = -37.8228
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 0.921569, 1, 0, 1 )
+text = "SCORE : 9999999999"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FADE" parent="." instance=ExtResource( 9 )]
+
+[node name="BallPos" type="Position2D" parent="."]
+position = Vector2( 363.348, 679.096 )
+[connection signal="pressed" from="GUI/Health" to="." method="_on_Health_pressed"]
+[connection signal="pressed" from="GUI/Switch" to="." method="_on_Switch_pressed"]
+[connection signal="pressed" from="GUI/Spell" to="." method="_on_Spell_pressed"]
+[connection signal="timeout" from="GUI/Time/TimeTimer" to="." method="_on_TimeTimer_timeout"]
+[connection signal="pressed" from="GUI/TimeButton" to="GUI/Time" method="_on_TimeButton_pressed"]
