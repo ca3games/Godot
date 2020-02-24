@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Scenes/Objects/Paddle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Objects/Ball.tscn" type="PackedScene" id=2]
@@ -21,6 +21,11 @@
 [ext_resource path="res://Scenes/Code/Battle code/Time.gd" type="Script" id=19]
 [ext_resource path="res://2D/icons/Icon3.png" type="Texture" id=20]
 [ext_resource path="res://2D/icons/Icon3 desaturated.png" type="Texture" id=21]
+[ext_resource path="res://Scenes/Code/Battle code/Camera2D.gd" type="Script" id=22]
+[ext_resource path="res://Music/bensound-scifi.ogg" type="AudioStream" id=23]
+[ext_resource path="res://Music/bensound-newdawn.ogg" type="AudioStream" id=24]
+[ext_resource path="res://Scenes/Code/Battle code/MUSIC.gd" type="Script" id=25]
+[ext_resource path="res://Music/crash.wav" type="AudioStream" id=26]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 81.1306, 766.163 )
@@ -166,14 +171,14 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WALLS/CENTER"]
 shape = SubResource( 5 )
 
+[node name="Start" type="Position2D" parent="."]
+position = Vector2( 110.082, 345.355 )
+
 [node name="Enemies" type="Node2D" parent="."]
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_lock_": true
 }
-
-[node name="Start" type="Position2D" parent="Enemies"]
-position = Vector2( 110.082, 345.355 )
 
 [node name="Explosions" type="Node2D" parent="."]
 
@@ -182,9 +187,13 @@ position = Vector2( 110.082, 345.355 )
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 361.144, 640.949 )
 current = true
+script = ExtResource( 22 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Timer" type="Timer" parent="Camera2D"]
+one_shot = true
 
 [node name="GUI" type="CanvasLayer" parent="."]
 script = ExtResource( 12 )
@@ -392,8 +401,26 @@ __meta__ = {
 
 [node name="BallPos" type="Position2D" parent="."]
 position = Vector2( 363.348, 679.096 )
+
+[node name="MUSIC" type="Node2D" parent="."]
+script = ExtResource( 25 )
+
+[node name="Song1" type="AudioStreamPlayer" parent="MUSIC"]
+stream = ExtResource( 23 )
+bus = "Song1"
+
+[node name="Song2" type="AudioStreamPlayer" parent="MUSIC"]
+stream = ExtResource( 24 )
+bus = "Song2"
+
+[node name="Crash" type="AudioStreamPlayer" parent="MUSIC"]
+stream = ExtResource( 26 )
+bus = "Crash"
+[connection signal="timeout" from="Camera2D/Timer" to="Camera2D" method="_on_Timer_timeout"]
 [connection signal="pressed" from="GUI/Health" to="." method="_on_Health_pressed"]
 [connection signal="pressed" from="GUI/Switch" to="." method="_on_Switch_pressed"]
 [connection signal="pressed" from="GUI/Spell" to="." method="_on_Spell_pressed"]
 [connection signal="timeout" from="GUI/Time/TimeTimer" to="." method="_on_TimeTimer_timeout"]
 [connection signal="pressed" from="GUI/TimeButton" to="GUI/Time" method="_on_TimeButton_pressed"]
+[connection signal="finished" from="MUSIC/Song1" to="MUSIC" method="_on_Song1_finished"]
+[connection signal="finished" from="MUSIC/Song2" to="MUSIC" method="_on_Song2_finished"]

@@ -5,30 +5,38 @@ onready var wave = Variables.level * Variables.wave
 onready var enemy = preload("res://Scenes/Objects/Enemies.tscn")
 var offset_x = 150
 var offset_y = 150
+var fadein = true
 
 func _ready():
 	$"../GUI/Level".text = "LEVEL " + str(Variables.level) + " | WAVES LEFT " + str(Variables.wave) + " | LEFT " + str(current)
 	SpawnWave()
 
 
-func Killed():
-	current = self.get_child_count() - 1
-	Variables.AddScore(100)
+func _process(delta):
+	current = get_child_count()
 	$"../GUI/Level".text = "LEVEL " + str(Variables.level) + " | WAVES LEFT " + str(Variables.wave) + " | LEFT " + str(current)
 	
-	if current < 1:
-		Variables.wave -= 1
-		
-		if Variables.wave < 1:
-			Variables.level += 1
-			Variables.wave = 3
-		
-		for i in $"../BULLETS".get_children():
-			i.queue_free()
-		
-		$"../GUI".Hide()
-		$"../GUI/Time".Hide()
-		get_tree().get_root().get_node("Root/FADE").fadeIn()
+	if current < 1 and fadein:
+		fadein = false
+		Reset()
+
+
+func Killed():
+	Variables.AddScore(100)
+
+func Reset():
+	Variables.wave -= 1		
+	if Variables.wave < 1:
+		Variables.level += 1
+		Variables.wave = 3
+	
+	for i in $"../BULLETS".get_children():
+		i.queue_free()
+	
+	$"../GUI".Hide()
+	$"../GUI/Time".Hide()
+	get_tree().get_root().get_node("Root/FADE").fadeIn()
+
 
 func SpawnWave():
 	current = Variables.level
@@ -43,7 +51,7 @@ func SpawnWave():
 			x = 0
 			y += 1
 		var tmp = enemy.instance()
-		var pos = $Start.position
+		var pos = $"../Start".position
 		pos.x += x * offset_x
 		pos.y += y * offset_y
 		tmp.position = pos
@@ -56,3 +64,4 @@ func SpawnWave():
 	$"../GUI/Level".text = "LEVEL " + str(Variables.level) + " | WAVES LEFT " + str(Variables.wave) + " | LEFT " + str(current)
 	$"../GUI".Show()
 	$"../GUI/Time".Show()
+	fadein = true

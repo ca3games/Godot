@@ -28,9 +28,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Azuka" parent="." instance=ExtResource( 1 )]
-position = Vector2( 204.542, 439.188 )
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 481.161, 586.354 )
 __meta__ = {
@@ -43,6 +40,9 @@ shape = SubResource( 1 )
 
 [node name="Rei" parent="." instance=ExtResource( 2 )]
 position = Vector2( 306.405, 456.544 )
+
+[node name="Azuka" parent="." instance=ExtResource( 1 )]
+position = Vector2( 204.542, 439.188 )
 
 [node name="Shinji" parent="." instance=ExtResource( 3 )]
 position = Vector2( 407.275, 445.12 )

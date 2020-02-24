@@ -80,6 +80,7 @@ func Hit(damage):
 	$TextureProgress.value = HP
 	
 	if HP < 1:
+		get_tree().get_root().get_node("Root").Crash()
 		var tmp = Particle.instance()
 		tmp.position = self.position
 		$"../../Explosions".add_child(tmp)
@@ -88,8 +89,8 @@ func Hit(damage):
 
 
 func _on_Timer_timeout():
-	var time = rand_range(1, 5)
-	$Timer.start()
+	var time = rand_range(1, 3)
+	$Timer.start(time)
 	
 	var tmp = Bullet.instance()
 	tmp.position = self.position

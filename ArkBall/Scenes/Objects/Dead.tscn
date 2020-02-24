@@ -22,7 +22,7 @@ animations = [ {
 
 [sub_resource type="Animation" id=2]
 resource_name = "dead"
-length = 0.833333
+length = 0.916666
 step = 0.0833333
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")

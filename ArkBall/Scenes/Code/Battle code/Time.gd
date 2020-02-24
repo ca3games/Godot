@@ -23,5 +23,9 @@ func Show():
 
 
 func _on_TimeButton_pressed():
-	$TimeTimer.start(60)
-	$"../".Mana.value -= 30
+	var time = $TimeTimer.time_left
+	time += 30
+	if time >= 60:
+		time = 60
+	$TimeTimer.start(time)
+	$"../TimeButton".disabled = true

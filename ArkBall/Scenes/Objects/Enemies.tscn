@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://2D/Sprites/Enemy01.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Code/Objects code/Enemies.gd" type="Script" id=2]
@@ -19,12 +19,18 @@
 [ext_resource path="res://2D/Sprites/Enemy_D2.png" type="Texture" id=17]
 [ext_resource path="res://2D/Sprites/Enemy_D3.png" type="Texture" id=18]
 [ext_resource path="res://2D/Sprites/Enemy_D4.png" type="Texture" id=19]
+[ext_resource path="res://2D/Particles/puff.png" type="Texture" id=20]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 5000.0
 bounce = 0.5
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="Curve" id=2]
+min_value = 0.5
+max_value = 2.5
+_data = [ Vector2( 0, 2.5 ), 0.0, 0.0, 0, 0, Vector2( 0.994152, 0.645454 ), -5.49273, 0.0, 0, 0 ]
+
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 1 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 5 ) ],
 "loop": true,
@@ -47,7 +53,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=4]
 radius = 33.2006
 
 [node name="Enemy" type="RigidBody2D" groups=[
@@ -60,15 +66,23 @@ contacts_reported = 1
 contact_monitor = true
 script = ExtResource( 2 )
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+lifetime = 0.5
+local_coords = false
+texture = ExtResource( 20 )
+gravity = Vector2( 0, 0 )
+scale_amount_curve = SubResource( 2 )
+color = Color( 0.443137, 0.607843, 0.678431, 0.384314 )
+
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -0.540359 )
 scale = Vector2( 5, 5 )
-frames = SubResource( 2 )
+frames = SubResource( 3 )
 animation = "4"
 speed_scale = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 __meta__ = {
 "_edit_lock_": true
 }

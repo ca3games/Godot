@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/bensound-newdawn.ogg-d4c7217c0bcbb1eeff083440599bf5b1.oggstr"
+
+[deps]
+
+source_file="res://Music/bensound-newdawn.ogg"
+dest_files=[ "res://.import/bensound-newdawn.ogg-d4c7217c0bcbb1eeff083440599bf5b1.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

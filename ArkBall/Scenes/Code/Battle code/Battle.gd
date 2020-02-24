@@ -28,6 +28,11 @@ func Heal(points):
 
 func Bounce(mana):
 	$GUI/Mana.value += mana
+	$Camera2D.Bounce()
+	
+func Crash():
+	$MUSIC/Crash.play()
+	$Enemies.Killed()
 
 
 func _on_Health_pressed():
@@ -50,3 +55,7 @@ func _on_Spell_pressed():
 
 func _on_TimeTimer_timeout():
 	Hit(5000)
+
+
+func _on_Reset_timeout():
+	$Enemies.Reset()

@@ -15,6 +15,7 @@ func _physics_process(delta):
 func body_entered(body):
 	get_tree().get_root().get_node("Root").Bounce(2)
 	Variables.AddScore(1)
+	$bounce.play()
 	
 	if body.is_in_group("BOTTOM"):
 		get_tree().get_root().get_node("Root").Hit(20)

@@ -22,11 +22,6 @@ func _process(delta):
 	else:
 		$Spell.disabled = false
 		
-	if Mana.value < 30:
-		$TimeButton.disabled = true
-	else:
-		$TimeButton.disabled = false
-		
 	if $Time/TimeTimer.time_left < 10:
 		$Time.tint_progress = Color.red
 		$Time/TimeLabel.set("custom_colors/font_color", Color.red)
@@ -63,3 +58,4 @@ func Show():
 	$Level.show()
 	$TimeButton.show()
 	$SCORE.show()
+	$TimeButton.disabled = false

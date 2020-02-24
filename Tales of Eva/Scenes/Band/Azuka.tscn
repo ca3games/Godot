@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=73 format=2]
 
 [ext_resource path="res://2D/Azuka/Frames/IDLE/0007.png" type="Texture" id=1]
 [ext_resource path="res://2D/Azuka/Frames/IDLE/0002.png" type="Texture" id=2]
@@ -40,6 +40,34 @@
 [ext_resource path="res://2D/Azuka/Frames/IDLE/0038.png" type="Texture" id=38]
 [ext_resource path="res://2D/Azuka/Frames/IDLE/0039.png" type="Texture" id=39]
 [ext_resource path="res://2D/Azuka/Frames/IDLE/0040.png" type="Texture" id=40]
+[ext_resource path="res://2D/Azuka/Frames/WALK/0002.png" type="Texture" id=41]
+[ext_resource path="res://2D/Azuka/Frames/WALK/0001.png" type="Texture" id=42]
+[ext_resource path="res://2D/Azuka/Frames/WALK/0003.png" type="Texture" id=43]
+[ext_resource path="res://2D/Azuka/Frames/WALK/0004.png" type="Texture" id=44]
+[ext_resource path="res://2D/Azuka/Frames/WALK/0005.png" type="Texture" id=45]
+[ext_resource path="res://2D/Azuka/Frames/WALK/0006.png" type="Texture" id=46]
+[ext_resource path="res://2D/Azuka/Frames/WALK/0007.png" type="Texture" id=47]
+[ext_resource path="res://2D/Azuka/Frames/WALK/0008.png" type="Texture" id=48]
+[ext_resource path="res://2D/Azuka/Frames/WALK/0009.png" type="Texture" id=49]
+[ext_resource path="res://2D/Azuka/Frames/WALK/0010.png" type="Texture" id=50]
+[ext_resource path="res://2D/Azuka/Frames/WALK/0011.png" type="Texture" id=51]
+[ext_resource path="res://2D/Azuka/Frames/WALK/0012.png" type="Texture" id=52]
+[ext_resource path="res://2D/Azuka/Frames/WALK/0013.png" type="Texture" id=53]
+[ext_resource path="res://2D/Azuka/Frames/WALK/0014.png" type="Texture" id=54]
+[ext_resource path="res://2D/Azuka/Frames/WALK/0015.png" type="Texture" id=55]
+[ext_resource path="res://2D/Azuka/Frames/WALK/0016.png" type="Texture" id=56]
+[ext_resource path="res://2D/Azuka/Frames/WALK/0017.png" type="Texture" id=57]
+[ext_resource path="res://2D/Azuka/Frames/WALK/0018.png" type="Texture" id=58]
+[ext_resource path="res://2D/Azuka/Frames/WALK/0019.png" type="Texture" id=59]
+[ext_resource path="res://2D/Azuka/Frames/WALK/0020.png" type="Texture" id=60]
+[ext_resource path="res://2D/Azuka/Frames/WALK/0021.png" type="Texture" id=61]
+[ext_resource path="res://2D/Azuka/Frames/WALK/0022.png" type="Texture" id=62]
+[ext_resource path="res://2D/Azuka/Frames/WALK/0023.png" type="Texture" id=63]
+[ext_resource path="res://2D/Azuka/Frames/WALK/0024.png" type="Texture" id=64]
+[ext_resource path="res://2D/Azuka/Frames/WALK/0025.png" type="Texture" id=65]
+[ext_resource path="res://Code/Band/Azuka/Azuka.gd" type="Script" id=66]
+[ext_resource path="res://Code/Band/Azuka/STATES.gd" type="Script" id=67]
+[ext_resource path="res://Code/Band/Azuka/IDLE.gd" type="Script" id=68]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -47,22 +75,128 @@ animations = [ {
 "loop": true,
 "name": "IDLE",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 42 ), ExtResource( 41 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 62 ), ExtResource( 63 ), ExtResource( 64 ), ExtResource( 65 ) ],
+"loop": true,
+"name": "WALK",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 24.4322
 height = 188.023
 
+[sub_resource type="Animation" id=3]
+resource_name = "IDLE"
+length = 1.66667
+loop = true
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath("Ani/AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "IDLE" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Ani/AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.0416667, 0.0833333, 0.125, 0.166667, 0.208333, 0.25, 0.291667, 0.333333, 0.375, 0.416667, 0.458333, 0.5, 0.541667, 0.583333, 0.625, 0.666667, 0.708333, 0.75, 0.791667, 0.833333, 0.875, 0.916667, 0.958333, 1, 1.04167, 1.08333, 1.125, 1.16667, 1.20833, 1.25, 1.29167, 1.33333, 1.375, 1.41667, 1.45833, 1.5, 1.54167, 1.58333, 1.625 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Ani/AnimatedSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "WALK"
+length = 1.04167
+loop = true
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath("Ani/AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "WALK" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Ani/AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.0416667, 0.0833333, 0.125, 0.166667, 0.208333, 0.25, 0.291667, 0.333333, 0.375, 0.416667, 0.458333, 0.5, 0.541667, 0.583333, 0.625, 0.666667, 0.708333, 0.75, 0.791667, 0.833333, 0.875, 0.916667, 0.958333, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Ani/AnimatedSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.735107, 13.9668 ), Vector2( 1.52588e-05, 3.67548 ) ]
+}
+
 [node name="Azuka" type="KinematicBody2D"]
 collision_layer = 4
+script = ExtResource( 66 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="Ani" type="Node2D" parent="."]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Ani"]
+position = Vector2( 1.52588e-05, 3.67548 )
 frames = SubResource( 1 )
-animation = "IDLE"
-frame = 28
+animation = "WALK"
+frame = 12
 speed_scale = 4.0
-playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.397209, 10.7248 )
 shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "IDLE"
+anims/IDLE = SubResource( 3 )
+anims/WALK = SubResource( 4 )
+
+[node name="STATES" type="Node2D" parent="."]
+script = ExtResource( 67 )
+
+[node name="IDLE" type="Node2D" parent="STATES"]
+script = ExtResource( 68 )
+
+[node name="feet" type="Position2D" parent="."]
+position = Vector2( -41.1653, 125.701 )
