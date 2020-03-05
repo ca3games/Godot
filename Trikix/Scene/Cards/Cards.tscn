@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://2D/Cards/cardHeartsA.png" type="Texture" id=1]
+[ext_resource path="res://2D/Cards/cardClubsA.png" type="Texture" id=2]
+[ext_resource path="res://2D/Cards/cardDiamondsA.png" type="Texture" id=3]
+[ext_resource path="res://2D/Cards/cardSpadesA.png" type="Texture" id=4]
+[ext_resource path="res://2D/Cards/empty.png" type="Texture" id=5]
+[ext_resource path="res://Code/Battle/Cards.gd" type="Script" id=6]
+[ext_resource path="res://2D/Cards/red.png" type="Texture" id=7]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 1 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Card" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 1 )
+frame = 4
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Button" type="TextureButton" parent="."]
+margin_left = -16.0
+margin_top = -16.0
+margin_right = 16.0
+margin_bottom = 16.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="red" type="Sprite" parent="."]
+visible = false
+position = Vector2( -0.0768776, 0.0239919 )
+scale = Vector2( 0.502531, 0.5 )
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+[connection signal="mouse_entered" from="Button" to="." method="_on_Button_mouse_entered"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

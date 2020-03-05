@@ -1,0 +1,135 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Code/Battle/Grid.gd" type="Script" id=1]
+[ext_resource path="res://Code/Battle/MapCode.gd" type="Script" id=2]
+[ext_resource path="res://Scene/Cards/Bomb.tscn" type="PackedScene" id=3]
+[ext_resource path="res://2D/Lifebars/Border.png" type="Texture" id=4]
+[ext_resource path="res://2D/Lifebars/White.png" type="Texture" id=5]
+[ext_resource path="res://Code/Battle/TimeBar.gd" type="Script" id=6]
+[ext_resource path="res://Font/OpenSans-SemiBold.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://2D/paper.jpg" type="Texture" id=8]
+[ext_resource path="res://Font/ZCOOLKuaiLe-Regular.ttf" type="DynamicFontData" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+extra_spacing_char = 10
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 9 )
+
+[node name="Root" type="Node2D"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="paper" type="Sprite" parent="."]
+position = Vector2( 185.685, 321.865 )
+scale = Vector2( 0.962715, 1.16007 )
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Map" type="Node2D" parent="."]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Code" type="Node2D" parent="Map"]
+script = ExtResource( 2 )
+
+[node name="Choice" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Bomb" parent="." instance=ExtResource( 3 )]
+position = Vector2( 61.663, 447 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 184.988, 322.996 )
+current = true
+zoom = Vector2( 0.5, 0.5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TimeBar" type="TextureProgress" parent="."]
+margin_left = 39.2932
+margin_top = 618.08
+margin_right = 239.293
+margin_bottom = 682.08
+rect_scale = Vector2( 1.5, 0.3 )
+max_value = 30.0
+value = 20.0
+texture_under = ExtResource( 5 )
+texture_over = ExtResource( 4 )
+texture_progress = ExtResource( 5 )
+tint_under = Color( 0.0117647, 0.556863, 0.992157, 1 )
+tint_over = Color( 0, 0.0392157, 0.647059, 1 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="TimeBar"]
+one_shot = true
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 151.413
+margin_top = 616.18
+margin_right = 219.413
+margin_bottom = 639.18
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0.0313726, 0.705882, 1 )
+text = "TIME"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="SCORE" type="Label" parent="."]
+margin_left = 53.0
+margin_top = 548.0
+margin_right = 359.0
+margin_bottom = 589.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.278431, 0.184314, 0, 1 )
+text = "99999999999"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="score_label" type="Label" parent="."]
+margin_left = 52.0
+margin_top = 587.0
+margin_right = 136.0
+margin_bottom = 607.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.733333, 0.282353, 0.0117647, 1 )
+text = "SCORE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Levels" type="Label" parent="."]
+margin_left = 50.9474
+margin_top = 514.369
+margin_right = 134.947
+margin_bottom = 534.369
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.0235294, 0.0980392, 0.431373, 1 )
+text = "LEVEL: 9"
+__meta__ = {
+"_edit_use_anchors_": false
+}
