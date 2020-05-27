@@ -1,0 +1,109 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://3D/Level/water.png" type="Texture" id=1]
+
+[sub_resource type="QuadMesh" id=1]
+size = Vector2( 2, 2 )
+
+[sub_resource type="VisualShaderNodeTexture" id=2]
+texture = ExtResource( 1 )
+
+[sub_resource type="VisualShaderNodeInput" id=3]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeInput" id=4]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id=5]
+
+[sub_resource type="VisualShaderNodeScalarOp" id=6]
+
+[sub_resource type="VisualShaderNodeVectorCompose" id=7]
+
+[sub_resource type="VisualShaderNodeScalarOp" id=8]
+default_input_values = [ 0, 0.0, 1, 8.0 ]
+operator = 3
+
+[sub_resource type="VisualShader" id=9]
+code = "shader_type spatial;
+render_mode cull_disabled, unshaded;
+
+uniform sampler2D tex_frg_2;
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// Input:3
+	float n_out3p0 = TIME;
+
+// ScalarOp:8
+	float n_in8p1 = 8.00000;
+	float n_out8p0 = n_out3p0 / n_in8p1;
+
+// Input:4
+	vec3 n_out4p0 = vec3(UV, 0.0);
+
+// VectorDecompose:5
+	float n_out5p0 = n_out4p0.x;
+	float n_out5p1 = n_out4p0.y;
+	float n_out5p2 = n_out4p0.z;
+
+// ScalarOp:6
+	float n_out6p0 = n_out8p0 + n_out5p0;
+
+// VectorCompose:7
+	vec3 n_out7p0 = vec3(n_out6p0, n_out5p1, n_out5p2);
+
+// Texture:2
+	vec4 tex_frg_2_read = texture(tex_frg_2, n_out7p0.xy);
+	vec3 n_out2p0 = tex_frg_2_read.rgb;
+	float n_out2p1 = tex_frg_2_read.a;
+
+// Output:0
+	ALBEDO = n_out2p0;
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+graph_offset = Vector2( -180, 129 )
+modes/cull = 2
+flags/unshaded = true
+nodes/fragment/2/node = SubResource( 2 )
+nodes/fragment/2/position = Vector2( 100, 180 )
+nodes/fragment/3/node = SubResource( 3 )
+nodes/fragment/3/position = Vector2( -700, 180 )
+nodes/fragment/4/node = SubResource( 4 )
+nodes/fragment/4/position = Vector2( -600, 340 )
+nodes/fragment/5/node = SubResource( 5 )
+nodes/fragment/5/position = Vector2( -440, 380 )
+nodes/fragment/6/node = SubResource( 6 )
+nodes/fragment/6/position = Vector2( -280, 240 )
+nodes/fragment/7/node = SubResource( 7 )
+nodes/fragment/7/position = Vector2( -120, 420 )
+nodes/fragment/8/node = SubResource( 8 )
+nodes/fragment/8/position = Vector2( -460, 180 )
+nodes/fragment/connections = PoolIntArray( 2, 0, 0, 0, 4, 0, 5, 0, 5, 0, 6, 1, 6, 0, 7, 0, 5, 1, 7, 1, 5, 2, 7, 2, 7, 0, 2, 0, 3, 0, 8, 0, 8, 0, 6, 0 )
+
+[sub_resource type="ShaderMaterial" id=10]
+shader = SubResource( 9 )
+
+[sub_resource type="BoxShape" id=11]
+
+[node name="StaticBody" type="StaticBody"]
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.449291, 0 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 11 )

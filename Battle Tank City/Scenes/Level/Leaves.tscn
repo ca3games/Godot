@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://3D/Level/leave.png" type="Texture" id=1]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 2, 0.9, 2 )
+
+[sub_resource type="SpatialMaterial" id=2]
+flags_transparent = true
+flags_unshaded = true
+albedo_color = Color( 0.819608, 0.819608, 0.819608, 1 )
+albedo_texture = ExtResource( 1 )
+uv1_scale = Vector3( 3, 1.8, 1 )
+
+[node name="MeshInstance" type="MeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.032, -0.0118338, 0.012 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )

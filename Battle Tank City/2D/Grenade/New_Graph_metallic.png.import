@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/New_Graph_metallic.png-d3a421a3c46f17e83bd9db937a5d7738.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://2D/Grenade/New_Graph_metallic.png"
+dest_files=[ "res://.import/New_Graph_metallic.png-d3a421a3c46f17e83bd9db937a5d7738.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=true
+flags/filter=false
+flags/mipmaps=true
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

@@ -1,0 +1,208 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://HDRI/kloofendal_48d_partly_cloudy_1k.hdr" type="Texture" id=1]
+[ext_resource path="res://Scenes/Level/Brick.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Level/Leaves.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Level/Sand.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Level/Steel.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Level/Water.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Player/Player 2.tscn" type="PackedScene" id=8]
+
+[sub_resource type="GIProbeData" id=1]
+bounds = AABB( -49.8868, -10, -50.0758, 99.7737, 20, 100.152 )
+cell_size = 0.782434
+to_cell_xform = Transform( 1.27806, 0, 0, 0, 1.27806, 0, 0, 0, 1.27806, 63.7585, 12.7806, 64 )
+dynamic_data = PoolIntArray( 0, 8, 128, 32, 128, 1, 0, 0, 0, 0, 0, 0, 7, 0, 1, 4052, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 8355711, 0 )
+dynamic_range = 4
+bias = 1.5
+normal_bias = 0.0
+propagation = 0.7
+
+[sub_resource type="PanoramaSky" id=2]
+panorama = ExtResource( 1 )
+
+[sub_resource type="Environment" id=3]
+background_mode = 2
+background_sky = SubResource( 2 )
+background_energy = 0.82
+ambient_light_sky_contribution = 0.1
+tonemap_mode = 3
+tonemap_exposure = 0.82
+tonemap_white = 1.88
+glow_enabled = true
+adjustment_enabled = true
+adjustment_contrast = 1.27
+adjustment_saturation = 1.18
+
+[sub_resource type="QuadMesh" id=4]
+
+[sub_resource type="SpatialMaterial" id=5]
+flags_unshaded = true
+albedo_color = Color( 0.215686, 0.215686, 0.215686, 1 )
+
+[node name="Battle" type="Spatial"]
+
+[node name="GIProbe" type="GIProbe" parent="."]
+visible = false
+extents = Vector3( 49.8868, 10, 50.0758 )
+data = SubResource( 1 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 35.2278, 0 )
+light_energy = 0.66
+light_indirect_energy = 1.52
+shadow_enabled = true
+shadow_color = Color( 0.0117647, 0.0156863, 0.333333, 1 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 3 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.173648, 0.984808, 0, -0.984808, 0.173648, -0.0707474, 34.0243, 9.13643 )
+current = true
+fov = 75.5
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 100, 0, 0, 0, -1.62921e-05, 1, 0, -100, -1.62921e-07, 0, -0.731116, 0 )
+cast_shadow = 0
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Brick" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.238371, 0 )
+
+[node name="StaticBody" parent="Brick" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.34167, 0.0211115, 4.81628 )
+
+[node name="StaticBody2" parent="Brick" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.21349, 0.0211115, 4.81628 )
+
+[node name="StaticBody3" parent="Brick" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.99649, 0.0211115, 4.81628 )
+
+[node name="StaticBody4" parent="Brick" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.35841, 0.0211115, 6.91969 )
+
+[node name="StaticBody5" parent="Brick" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.84929, 0.0211115, 4.96381 )
+
+[node name="StaticBody6" parent="Brick" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.09263, 0.0211115, 2.76901 )
+
+[node name="StaticBody7" parent="Brick" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.78955, 0.0211115, 2.76901 )
+
+[node name="StaticBody8" parent="Brick" instance=ExtResource( 5 )]
+transform = Transform( 0.847569, 0, 0, 0, 0.847569, 0, 0, 0, 0.847569, 7.83929, 0.0211115, 2.76901 )
+
+[node name="StaticBody9" parent="Brick" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.46935, 0.0211115, 0.824732 )
+
+[node name="StaticBody10" parent="Brick" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.33887, 0.0211115, 0.824732 )
+
+[node name="StaticBody11" parent="Brick" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.33887, 0.0211115, -1.13674 )
+
+[node name="StaticBody12" parent="Brick" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.28868, 0.039557, -1.16317 )
+
+[node name="StaticBody13" parent="Brick" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3888, 0.0211115, 16.1094 )
+
+[node name="StaticBody14" parent="Brick" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5193, 0.0211115, 16.1094 )
+
+[node name="StaticBody15" parent="Brick" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5193, 0.0211115, 14.148 )
+
+[node name="StaticBody16" parent="Brick" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5695, 0.039557, 14.1215 )
+
+[node name="StaticBody17" parent="Brick" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.84929, 0.0211115, 17.7634 )
+
+[node name="StaticBody18" parent="Brick" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.78955, 0.0211115, 15.5686 )
+
+[node name="StaticBody19" parent="Brick" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.83929, 0.0211115, 15.5686 )
+
+[node name="StaticBody20" parent="Brick" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.6748, 0.0211115, 9.66702 )
+
+[node name="StaticBody21" parent="Brick" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.615, 0.0211115, 7.47221 )
+
+[node name="StaticBody22" parent="Brick" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6648, 0.0211115, 7.47221 )
+
+[node name="MeshInstance" parent="Brick" instance=ExtResource( 4 )]
+transform = Transform( 2, 0, 0, 0, -8.74228e-08, 1, 0, -2, -4.37114e-08, 1.31069, -0.681714, 2.76878 )
+
+[node name="MeshInstance2" parent="Brick" instance=ExtResource( 4 )]
+transform = Transform( 2, 0, 0, 0, -8.74228e-08, 1, 0, -2, -4.37114e-08, 3.29728, -0.681714, 2.76878 )
+
+[node name="MeshInstance3" parent="Brick" instance=ExtResource( 4 )]
+transform = Transform( 2, 0, 0, 0, -8.74228e-08, 1, 0, -2, -4.37114e-08, 5.24332, -0.681714, 2.76878 )
+
+[node name="MeshInstance4" parent="Brick" instance=ExtResource( 4 )]
+transform = Transform( 2, 0, 0, 0, -8.74228e-08, 1, 0, -2, -4.37114e-08, 1.31069, -0.681714, 4.71926 )
+
+[node name="MeshInstance5" parent="Brick" instance=ExtResource( 4 )]
+transform = Transform( 2, 0, 0, 0, -8.74228e-08, 1, 0, -2, -4.37114e-08, 3.29728, -0.681714, 4.71926 )
+
+[node name="MeshInstance6" parent="Brick" instance=ExtResource( 4 )]
+transform = Transform( 2, 0, 0, 0, -8.74228e-08, 1, 0, -2, -4.37114e-08, 5.24332, -0.681714, 4.71926 )
+
+[node name="MeshInstance7" parent="Brick" instance=ExtResource( 4 )]
+transform = Transform( 2, 0, 0, 0, -8.74228e-08, 1, 0, -2, -4.37114e-08, 1.31069, -0.681714, 6.67931 )
+
+[node name="MeshInstance8" parent="Brick" instance=ExtResource( 4 )]
+transform = Transform( 2, 0, 0, 0, -8.74228e-08, 1, 0, -2, -4.37114e-08, 3.29728, -0.681714, 6.67931 )
+
+[node name="MeshInstance9" parent="Brick" instance=ExtResource( 4 )]
+transform = Transform( 2, 0, 0, 0, -8.74228e-08, 1, 0, -2, -4.37114e-08, 5.24332, -0.681714, 6.67931 )
+
+[node name="StaticBody23" parent="Brick" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.71082, 0, 0 )
+
+[node name="StaticBody24" parent="Brick" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.74707, 0, 0 )
+
+[node name="StaticBody25" parent="Brick" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.74707, 0, -2.00838 )
+
+[node name="StaticBody26" parent="Brick" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.75545, 0, -2.00838 )
+
+[node name="StaticBody27" parent="Brick" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.22905, 0, 20.2344 )
+
+[node name="StaticBody28" parent="Brick" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2653, 0, 20.2344 )
+
+[node name="StaticBody29" parent="Brick" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2653, 0, 18.226 )
+
+[node name="StaticBody30" parent="Brick" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.27368, 0, 18.226 )
+
+[node name="MeshInstance3" type="MeshInstance" parent="."]
+transform = Transform( 100, 0, 0, 0, -1.62921e-05, 1, 0, -100, -1.62921e-07, 7.82549, -0.731116, 4.70321 )
+cast_shadow = 0
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Player" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25776, 0, 11.1406 )
+
+[node name="Player2" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.78181, 0, 11.2259 )

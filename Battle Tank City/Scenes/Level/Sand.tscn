@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://3D/Level/Sand/Sand.tres" type="Material" id=1]
+
+[sub_resource type="QuadMesh" id=1]
+size = Vector2( 4, 4 )
+
+[node name="MeshInstance" type="MeshInstance"]
+transform = Transform( 1, 0, 0, 0, 0.173648, -0.984808, 0, 0.984808, 0.173648, 0, -1.2737, 0 )
+mesh = SubResource( 1 )
+material/0 = ExtResource( 1 )
