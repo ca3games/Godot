@@ -19,6 +19,8 @@ onready var Star = preload("res://Scenes/Items/Star.tscn")
 onready var Tank = preload("res://Scenes/Items/Tank.tscn")
 onready var Time = preload("res://Scenes/Items/Timer.tscn")
 
+onready var Enemy01 = preload("res://Scenes/Enemies/Enemy01.tscn")
+
 
 var size = Vector2(35,20)
 var offset = 2
@@ -26,6 +28,7 @@ var Map
 var rooms = 10
 
 var eagle_home
+var eagle
 
 func _ready():
 	randomize()
@@ -40,9 +43,9 @@ func _ready():
 	
 	SpawnTiles()
 	
-	var tmp = Eagle.instance()
-	tmp.global_transform.origin = Vector3(((size.x/2)*offset)+(offset/2), 0, (size.y-2)*offset)
-	$"../Players".add_child(tmp)
+	eagle = Eagle.instance()
+	eagle.global_transform.origin = Vector3(((size.x/2)*offset)+(offset/2), 0, (size.y-2)*offset)
+	$"../Players".add_child(eagle)
 	
 	$"../Camera".global_transform.origin = Vector3(size.x/2*offset, 30, size.y+5*offset)
 	
@@ -55,6 +58,17 @@ func _ready():
 	$"../Players".add_child(p2)
 	
 	$"../Ground".global_transform.origin = Vector3((size.x/2)*offset, -1, (size.y/2)*offset)
+
+func SpawnEnemy():
+	var x = randi()% int(size.x-4) + 2
+	var y = randi()%2 + 1
+	if Map[x][y].cell_type == tile.cell.empty or Map[x][y].cell_type == tile.cell.sand or Map[x][y].cell_type == tile.cell.bush:
+		var tmp = Enemy01.instance()
+		tmp.global_transform.origin = Vector3(x*offset, 0, y*offset)
+		tmp.get_node("Move").home = eagle.global_transform.origin
+		$"../Players".add_child(tmp)
+	else:
+		SpawnEnemy()
 
 func SpawnItem():
 	var x = randi()% int(size.x-4) + 2
@@ -250,4 +264,4 @@ func Clear():
 
 func _on_Timer_timeout():
 	$"../Timer".start(2)
-	SpawnItem()
+	SpawnEnemy()

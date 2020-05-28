@@ -14,7 +14,7 @@ tonemap_exposure = 0.76
 glow_enabled = true
 glow_strength = 0.53
 adjustment_enabled = true
-adjustment_saturation = 1.61
+adjustment_saturation = 1.2
 
 [sub_resource type="QuadMesh" id=3]
 
