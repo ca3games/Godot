@@ -36,6 +36,7 @@ albedo_color = Color( 0.756863, 0.745098, 0, 1 )
 extents = Vector3( 0.7, 0.7, 0.7 )
 
 [node name="Player" type="KinematicBody"]
+collision_mask = 27
 script = ExtResource( 6 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
@@ -50,3 +51,8 @@ material/0 = SubResource( 3 )
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0297999 )
 shape = SubResource( 4 )
+
+[node name="Bullet" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+[connection signal="timeout" from="Bullet" to="." method="_on_Bullet_timeout"]

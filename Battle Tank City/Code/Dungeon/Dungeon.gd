@@ -273,5 +273,5 @@ func Clear():
 
 
 func _on_Timer_timeout():
-	$"../Timer".start(2)
+	$"../Timer".start(5)
 	SpawnEnemy()
