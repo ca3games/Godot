@@ -35,8 +35,11 @@ albedo_color = Color( 0.756863, 0.745098, 0, 1 )
 [sub_resource type="BoxShape" id=4]
 extents = Vector3( 0.7, 0.7, 0.7 )
 
-[node name="Player" type="KinematicBody"]
-collision_mask = 27
+[node name="Player" type="KinematicBody" groups=[
+"P1",
+"Player",
+]]
+collision_mask = 91
 script = ExtResource( 6 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]

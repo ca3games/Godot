@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://3D/Enemies/Enemy02/Enemy02.obj" type="ArrayMesh" id=1]
-[ext_resource path="res://Code/Enemies/Move.gd" type="Script" id=2]
+[ext_resource path="res://Code/Enemies/Move and Shoot.tscn" type="PackedScene" id=2]
 [ext_resource path="res://3D/Enemies/Enemy02/Enemy02_Material_001_BaseColor.png" type="Texture" id=3]
 [ext_resource path="res://3D/Enemies/Enemy02/Enemy02_Material_001_Metallic.png" type="Texture" id=4]
 [ext_resource path="res://3D/Enemies/Enemy02/Enemy02_Material_001_Roughness.png" type="Texture" id=5]
@@ -39,7 +39,7 @@ extents = Vector3( 0.595693, 1, 0.595693 )
 "Enemy",
 ]]
 collision_layer = 2
-collision_mask = 39
+collision_mask = 103
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 0.534, 0, 0, 0, 0.5, 0, 0, 0, 0.534, 0, 0.191988, 0 )
@@ -54,9 +54,4 @@ material/0 = SubResource( 3 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.554081, 0 )
 shape = SubResource( 4 )
 
-[node name="Timer" type="Timer" parent="."]
-autostart = true
-
-[node name="Move" type="Spatial" parent="."]
-script = ExtResource( 2 )
-[connection signal="timeout" from="Timer" to="Move" method="_on_Timer_timeout"]
+[node name="Move" parent="." instance=ExtResource( 2 )]
