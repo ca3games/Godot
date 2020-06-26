@@ -24,7 +24,6 @@ onready var Enemy01 = preload("res://Scenes/Enemies/Enemy01.tscn")
 onready var Enemy02 = preload("res://Scenes/Enemies/Enemy02.tscn")
 onready var Enemy03 = preload("res://Scenes/Enemies/Enemy03.tscn")
 onready var Enemy04 = preload("res://Scenes/Enemies/Enemy04.tscn")
-onready var Enemy01Red = preload("res://Scenes/Enemies/Enemy01Red.tscn")
 
 var size = Vector2(35,20)
 var offset = 2
@@ -68,15 +67,13 @@ func SpawnEnemy():
 	var y = randi()%2 + 1
 	if Map[x][y].cell_type == tile.cell.empty or Map[x][y].cell_type == tile.cell.sand or Map[x][y].cell_type == tile.cell.bush:
 		var tmp
-		#var tank = randi()%6+1
-		var tank = 5
+		var tank = randi()%6+1
 		
 		match(tank):
 			1: tmp = Enemy01.instance()
 			2: tmp = Enemy02.instance()
 			3: tmp = Enemy03.instance()
 			4: tmp = Enemy04.instance()
-			5: tmp = Enemy01Red.instance()
 			_: tmp = Enemy01.instance()
 		tmp.global_transform.origin = Vector3(x*offset, 0, y*offset)
 		tmp.get_node("Move").home = eagle.global_transform.origin
