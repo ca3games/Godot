@@ -1,6 +1,6 @@
 var pos
 enum cell {
-	empty, brick, bush, steel, sand, water, water_inside
+	empty, brick, bush, steel, sand, water
 }
 var cell_type = 0
 

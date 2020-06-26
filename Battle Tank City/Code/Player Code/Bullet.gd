@@ -2,12 +2,6 @@ extends KinematicBody
 
 var direction = Vector2.ZERO
 var speed = 10
-var iron = false
-enum bullet_type {
-	P1, P2, enemies
-}
-
-var type = bullet_type.enemies
 
 func _physics_process(delta):
 	var dir = direction * speed * delta
@@ -16,39 +10,20 @@ func _physics_process(delta):
 	if collision:
 		if collision.collider.is_in_group("Enemy"):
 			collision.collider.queue_free()
-			FreeP1()
+			self.queue_free()
+			$"../Player".idle = true
 		
 		if collision.collider.is_in_group("Brick"):
+			$"../Player".idle = true
 			collision.collider.Change_HP()
-			FreeP1()
+			self.queue_free()
 		
 		if collision.collider.is_in_group("Boss"):
+			$"../Player".idle = true
 			collision.collider.Change_HP()
-			FreeP1()
+			self.queue_free()
 		
-		if collision.collider.is_in_group("Iron"):
-			if iron:
-				collision.collider.queue_free()
-			FreeP1()
 		
 		if collision.collider.is_in_group("Water"):
-			FreeP1()
-		
-		if collision.collider.is_in_group("Player"):
-			if collision.collider.is_in_group("P1"):
-				pass
-			FreeP1()
-			
-
-#This functions frees the player idle variable so player
-#can shoot again faster
-func FreeP1():
-	if type == bullet_type.P1:
-		$"../Player".idle = true
-	self.queue_free()
-
-func SetPlayer(id):
-	if id == 1:
-		type = bullet_type.P1
-	if id == 2:
-		type = bullet_type.P2
+			$"../Player".idle = true
+			self.queue_free()

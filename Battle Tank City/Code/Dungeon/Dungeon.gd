@@ -6,7 +6,6 @@ onready var leaf = preload("res://Scenes/Level/Leaves.tscn")
 onready var water = preload("res://Scenes/Level/Water.tscn")
 onready var steel = preload("res://Scenes/Level/Steel.tscn")
 onready var sand = preload("res://Scenes/Level/Sand.tscn")
-onready var water_inside = preload("res://Scenes/Level/WaterInside.tscn")
 
 onready var Player1 = preload("res://Scenes/Player/Player.tscn")
 onready var Player2 = preload("res://Scenes/Player/Player 2.tscn")
@@ -219,7 +218,7 @@ func WaterCell(x, y, id):
 	if rand_range(0, 10) < 5:
 		return
 	
-	Map[x][y].cell_type = tile.cell.water_inside
+	Map[x][y].cell_type = tile.cell.water
 	
 	if rand_range(1, 10) < 4:
 		WaterCell(x-1, y, id+1)
@@ -256,10 +255,6 @@ func SpawnTiles():
 					$"../Tiles".add_child(tmp)
 				tile.cell.water:
 					var tmp = water.instance()
-					tmp.global_transform.origin = Vector3(x*offset, 0, y*offset)
-					$"../Tiles".add_child(tmp)
-				tile.cell.water_inside:
-					var tmp = water_inside.instance()
 					tmp.global_transform.origin = Vector3(x*offset, 0, y*offset)
 					$"../Tiles".add_child(tmp)
 

@@ -16,15 +16,15 @@ func _physics_process(delta):
 
 func _on_Timer_timeout():
 	randomize()
-	$"Timer".start(rand_range(0.2, 1))
-	var dir = randi()%7 + 1
+	$"../Timer".start(rand_range(0.2, 1))
+	var dir = randi()%5 + 1
 	
 	match(dir):
 		1: direction = Vector2.UP
 		2: direction = Vector2.RIGHT
 		3: direction = Vector2.DOWN
 		4: direction = Vector2.LEFT
-		_: direction = ASTAR()
+		5: direction = ASTAR()
 
 func ASTAR():
 	var pos = $"../".global_transform.origin

@@ -44,7 +44,6 @@ func _process(delta):
 		$"Bullet".start(1.5)
 		idle = false
 		var tmp = Bullet.instance()
-		tmp.SetPlayer(1)
 		tmp.global_transform.origin = self.global_transform.origin
 		tmp.direction = old_speed
 		if old_speed == Vector2.UP or old_speed == Vector2.DOWN:

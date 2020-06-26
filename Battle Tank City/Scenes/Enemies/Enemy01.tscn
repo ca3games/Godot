@@ -5,7 +5,7 @@
 [ext_resource path="res://3D/Enemies/Enemy01/Enemy 01_Material_Metallic.png" type="Texture" id=3]
 [ext_resource path="res://3D/Enemies/Enemy01/Enemy 01_Material_Normal.png" type="Texture" id=4]
 [ext_resource path="res://3D/Enemies/Enemy01/Enemy 01_Material_Roughness.png" type="Texture" id=5]
-[ext_resource path="res://Code/Enemies/Move and Shoot.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Code/Enemies/Move.gd" type="Script" id=6]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_texture = ExtResource( 2 )
@@ -39,7 +39,7 @@ extents = Vector3( 0.595693, 1, 0.595693 )
 "Enemy",
 ]]
 collision_layer = 2
-collision_mask = 103
+collision_mask = 39
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 0.548311, 0, 0, 0, 0.548311, 0, 0, 0, 0.548311, 0, 0, 0 )
@@ -54,4 +54,9 @@ material/0 = SubResource( 3 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.554081, 0 )
 shape = SubResource( 4 )
 
-[node name="Move" parent="." instance=ExtResource( 6 )]
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Move" type="Spatial" parent="."]
+script = ExtResource( 6 )
+[connection signal="timeout" from="Timer" to="Move" method="_on_Timer_timeout"]

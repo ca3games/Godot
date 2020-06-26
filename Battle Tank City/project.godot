@@ -56,7 +56,6 @@ SPACE={
 3d_physics/layer_4="Enemies (Bullets)"
 3d_physics/layer_5="Items"
 3d_physics/layer_6="Wall"
-3d_physics/layer_7="Inner Water"
 
 [rendering]
 
