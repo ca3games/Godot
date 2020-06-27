@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://2D/Tiles/empty.png" type="Texture" id=1]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "Tiles",
+"speed": 5.0
+} ]
+
+[node name="Tile" type="AnimatedSprite"]
+frames = SubResource( 1 )
+animation = "Tiles"

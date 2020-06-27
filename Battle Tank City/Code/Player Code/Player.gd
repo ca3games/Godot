@@ -23,9 +23,9 @@ func _process(delta):
 		left = true
 	if Input.is_action_pressed("RIGHT"):
 		right = true
-	if Input.is_action_pressed("UP"):
+	if Input.is_action_pressed("TOP"):
 		top = true
-	if Input.is_action_pressed("DOWN"):
+	if Input.is_action_pressed("BOTTOM"):
 		bottom = true
 		
 	if left and !right and !top and !bottom:
@@ -40,7 +40,7 @@ func _process(delta):
 	if speed != Vector2.ZERO:
 		old_speed = speed
 	
-	if Input.is_action_just_released("SPACE") and idle:
+	if Input.is_action_just_released("SHOOT") and idle:
 		$"Bullet".start(1.5)
 		idle = false
 		var tmp = Bullet.instance()

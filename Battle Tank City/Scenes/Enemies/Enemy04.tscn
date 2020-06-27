@@ -1,21 +1,29 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://3D/Enemies/Enemy04/Enemy04.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://3D/Enemies/Enemy04/Enemy04_Material_BaseColor.png" type="Texture" id=2]
 [ext_resource path="res://3D/Enemies/Enemy04/Enemy04_Material_Normal.png" type="Texture" id=3]
-[ext_resource path="res://3D/Enemies/Enemy04/Enemy04_Material_Metallic.png" type="Texture" id=4]
-[ext_resource path="res://3D/Enemies/Enemy04/Enemy04_Material_Roughness.png" type="Texture" id=5]
-[ext_resource path="res://Code/Enemies/Move.gd" type="Script" id=6]
+[ext_resource path="res://Shaders/Enemy.shader" type="Shader" id=4]
+[ext_resource path="res://3D/Enemies/Enemy04/Enemy04_Material_BaseColorRed.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Enemies/Move and Shoot.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Code/Enemies/Boss.gd" type="Script" id=7]
+[ext_resource path="res://3D/Enemies/Enemy04/Enemy04_Material_BaseColorGreen.png" type="Texture" id=8]
+[ext_resource path="res://3D/Enemies/Enemy04/Enemy04_Material_BaseColorYellow.png" type="Texture" id=9]
+[ext_resource path="res://3D/Enemies/Enemy04/Enemy04_Material_BaseColorLightYellow.png" type="Texture" id=10]
 
-[sub_resource type="SpatialMaterial" id=5]
+[sub_resource type="ShaderMaterial" id=5]
 resource_local_to_scene = true
-albedo_texture = ExtResource( 2 )
-metallic_texture = ExtResource( 4 )
-roughness_texture = ExtResource( 5 )
-normal_enabled = true
-normal_scale = 1.0
-normal_texture = ExtResource( 3 )
+shader = ExtResource( 4 )
+shader_param/Metallic = 1.0
+shader_param/Roughness = null
+shader_param/Red = false
+shader_param/HP_texture = 0
+shader_param/albedoRed = ExtResource( 5 )
+shader_param/albedo1HP = ExtResource( 2 )
+shader_param/albedo2HP = ExtResource( 8 )
+shader_param/albedo3HP = ExtResource( 9 )
+shader_param/albedo4HP = ExtResource( 10 )
+shader_param/normal = ExtResource( 3 )
 
 [sub_resource type="ArrayMesh" id=2]
 surfaces/0 = {
@@ -32,7 +40,7 @@ surfaces/0 = {
 
 [sub_resource type="SpatialMaterial" id=3]
 flags_unshaded = true
-albedo_color = Color( 0.0196078, 0.584314, 0.298039, 1 )
+albedo_color = Color( 0.0196078, 0.121569, 0.584314, 1 )
 
 [sub_resource type="BoxShape" id=4]
 extents = Vector3( 0.595693, 1, 0.595693 )
@@ -57,9 +65,4 @@ material/0 = SubResource( 3 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.554081, 0 )
 shape = SubResource( 4 )
 
-[node name="Timer" type="Timer" parent="."]
-autostart = true
-
-[node name="Move" type="Spatial" parent="."]
-script = ExtResource( 6 )
-[connection signal="timeout" from="Timer" to="Move" method="_on_Timer_timeout"]
+[node name="Move" parent="." instance=ExtResource( 6 )]
