@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-run/main_scene="res://Scenes/Battle.tscn"
+run/main_scene="res://Scenes/BattleGUI.tscn"
 
 [input]
 

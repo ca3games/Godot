@@ -1,22 +1,6 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Code/Dungeon/Dungeon.gd" type="Script" id=1]
-[ext_resource path="res://HDRI/kloofendal_48d_partly_cloudy_1k.hdr" type="Texture" id=2]
-[ext_resource path="res://Code/GUI Code/GUI.gd" type="Script" id=3]
-[ext_resource path="res://GUI/White.png" type="Texture" id=4]
-
-[sub_resource type="PanoramaSky" id=1]
-panorama = ExtResource( 2 )
-
-[sub_resource type="Environment" id=2]
-background_mode = 2
-background_sky = SubResource( 1 )
-tonemap_mode = 3
-tonemap_exposure = 0.76
-glow_enabled = true
-glow_strength = 0.53
-adjustment_enabled = true
-adjustment_saturation = 1.2
 
 [sub_resource type="QuadMesh" id=3]
 
@@ -37,9 +21,6 @@ transform = Transform( 1, 0, 0, 0, 0.523867, 0.8518, 0, -0.8518, 0.523867, 0, 6.
 light_energy = 0.7
 shadow_enabled = true
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 2 )
-
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 5, 3.641 )
 fov = 83.0
@@ -56,32 +37,4 @@ __meta__ = {
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
-
-[node name="GUI" type="CanvasLayer" parent="."]
-script = ExtResource( 3 )
-
-[node name="Time_Bar" type="TextureProgress" parent="GUI"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -36.5244
-margin_top = 4.0
-margin_right = 63.4756
-margin_bottom = 104.0
-rect_min_size = Vector2( 70, 70 )
-rect_scale = Vector2( 0.7, 0.7 )
-max_value = 60.0
-texture_under = ExtResource( 4 )
-texture_progress = ExtResource( 4 )
-fill_mode = 4
-tint_under = Color( 0.74902, 0.266667, 0.203922, 1 )
-tint_progress = Color( 0.0627451, 0.890196, 0.52549, 1 )
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Time_Left" type="Timer" parent="GUI/Time_Bar"]
-wait_time = 0.5
-autostart = true
 [connection signal="timeout" from="Timer" to="Dungeon" method="_on_Timer_timeout"]
-[connection signal="timeout" from="GUI/Time_Bar/Time_Left" to="GUI" method="_on_Time_Left_timeout"]
