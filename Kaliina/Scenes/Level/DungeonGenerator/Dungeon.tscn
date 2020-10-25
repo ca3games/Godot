@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Level/DungeonGenerator/Dungeon.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Level/DungeonGenerator/Generator.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Level/DungeonGenerator/FinalGenerator.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Tiles/Ground.meshlib" type="MeshLibrary" id=5]
+
+[node name="Dungeon" type="Spatial"]
+script = ExtResource( 1 )
+size = Vector2( 10, 10 )
+offset = 2.0
+
+[node name="EmptyGenerator" type="Spatial" parent="."]
+script = ExtResource( 2 )
+
+[node name="FirstLayer" type="Spatial" parent="."]
+
+[node name="FinalGenerator" type="Spatial" parent="."]
+script = ExtResource( 3 )
+GridNode = NodePath("../Map")
+
+[node name="Map" type="GridMap" parent="."]
+mesh_library = ExtResource( 5 )
+cell_scale = 4.0
+data = {
+"cells": PoolIntArray(  )
+}
+__meta__ = {
+"_editor_clip_": 0
+}

@@ -1,0 +1,58 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scripts/Rosa/FSM.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Rosa/IDLE.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Rosa/WALK.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Characters/Rosa 3D file.tscn" type="PackedScene" id=4]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.361449
+height = 1.8617
+
+[sub_resource type="AnimationNodeAnimation" id=2]
+animation = "WALK"
+
+[sub_resource type="AnimationNodeAnimation" id=3]
+animation = "IDLE"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id=4]
+blend_point_0/node = SubResource( 2 )
+blend_point_0/pos = 1.0
+blend_point_1/node = SubResource( 3 )
+blend_point_1/pos = 0.0
+
+[sub_resource type="AnimationNodeBlendTree" id=5]
+graph_offset = Vector2( -346, 34 )
+nodes/WALK/node = SubResource( 4 )
+nodes/WALK/position = Vector2( -140, 140 )
+node_connections = [ "output", 0, "WALK" ]
+
+[node name="Rosa" type="KinematicBody"]
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 1.11547, 0 )
+shape = SubResource( 1 )
+
+[node name="FSM" type="Spatial" parent="."]
+script = ExtResource( 1 )
+
+[node name="IDLE" type="Spatial" parent="FSM"]
+script = ExtResource( 2 )
+walk_speed = 0.1
+
+[node name="WALK" type="Spatial" parent="FSM"]
+script = ExtResource( 3 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 5 )
+anim_player = NodePath("../Rosa/AnimationPlayer")
+active = true
+parameters/WALK/blend_position = 0.0
+
+[node name="Rosa" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0, 0 )
+
+[node name="AnimationPlayer" parent="Rosa" index="1"]
+autoplay = "IDLE"
+
+[editable path="Rosa"]
