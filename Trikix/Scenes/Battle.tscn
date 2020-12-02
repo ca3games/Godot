@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Code/SpawnMap.gd" type="Script" id=1]
+[ext_resource path="res://2D/Tiles/bar.png" type="Texture" id=2]
+[ext_resource path="res://2D/Tiles/bar top.png" type="Texture" id=3]
+
+[node name="Root" type="Node2D"]
+
+[node name="SpawnMap" type="Node2D" parent="."]
+script = ExtResource( 1 )
+Size = 10
+offset = 32
+
+[node name="Map" type="Node2D" parent="."]
+
+[node name="MapOrigin" type="Position2D" parent="."]
+position = Vector2( 33.0341, 201.316 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 214.933, 387.194 )
+current = true
+zoom = Vector2( 1.2, 1.2 )
+
+[node name="TimeLeft" type="TextureProgress" parent="."]
+margin_left = 112.226
+margin_top = 736.863
+margin_right = 262.226
+margin_bottom = 768.863
+rect_scale = Vector2( 2, 0.5 )
+max_value = 60.0
+value = 50.0
+texture_under = ExtResource( 2 )
+texture_over = ExtResource( 3 )
+texture_progress = ExtResource( 2 )
+tint_under = Color( 0.588235, 0.85098, 0.956863, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
