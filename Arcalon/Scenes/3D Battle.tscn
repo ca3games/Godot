@@ -1,0 +1,103 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Scenes/Objects/Ball.tscn" type="PackedScene" id=1]
+
+[sub_resource type="CapsuleMesh" id=10]
+
+[sub_resource type="SphereShape" id=2]
+
+[sub_resource type="CubeMesh" id=3]
+
+[sub_resource type="ConcavePolygonShape" id=4]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
+[sub_resource type="ConcavePolygonShape" id=5]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
+[sub_resource type="CubeMesh" id=7]
+
+[sub_resource type="ConcavePolygonShape" id=11]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
+[sub_resource type="CubeMesh" id=8]
+
+[sub_resource type="ConcavePolygonShape" id=9]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
+[sub_resource type="Environment" id=6]
+background_mode = 1
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.53363 )
+projection = 1
+current = true
+fov = 68.2
+size = 40.0
+
+[node name="Enemy" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0 )
+gravity_scale = 0.0
+contacts_reported = 1
+contact_monitor = true
+axis_lock_linear_z = true
+
+[node name="Mesh" type="MeshInstance" parent="Enemy"]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0 )
+mesh = SubResource( 10 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Enemy"]
+shape = SubResource( 2 )
+
+[node name="Ball" parent="." instance=ExtResource( 1 )]
+speed = 5.0
+
+[node name="Level" type="Spatial" parent="."]
+
+[node name="LEFT" type="MeshInstance" parent="Level"]
+transform = Transform( 1, 0, 0, 0, 21.8744, 0, 0, 0, 1.99402, -11.188, 0, 0 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="LEFT" type="StaticBody" parent="Level/LEFT"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Level/LEFT/LEFT"]
+shape = SubResource( 4 )
+
+[node name="RIGHT" type="MeshInstance" parent="Level"]
+transform = Transform( 1, 0, 0, 0, 21.8744, 0, 0, 0, 1.99402, 11.282, 0, 0 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="RIGHT" type="StaticBody" parent="Level/RIGHT"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Level/RIGHT/RIGHT"]
+shape = SubResource( 5 )
+
+[node name="TOP" type="MeshInstance" parent="Level"]
+transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 0 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="TOP" type="StaticBody" parent="Level/TOP"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Level/TOP/TOP"]
+shape = SubResource( 11 )
+
+[node name="BOTTOM" type="MeshInstance" parent="Level"]
+transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11, 0 )
+mesh = SubResource( 8 )
+material/0 = null
+
+[node name="BOTTOM" type="StaticBody" parent="Level/BOTTOM"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Level/BOTTOM/BOTTOM"]
+shape = SubResource( 9 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 6 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 27.2461 )

@@ -1,0 +1,60 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/cris/Documentos/Git/Godot/Arcalon/android/build/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-hy/values-hy.xml",
+            "map": [
+                {
+                    "source": "/home/cris/.gradle/caches/transforms-2/files-2.1/3578509bc7b76b4ed5d4151ac978db77/jetified-play-services-basement-17.0.0/res/values-hy/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "209",
+                        "endOffsets": "456"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "209",
+                        "endOffsets": "310"
+                    }
+                },
+                {
+                    "source": "/home/cris/.gradle/caches/transforms-2/files-2.1/6869f4b990059f8895ea7867ae3114e0/jetified-play-services-ads-19.3.0/res/values-hy/values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10",
+                        "startColumns": "0,0,0,0,0,0,0",
+                        "startOffsets": "199,269,377,443,507,593,701",
+                        "endColumns": "69,107,65,63,85,107,74",
+                        "endOffsets": "268,376,442,506,592,700,775"
+                    },
+                    "to": {
+                        "startLines": "3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "315,389,501,571,639,729,841",
+                        "endColumns": "73,111,69,67,89,111,78",
+                        "endOffsets": "384,496,566,634,724,836,915"
+                    }
+                },
+                {
+                    "source": "/home/cris/.gradle/caches/transforms-2/files-2.1/947833f03979c6d84fcd9a8feba7ce42/core-1.0.0/res/values-hy/values-hy.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "10",
+                        "startColumns": "4",
+                        "startOffsets": "920",
+                        "endColumns": "100",
+                        "endOffsets": "1016"
+                    }
+                }
+            ]
+        }
+    ]
+}

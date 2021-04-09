@@ -1,0 +1,4 @@
+#Fri Apr 09 10:59:26 COT 2021
+base.0=/home/cris/Documentos/Git/Godot/Arcalon/android/build/build/intermediates/dex/release/mergeDexRelease/out/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
