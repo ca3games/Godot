@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/wall_occ.png-966c7c388df9aeeb1e01cf67f1461856.s3tc.stex"
-path.etc2="res://.import/wall_occ.png-966c7c388df9aeeb1e01cf67f1461856.etc2.stex"
+path.s3tc="res://.import/fence_rough.png-80a84ed0e66fee3cbafcee09d04cd6b1.s3tc.stex"
+path.etc2="res://.import/fence_rough.png-80a84ed0e66fee3cbafcee09d04cd6b1.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://3D/Blocks/Wall/Textures/wall_occ.png"
-dest_files=[ "res://.import/wall_occ.png-966c7c388df9aeeb1e01cf67f1461856.s3tc.stex", "res://.import/wall_occ.png-966c7c388df9aeeb1e01cf67f1461856.etc2.stex" ]
+source_file="res://3D/Blocks/Fence/Textures/fence_rough.png"
+dest_files=[ "res://.import/fence_rough.png-80a84ed0e66fee3cbafcee09d04cd6b1.s3tc.stex", "res://.import/fence_rough.png-80a84ed0e66fee3cbafcee09d04cd6b1.etc2.stex" ]
 
 [params]
 
