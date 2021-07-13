@@ -1,0 +1,106 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 598.199, 26.8583 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 43.4706, 793.798 )
+
+[node name="Walls" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+margin_left = -19.0273
+margin_top = 128.434
+margin_right = 1114.97
+margin_bottom = 182.434
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TOP" type="StaticBody2D" parent="ColorRect" groups=[
+"V_WALL",
+"WALL",
+]]
+visible = false
+collision_layer = 3
+collision_mask = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/TOP"]
+position = Vector2( 553.04, 27.546 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
+margin_left = -19.0273
+margin_top = 1612.56
+margin_right = 1114.97
+margin_bottom = 1666.56
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BOTTOM" type="StaticBody2D" parent="ColorRect2" groups=[
+"V_WALL",
+"WALL",
+]]
+collision_layer = 3
+collision_mask = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect2/BOTTOM"]
+position = Vector2( 553.04, 27.546 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+visible = false
+margin_left = 8.0
+margin_top = 128.0
+margin_right = 48.0
+margin_bottom = 1676.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LEFT" type="StaticBody2D" parent="ColorRect3" groups=[
+"H_WALL",
+"WALL",
+]]
+collision_layer = 3
+collision_mask = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect3/LEFT"]
+position = Vector2( 0.604889, 778.74 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+visible = false
+margin_left = 1046.18
+margin_top = 117.921
+margin_right = 1086.18
+margin_bottom = 1665.92
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RIGHT" type="StaticBody2D" parent="ColorRect4" groups=[
+"H_WALL",
+"WALL",
+]]
+collision_layer = 3
+collision_mask = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect4/RIGHT"]
+position = Vector2( 36.5642, 778.74 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}

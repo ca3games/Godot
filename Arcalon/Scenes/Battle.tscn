@@ -1,0 +1,254 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Scenes/Entities/Ball.tscn" type="PackedScene" id=1]
+[ext_resource path="res://2D/Placeholders/183127.jpg" type="Texture" id=2]
+[ext_resource path="res://Scenes/Entities/Level/Walls.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Entities/Entities/Enemy01.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Entities/Sun.tscn" type="PackedScene" id=5]
+[ext_resource path="res://2D/Placeholders/buttonX.png" type="Texture" id=6]
+[ext_resource path="res://2D/Placeholders/buttonY.png" type="Texture" id=7]
+[ext_resource path="res://2D/Placeholders/buttonShield.png" type="Texture" id=8]
+[ext_resource path="res://Fonts/ThaleahFat.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://Code/GUI/Labels.gd" type="Script" id=10]
+[ext_resource path="res://Code/Manager/Enemies.gd" type="Script" id=11]
+[ext_resource path="res://Scenes/Entities/GUI/TimeLeft.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Code/Manager/Generator.gd" type="Script" id=13]
+[ext_resource path="res://Scenes/Entities/GUI/SHIELD.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/Entities/Entities/EnemyShooter.tscn" type="PackedScene" id=15]
+
+[sub_resource type="DynamicFont" id=1]
+size = 80
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 9 )
+
+[node name="Battle" type="Node2D"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="183127" type="Sprite" parent="."]
+position = Vector2( 1887.15, 1046.26 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 540, 960 )
+current = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Ball" parent="." instance=ExtResource( 1 )]
+position = Vector2( 545.193, 1048.21 )
+EnemyManagerPath = NodePath("../Enemies")
+GUIManaPath = NodePath("../Buttons/Bars/Power")
+GUILifeBarPath = NodePath("../Buttons/Bars/HP")
+
+[node name="Walls" parent="." instance=ExtResource( 3 )]
+
+[node name="Bullets" type="Node2D" parent="."]
+
+[node name="Enemies" type="Node2D" parent="."]
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
+LabelsScriptsPath = NodePath("../Scripts/Labels")
+
+[node name="Sun" parent="." instance=ExtResource( 5 )]
+position = Vector2( 545.658, 1281.12 )
+EnemyManagerPath = NodePath("../Enemies")
+
+[node name="Scripts" type="Node2D" parent="."]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Labels" type="Node2D" parent="Scripts"]
+position = Vector2( 14.2705, -42.8115 )
+script = ExtResource( 10 )
+EnemiesPath = NodePath("../../Enemies")
+LeftLabelPath = NodePath("../../Buttons/InfoTOP/Left/LEFT")
+LevelsLabelPath = NodePath("../../Buttons/InfoTOP/Levels/LEVELS")
+GUIHPPath = NodePath("../../Buttons/Bars/HP")
+
+[node name="Generator" type="Node2D" parent="Scripts"]
+script = ExtResource( 13 )
+EnemiesManagerPath = NodePath("../../Enemies")
+enemy01 = ExtResource( 4 )
+shooter01 = ExtResource( 15 )
+BulletsManagerPath = NodePath("../../Bullets")
+
+[node name="TopLeft" type="Position2D" parent="Scripts/Generator"]
+position = Vector2( 173.508, 388.165 )
+
+[node name="BottomRight" type="Position2D" parent="Scripts/Generator"]
+position = Vector2( 903.01, 1165.24 )
+
+[node name="Buttons" type="Control" parent="."]
+margin_left = 81.0
+margin_top = 1599.0
+margin_right = 1040.0
+margin_bottom = 1738.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="HBoxContainer" parent="Buttons"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_scale = Vector2( 1.5, 1.5 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="X" type="TextureButton" parent="Buttons/Buttons"]
+margin_right = 100.0
+margin_bottom = 100.0
+texture_normal = ExtResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Y" type="TextureButton" parent="Buttons/Buttons"]
+margin_left = 104.0
+margin_right = 204.0
+margin_bottom = 100.0
+texture_normal = ExtResource( 7 )
+
+[node name="XY" type="TextureButton" parent="Buttons/Buttons"]
+modulate = Color( 0.996078, 0.145098, 0.145098, 1 )
+margin_left = 208.0
+margin_right = 308.0
+margin_bottom = 100.0
+texture_normal = ExtResource( 6 )
+
+[node name="Separator" type="TextureButton" parent="Buttons/Buttons"]
+margin_left = 312.0
+margin_right = 462.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 150, 0 )
+
+[node name="Shield" type="TextureButton" parent="Buttons/Buttons"]
+margin_left = 466.0
+margin_right = 566.0
+margin_bottom = 100.0
+texture_normal = ExtResource( 8 )
+
+[node name="InfoTOP" type="VBoxContainer" parent="Buttons"]
+margin_left = -38.1407
+margin_top = -1406.97
+margin_right = 340.859
+margin_bottom = -1332.97
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left" type="HBoxContainer" parent="Buttons/InfoTOP"]
+margin_right = 424.0
+margin_bottom = 74.0
+
+[node name="LEFTLabel" type="Label" parent="Buttons/InfoTOP/Left"]
+margin_right = 175.0
+margin_bottom = 74.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.952941, 0.643137, 0.0235294, 1 )
+text = "LEFT:"
+
+[node name="LEFT" type="Label" parent="Buttons/InfoTOP/Left"]
+margin_left = 179.0
+margin_right = 379.0
+margin_bottom = 74.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.952941, 0.643137, 0.0235294, 1 )
+text = "00000"
+
+[node name="Levels" type="HBoxContainer" parent="Buttons/InfoTOP"]
+margin_top = 78.0
+margin_right = 424.0
+margin_bottom = 152.0
+
+[node name="LevelLabel" type="Label" parent="Buttons/InfoTOP/Levels"]
+margin_right = 220.0
+margin_bottom = 74.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.952941, 0.643137, 0.0235294, 1 )
+text = "Level:"
+
+[node name="LEVELS" type="Label" parent="Buttons/InfoTOP/Levels"]
+margin_left = 224.0
+margin_right = 424.0
+margin_bottom = 74.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.952941, 0.643137, 0.0235294, 1 )
+text = "00000"
+
+[node name="TimeLeft" parent="Buttons" instance=ExtResource( 12 )]
+margin_left = 774.989
+margin_top = -1459.47
+margin_right = 838.989
+margin_bottom = -1395.47
+
+[node name="Bars" type="VBoxContainer" parent="Buttons"]
+margin_left = 20.9764
+margin_top = 149.831
+margin_right = 444.976
+margin_bottom = 185.831
+rect_scale = Vector2( 6, 3 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Power" parent="Buttons/Bars" instance=ExtResource( 14 )]
+margin_right = 424.0
+margin_bottom = 16.0
+rect_scale = Vector2( 1, 1 )
+
+[node name="HP" parent="Buttons/Bars" instance=ExtResource( 14 )]
+margin_top = 20.0
+margin_right = 424.0
+margin_bottom = 36.0
+rect_scale = Vector2( 1, 1 )
+value = 100.0
+fill_mode = 1
+tint_under = Color( 0.984314, 0.0196078, 0.0196078, 1 )
+tint_progress = Color( 0.227451, 0.623529, 0.0627451, 1 )
+
+[node name="Label" type="Label" parent="Buttons"]
+margin_left = 46.5207
+margin_top = 151.057
+margin_right = 86.5207
+margin_bottom = 166.057
+custom_fonts/font = SubResource( 2 )
+text = "power"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Buttons"]
+margin_left = 43.6923
+margin_top = 210.454
+margin_right = 168.692
+margin_bottom = 257.454
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.921569, 1, 0, 1 )
+text = "HP"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_up" from="Buttons/Buttons/X" to="Ball" method="_on_X_button_up"]
+[connection signal="button_up" from="Buttons/Buttons/Y" to="Ball" method="_on_Y_button_up"]
+[connection signal="button_up" from="Buttons/Buttons/XY" to="Ball" method="_on_XY_button_up"]
+[connection signal="button_up" from="Buttons/Buttons/Shield" to="Ball" method="_on_Shield_button_up"]
