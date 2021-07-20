@@ -16,3 +16,10 @@ func _process(delta):
 func _on_Tween_tween_completed(object, key):
 	standing = false
 	Root.falling = false
+
+
+func _on_ChangeDirection_timeout():
+	var x = int(rand_range(-2, 2))
+	var y = int(rand_range(-2, 2))
+	Root.direction = Vector2(x, y)
+	$"../../ChangeDirection".start(rand_range(1, 5))

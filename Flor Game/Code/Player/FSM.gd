@@ -1,6 +1,7 @@
 extends Spatial
 
 onready var current = $IDLE
+onready var previous = "IDLE"
 onready var direction = Vector2.DOWN
 export var vel : float
 
@@ -12,8 +13,10 @@ onready var Root = get_node(RootPath)
 
 export(float) var transpeed
 
+var states
+
 func _ready():
-	pass
+	states = AnimTree.get("parameters/playback")
 
 func _process(delta):
 	current.Update(delta)
@@ -25,13 +28,16 @@ func _process(delta):
 	var target_basis = Root.transform.basis
 	target_basis.orthonormalized()
 	Root.transform.basis = old_basis.slerp(target_basis, delta * 10.0).orthonormalized()
-	
 
 func _physics_process(delta):
 	current.Physics(delta)
-
+	
 func ChangeState(state):
-	match (state):
+	match(state):
 		"IDLE" : current = $IDLE
-		"WALK" :  current = $WALK
-		"PUSH" : current = $PUSH
+		"WALK" : current = $WALK
+		"ATTACK": current = $ATTACK
+		"PREVIOUS": ChangeState(previous)
+	
+	if state != "PREVIOUS" and state != "ATTACK":
+		previous = state

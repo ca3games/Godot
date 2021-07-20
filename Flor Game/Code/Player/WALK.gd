@@ -31,8 +31,8 @@ func Update(delta):
 		FSM.ChangeState("IDLE")
 	
 	if Input.is_action_just_released("PUSH"):
-		FSM.AnimTree.set("parameters/PUSH/active", true)
-		FSM.ChangeState("PUSH")
+		FSM.states.travel("PUSH")
+		FSM.ChangeState("ATTACK")
 
 func Physics(delta):
 	
@@ -40,8 +40,8 @@ func Physics(delta):
 	
 	FSM.Root.move_and_collide(Vector3(dir.x, 0, dir.y), false)
 	
-	var i = FSM.AnimTree.get("parameters/MOVE/blend_amount")
+	var i = FSM.AnimTree.get("parameters/MOVE/MoveBlend/blend_amount")
 	if i < 1:
 		i += FSM.transpeed * delta
 	
-	FSM.AnimTree.set("parameters/MOVE/blend_amount", i)
+	FSM.AnimTree.set("parameters/MOVE/MoveBlend/blend_amount", i)
