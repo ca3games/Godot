@@ -27,7 +27,9 @@ nodes/MOVE/node = SubResource( 4 )
 nodes/MOVE/position = Vector2( -40, 160 )
 node_connections = [ "output", 0, "MOVE", "MOVE", 0, "Animation", "MOVE", 1, "Animation 2" ]
 
-[node name="Flor" type="KinematicBody"]
+[node name="Flor" type="KinematicBody" groups=[
+"PLAYER",
+]]
 
 [node name="Flor" parent="." instance=ExtResource( 1 )]
 

@@ -1,0 +1,119 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Placeholders/2D/bush01.png" type="Texture" id=1]
+[ext_resource path="res://Placeholders/2D/bush02.png" type="Texture" id=2]
+[ext_resource path="res://Placeholders/2D/palm01.png" type="Texture" id=3]
+[ext_resource path="res://Placeholders/2D/Tree01.png" type="Texture" id=4]
+[ext_resource path="res://Placeholders/2D/grass01.png" type="Texture" id=5]
+
+[sub_resource type="QuadMesh" id=1]
+size = Vector2( 3, 4 )
+
+[sub_resource type="SpatialMaterial" id=2]
+flags_transparent = true
+params_depth_draw_mode = 3
+params_billboard_mode = 2
+params_billboard_keep_scale = true
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="CapsuleShape" id=3]
+radius = 0.321613
+height = 1.31678
+
+[sub_resource type="QuadMesh" id=4]
+size = Vector2( 3, 8 )
+
+[sub_resource type="SpatialMaterial" id=5]
+flags_transparent = true
+params_depth_draw_mode = 3
+params_billboard_mode = 2
+params_billboard_keep_scale = true
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="CapsuleShape" id=6]
+radius = 0.373244
+height = 2.9812
+
+[sub_resource type="QuadMesh" id=7]
+size = Vector2( 4, 7 )
+
+[sub_resource type="SpatialMaterial" id=8]
+flags_transparent = true
+params_depth_draw_mode = 3
+params_billboard_mode = 2
+params_billboard_keep_scale = true
+albedo_texture = ExtResource( 4 )
+
+[sub_resource type="CapsuleShape" id=9]
+radius = 0.67041
+height = 1.92619
+
+[sub_resource type="QuadMesh" id=10]
+size = Vector2( 3, 3 )
+
+[sub_resource type="SpatialMaterial" id=11]
+flags_transparent = true
+params_depth_draw_mode = 3
+params_billboard_mode = 2
+params_billboard_keep_scale = true
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="SpatialMaterial" id=12]
+flags_transparent = true
+params_depth_draw_mode = 3
+params_billboard_mode = 2
+params_billboard_keep_scale = true
+albedo_texture = ExtResource( 5 )
+
+[node name="Bushes" type="Spatial"]
+
+[node name="Bush01" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.469, 0 )
+use_in_baked_light = true
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="Bush01"]
+transform = Transform( 2, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, 0, -1.23457e-08, 0.282437 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Bush01/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.128949, 5.63654e-09 )
+shape = SubResource( 3 )
+
+[node name="Bush02" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.09433, 2.01653, 0 )
+use_in_baked_light = true
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
+
+[node name="StaticBody" type="StaticBody" parent="Bush02"]
+transform = Transform( 2, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, 0, -1.23457e-08, 0.282437 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Bush02/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.128949, 5.63654e-09 )
+shape = SubResource( 6 )
+
+[node name="Bush03" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4007, 1.469, 0 )
+use_in_baked_light = true
+mesh = SubResource( 7 )
+material/0 = SubResource( 8 )
+
+[node name="StaticBody" type="StaticBody" parent="Bush03"]
+transform = Transform( 2, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, 0, -1.23457e-08, 0.282437 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Bush03/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.128949, 5.63654e-09 )
+shape = SubResource( 9 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.04823, 0, 0 )
+use_in_baked_light = true
+mesh = SubResource( 10 )
+material/0 = SubResource( 11 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.04823, 0, 2.30722 )
+use_in_baked_light = true
+mesh = SubResource( 10 )
+material/0 = SubResource( 12 )

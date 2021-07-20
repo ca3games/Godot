@@ -34,7 +34,7 @@ func Physics(delta):
 	
 	var dir = FSM.direction * FSM.vel * delta
 	
-	FSM.Root.move_and_collide(Vector3(dir.x, 0, dir.y))
+	FSM.Root.move_and_collide(Vector3(dir.x, 0, dir.y), false)
 	
 	var i = FSM.AnimTree.get("parameters/MOVE/blend_amount")
 	if i < 1:
