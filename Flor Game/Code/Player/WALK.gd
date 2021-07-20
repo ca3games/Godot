@@ -29,6 +29,10 @@ func Update(delta):
 		FSM.direction = direction
 	else:
 		FSM.ChangeState("IDLE")
+	
+	if Input.is_action_just_released("PUSH"):
+		FSM.AnimTree.set("parameters/PUSH/active", true)
+		FSM.ChangeState("PUSH")
 
 func Physics(delta):
 	

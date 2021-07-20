@@ -32,3 +32,4 @@ func ChangeState(state):
 	match (state):
 		"IDLE" : current = $IDLE
 		"WALK" :  current = $WALK
+		"PUSH" : current = $PUSH

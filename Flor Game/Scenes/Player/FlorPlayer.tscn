@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/Player/Flor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Code/Player/FSM.gd" type="Script" id=2]
 [ext_resource path="res://Code/Player/WALK.gd" type="Script" id=3]
 [ext_resource path="res://Code/Player/IDLE.gd" type="Script" id=4]
+[ext_resource path="res://Code/Player/PUSH.gd" type="Script" id=5]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.862375
@@ -12,20 +13,32 @@ height = 5.94174
 [sub_resource type="AnimationNodeAnimation" id=2]
 animation = "WALK"
 
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "PUSH"
+
 [sub_resource type="AnimationNodeAnimation" id=3]
 animation = "IDLE"
 
 [sub_resource type="AnimationNodeBlend2" id=4]
 
+[sub_resource type="AnimationNodeOneShot" id=8]
+
 [sub_resource type="AnimationNodeBlendTree" id=5]
-graph_offset = Vector2( -403, 134 )
+graph_offset = Vector2( -468, -104.333 )
 nodes/Animation/node = SubResource( 3 )
 nodes/Animation/position = Vector2( -300, 160 )
 "nodes/Animation 2/node" = SubResource( 2 )
 "nodes/Animation 2/position" = Vector2( -300, 260 )
+"nodes/Animation 3/node" = SubResource( 7 )
+"nodes/Animation 3/position" = Vector2( -346.667, -26.6667 )
 nodes/MOVE/node = SubResource( 4 )
-nodes/MOVE/position = Vector2( -40, 160 )
-node_connections = [ "output", 0, "MOVE", "MOVE", 0, "Animation", "MOVE", 1, "Animation 2" ]
+nodes/MOVE/position = Vector2( -106.667, 80 )
+nodes/PUSH/node = SubResource( 8 )
+nodes/PUSH/position = Vector2( 80, -53.3333 )
+node_connections = [ "output", 0, "PUSH", "MOVE", 0, "Animation", "MOVE", 1, "Animation 2", "PUSH", 0, "MOVE", "PUSH", 1, "Animation 3" ]
+
+[sub_resource type="SphereShape" id=6]
+radius = 0.831374
 
 [node name="Flor" type="KinematicBody" groups=[
 "PLAYER",
@@ -41,7 +54,8 @@ shape = SubResource( 1 )
 tree_root = SubResource( 5 )
 anim_player = NodePath("../Flor/AnimationPlayer")
 active = true
-parameters/MOVE/blend_amount = 0.0
+parameters/MOVE/blend_amount = 1.0
+parameters/PUSH/active = false
 
 [node name="FSM" type="Spatial" parent="."]
 script = ExtResource( 2 )
@@ -57,5 +71,15 @@ FSMPath = NodePath("..")
 [node name="IDLE" type="Spatial" parent="FSM"]
 script = ExtResource( 4 )
 FSMPath = NodePath("..")
+
+[node name="PUSH" type="Spatial" parent="FSM"]
+script = ExtResource( 5 )
+FSMPath = NodePath("..")
+
+[node name="Area" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.11725 )
+shape = SubResource( 6 )
 
 [editable path="Flor"]

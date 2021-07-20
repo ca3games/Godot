@@ -27,6 +27,10 @@ func Update(delta):
 
 	if direction != Vector2.ZERO:
 		FSM.ChangeState("WALK")
+		
+	if Input.is_action_just_released("PUSH"):
+		FSM.AnimTree.set("parameters/PUSH/active", true)
+		FSM.ChangeState("PUSH")
 
 func Physics(delta):
 	var i = FSM.AnimTree.get("parameters/MOVE/blend_amount")
