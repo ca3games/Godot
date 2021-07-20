@@ -20,9 +20,11 @@ func _process(delta):
 	
 	var target_point = Root.translation + Vector3(-direction.x, 0, -direction.y)
 	var old_basis = Root.transform.basis
+	old_basis.orthonormalized()
 	Root.look_at(target_point, Vector3.UP)
 	var target_basis = Root.transform.basis
-	Root.transform.basis = old_basis.slerp(target_basis, delta * 10.0)
+	target_basis.orthonormalized()
+	Root.transform.basis = old_basis.slerp(target_basis, delta * 10.0).orthonormalized()
 	
 
 func _physics_process(delta):

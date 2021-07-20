@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/Player/Flor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Code/Player/FSM.gd" type="Script" id=2]
 [ext_resource path="res://Code/Player/WALK.gd" type="Script" id=3]
 [ext_resource path="res://Code/Player/IDLE.gd" type="Script" id=4]
 [ext_resource path="res://Code/Player/PUSH.gd" type="Script" id=5]
+[ext_resource path="res://Code/Player/PushArea.gd" type="Script" id=6]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.862375
@@ -13,36 +14,37 @@ height = 5.94174
 [sub_resource type="AnimationNodeAnimation" id=2]
 animation = "WALK"
 
-[sub_resource type="AnimationNodeAnimation" id=7]
+[sub_resource type="AnimationNodeAnimation" id=3]
 animation = "PUSH"
 
-[sub_resource type="AnimationNodeAnimation" id=3]
+[sub_resource type="AnimationNodeAnimation" id=4]
 animation = "IDLE"
 
-[sub_resource type="AnimationNodeBlend2" id=4]
+[sub_resource type="AnimationNodeBlend2" id=5]
 
-[sub_resource type="AnimationNodeOneShot" id=8]
+[sub_resource type="AnimationNodeOneShot" id=6]
 
-[sub_resource type="AnimationNodeBlendTree" id=5]
-graph_offset = Vector2( -468, -104.333 )
-nodes/Animation/node = SubResource( 3 )
+[sub_resource type="AnimationNodeBlendTree" id=7]
+graph_offset = Vector2( -414, 85.5 )
+nodes/Animation/node = SubResource( 4 )
 nodes/Animation/position = Vector2( -300, 160 )
 "nodes/Animation 2/node" = SubResource( 2 )
 "nodes/Animation 2/position" = Vector2( -300, 260 )
-"nodes/Animation 3/node" = SubResource( 7 )
+"nodes/Animation 3/node" = SubResource( 3 )
 "nodes/Animation 3/position" = Vector2( -346.667, -26.6667 )
-nodes/MOVE/node = SubResource( 4 )
+nodes/MOVE/node = SubResource( 5 )
 nodes/MOVE/position = Vector2( -106.667, 80 )
-nodes/PUSH/node = SubResource( 8 )
+nodes/PUSH/node = SubResource( 6 )
 nodes/PUSH/position = Vector2( 80, -53.3333 )
 node_connections = [ "output", 0, "PUSH", "MOVE", 0, "Animation", "MOVE", 1, "Animation 2", "PUSH", 0, "MOVE", "PUSH", 1, "Animation 3" ]
 
-[sub_resource type="SphereShape" id=6]
+[sub_resource type="SphereShape" id=8]
 radius = 0.831374
 
 [node name="Flor" type="KinematicBody" groups=[
 "PLAYER",
 ]]
+collision_mask = 7
 
 [node name="Flor" parent="." instance=ExtResource( 1 )]
 
@@ -51,10 +53,10 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0
 shape = SubResource( 1 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 5 )
+tree_root = SubResource( 7 )
 anim_player = NodePath("../Flor/AnimationPlayer")
 active = true
-parameters/MOVE/blend_amount = 1.0
+parameters/MOVE/blend_amount = 0.0
 parameters/PUSH/active = false
 
 [node name="FSM" type="Spatial" parent="."]
@@ -77,9 +79,17 @@ script = ExtResource( 5 )
 FSMPath = NodePath("..")
 
 [node name="Area" type="Area" parent="."]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource( 6 )
+Pushforce = 10.0
+PushY = 15.0
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.11725 )
-shape = SubResource( 6 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.14117, 5.08052 )
+shape = SubResource( 8 )
+disabled = true
+
+[connection signal="body_entered" from="Area" to="Area" method="_on_Area_body_entered"]
 
 [editable path="Flor"]

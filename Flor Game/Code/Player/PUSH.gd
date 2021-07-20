@@ -1,5 +1,6 @@
 extends "res://Code/Player/BaseState.gd"
 
+
 func EndAnimation():
 	var direction = Vector2.ZERO
 	var left = false
@@ -25,9 +26,7 @@ func EndAnimation():
 	if down:
 		direction.y = 1
 
-	print(direction)
-
 	if direction != Vector2.ZERO:
 		FSM.ChangeState("WALK")
-	else:
+	if direction == Vector2.ZERO:
 		FSM.ChangeState("IDLE")
