@@ -10,7 +10,7 @@ config_version=4
 
 [application]
 
-config/name="Flor Game"
+config/name="Atpanaa"
 run/main_scene="res://Scenes/Map.tscn"
 config/icon="res://icon.png"
 
