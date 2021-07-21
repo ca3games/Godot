@@ -1,0 +1,8 @@
+[gd_resource type="DynamicFont" load_steps=2 format=2]
+
+[ext_resource path="res://Fonts/ThaleahFat.ttf" type="DynamicFontData" id=1]
+
+[resource]
+size = 70
+outline_color = Color( 0.0666667, 0.00392157, 0.00392157, 1 )
+font_data = ExtResource( 1 )

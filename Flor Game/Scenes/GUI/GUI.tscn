@@ -1,7 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Fonts/ThaleahFat.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Code/GUI/GUI.gd" type="Script" id=2]
+[ext_resource path="res://Placeholders/2D/flor.png" type="Texture" id=3]
+[ext_resource path="res://Placeholders/2D/guineapig.png" type="Texture" id=4]
+[ext_resource path="res://Fonts/placeholder.tres" type="DynamicFont" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 60
@@ -19,10 +22,10 @@ font_data = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="combolabel" type="HBoxContainer" parent="."]
-margin_left = 54.1422
-margin_top = 75.1716
-margin_right = 129.142
-margin_bottom = 115.172
+margin_left = 686.496
+margin_top = 374.531
+margin_right = 798.496
+margin_bottom = 429.531
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -35,6 +38,7 @@ custom_colors/font_color = Color( 0.498039, 0.847059, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0.0196078, 0.0156863, 0.286275, 1 )
 custom_colors/font_color_shadow = Color( 0.00784314, 0.0431373, 0.337255, 1 )
 text = "0"
+align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -48,6 +52,42 @@ custom_colors/font_color = Color( 0.498039, 0.796078, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0.0313726, 0.0156863, 0.301961, 1 )
 custom_colors/font_color_shadow = Color( 0.00784314, 0.0352941, 0.368627, 1 )
 text = "HIT!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="guineacombo" type="HBoxContainer" parent="."]
+margin_left = 673.042
+margin_top = 487.211
+margin_right = 804.042
+margin_bottom = 542.211
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="COMBO" type="Label" parent="guineacombo"]
+margin_right = 30.0
+margin_bottom = 55.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.498039, 0.847059, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0.0196078, 0.0156863, 0.286275, 1 )
+custom_colors/font_color_shadow = Color( 0.00784314, 0.0431373, 0.337255, 1 )
+text = "0"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="guineacombo"]
+margin_left = 34.0
+margin_right = 131.0
+margin_bottom = 55.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.498039, 0.796078, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0.0313726, 0.0156863, 0.301961, 1 )
+custom_colors/font_color_shadow = Color( 0.00784314, 0.0352941, 0.368627, 1 )
+text = "cuy!"
+align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -100,5 +140,45 @@ custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "LEFT"
 
+[node name="guineapig" type="Sprite" parent="."]
+position = Vector2( 865.507, 506.993 )
+texture = ExtResource( 4 )
+
+[node name="GuineaPoints" type="Label" parent="guineapig"]
+margin_left = 71.7344
+margin_top = -18.8775
+margin_right = 111.734
+margin_bottom = -4.8775
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0.0196078, 0.25098, 1 )
+custom_colors/font_color_shadow = Color( 0.00392157, 0.0431373, 0.227451, 1 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="flor" type="Sprite" parent="."]
+position = Vector2( 857.037, 396.427 )
+scale = Vector2( 0.748301, 0.62245 )
+texture = ExtResource( 3 )
+
+[node name="FlorPoints" type="Label" parent="flor"]
+margin_left = 100.908
+margin_top = 3.03271
+margin_right = 140.908
+margin_bottom = 17.0327
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0.0117647, 0.00392157, 0.219608, 1 )
+custom_colors/font_color_shadow = Color( 0.0352941, 0.00392157, 0.235294, 1 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GuineaComboTimer" type="Timer" parent="."]
+
 [connection signal="timeout" from="ComboTimer" to="." method="_on_ComboTimer_timeout"]
 [connection signal="timeout" from="Harvested" to="." method="_on_Harvested_timeout"]
+[connection signal="timeout" from="GuineaComboTimer" to="." method="_on_GuineaComboTimer_timeout"]

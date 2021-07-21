@@ -12,45 +12,45 @@
 radius = 0.862375
 height = 5.94174
 
-[sub_resource type="AnimationNodeAnimation" id=21]
+[sub_resource type="AnimationNodeAnimation" id=2]
 animation = "IDLE"
 
-[sub_resource type="AnimationNodeBlend2" id=20]
+[sub_resource type="AnimationNodeBlend2" id=3]
 
-[sub_resource type="AnimationNodeAnimation" id=22]
+[sub_resource type="AnimationNodeAnimation" id=4]
 animation = "WALK"
 
-[sub_resource type="AnimationNodeBlendTree" id=23]
+[sub_resource type="AnimationNodeBlendTree" id=5]
 graph_offset = Vector2( -265, 77.5 )
-nodes/IDLE/node = SubResource( 21 )
+nodes/IDLE/node = SubResource( 2 )
 nodes/IDLE/position = Vector2( -120, 120 )
-nodes/MoveBlend/node = SubResource( 20 )
+nodes/MoveBlend/node = SubResource( 3 )
 nodes/MoveBlend/position = Vector2( 80, 140 )
-nodes/WALK/node = SubResource( 22 )
+nodes/WALK/node = SubResource( 4 )
 nodes/WALK/position = Vector2( -120, 240 )
 node_connections = [ "output", 0, "MoveBlend", "MoveBlend", 0, "IDLE", "MoveBlend", 1, "WALK" ]
 
-[sub_resource type="AnimationNodeAnimation" id=10]
+[sub_resource type="AnimationNodeAnimation" id=6]
 animation = "PUSH"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+[sub_resource type="AnimationNodeStateMachineTransition" id=7]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=25]
+[sub_resource type="AnimationNodeStateMachineTransition" id=8]
 switch_mode = 2
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachine" id=18]
-states/MOVE/node = SubResource( 23 )
+[sub_resource type="AnimationNodeStateMachine" id=9]
+states/MOVE/node = SubResource( 5 )
 states/MOVE/position = Vector2( 114, 97 )
-states/PUSH/node = SubResource( 10 )
+states/PUSH/node = SubResource( 6 )
 states/PUSH/position = Vector2( 343, 97 )
-transitions = [ "MOVE", "PUSH", SubResource( 24 ), "PUSH", "MOVE", SubResource( 25 ) ]
+transitions = [ "MOVE", "PUSH", SubResource( 7 ), "PUSH", "MOVE", SubResource( 8 ) ]
 start_node = "MOVE"
 graph_offset = Vector2( -69, 14 )
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=19]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=10]
 
-[sub_resource type="SphereShape" id=8]
+[sub_resource type="SphereShape" id=11]
 radius = 0.831374
 
 [node name="Flor" type="KinematicBody" groups=[
@@ -88,10 +88,10 @@ script = ExtResource( 7 )
 FSMPath = NodePath("..")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 18 )
+tree_root = SubResource( 9 )
 anim_player = NodePath("../Flor/AnimationPlayer")
 active = true
-parameters/playback = SubResource( 19 )
+parameters/playback = SubResource( 10 )
 parameters/MOVE/MoveBlend/blend_amount = 0.0
 
 [node name="Area" type="Area" parent="."]
@@ -103,7 +103,7 @@ PushY = 15.0
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.11725 )
-shape = SubResource( 8 )
+shape = SubResource( 11 )
 disabled = true
 
 [connection signal="body_entered" from="Area" to="Area" method="_on_Area_body_entered"]
