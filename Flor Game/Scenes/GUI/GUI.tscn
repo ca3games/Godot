@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Fonts/ThaleahFat.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Code/GUI/GUI.gd" type="Script" id=2]
 [ext_resource path="res://Placeholders/2D/flor.png" type="Texture" id=3]
 [ext_resource path="res://Placeholders/2D/guineapig.png" type="Texture" id=4]
 [ext_resource path="res://Fonts/placeholder.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Placeholders/GUI/hpbar.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 60
@@ -22,10 +23,10 @@ font_data = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="combolabel" type="HBoxContainer" parent="."]
-margin_left = 686.496
-margin_top = 374.531
-margin_right = 798.496
-margin_bottom = 429.531
+margin_left = 15.4611
+margin_top = 102.081
+margin_right = 127.461
+margin_bottom = 157.081
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -57,10 +58,10 @@ __meta__ = {
 }
 
 [node name="guineacombo" type="HBoxContainer" parent="."]
-margin_left = 673.042
-margin_top = 487.211
-margin_right = 804.042
-margin_bottom = 542.211
+margin_left = 873.175
+margin_top = 132.353
+margin_right = 1004.18
+margin_bottom = 187.353
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -96,10 +97,10 @@ __meta__ = {
 one_shot = true
 
 [node name="HarvestedLabel" type="Label" parent="."]
-margin_left = 60.5445
-margin_top = 147.998
-margin_right = 145.545
-margin_bottom = 161.998
+margin_left = 171.543
+margin_top = 104.271
+margin_right = 420.543
+margin_bottom = 151.271
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 custom_colors/font_outline_modulate = Color( 0.6, 0.129412, 0.0196078, 1 )
@@ -141,14 +142,14 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "LEFT"
 
 [node name="guineapig" type="Sprite" parent="."]
-position = Vector2( 865.507, 506.993 )
+position = Vector2( 952.96, 64.6819 )
 texture = ExtResource( 4 )
 
 [node name="GuineaPoints" type="Label" parent="guineapig"]
-margin_left = 71.7344
-margin_top = -18.8775
-margin_right = 111.734
-margin_bottom = -4.8775
+margin_left = -93.0811
+margin_top = 18.1219
+margin_right = -53.0815
+margin_bottom = 73.1219
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0.0196078, 0.25098, 1 )
@@ -159,15 +160,15 @@ __meta__ = {
 }
 
 [node name="flor" type="Sprite" parent="."]
-position = Vector2( 857.037, 396.427 )
+position = Vector2( 44.7316, 56.7051 )
 scale = Vector2( 0.748301, 0.62245 )
 texture = ExtResource( 3 )
 
 [node name="FlorPoints" type="Label" parent="flor"]
-margin_left = 100.908
-margin_top = 3.03271
-margin_right = 140.908
-margin_bottom = 17.0327
+margin_left = 71.6908
+margin_top = 27.3497
+margin_right = 111.691
+margin_bottom = 82.3497
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0.0117647, 0.00392157, 0.219608, 1 )
@@ -179,6 +180,22 @@ __meta__ = {
 
 [node name="GuineaComboTimer" type="Timer" parent="."]
 
+[node name="HPBAR" type="TextureProgress" parent="."]
+margin_left = 151.361
+margin_top = 30.2722
+margin_right = 251.361
+margin_bottom = 70.2722
+rect_scale = Vector2( 7, 1 )
+min_value = -100.0
+texture_under = ExtResource( 6 )
+texture_progress = ExtResource( 6 )
+tint_under = Color( 1, 0, 0, 1 )
+tint_progress = Color( 0.113725, 0.666667, 0.0196078, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="timeout" from="ComboTimer" to="." method="_on_ComboTimer_timeout"]
 [connection signal="timeout" from="Harvested" to="." method="_on_Harvested_timeout"]
 [connection signal="timeout" from="GuineaComboTimer" to="." method="_on_GuineaComboTimer_timeout"]
+[connection signal="value_changed" from="HPBAR" to="." method="_on_HPBAR_value_changed"]

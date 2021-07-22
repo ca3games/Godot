@@ -8,8 +8,11 @@ func Update(delta):
 	if is_instance_valid(target):
 		targetangle = (target.global_transform.origin - FSM.Root.global_transform.origin).normalized()
 		distance = target.global_transform.origin.distance_to(FSM.Root.global_transform.origin)
-		if distance < 6 and target != null:
-			HitBall(target)
+		if distance < 6:
+			if target.attacked:
+				FSM.Root.Hit(abs(target.HP))
+			else:
+				HitBall(target)
 	else:
 		target = GetRandomTarget()
 
@@ -46,4 +49,6 @@ func _on_ChangeTarget_timeout():
 
 
 func _on_ReturnToChase_timeout():
-	FSM.ChangeState("CHASE")
+	if FSM.Root.HP > 0:
+		print("RESET CHASE " + str(FSM.Root.HP) )
+		FSM.ChangeState("CHASE")

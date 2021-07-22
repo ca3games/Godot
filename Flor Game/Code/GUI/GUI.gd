@@ -26,12 +26,14 @@ func Hit():
 	$combolabel/COMBO.text = str(combo)
 	$combolabel.show()
 	$ComboTimer.start(3)
+	$HPBAR.value += 3
 
 func GuineaHit():
 	guineacombo += 1
 	$guineacombo/COMBO.text = str(guineacombo)
 	$guineacombo.show()
-	$GuineaComboTimer.start(4)
+	$GuineaComboTimer.start(2)
+	$HPBAR.value -= 3
 
 func _on_ComboTimer_timeout():
 	combo = 0
@@ -58,3 +60,11 @@ func UpdatePoints():
 func _on_GuineaComboTimer_timeout():
 	$guineacombo.hide()
 	guineacombo = 0
+
+
+func _on_HPBAR_value_changed(value):
+	if $HPBAR.value <= $HPBAR.min_value:
+		Variables.GameOver()
+	
+	if $HPBAR.value >= $HPBAR.max_value:
+		Variables.GameOver()

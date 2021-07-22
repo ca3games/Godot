@@ -6,3 +6,4 @@
 script = ExtResource( 1 )
 GameOver = "res://Scenes/Map.tscn"
 GameWin = "res://Scenes/Map.tscn"
+WeaponDamage = 20

@@ -1,17 +1,24 @@
 extends Spatial
 
+export(NodePath) var RootPath
+onready var Root = get_node(RootPath)
+
 func _on_BasicEnemy_body_entered(body):
 	if body.is_in_group("ENEMY"):
 		match($"../../".last_hit):
 			"PLAYER": $"../COLORS".HIT()
 			"GUINEA": $"../COLORS".GuineaHIT()
+			_: $"../COLORS".GuineaHIT()
 		
 	
 	if body.is_in_group("HOUSE"):
-		if $"../COLORS".HP == $"../COLORS".MaxHP:
+		if Root.HP == Root.MaxHP:
 			$"../DIE".DIE()
 	
 	if body.is_in_group("GUINEA"):
-		$"../../".last_hit = "GUINEA"
-		if $"../COLORS".HP == -$"../COLORS".MaxHP:
-			$"../DIE".GuineaDIE()
+		if Root.attacked and Root.HP > 0:
+			body.Hit(Root.HP)
+		else:
+			$"../../".last_hit = "GUINEA"
+			if Root.HP == -Root.MaxHP:
+				$"../DIE".GuineaDIE()

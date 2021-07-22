@@ -6,6 +6,10 @@ onready var TweenFall = $"../../Tween"
 var standing = false
 
 func _process(delta):
+	
+	if Root.attacked:
+		return
+	
 	var speed = Root.linear_velocity.x + Root.linear_velocity.y + Root.linear_velocity.z
 	if abs(speed) < 0.01 and !standing and Root.falling:
 		standing = true
@@ -17,9 +21,6 @@ func _on_Tween_tween_completed(object, key):
 	standing = false
 	Root.falling = false
 
-
-func _on_ChangeDirection_timeout():
-	var x = int(rand_range(-2, 2))
-	var y = int(rand_range(-2, 2))
-	Root.direction = Vector2(x, y)
-	$"../../ChangeDirection".start(rand_range(1, 5))
+func _on_HITSTATE_timeout():
+	Root.attacked = false
+	print("ATTACKED ENDED")
