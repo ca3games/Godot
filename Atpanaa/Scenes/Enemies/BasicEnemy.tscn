@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Code/Enemies/Basic/STANDING.gd" type="Script" id=1]
+[ext_resource path="res://Code/Enemies/Basic/BasicEnemy.gd" type="Script" id=2]
+[ext_resource path="res://Code/Enemies/Basic/COLORS.gd" type="Script" id=3]
+[ext_resource path="res://Code/Enemies/Basic/BOUNCEHIT.gd" type="Script" id=4]
+[ext_resource path="res://Code/Enemies/Basic/DIE.gd" type="Script" id=5]
+
+[sub_resource type="CylinderShape" id=1]
+radius = 2.36496
+height = 6.97521
+
+[sub_resource type="SpatialMaterial" id=2]
+resource_local_to_scene = true
+
+[sub_resource type="CapsuleMesh" id=3]
+radius = 2.0
+mid_height = 0.8
+
+[node name="BasicEnemy" type="RigidBody" groups=[
+"ENEMY",
+]]
+collision_layer = 2
+collision_mask = 7
+continuous_cd = true
+contacts_reported = 2
+contact_monitor = true
+script = ExtResource( 2 )
+vel = 5.0
+MaxHP = 10
+fruitdamage = 20
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.74541, 0 )
+shape = SubResource( 1 )
+
+[node name="Mesh" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -2, 0, 1, -8.74228e-08, 0, 4.34278, 0 )
+material_override = SubResource( 2 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="SCRIPTS" type="Spatial" parent="."]
+
+[node name="STANDING" type="Spatial" parent="SCRIPTS"]
+script = ExtResource( 1 )
+
+[node name="COLORS" type="Spatial" parent="SCRIPTS"]
+script = ExtResource( 3 )
+RootPath = NodePath("../..")
+
+[node name="BOUNCEHIT" type="Spatial" parent="SCRIPTS"]
+script = ExtResource( 4 )
+RootPath = NodePath("../..")
+
+[node name="DIE" type="Spatial" parent="SCRIPTS"]
+script = ExtResource( 5 )
+RootPath = NodePath("../..")
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="HITSTATE" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="SCRIPTS/BOUNCEHIT" method="_on_BasicEnemy_body_entered"]
+[connection signal="tween_completed" from="Tween" to="SCRIPTS/STANDING" method="_on_Tween_tween_completed"]
+[connection signal="timeout" from="HITSTATE" to="SCRIPTS/STANDING" method="_on_HITSTATE_timeout"]

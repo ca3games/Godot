@@ -1,0 +1,84 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Code/GuineaPig/FSM.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/ThaleahFat.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Placeholders/2D/capibara.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Guinea Pigs/BOSSCHASE.gd" type="Script" id=4]
+[ext_resource path="res://Placeholders/GUI/sleep.png" type="Texture" id=5]
+[ext_resource path="res://Code/GuineaPig/Guinea Base.gd" type="Script" id=6]
+[ext_resource path="res://Code/GuineaPig/GUINEAIDLE.gd" type="Script" id=7]
+
+[sub_resource type="SphereShape" id=1]
+radius = 4.5667
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+font_data = ExtResource( 2 )
+
+[node name="BossBase" type="KinematicBody" groups=[
+"BOSS",
+]]
+collision_layer = 32
+collision_mask = 20
+script = ExtResource( 6 )
+MinReturnToChase = 3.0
+MaxReturnToChase = 5.0
+HP = 10
+MaxHP = 10
+DamageKILL = 3
+MinChangeTarget = 15
+MaxChangeTarget = 20
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0 )
+billboard = 1
+shaded = true
+alpha_cut = 2
+texture = ExtResource( 3 )
+
+[node name="FSM" type="Spatial" parent="."]
+script = ExtResource( 1 )
+RootPath = NodePath("..")
+ChaseVel = 2.0
+PushForce = 10.0
+PushY = 15.0
+
+[node name="CHASE" type="Spatial" parent="FSM"]
+script = ExtResource( 4 )
+FSMPath = NodePath("..")
+
+[node name="IDLE" type="Spatial" parent="FSM"]
+script = ExtResource( 7 )
+FSMPath = NodePath("..")
+
+[node name="ChangeTarget" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="ReturnToChase" type="Timer" parent="."]
+one_shot = true
+
+[node name="DizzyTimer" type="Timer" parent="."]
+
+[node name="Dizzy" type="Sprite3D" parent="."]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 1.48484, 1.61496, -0.445193 )
+billboard = 1
+alpha_cut = 2
+texture = ExtResource( 5 )
+
+[node name="HP" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "9"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="timeout" from="ChangeTarget" to="FSM/CHASE" method="_on_ChangeTarget_timeout"]
+[connection signal="timeout" from="ReturnToChase" to="FSM/CHASE" method="_on_ReturnToChase_timeout"]
+[connection signal="timeout" from="DizzyTimer" to="FSM/IDLE" method="_on_DizzyTimer_timeout"]
