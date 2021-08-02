@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Code/Bombs/Bomb base.gd" type="Script" id=1]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.427451, 0.407843, 0.831373, 0.317647 )
+
+[sub_resource type="CylinderMesh" id=2]
+height = 0.182
+
+[sub_resource type="CylinderShape" id=3]
+radius = 0.503912
+
+[node name="Bomb" type="StaticBody"]
+collision_layer = 64
+collision_mask = 128
+script = ExtResource( 1 )
+DeadTime = 2
+Damage = 5
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.3, 0, 0, 0, 0.5, 0, 0, 0 )
+material_override = SubResource( 1 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 3 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

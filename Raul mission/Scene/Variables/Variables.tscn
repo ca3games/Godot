@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scene/Variables/Variables.gd" type="Script" id=1]
+[ext_resource path="res://Scene/Variables/Enemies.gd" type="Script" id=2]
+[ext_resource path="res://Scene/Enemies/EnemyBase.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scene/Bombs/Bomb.tscn" type="PackedScene" id=4]
+
+[node name="Variables" type="Node"]
+script = ExtResource( 1 )
+WinningLevel = "res://Scene/Playtest/Map.tscn"
+LosingLevel = "res://Scene/Playtest/Map.tscn"
+HP = 100
+
+[node name="Enemies" type="Node" parent="."]
+script = ExtResource( 2 )
+Enemies = [ ExtResource( 3 ) ]
+Bombs = [ ExtResource( 4 ) ]
+bomb_cost = [ 100 ]

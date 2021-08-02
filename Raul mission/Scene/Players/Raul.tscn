@@ -1,0 +1,657 @@
+[gd_scene load_steps=71 format=2]
+
+[ext_resource path="res://2D/Raul/Idle/Idle1.png" type="Texture" id=1]
+[ext_resource path="res://2D/Raul/Idle/Idle5.png" type="Texture" id=2]
+[ext_resource path="res://2D/Raul/Idle/Idle4.png" type="Texture" id=3]
+[ext_resource path="res://2D/Raul/Idle/Idle2.png" type="Texture" id=4]
+[ext_resource path="res://2D/Raul/Idle/Idle3.png" type="Texture" id=5]
+[ext_resource path="res://Code/Player code/FSM.gd" type="Script" id=6]
+[ext_resource path="res://Code/Player code/IDLE.gd" type="Script" id=7]
+[ext_resource path="res://Code/Player code/WALK.gd" type="Script" id=8]
+[ext_resource path="res://2D/Raul/WALK/Front/front walk2.png" type="Texture" id=9]
+[ext_resource path="res://2D/Raul/WALK/side front/side front3.png" type="Texture" id=10]
+[ext_resource path="res://2D/Raul/WALK/Front/front walk3.png" type="Texture" id=11]
+[ext_resource path="res://2D/Raul/WALK/side front/side front1.png" type="Texture" id=12]
+[ext_resource path="res://2D/Raul/WALK/side/side1.png" type="Texture" id=13]
+[ext_resource path="res://2D/Raul/WALK/back/back2.png" type="Texture" id=14]
+[ext_resource path="res://2D/Raul/WALK/side back/side back1.png" type="Texture" id=15]
+[ext_resource path="res://2D/Raul/WALK/side back/side back3.png" type="Texture" id=16]
+[ext_resource path="res://2D/Raul/WALK/side front/side front2.png" type="Texture" id=17]
+[ext_resource path="res://2D/Raul/WALK/side/side2.png" type="Texture" id=18]
+[ext_resource path="res://2D/Raul/WALK/side/side3.png" type="Texture" id=19]
+[ext_resource path="res://2D/Raul/WALK/side back/side back2.png" type="Texture" id=20]
+[ext_resource path="res://2D/Raul/WALK/Front/front walk1.png" type="Texture" id=21]
+[ext_resource path="res://2D/Raul/WALK/back/back3.png" type="Texture" id=22]
+[ext_resource path="res://2D/Raul/WALK/back/back1.png" type="Texture" id=23]
+[ext_resource path="res://Code/Player code/BOMB.gd" type="Script" id=24]
+[ext_resource path="res://Code/Player code/Raul.gd" type="Script" id=25]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "IDLE",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 20 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "WALK Side B",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 9 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "WALK Front",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 23 ), ExtResource( 14 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "WALK Back",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 17 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "WALK Side F",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 18 ), ExtResource( 19 ) ],
+"loop": true,
+"name": "WALK Side",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape" id=2]
+radius = 0.10553
+height = 0.184679
+
+[sub_resource type="AnimationNodeAnimation" id=42]
+animation = "BOMB"
+
+[sub_resource type="AnimationNodeAnimation" id=14]
+animation = "IDLE Side"
+
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "IDLE Side"
+
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "IDLE Front"
+
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "IDLE Back"
+
+[sub_resource type="AnimationNodeAnimation" id=18]
+animation = "IDLE Side Back"
+
+[sub_resource type="AnimationNodeAnimation" id=19]
+animation = "IDLE Side Back"
+
+[sub_resource type="AnimationNodeAnimation" id=20]
+animation = "IDLE Side Front"
+
+[sub_resource type="AnimationNodeAnimation" id=21]
+animation = "IDLE Side Front"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=11]
+blend_point_0/node = SubResource( 14 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 15 )
+blend_point_1/pos = Vector2( 1, 0 )
+blend_point_2/node = SubResource( 16 )
+blend_point_2/pos = Vector2( 0, -1 )
+blend_point_3/node = SubResource( 17 )
+blend_point_3/pos = Vector2( 0, 1 )
+blend_point_4/node = SubResource( 18 )
+blend_point_4/pos = Vector2( 1, 1 )
+blend_point_5/node = SubResource( 19 )
+blend_point_5/pos = Vector2( -1, 1 )
+blend_point_6/node = SubResource( 20 )
+blend_point_6/pos = Vector2( -1, -1 )
+blend_point_7/node = SubResource( 21 )
+blend_point_7/pos = Vector2( 1, -1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=31]
+animation = "WALK Side"
+
+[sub_resource type="AnimationNodeAnimation" id=32]
+animation = "WALK Front"
+
+[sub_resource type="AnimationNodeAnimation" id=33]
+animation = "WALK Back"
+
+[sub_resource type="AnimationNodeAnimation" id=34]
+animation = "WALK Side"
+
+[sub_resource type="AnimationNodeAnimation" id=35]
+animation = "WALK Side B"
+
+[sub_resource type="AnimationNodeAnimation" id=36]
+animation = "WALK Side F"
+
+[sub_resource type="AnimationNodeAnimation" id=37]
+animation = "WALK Side F"
+
+[sub_resource type="AnimationNodeAnimation" id=38]
+animation = "WALK Side B"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=30]
+blend_point_0/node = SubResource( 31 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 32 )
+blend_point_1/pos = Vector2( 0, -1 )
+blend_point_2/node = SubResource( 33 )
+blend_point_2/pos = Vector2( 0, 1 )
+blend_point_3/node = SubResource( 34 )
+blend_point_3/pos = Vector2( 1, 0 )
+blend_point_4/node = SubResource( 35 )
+blend_point_4/pos = Vector2( 1, 1 )
+blend_point_5/node = SubResource( 36 )
+blend_point_5/pos = Vector2( 1, -1 )
+blend_point_6/node = SubResource( 37 )
+blend_point_6/pos = Vector2( -1, -1 )
+blend_point_7/node = SubResource( 38 )
+blend_point_7/pos = Vector2( -1, 1 )
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=39]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=40]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=43]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=44]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=45]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachine" id=12]
+states/BOMB/node = SubResource( 42 )
+states/BOMB/position = Vector2( 104, -84 )
+states/IDLE/node = SubResource( 11 )
+states/IDLE/position = Vector2( -60, -84 )
+states/WALK/node = SubResource( 30 )
+states/WALK/position = Vector2( -60, 1 )
+transitions = [ "IDLE", "WALK", SubResource( 39 ), "WALK", "IDLE", SubResource( 40 ), "IDLE", "BOMB", SubResource( 43 ), "WALK", "BOMB", SubResource( 44 ), "BOMB", "IDLE", SubResource( 45 ) ]
+start_node = "IDLE"
+graph_offset = Vector2( -234, -154 )
+
+[sub_resource type="AnimationNodeStateMachine" id=3]
+states/MOVEMENT/node = SubResource( 12 )
+states/MOVEMENT/position = Vector2( 215, 77 )
+start_node = "MOVEMENT"
+graph_offset = Vector2( 38, -3 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=4]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=13]
+
+[sub_resource type="Animation" id=22]
+resource_name = "LEFT"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprites:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=23]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprites:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=24]
+resource_name = "Right"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprites:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=41]
+resource_name = "BOMB"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprites/AnimatedSprite3D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "IDLE" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprites/AnimatedSprite3D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("FSM/BOMB")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.4, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "SpawnBomb"
+}, {
+"args": [  ],
+"method": "END"
+} ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "IDLE Back"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprites/AnimatedSprite3D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "IDLE" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprites/AnimatedSprite3D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "IDLE Front"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprites/AnimatedSprite3D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "IDLE" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprites/AnimatedSprite3D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "IDLE Side"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprites/AnimatedSprite3D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "IDLE" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprites/AnimatedSprite3D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "IDLE Side Back"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprites/AnimatedSprite3D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "IDLE" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprites/AnimatedSprite3D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 3 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "IDLE Side Front"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprites/AnimatedSprite3D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "IDLE" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprites/AnimatedSprite3D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprites/AnimatedSprite3D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "IDLE" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprites/AnimatedSprite3D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=27]
+resource_name = "WALK Back"
+length = 0.375
+loop = true
+step = 0.125
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprites/AnimatedSprite3D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "WALK Back" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprites/AnimatedSprite3D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.125, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+
+[sub_resource type="Animation" id=25]
+resource_name = "WALK Front"
+length = 0.375
+loop = true
+step = 0.125
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprites/AnimatedSprite3D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "WALK Front" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprites/AnimatedSprite3D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.125, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+
+[sub_resource type="Animation" id=26]
+resource_name = "WALK Side"
+length = 0.375
+loop = true
+step = 0.125
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprites/AnimatedSprite3D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "WALK Side" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprites/AnimatedSprite3D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.125, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+
+[sub_resource type="Animation" id=28]
+resource_name = "WALK Side B"
+length = 0.375
+loop = true
+step = 0.125
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprites/AnimatedSprite3D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "WALK Side B" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprites/AnimatedSprite3D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.125, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+
+[sub_resource type="Animation" id=29]
+resource_name = "WALK Side F"
+length = 0.375
+loop = true
+step = 0.125
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprites/AnimatedSprite3D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "WALK Side F" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprites/AnimatedSprite3D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.125, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+
+[node name="Raul" type="KinematicBody"]
+collision_mask = 23
+script = ExtResource( 25 )
+
+[node name="Sprites" type="Spatial" parent="."]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Sprites"]
+transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0 )
+alpha_cut = 2
+frames = SubResource( 1 )
+animation = "IDLE"
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 2 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 3 )
+anim_player = NodePath("../Raul")
+active = true
+parameters/playback = SubResource( 4 )
+parameters/MOVEMENT/playback = SubResource( 13 )
+parameters/MOVEMENT/IDLE/blend_position = Vector2( 0.953964, -0.775862 )
+parameters/MOVEMENT/WALK/blend_position = Vector2( 0, 0.0172414 )
+
+[node name="LeftRight" type="AnimationPlayer" parent="."]
+anims/LEFT = SubResource( 22 )
+anims/RESET = SubResource( 23 )
+anims/Right = SubResource( 24 )
+
+[node name="Raul" type="AnimationPlayer" parent="."]
+autoplay = "IDLE Front"
+anims/BOMB = SubResource( 41 )
+"anims/IDLE Back" = SubResource( 10 )
+"anims/IDLE Front" = SubResource( 5 )
+"anims/IDLE Side" = SubResource( 7 )
+"anims/IDLE Side Back" = SubResource( 9 )
+"anims/IDLE Side Front" = SubResource( 8 )
+anims/RESET = SubResource( 6 )
+"anims/WALK Back" = SubResource( 27 )
+"anims/WALK Front" = SubResource( 25 )
+"anims/WALK Side" = SubResource( 26 )
+"anims/WALK Side B" = SubResource( 28 )
+"anims/WALK Side F" = SubResource( 29 )
+
+[node name="FSM" type="Spatial" parent="."]
+script = ExtResource( 6 )
+RootPath = NodePath("..")
+AnimTreePath = NodePath("../AnimationTree")
+vel = 0.4
+LeftRightAnim = NodePath("../LeftRight")
+
+[node name="IDLE" type="Spatial" parent="FSM"]
+script = ExtResource( 7 )
+FSMPath = NodePath("..")
+
+[node name="WALK" type="Spatial" parent="FSM"]
+script = ExtResource( 8 )
+FSMPath = NodePath("..")
+
+[node name="BOMB" type="Spatial" parent="FSM"]
+script = ExtResource( 24 )
+FSMPath = NodePath("..")
+
+[connection signal="animation_finished" from="Sprites/AnimatedSprite3D" to="FSM/BOMB" method="_on_AnimatedSprite3D_animation_finished"]

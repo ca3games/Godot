@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Code/Enemies code/FSM.gd" type="Script" id=1]
+[ext_resource path="res://Code/Enemies code/IDLE.gd" type="Script" id=2]
+[ext_resource path="res://Code/Enemies code/CHASE.gd" type="Script" id=3]
+[ext_resource path="res://Code/Enemies code/EnemyBase.gd" type="Script" id=4]
+
+[sub_resource type="SpatialMaterial" id=1]
+resource_local_to_scene = true
+
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 0.2, 0.2, 0.2 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 0.1, 0.1, 0.1 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 0.263371, 0.336824, 0.275376 )
+
+[node name="EnemyBase" type="KinematicBody"]
+collision_layer = 2
+collision_mask = 15
+script = ExtResource( 4 )
+damage = 10
+HP = 30
+MaxHP = 30
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+material_override = SubResource( 1 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 3 )
+
+[node name="FSM" type="Spatial" parent="."]
+script = ExtResource( 1 )
+RootPath = NodePath("..")
+vel = -0.2
+
+[node name="IDLE" type="Spatial" parent="FSM"]
+script = ExtResource( 2 )
+FSMPath = NodePath("..")
+
+[node name="CHASE" type="Spatial" parent="FSM"]
+script = ExtResource( 3 )
+FSMPath = NodePath("..")
+
+[node name="Player" type="Area" parent="."]
+collision_layer = 32
+
+[node name="CollisionShape" type="CollisionShape" parent="Player"]
+shape = SubResource( 4 )
+
+[node name="Chase" type="Timer" parent="."]
+
+[node name="Bomb" type="Area" parent="."]
+collision_layer = 128
+collision_mask = 64
+
+[node name="CollisionShape2" type="CollisionShape" parent="Bomb"]
+shape = SubResource( 4 )
+
+[connection signal="body_entered" from="Player" to="." method="_on_Player_body_entered"]
+[connection signal="timeout" from="Chase" to="." method="_on_Chase_timeout"]
+[connection signal="body_entered" from="Bomb" to="." method="_on_Bomb_body_entered"]

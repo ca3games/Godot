@@ -1,0 +1,153 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scene/Players/Raul.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Code/Camera/Camara.gd" type="Script" id=2]
+[ext_resource path="res://Scene/GUI/GUI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Code/Level/EnemiesManager.gd" type="Script" id=4]
+[ext_resource path="res://Code/Level/Map.gd" type="Script" id=5]
+
+[sub_resource type="CubeMesh" id=3]
+size = Vector3( 0.3, 0.3, 0.3 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 0.163248, 0.182321, 0.165013 )
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.486275, 0.486275, 0.486275, 1 )
+
+[sub_resource type="QuadMesh" id=2]
+
+[sub_resource type="ConcavePolygonShape" id=5]
+data = PoolVector3Array( -0.5, -0.5, 0, -0.5, 0.5, 0, 0.5, 0.5, 0, -0.5, -0.5, 0, 0.5, 0.5, 0, 0.5, -0.5, 0 )
+
+[node name="Map" type="Spatial"]
+script = ExtResource( 5 )
+
+[node name="Raul" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0276664, 0 )
+BombsManagerPath = NodePath("../Bombs")
+
+[node name="Camara" type="InterpolatedCamera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0301992 )
+target = NodePath("../Raul")
+script = ExtResource( 2 )
+
+[node name="Camera" type="Camera" parent="Camara"]
+transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -2.38419e-07, 1.34324, 1.54171 )
+current = true
+
+[node name="Enter" type="Area" parent="Camara"]
+collision_layer = 16
+
+[node name="CollisionPolygon" type="CollisionPolygon" parent="Camara/Enter"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.00548911, 0.0618062, 1.41176 )
+polygon = PoolVector2Array( 0.5383, 1.83303, 0.216222, 1.20108, -0.307575, 1.18582, -0.818016, 1.85092 )
+
+[node name="Leave" type="Area" parent="Camara"]
+collision_layer = 16
+
+[node name="CollisionPolygon" type="CollisionPolygon" parent="Camara/Leave"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.00548911, 0.0618062, 1.41176 )
+polygon = PoolVector2Array( 1.59054, 2.69423, 0.609022, 1.00273, -0.834484, 0.989082, -1.93078, 2.65484 )
+
+[node name="Blocks" type="Spatial" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="Blocks"]
+transform = Transform( 0.431, 0, 0, 0, 5, 0, 0, 0, 50, -2.97483, -0.799294, -3.07722 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Blocks/MeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29452, 0 )
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape" type="CollisionShape" parent="Blocks/MeshInstance/StaticBody"]
+shape = SubResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MeshInstance2" type="MeshInstance" parent="Blocks"]
+transform = Transform( 0.482, 0, 0, 0, 5, 0, 0, 0, 50, 3.1023, -0.861652, -3.11684 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Blocks/MeshInstance2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.261519, 0 )
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape" type="CollisionShape" parent="Blocks/MeshInstance2/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00199658 )
+shape = SubResource( 4 )
+
+[node name="MeshInstance3" type="MeshInstance" parent="Blocks"]
+transform = Transform( -2.10689e-08, 0, 50, 0, 5, 0, -0.482, 0, -2.18557e-06, -0.1228, -0.848689, -4.83715 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Blocks/MeshInstance3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.260161, 0 )
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape" type="CollisionShape" parent="Blocks/MeshInstance3/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00199658 )
+shape = SubResource( 4 )
+
+[node name="MeshInstance4" type="MeshInstance" parent="Blocks"]
+transform = Transform( -2.10689e-08, 0, 50, 0, 5, 0, -0.482, 0, -2.18557e-06, -0.1228, -0.746674, 2.78247 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Blocks/MeshInstance4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263064, 0 )
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape" type="CollisionShape" parent="Blocks/MeshInstance4/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00199658 )
+shape = SubResource( 4 )
+
+[node name="MeshInstance5" type="MeshInstance" parent="Blocks"]
+transform = Transform( 100, 0, 0, 0, -4.37114e-06, 1, 0, -100, -4.37114e-08, 0, -0.214279, 0 )
+material_override = SubResource( 1 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../..")
+material/0 = null
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StaticBody" type="StaticBody" parent="Blocks/MeshInstance5"]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape" type="CollisionShape" parent="Blocks/MeshInstance5/StaticBody"]
+shape = SubResource( 5 )
+
+[node name="TopLeft" type="Position3D" parent="Blocks"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.37549, 0, -4.39503 )
+
+[node name="BottomRight" type="Position3D" parent="Blocks"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.42062, 0, -1.03775 )
+
+[node name="Y" type="Position3D" parent="Blocks"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0226827, -0.0251027, -0.503843 )
+
+[node name="Enemies" type="Spatial" parent="."]
+script = ExtResource( 4 )
+Playerpath = NodePath("../Raul")
+EnemiesType = [ 0 ]
+MaxEnemies = 5
+TopLeftPath = NodePath("../Blocks/TopLeft")
+BottomRightPath = NodePath("../Blocks/BottomRight")
+YSpawnPath = NodePath("../Blocks/Y")
+
+[node name="Bombs" type="Spatial" parent="."]
+
+[node name="GUI" parent="." instance=ExtResource( 3 )]
+
+[connection signal="body_entered" from="Camara/Enter" to="Camara" method="_on_Area_body_entered"]
+[connection signal="body_exited" from="Camara/Leave" to="Camara" method="_on_Area_body_exited"]
