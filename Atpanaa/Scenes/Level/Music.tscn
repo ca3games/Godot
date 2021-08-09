@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Placeholders/Audio/Frank Guerrero y Su Grupo Aché - Barranquilla Tiene Un  Swing.mp3" type="AudioStream" id=1]
+
+[node name="Music" type="Spatial"]
+
+[node name="Barranquilla Tiene Un Swing" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )

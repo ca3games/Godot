@@ -8,3 +8,8 @@ GameOver = "res://Scenes/Map.tscn"
 GameWin = "res://Scenes/Map.tscn"
 WeaponDamage = 20
 MaxHouses = 3
+
+[node name="DeadCookie" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="DeadCookie" to="." method="_on_DeadCookie_timeout"]

@@ -23,4 +23,3 @@ func _on_Tween_tween_completed(object, key):
 
 func _on_HITSTATE_timeout():
 	Root.attacked = false
-	print("ATTACKED ENDED")

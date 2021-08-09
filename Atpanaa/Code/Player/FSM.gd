@@ -13,10 +13,6 @@ onready var Root = get_node(RootPath)
 
 export(float) var transpeed
 
-var states
-
-func _ready():
-	states = AnimTree.get("parameters/playback")
 
 func _process(delta):
 	current.Update(delta)

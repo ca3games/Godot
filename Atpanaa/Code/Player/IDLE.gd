@@ -29,13 +29,13 @@ func Update(delta):
 		FSM.ChangeState("WALK")
 		
 	if Input.is_action_just_released("PUSH"):
-		FSM.states.travel("PUSH")
+		FSM.AnimTree.set("parameters/PUSH/active", true)
 		FSM.ChangeState("ATTACK")
 
 func Physics(delta):
-	var i = FSM.AnimTree.get("parameters/MOVE/MoveBlend/blend_amount")
+	var i = FSM.AnimTree.get("parameters/MOVE/blend_amount")
 	if i > 0:
 		i -= FSM.transpeed * delta
 	
-	FSM.AnimTree.set("parameters/MOVE/MoveBlend/blend_amount", i)
+	FSM.AnimTree.set("parameters/MOVE/blend_amount", i)
 	

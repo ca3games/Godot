@@ -11,8 +11,6 @@ export(int) var DamageKILL
 export(int) var MinChangeTarget
 export(int) var MaxChangeTarget
 
-func _ready():
-	UpdateGUI()
 
 func ResetTarget():
 	$FSM/CHASE.GetRandomTarget()
@@ -23,14 +21,3 @@ func Hit(damage):
 	HP -= damage + Variables.WeaponDamage
 	$FSM.ChangeState("IDLE")
 	$FSM/IDLE.HIT(damage)
-	UpdateGUI()
-
-func UpdateGUI():
-	$HP.text = str(HP)
-
-func _process(delta):
-	var pos = $"../".cameranode.unproject_position(self.global_transform.origin)
-	$HP.rect_position = pos
-	
-	if HP < 1:
-		$HP.text = str(int($DizzyTimer.time_left))

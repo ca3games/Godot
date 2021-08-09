@@ -19,6 +19,7 @@ func _ready():
 func SpawnNewCookies():
 	for i in CookiesSpawned:
 		SpawnCookie()
+	Variables.DeadCookie()
 
 func SpawnCookie():
 	var cookie = Cookies.instance()
