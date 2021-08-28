@@ -1,0 +1,635 @@
+[gd_scene load_steps=130 format=2]
+
+[ext_resource path="res://2D/chin/Front/front2.png" type="Texture" id=1]
+[ext_resource path="res://2D/chin/Front/front6.png" type="Texture" id=2]
+[ext_resource path="res://2D/chin/Front/front1.png" type="Texture" id=3]
+[ext_resource path="res://2D/chin/Front/front5.png" type="Texture" id=4]
+[ext_resource path="res://2D/chin/Front/front7.png" type="Texture" id=5]
+[ext_resource path="res://2D/chin/Front/front4.png" type="Texture" id=6]
+[ext_resource path="res://2D/chin/Front/front3.png" type="Texture" id=7]
+[ext_resource path="res://2D/chin/Front/front8.png" type="Texture" id=8]
+[ext_resource path="res://2D/chin/Front/front9.png" type="Texture" id=9]
+[ext_resource path="res://2D/chin/Front/front10.png" type="Texture" id=10]
+[ext_resource path="res://2D/chin/Front/front11.png" type="Texture" id=11]
+[ext_resource path="res://2D/chin/Front/front12.png" type="Texture" id=12]
+[ext_resource path="res://2D/chin/Front/front13.png" type="Texture" id=13]
+[ext_resource path="res://2D/chin/Front/front14.png" type="Texture" id=14]
+[ext_resource path="res://2D/chin/Front/front15.png" type="Texture" id=15]
+[ext_resource path="res://2D/chin/Front/front16.png" type="Texture" id=16]
+[ext_resource path="res://2D/chin/Side Front/side front5.png" type="Texture" id=17]
+[ext_resource path="res://2D/chin/Side Front/side front1.png" type="Texture" id=18]
+[ext_resource path="res://2D/chin/Side Front/side front6.png" type="Texture" id=19]
+[ext_resource path="res://2D/chin/Side Front/side front7.png" type="Texture" id=20]
+[ext_resource path="res://2D/chin/Side Front/side front2.png" type="Texture" id=21]
+[ext_resource path="res://2D/chin/Side Front/side front4.png" type="Texture" id=22]
+[ext_resource path="res://2D/chin/Side Front/side front3.png" type="Texture" id=23]
+[ext_resource path="res://2D/chin/Side Front/side front8.png" type="Texture" id=24]
+[ext_resource path="res://2D/chin/Side Front/side front9.png" type="Texture" id=25]
+[ext_resource path="res://2D/chin/Side Front/side front10.png" type="Texture" id=26]
+[ext_resource path="res://2D/chin/Side Front/side front11.png" type="Texture" id=27]
+[ext_resource path="res://2D/chin/Side Front/side front12.png" type="Texture" id=28]
+[ext_resource path="res://2D/chin/Side Front/side front13.png" type="Texture" id=29]
+[ext_resource path="res://2D/chin/Side Front/side front15.png" type="Texture" id=30]
+[ext_resource path="res://2D/chin/Side Front/side front14.png" type="Texture" id=31]
+[ext_resource path="res://2D/chin/Side Front/side front16.png" type="Texture" id=32]
+[ext_resource path="res://2D/chin/Side/Side6.png" type="Texture" id=33]
+[ext_resource path="res://2D/chin/Side/Side1.png" type="Texture" id=34]
+[ext_resource path="res://2D/chin/Side/Side5.png" type="Texture" id=35]
+[ext_resource path="res://2D/chin/Side/Side3.png" type="Texture" id=36]
+[ext_resource path="res://2D/chin/Side/Side2.png" type="Texture" id=37]
+[ext_resource path="res://2D/chin/Side/Side7.png" type="Texture" id=38]
+[ext_resource path="res://2D/chin/Side/Side4.png" type="Texture" id=39]
+[ext_resource path="res://2D/chin/Side/Side8.png" type="Texture" id=40]
+[ext_resource path="res://2D/chin/Side/Side13.png" type="Texture" id=41]
+[ext_resource path="res://2D/chin/Side/Side14.png" type="Texture" id=42]
+[ext_resource path="res://2D/chin/Side/Side9.png" type="Texture" id=43]
+[ext_resource path="res://2D/chin/Side/Side10.png" type="Texture" id=44]
+[ext_resource path="res://2D/chin/Side/Side11.png" type="Texture" id=45]
+[ext_resource path="res://2D/chin/Side/Side12.png" type="Texture" id=46]
+[ext_resource path="res://2D/chin/Side/Side15.png" type="Texture" id=47]
+[ext_resource path="res://2D/chin/Side/Side16.png" type="Texture" id=48]
+[ext_resource path="res://2D/chin/Side/Side17.png" type="Texture" id=49]
+[ext_resource path="res://2D/chin/Side Back/Side Back6.png" type="Texture" id=50]
+[ext_resource path="res://2D/chin/Side Back/Side Back5.png" type="Texture" id=51]
+[ext_resource path="res://2D/chin/Side Back/Side Back2.png" type="Texture" id=52]
+[ext_resource path="res://2D/chin/Side Back/Side Back4.png" type="Texture" id=53]
+[ext_resource path="res://2D/chin/Side Back/Side Back3.png" type="Texture" id=54]
+[ext_resource path="res://2D/chin/Side Back/Side Back7.png" type="Texture" id=55]
+[ext_resource path="res://2D/chin/Side Back/Side Back1.png" type="Texture" id=56]
+[ext_resource path="res://2D/chin/Side Back/Side Back8.png" type="Texture" id=57]
+[ext_resource path="res://2D/chin/Side Back/Side Back10.png" type="Texture" id=58]
+[ext_resource path="res://2D/chin/Side Back/Side Back9.png" type="Texture" id=59]
+[ext_resource path="res://2D/chin/Side Back/Side Back11.png" type="Texture" id=60]
+[ext_resource path="res://2D/chin/Side Back/Side Back12.png" type="Texture" id=61]
+[ext_resource path="res://2D/chin/Side Back/Side Back13.png" type="Texture" id=62]
+[ext_resource path="res://2D/chin/Side Back/Side Back14.png" type="Texture" id=63]
+[ext_resource path="res://2D/chin/Side Back/Side Back15.png" type="Texture" id=64]
+[ext_resource path="res://2D/chin/Side Back/Side Back16.png" type="Texture" id=65]
+[ext_resource path="res://2D/chin/Side Back/Side Back17.png" type="Texture" id=66]
+[ext_resource path="res://2D/chin/Back/Back5.png" type="Texture" id=67]
+[ext_resource path="res://2D/chin/Back/Back6.png" type="Texture" id=68]
+[ext_resource path="res://2D/chin/Back/Back3.png" type="Texture" id=69]
+[ext_resource path="res://2D/chin/Back/Back7.png" type="Texture" id=70]
+[ext_resource path="res://2D/chin/Back/Back4.png" type="Texture" id=71]
+[ext_resource path="res://2D/chin/Back/Back1.png" type="Texture" id=72]
+[ext_resource path="res://2D/chin/Back/Back2.png" type="Texture" id=73]
+[ext_resource path="res://2D/chin/Back/Back9.png" type="Texture" id=74]
+[ext_resource path="res://2D/chin/Back/Back8.png" type="Texture" id=75]
+[ext_resource path="res://2D/chin/Back/Back10.png" type="Texture" id=76]
+[ext_resource path="res://2D/chin/Back/Back11.png" type="Texture" id=77]
+[ext_resource path="res://2D/chin/Back/Back12.png" type="Texture" id=78]
+[ext_resource path="res://2D/chin/Back/Back13.png" type="Texture" id=79]
+[ext_resource path="res://2D/chin/Back/Back14.png" type="Texture" id=80]
+[ext_resource path="res://2D/chin/Back/Back15.png" type="Texture" id=81]
+[ext_resource path="res://2D/chin/Back/Back16.png" type="Texture" id=82]
+[ext_resource path="res://2D/chin/Back/Back17.png" type="Texture" id=83]
+[ext_resource path="res://2D/chin/Back/Back18.png" type="Texture" id=84]
+[ext_resource path="res://Code/Player/FSM.gd" type="Script" id=85]
+[ext_resource path="res://Code/Player/IDLE.gd" type="Script" id=86]
+[ext_resource path="res://Code/Player/WALK.gd" type="Script" id=87]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 72 ), ExtResource( 73 ), ExtResource( 69 ), ExtResource( 71 ), ExtResource( 67 ), ExtResource( 68 ), ExtResource( 70 ), ExtResource( 75 ), ExtResource( 74 ), ExtResource( 76 ), ExtResource( 77 ), ExtResource( 78 ), ExtResource( 79 ), ExtResource( 80 ), ExtResource( 81 ), ExtResource( 82 ), ExtResource( 83 ), ExtResource( 84 ) ],
+"loop": true,
+"name": "BACK",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 21 ), ExtResource( 23 ), ExtResource( 22 ), ExtResource( 17 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 31 ), ExtResource( 30 ), ExtResource( 32 ) ],
+"loop": true,
+"name": "SIDEFRONT",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "FRONT",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 34 ), ExtResource( 37 ), ExtResource( 36 ), ExtResource( 39 ), ExtResource( 35 ), ExtResource( 33 ), ExtResource( 38 ), ExtResource( 40 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ) ],
+"loop": true,
+"name": "SIDE",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 56 ), ExtResource( 52 ), ExtResource( 54 ), ExtResource( 53 ), ExtResource( 51 ), ExtResource( 50 ), ExtResource( 55 ), ExtResource( 57 ), ExtResource( 59 ), ExtResource( 58 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 62 ), ExtResource( 63 ), ExtResource( 64 ), ExtResource( 65 ), ExtResource( 66 ) ],
+"loop": true,
+"name": "SIDEBACK",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 17.9872
+
+[sub_resource type="Animation" id=33]
+resource_name = "Back"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "BACK" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pivot/AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+
+[sub_resource type="Animation" id=34]
+resource_name = "Back WALK"
+length = 1.7
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "BACK" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pivot/AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 ]
+}
+
+[sub_resource type="Animation" id=35]
+resource_name = "FRONT WALK"
+length = 1.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "FRONT" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pivot/AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ]
+}
+
+[sub_resource type="Animation" id=36]
+resource_name = "Front"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "FRONT" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pivot/AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 3 ]
+}
+
+[sub_resource type="Animation" id=37]
+resource_name = "Side"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "SIDE" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pivot/AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+
+[sub_resource type="Animation" id=38]
+resource_name = "Side Back"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "SIDEBACK" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pivot/AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+
+[sub_resource type="Animation" id=39]
+resource_name = "Side Back Walk"
+length = 1.7
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "SIDEBACK" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pivot/AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 ]
+}
+
+[sub_resource type="Animation" id=40]
+resource_name = "Side Front"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "SIDEFRONT" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pivot/AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+
+[sub_resource type="Animation" id=41]
+resource_name = "Side WALK"
+length = 1.7
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "SIDE" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pivot/AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pivot/AnimatedSprite:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=42]
+resource_name = "SideFront Walk"
+length = 1.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "SIDEFRONT" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pivot/AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ]
+}
+
+[sub_resource type="Animation" id=43]
+resource_name = "Left"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=44]
+resource_name = "Right"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="AnimationNodeBlend2" id=47]
+
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "Side"
+
+[sub_resource type="AnimationNodeAnimation" id=18]
+animation = "Side WALK"
+
+[sub_resource type="AnimationNodeAnimation" id=26]
+animation = "Side Back Walk"
+
+[sub_resource type="AnimationNodeAnimation" id=27]
+animation = "Side WALK"
+
+[sub_resource type="AnimationNodeAnimation" id=28]
+animation = "Side"
+
+[sub_resource type="AnimationNodeAnimation" id=29]
+animation = "SideFront Walk"
+
+[sub_resource type="AnimationNodeAnimation" id=30]
+animation = "Side Front"
+
+[sub_resource type="AnimationNodeAnimation" id=31]
+animation = "Side Front"
+
+[sub_resource type="AnimationNodeAnimation" id=19]
+animation = "Side Back Walk"
+
+[sub_resource type="AnimationNodeAnimation" id=20]
+animation = "Back WALK"
+
+[sub_resource type="AnimationNodeAnimation" id=21]
+animation = "Side Back"
+
+[sub_resource type="AnimationNodeAnimation" id=22]
+animation = "Back"
+
+[sub_resource type="AnimationNodeAnimation" id=23]
+animation = "Front"
+
+[sub_resource type="AnimationNodeAnimation" id=24]
+animation = "FRONT WALK"
+
+[sub_resource type="AnimationNodeAnimation" id=25]
+animation = "SideFront Walk"
+
+[sub_resource type="AnimationNodeAnimation" id=32]
+animation = "Side Back"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=15]
+blend_point_0/node = SubResource( 17 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 18 )
+blend_point_1/pos = Vector2( -2, 0 )
+blend_point_2/node = SubResource( 19 )
+blend_point_2/pos = Vector2( -2, 2 )
+blend_point_3/node = SubResource( 20 )
+blend_point_3/pos = Vector2( 0, 2 )
+blend_point_4/node = SubResource( 21 )
+blend_point_4/pos = Vector2( -1, 1 )
+blend_point_5/node = SubResource( 22 )
+blend_point_5/pos = Vector2( 0, 1 )
+blend_point_6/node = SubResource( 23 )
+blend_point_6/pos = Vector2( 0, -1 )
+blend_point_7/node = SubResource( 24 )
+blend_point_7/pos = Vector2( 0, -2 )
+blend_point_8/node = SubResource( 25 )
+blend_point_8/pos = Vector2( -2, -2 )
+blend_point_9/node = SubResource( 32 )
+blend_point_9/pos = Vector2( 1, 1 )
+blend_point_10/node = SubResource( 26 )
+blend_point_10/pos = Vector2( 2, 2 )
+blend_point_11/node = SubResource( 27 )
+blend_point_11/pos = Vector2( 2, 0 )
+blend_point_12/node = SubResource( 28 )
+blend_point_12/pos = Vector2( 1, 0 )
+blend_point_13/node = SubResource( 29 )
+blend_point_13/pos = Vector2( 2, -2 )
+blend_point_14/node = SubResource( 30 )
+blend_point_14/pos = Vector2( 1, -1 )
+blend_point_15/node = SubResource( 31 )
+blend_point_15/pos = Vector2( -1, -1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=48]
+animation = "Back WALK"
+
+[sub_resource type="AnimationNodeAnimation" id=49]
+animation = "Side Back Walk"
+
+[sub_resource type="AnimationNodeAnimation" id=50]
+animation = "Side Back Walk"
+
+[sub_resource type="AnimationNodeAnimation" id=51]
+animation = "SideFront Walk"
+
+[sub_resource type="AnimationNodeAnimation" id=52]
+animation = "SideFront Walk"
+
+[sub_resource type="AnimationNodeAnimation" id=53]
+animation = "FRONT WALK"
+
+[sub_resource type="AnimationNodeAnimation" id=54]
+animation = "Side WALK"
+
+[sub_resource type="AnimationNodeAnimation" id=55]
+animation = "Side WALK"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=46]
+blend_point_0/node = SubResource( 48 )
+blend_point_0/pos = Vector2( 0, 1 )
+blend_point_1/node = SubResource( 49 )
+blend_point_1/pos = Vector2( 1, 1 )
+blend_point_2/node = SubResource( 50 )
+blend_point_2/pos = Vector2( -1, 1 )
+blend_point_3/node = SubResource( 51 )
+blend_point_3/pos = Vector2( -1, -1 )
+blend_point_4/node = SubResource( 52 )
+blend_point_4/pos = Vector2( 1, -1 )
+blend_point_5/node = SubResource( 53 )
+blend_point_5/pos = Vector2( 0, -1 )
+blend_point_6/node = SubResource( 54 )
+blend_point_6/pos = Vector2( 1, 0 )
+blend_point_7/node = SubResource( 55 )
+blend_point_7/pos = Vector2( -1, 0 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeBlendTree" id=45]
+graph_offset = Vector2( -315, 320.25 )
+nodes/BLENDWALK/node = SubResource( 47 )
+nodes/BLENDWALK/position = Vector2( -20, 200 )
+nodes/IDLE/node = SubResource( 15 )
+nodes/IDLE/position = Vector2( -260, 180 )
+nodes/WALK/node = SubResource( 46 )
+nodes/WALK/position = Vector2( -260, 340 )
+node_connections = [ "output", 0, "BLENDWALK", "BLENDWALK", 0, "IDLE", "BLENDWALK", 1, "WALK" ]
+
+[node name="Player" type="KinematicBody2D"]
+
+[node name="Pivot" type="Node2D" parent="."]
+position = Vector2( 0.793701, -12.6992 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Pivot"]
+frames = SubResource( 1 )
+animation = "SIDEBACK"
+frame = 11
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.396835, 7.937 )
+shape = SubResource( 2 )
+
+[node name="Sprites" type="AnimationPlayer" parent="."]
+anims/Back = SubResource( 33 )
+"anims/Back WALK" = SubResource( 34 )
+"anims/FRONT WALK" = SubResource( 35 )
+anims/Front = SubResource( 36 )
+anims/Side = SubResource( 37 )
+"anims/Side Back" = SubResource( 38 )
+"anims/Side Back Walk" = SubResource( 39 )
+"anims/Side Front" = SubResource( 40 )
+"anims/Side WALK" = SubResource( 41 )
+"anims/SideFront Walk" = SubResource( 42 )
+
+[node name="LeftRight" type="AnimationPlayer" parent="."]
+anims/Left = SubResource( 43 )
+anims/Right = SubResource( 44 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 45 )
+anim_player = NodePath("../Sprites")
+active = true
+parameters/BLENDWALK/blend_amount = 1.0
+parameters/IDLE/blend_position = Vector2( 1, 0 )
+parameters/WALK/blend_position = Vector2( -0.68059, 0.612069 )
+
+[node name="FSM" type="Node2D" parent="."]
+script = ExtResource( 85 )
+Speed = 80.0
+RootPath = NodePath("..")
+AnimTreePath = NodePath("../AnimationTree")
+SpritesPlayerPath = NodePath("../Sprites")
+LeftRightPath = NodePath("../LeftRight")
+
+[node name="IDLE" type="Node2D" parent="FSM"]
+script = ExtResource( 86 )
+FSMPath = NodePath("..")
+
+[node name="WALK" type="Node2D" parent="FSM"]
+script = ExtResource( 87 )
+FSMPath = NodePath("..")

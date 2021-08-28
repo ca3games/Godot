@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Code/Managers Code/Enemies.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Enemies/Police/Police01.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Enemies/Police/Enemy02.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Battle/Background.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Player/Chin.tscn" type="PackedScene" id=5]
+
+[node name="Battle" type="Node2D"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Background" parent="." instance=ExtResource( 4 )]
+
+[node name="Enemies" type="YSort" parent="."]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+Police01 = ExtResource( 2 )
+RedEnemy = ExtResource( 3 )
+LeftPath = NodePath("../Walls/Left")
+RightPath = NodePath("../Walls/Right")
+TimerSpawnPath = NodePath("../SpawnEnemy")
+
+[node name="Player" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( 531.447, 482.675 )
+
+[node name="Walls" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Left" type="Position2D" parent="Walls"]
+position = Vector2( 47.1937, 49.0815 )
+
+[node name="Right" type="Position2D" parent="Walls"]
+position = Vector2( 955.201, 62.2957 )
+
+[node name="SpawnEnemy" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="SpawnEnemy" to="Enemies" method="_on_SpawnEnemy_timeout"]

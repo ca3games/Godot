@@ -1,0 +1,83 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://2D/Police/police7.png" type="Texture" id=1]
+[ext_resource path="res://2D/Police/police6.png" type="Texture" id=2]
+[ext_resource path="res://2D/Police/police5.png" type="Texture" id=3]
+[ext_resource path="res://2D/Police/police3.png" type="Texture" id=4]
+[ext_resource path="res://2D/Police/police4.png" type="Texture" id=5]
+[ext_resource path="res://2D/Police/police2.png" type="Texture" id=6]
+[ext_resource path="res://2D/Police/police1.png" type="Texture" id=7]
+[ext_resource path="res://2D/Police/police10.png" type="Texture" id=8]
+[ext_resource path="res://2D/Police/police11.png" type="Texture" id=9]
+[ext_resource path="res://2D/Police/police12.png" type="Texture" id=10]
+[ext_resource path="res://2D/Police/police15.png" type="Texture" id=11]
+[ext_resource path="res://2D/Police/police13.png" type="Texture" id=12]
+[ext_resource path="res://2D/Police/police8.png" type="Texture" id=13]
+[ext_resource path="res://2D/Police/police9.png" type="Texture" id=14]
+[ext_resource path="res://2D/Police/police14.png" type="Texture" id=15]
+[ext_resource path="res://2D/Police/police16.png" type="Texture" id=16]
+[ext_resource path="res://2D/Police/police17.png" type="Texture" id=17]
+[ext_resource path="res://2D/Police/police18.png" type="Texture" id=18]
+[ext_resource path="res://2D/Police/police19.png" type="Texture" id=19]
+[ext_resource path="res://Code/Enemies code/FSM.gd" type="Script" id=20]
+[ext_resource path="res://Code/Enemies code/IDLE.gd" type="Script" id=21]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 12 ), ExtResource( 15 ), ExtResource( 11 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 19.0263
+
+[sub_resource type="Animation" id=3]
+resource_name = "IDLE"
+length = 1.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17 ]
+}
+
+[node name="Police01" type="KinematicBody2D"]
+collision_layer = 2
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -4.5, -0.5 )
+frames = SubResource( 1 )
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.75, 17 )
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "IDLE"
+anims/IDLE = SubResource( 3 )
+
+[node name="FSM" type="Node2D" parent="."]
+script = ExtResource( 20 )
+RootPath = NodePath("..")
+Direction = Vector2( 0, 1 )
+Speed = 50.0
+
+[node name="IDLE" type="Node2D" parent="FSM"]
+script = ExtResource( 21 )
+FSMPath = NodePath("..")
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 1.0052, 18.5797 )
+scale = Vector2( 1.68943, 1.70711 )
+
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="FSM" method="_on_VisibilityNotifier2D_screen_exited"]
