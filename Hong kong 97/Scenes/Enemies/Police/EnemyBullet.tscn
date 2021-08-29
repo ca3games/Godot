@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Code/Enemies code/EnemyBullet.gd" type="Script" id=1]
+[ext_resource path="res://2D/chin/Bullet/bullet.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[node name="Bullet" type="KinematicBody2D" groups=[
+"ENEMYBULLET",
+]]
+collision_layer = 16
+script = ExtResource( 1 )
+Speed = 400.0
+
+[node name="bullet" type="Sprite" parent="."]
+position = Vector2( -0.206852, 0.19104 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

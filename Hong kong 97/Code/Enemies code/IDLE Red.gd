@@ -14,4 +14,7 @@ func Physics(delta):
 	dir.x = cos(angle) * magnitude
 	dir.y = FSM.Direction.y * FSM.Speed * delta
 	
-	FSM.Root.move_and_collide(dir)
+	var colision = FSM.Root.move_and_collide(dir)
+	if colision:
+		if colision.collider.is_in_group("PLAYER"):
+			Variables.GameOver()

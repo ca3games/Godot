@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://2D/Intro/Chin_Hong_Kong_97.png" type="Texture" id=1]
+[ext_resource path="res://2D/Intro/deng_xiaoping.png" type="Texture" id=2]
+[ext_resource path="res://Fonts/toscuchet.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://Code/Screens Code/Title.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 100
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 3 )
+
+[node name="GameTitle" type="Node2D"]
+script = ExtResource( 4 )
+NextScreen = "res://Scenes/Screens/Story.tscn"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -3.0
+margin_top = -3.0
+margin_right = 1032.0
+margin_bottom = 605.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="deng_xiaoping" type="Sprite" parent="ColorRect"]
+position = Vector2( 848.443, 406.427 )
+scale = Vector2( 1.78085, 1.78572 )
+texture = ExtResource( 2 )
+flip_h = true
+
+[node name="Chin_Hong_Kong_97" type="Sprite" parent="."]
+position = Vector2( 201.582, 298.058 )
+scale = Vector2( 1.25171, 1.32097 )
+texture = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 325.802
+margin_top = 45.9913
+margin_right = 839.802
+margin_bottom = 272.991
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "HONG KONG
+97 HD"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 468.629
+margin_top = 465.858
+margin_right = 663.629
+margin_bottom = 521.858
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 0.00784314, 0.00784314, 1 )
+text = "1995 HappySoft
+2021 ca3studio"
+__meta__ = {
+"_edit_use_anchors_": false
+}

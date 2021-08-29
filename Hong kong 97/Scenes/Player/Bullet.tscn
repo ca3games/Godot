@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://2D/chin/Bullet/bullet.png" type="Texture" id=1]
+[ext_resource path="res://Code/Player/Bullet.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Enemies/Police/Dead.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Enemies/Police/Deadbody.tscn" type="PackedScene" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[node name="Bullet" type="KinematicBody2D" groups=[
+"BULLET",
+]]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource( 2 )
+Speed = 300.0
+Dead01 = ExtResource( 3 )
+Dead02 = ExtResource( 4 )
+
+[node name="bullet" type="Sprite" parent="."]
+position = Vector2( -0.206852, 0.19104 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

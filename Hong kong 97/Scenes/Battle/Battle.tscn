@@ -1,10 +1,23 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Code/Managers Code/Enemies.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Enemies/Police/Police01.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Enemies/Police/Enemy02.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Battle/Background.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Player/Chin.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Fonts/toscuchet.otf" type="DynamicFontData" id=6]
+[ext_resource path="res://Scenes/Enemies/Police/Car.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Enemies/Police/BOSS.tscn" type="PackedScene" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 608.109, 21.9828 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 20.1159, 348.052 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 60
+font_data = ExtResource( 6 )
 
 [node name="Battle" type="Node2D"]
 __meta__ = {
@@ -20,12 +33,26 @@ __meta__ = {
 }
 Police01 = ExtResource( 2 )
 RedEnemy = ExtResource( 3 )
+Car = ExtResource( 7 )
+Boss = ExtResource( 8 )
 LeftPath = NodePath("../Walls/Left")
 RightPath = NodePath("../Walls/Right")
+BottomPath = NodePath("../Walls/Bottom")
 TimerSpawnPath = NodePath("../SpawnEnemy")
+CarTimerPath = NodePath("../SpawnCar")
+CenterPath = NodePath("SpawnBoss")
+BossTimerPath = NodePath("../SpawnBoss")
 
 [node name="Player" parent="Enemies" instance=ExtResource( 5 )]
 position = Vector2( 531.447, 482.675 )
+BulletManagerPath = NodePath("../Bullets")
+
+[node name="Bullets" type="Node2D" parent="Enemies"]
+
+[node name="SpawnBoss" type="Position2D" parent="Enemies"]
+position = Vector2( 516.721, 172.834 )
+
+[node name="Bosses" type="Node2D" parent="Enemies"]
 
 [node name="Walls" type="Node2D" parent="."]
 __meta__ = {
@@ -33,13 +60,94 @@ __meta__ = {
 }
 
 [node name="Left" type="Position2D" parent="Walls"]
-position = Vector2( 47.1937, 49.0815 )
+position = Vector2( 41.8483, 33.0453 )
 
 [node name="Right" type="Position2D" parent="Walls"]
-position = Vector2( 955.201, 62.2957 )
+position = Vector2( 955.201, 32.0051 )
+
+[node name="Bottom" type="Position2D" parent="Walls"]
+position = Vector2( 973.019, 577.235 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Walls"]
+position = Vector2( 529.764, 595.354 )
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D"]
+position = Vector2( 1.78186, 7.1272 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Walls"]
+position = Vector2( 529.764, 595.354 )
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D4"]
+position = Vector2( -1.78174, -595.12 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Walls"]
+position = Vector2( 529.764, 595.354 )
+collision_layer = 4
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D2"]
+position = Vector2( -523.848, -277.96 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Walls"]
+position = Vector2( 529.764, 595.354 )
+collision_layer = 4
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+position = Vector2( 502.467, -274.397 )
+shape = SubResource( 2 )
 
 [node name="SpawnEnemy" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
 
+[node name="GUI" type="Control" parent="."]
+margin_right = 1024.0
+margin_bottom = 603.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="GUI"]
+margin_left = 431.0
+margin_top = 2.0
+margin_right = 1019.0
+margin_bottom = 171.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0.639216, 0.0392157, 1 )
+custom_colors/font_color_shadow = Color( 0.937255, 0.878431, 0.00784314, 1 )
+text = "0"
+align = 2
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="SpawnCar" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="SpawnBoss" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
 [connection signal="timeout" from="SpawnEnemy" to="Enemies" method="_on_SpawnEnemy_timeout"]
+[connection signal="timeout" from="SpawnCar" to="Enemies" method="_on_SpawnCar_timeout"]
+[connection signal="timeout" from="SpawnBoss" to="Enemies" method="_on_SpawnBoss_timeout"]

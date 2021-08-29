@@ -12,9 +12,20 @@ export(NodePath) var SpritesPlayerPath
 onready var SpritesPlayer = get_node(SpritesPlayerPath)
 export(NodePath) var LeftRightPath
 onready var LeftRight = get_node(LeftRightPath)
+export(PackedScene) var BulletScene
 
 func _process(delta):
 	current.Update(delta)
+	
+	if Input.is_action_just_released("SPACE") and !Root.bullet:
+		Root.bullet = true
+		Root.get_node("OffsetBullets").start(0.5)
+		Spawn()
+		
+func Spawn():
+	var tmp = BulletScene.instance()
+	tmp.position = Root.position
+	Root.BulletManager.add_child(tmp)
 
 func _physics_process(delta):
 	current.Physics(delta)

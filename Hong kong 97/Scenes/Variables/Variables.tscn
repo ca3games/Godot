@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Code/Variables.gd" type="Script" id=1]
+[ext_resource path="res://Music/Hong Kong 97 - I Love Beijing Tiananmen (Full song - not loop)-Is_Z2K7guKs.ogg" type="AudioStream" id=2]
 
 [node name="Variables" type="Node"]
 script = ExtResource( 1 )
+gameoverscreen = "res://Scenes/Screens/GameOver.tscn"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+autoplay = true

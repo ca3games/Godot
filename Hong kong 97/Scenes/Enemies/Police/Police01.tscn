@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://2D/Police/police7.png" type="Texture" id=1]
 [ext_resource path="res://2D/Police/police6.png" type="Texture" id=2]
@@ -21,6 +21,9 @@
 [ext_resource path="res://2D/Police/police19.png" type="Texture" id=19]
 [ext_resource path="res://Code/Enemies code/FSM.gd" type="Script" id=20]
 [ext_resource path="res://Code/Enemies code/IDLE.gd" type="Script" id=21]
+[ext_resource path="res://Scenes/Enemies/Police/EnemyBullet.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Code/Enemies code/Police01.gd" type="Script" id=23]
+[ext_resource path="res://Scenes/Enemies/Police/EnemyBullet02.tscn" type="PackedScene" id=24]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -50,8 +53,12 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17 ]
 }
 
-[node name="Police01" type="KinematicBody2D"]
+[node name="Police01" type="KinematicBody2D" groups=[
+"ENEMY",
+]]
 collision_layer = 2
+script = ExtResource( 23 )
+Bullet = ExtResource( 24 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -4.5, -0.5 )
@@ -70,7 +77,8 @@ anims/IDLE = SubResource( 3 )
 script = ExtResource( 20 )
 RootPath = NodePath("..")
 Direction = Vector2( 0, 1 )
-Speed = 50.0
+Speed = 80.0
+Bullet = ExtResource( 22 )
 
 [node name="IDLE" type="Node2D" parent="FSM"]
 script = ExtResource( 21 )

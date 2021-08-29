@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Hong Kong 97 - I Love Beijing Tiananmen (Full song - not loop)-Is_Z2K7guKs.ogg-885a5a8dac2adc30c1019959da2e4836.oggstr"
+
+[deps]
+
+source_file="res://Music/Hong Kong 97 - I Love Beijing Tiananmen (Full song - not loop)-Is_Z2K7guKs.ogg"
+dest_files=[ "res://.import/Hong Kong 97 - I Love Beijing Tiananmen (Full song - not loop)-Is_Z2K7guKs.ogg-885a5a8dac2adc30c1019959da2e4836.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

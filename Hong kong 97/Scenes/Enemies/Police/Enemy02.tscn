@@ -1,18 +1,20 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://2D/enemy02 pixel art/enemy_New animation_8.png" type="Texture" id=1]
-[ext_resource path="res://2D/enemy02 pixel art/enemy_New animation_5.png" type="Texture" id=2]
-[ext_resource path="res://2D/enemy02 pixel art/enemy_New animation_7.png" type="Texture" id=3]
-[ext_resource path="res://2D/enemy02 pixel art/enemy_New animation_9.png" type="Texture" id=4]
-[ext_resource path="res://2D/enemy02 pixel art/enemy_New animation_1.png" type="Texture" id=5]
-[ext_resource path="res://2D/enemy02 pixel art/enemy_New animation_4.png" type="Texture" id=6]
-[ext_resource path="res://2D/enemy02 pixel art/enemy_New animation_6.png" type="Texture" id=7]
-[ext_resource path="res://2D/enemy02 pixel art/enemy_New animation_11.png" type="Texture" id=8]
-[ext_resource path="res://2D/enemy02 pixel art/enemy_New animation_10.png" type="Texture" id=9]
-[ext_resource path="res://2D/enemy02 pixel art/enemy_New animation_3.png" type="Texture" id=10]
-[ext_resource path="res://2D/enemy02 pixel art/enemy_New animation_2.png" type="Texture" id=11]
+[ext_resource path="res://2D/enemy02/enemy_New animation_8.png" type="Texture" id=1]
+[ext_resource path="res://2D/enemy02/enemy_New animation_5.png" type="Texture" id=2]
+[ext_resource path="res://2D/enemy02/enemy_New animation_7.png" type="Texture" id=3]
+[ext_resource path="res://2D/enemy02/enemy_New animation_9.png" type="Texture" id=4]
+[ext_resource path="res://2D/enemy02/enemy_New animation_1.png" type="Texture" id=5]
+[ext_resource path="res://2D/enemy02/enemy_New animation_4.png" type="Texture" id=6]
+[ext_resource path="res://2D/enemy02/enemy_New animation_6.png" type="Texture" id=7]
+[ext_resource path="res://2D/enemy02/enemy_New animation_11.png" type="Texture" id=8]
+[ext_resource path="res://2D/enemy02/enemy_New animation_10.png" type="Texture" id=9]
+[ext_resource path="res://2D/enemy02/enemy_New animation_3.png" type="Texture" id=10]
+[ext_resource path="res://2D/enemy02/enemy_New animation_2.png" type="Texture" id=11]
 [ext_resource path="res://Code/Enemies code/FSM.gd" type="Script" id=12]
 [ext_resource path="res://Code/Enemies code/IDLE Red.gd" type="Script" id=13]
+[ext_resource path="res://Scenes/Enemies/Police/EnemyBullet.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Code/Enemies code/Enemy02.gd" type="Script" id=15]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -66,8 +68,12 @@ tracks/2/keys = {
 "values": [ Vector2( -6.34959, -18.652 ), Vector2( 5.95276, -18.652 ) ]
 }
 
-[node name="Enemy02" type="KinematicBody2D"]
+[node name="Enemy02" type="KinematicBody2D" groups=[
+"ENEMY",
+"ENEMY02",
+]]
 collision_layer = 2
+script = ExtResource( 15 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -6.34959, -18.652 )
@@ -86,7 +92,8 @@ anims/IDLE = SubResource( 3 )
 script = ExtResource( 12 )
 RootPath = NodePath("..")
 Direction = Vector2( 0, 1 )
-Speed = 60.0
+Speed = 120.0
+Bullet = ExtResource( 14 )
 
 [node name="IDLE" type="Node2D" parent="FSM"]
 script = ExtResource( 13 )
@@ -97,4 +104,9 @@ magnitude = 3.0
 position = Vector2( -1.19055, 4.7622 )
 scale = Vector2( 1.55559, 1.55559 )
 
+[node name="Shoot" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="FSM" method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="timeout" from="Shoot" to="FSM" method="_on_Shoot_timeout"]

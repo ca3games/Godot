@@ -9,4 +9,8 @@ func Update(delta):
 func Physics(delta):
 	var dir = FSM.Direction * FSM.Speed * delta
 	
-	FSM.Root.move_and_collide(dir)
+	var colision = FSM.Root.move_and_collide(dir)
+	if colision:
+		if colision.collider.is_in_group("PLAYER"):
+			Variables.GameOver()
+
