@@ -1,0 +1,77 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/cristian/Documentos/GitHub/ca3games/Godot/Arcalon/android/build/build/intermediates/incremental/mergeDebugResources/merged.dir/values-hu/values-hu.xml",
+            "map": [
+                {
+                    "source": "/home/cristian/.gradle/caches/transforms-2/files-2.1/e5df49c1c3f6c08e72304aa03642d0bd/jetified-play-services-basement-17.0.0/res/values-hu/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "235",
+                        "endOffsets": "482"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "235",
+                        "endOffsets": "336"
+                    }
+                },
+                {
+                    "source": "/home/cristian/Documentos/GitHub/ca3games/Godot/Arcalon/android/build/res/values-hu/godot_project_name_string.xml",
+                    "from": {
+                        "startLines": "3",
+                        "startColumns": "1",
+                        "startOffsets": "112",
+                        "endColumns": "58",
+                        "endOffsets": "169"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "341",
+                        "endColumns": "61",
+                        "endOffsets": "398"
+                    }
+                },
+                {
+                    "source": "/home/cristian/.gradle/caches/transforms-2/files-2.1/a7ad5a81b07168db60b339a3a943336d/jetified-play-services-ads-19.3.0/res/values-hu/values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10",
+                        "startColumns": "0,0,0,0,0,0,0",
+                        "startOffsets": "199,267,388,455,523,606,722",
+                        "endColumns": "67,120,66,67,82,115,70",
+                        "endOffsets": "266,387,454,522,605,721,792"
+                    },
+                    "to": {
+                        "startLines": "4,5,6,7,8,9,10",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "403,475,600,671,743,830,950",
+                        "endColumns": "71,124,70,71,86,119,74",
+                        "endOffsets": "470,595,666,738,825,945,1020"
+                    }
+                },
+                {
+                    "source": "/home/cristian/.gradle/caches/transforms-2/files-2.1/61f903db516e52d8783db3337e87ee1a/core-1.0.0/res/values-hu/values-hu.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "11",
+                        "startColumns": "4",
+                        "startOffsets": "1025",
+                        "endColumns": "100",
+                        "endOffsets": "1121"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -55,3 +55,10 @@ func _on_Area2D_body_entered(body):
 			body.Damage(GUIMana.value)
 		else:
 			body.Damage(5)
+
+
+func HitSound():
+	$Hit.play()
+
+func Bounce():
+	$AnimationPlayer.play("Bounce")

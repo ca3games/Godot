@@ -1,7 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://2D/Placeholders/sun.png" type="Texture" id=1]
 [ext_resource path="res://Code/Sun/Sun.gd" type="Script" id=2]
+[ext_resource path="res://2D/Particles/cloud.png" type="Texture" id=3]
+
+[sub_resource type="Gradient" id=2]
+colors = PoolColorArray( 0.932129, 0.0218468, 0.0218468, 1, 0.955566, 0.906447, 0.0410595, 1 )
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 54.1851
@@ -14,6 +18,17 @@ collision_mask = 10
 script = ExtResource( 2 )
 move = 400.0
 inertia = 1.0
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+lifetime = 0.8
+texture = ExtResource( 3 )
+spread = 60.48
+gravity = Vector2( 10, 98 )
+initial_velocity = 118.28
+initial_velocity_random = 0.57
+angular_velocity = 232.26
+orbit_velocity = 1.0
+color_ramp = SubResource( 2 )
 
 [node name="sun" type="Sprite" parent="."]
 position = Vector2( 1.11841, -2.4791 )

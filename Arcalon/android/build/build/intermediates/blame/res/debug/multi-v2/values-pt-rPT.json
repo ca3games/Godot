@@ -1,0 +1,60 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/cristian/Documentos/GitHub/ca3games/Godot/Arcalon/android/build/build/intermediates/incremental/mergeDebugResources/merged.dir/values-pt-rPT/values-pt-rPT.xml",
+            "map": [
+                {
+                    "source": "/home/cristian/.gradle/caches/transforms-2/files-2.1/e5df49c1c3f6c08e72304aa03642d0bd/jetified-play-services-basement-17.0.0/res/values-pt-rPT/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "251",
+                        "endColumns": "203",
+                        "endOffsets": "454"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "203",
+                        "endOffsets": "304"
+                    }
+                },
+                {
+                    "source": "/home/cristian/.gradle/caches/transforms-2/files-2.1/61f903db516e52d8783db3337e87ee1a/core-1.0.0/res/values-pt-rPT/values-pt-rPT.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "10",
+                        "startColumns": "4",
+                        "startOffsets": "925",
+                        "endColumns": "100",
+                        "endOffsets": "1021"
+                    }
+                },
+                {
+                    "source": "/home/cristian/.gradle/caches/transforms-2/files-2.1/a7ad5a81b07168db60b339a3a943336d/jetified-play-services-ads-19.3.0/res/values-pt-rPT/values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10",
+                        "startColumns": "0,0,0,0,0,0,0",
+                        "startOffsets": "203,274,395,460,525,609,717",
+                        "endColumns": "70,120,64,64,83,107,73",
+                        "endOffsets": "273,394,459,524,608,716,790"
+                    },
+                    "to": {
+                        "startLines": "3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "309,384,509,578,647,735,847",
+                        "endColumns": "74,124,68,68,87,111,77",
+                        "endOffsets": "379,504,573,642,730,842,920"
+                    }
+                }
+            ]
+        }
+    ]
+}

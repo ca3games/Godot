@@ -1,0 +1,94 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/cristian/Documentos/GitHub/ca3games/Godot/Arcalon/android/build/build/intermediates/incremental/mergeDebugResources/merged.dir/values-fa/values-fa.xml",
+            "map": [
+                {
+                    "source": "/home/cristian/.gradle/caches/transforms-2/files-2.1/bc1e848ec22747470543ab6597f4376b/jetified-godot-lib.debug/res/values-fa/values-fa.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,109,183,241,301,370,440,618,791,893,972",
+                        "endColumns": "53,73,57,59,68,69,177,172,101,78,70",
+                        "endOffsets": "104,178,236,296,365,435,613,786,888,967,1038"
+                    },
+                    "to": {
+                        "startLines": "12,13,14,15,16,17,18,19,20,21,22",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "1074,1128,1202,1260,1320,1389,1459,1637,1810,1912,1991",
+                        "endColumns": "53,73,57,59,68,69,177,172,101,78,70",
+                        "endOffsets": "1123,1197,1255,1315,1384,1454,1632,1805,1907,1986,2057"
+                    }
+                },
+                {
+                    "source": "/home/cristian/.gradle/caches/transforms-2/files-2.1/61f903db516e52d8783db3337e87ee1a/core-1.0.0/res/values-fa/values-fa.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "11",
+                        "startColumns": "4",
+                        "startOffsets": "973",
+                        "endColumns": "100",
+                        "endOffsets": "1069"
+                    }
+                },
+                {
+                    "source": "/home/cristian/.gradle/caches/transforms-2/files-2.1/e5df49c1c3f6c08e72304aa03642d0bd/jetified-play-services-basement-17.0.0/res/values-fa/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "213",
+                        "endOffsets": "460"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "213",
+                        "endOffsets": "314"
+                    }
+                },
+                {
+                    "source": "/home/cristian/Documentos/GitHub/ca3games/Godot/Arcalon/android/build/res/values-fa/godot_project_name_string.xml",
+                    "from": {
+                        "startLines": "3",
+                        "startColumns": "1",
+                        "startOffsets": "112",
+                        "endColumns": "58",
+                        "endOffsets": "169"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "319",
+                        "endColumns": "61",
+                        "endOffsets": "376"
+                    }
+                },
+                {
+                    "source": "/home/cristian/.gradle/caches/transforms-2/files-2.1/a7ad5a81b07168db60b339a3a943336d/jetified-play-services-ads-19.3.0/res/values-fa/values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10",
+                        "startColumns": "0,0,0,0,0,0,0",
+                        "startOffsets": "199,267,382,447,513,589,693",
+                        "endColumns": "67,114,64,65,75,103,69",
+                        "endOffsets": "266,381,446,512,588,692,762"
+                    },
+                    "to": {
+                        "startLines": "4,5,6,7,8,9,10",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "381,453,572,641,711,791,899",
+                        "endColumns": "71,118,68,69,79,107,73",
+                        "endOffsets": "448,567,636,706,786,894,968"
+                    }
+                }
+            ]
+        }
+    ]
+}

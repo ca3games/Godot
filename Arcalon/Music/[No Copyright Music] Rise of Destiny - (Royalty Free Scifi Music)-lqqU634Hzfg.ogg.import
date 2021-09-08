@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/[No Copyright Music] Rise of Destiny - (Royalty Free Scifi Music)-lqqU634Hzfg.ogg-667e9af296c8abbe372273d71351db65.oggstr"
+
+[deps]
+
+source_file="res://Music/[No Copyright Music] Rise of Destiny - (Royalty Free Scifi Music)-lqqU634Hzfg.ogg"
+dest_files=[ "res://.import/[No Copyright Music] Rise of Destiny - (Royalty Free Scifi Music)-lqqU634Hzfg.ogg-667e9af296c8abbe372273d71351db65.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

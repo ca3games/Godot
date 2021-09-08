@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://2D/Placeholders/ProgressBar.png" type="Texture" id=2]
+[ext_resource path="res://2D/Placeholders/ProgressBarblack.png" type="Texture" id=3]
+
+[node name="TextureProgress" type="TextureProgress"]
+margin_right = 100.0
+margin_bottom = 40.0
+rect_scale = Vector2( 2, 1 )
+value = 50.0
+texture_under = ExtResource( 2 )
+texture_over = ExtResource( 3 )
+texture_progress = ExtResource( 2 )
+tint_under = Color( 0.0392157, 0.121569, 0.670588, 1 )
+tint_progress = Color( 0.309804, 0.701961, 0.913725, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

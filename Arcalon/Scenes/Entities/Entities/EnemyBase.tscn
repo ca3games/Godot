@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Code/Entities/FSM.gd" type="Script" id=1]
 [ext_resource path="res://Code/Enemies/WALKEnemy.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Code/Enemies/IDLEEnemy.gd" type="Script" id=4]
 [ext_resource path="res://2D/Placeholders/ProgressBar.png" type="Texture" id=5]
 [ext_resource path="res://2D/Placeholders/ProgressBarblack.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Entities/Entities/DeadSpark.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 52.6318
@@ -19,6 +20,7 @@ gravity_scale = 0.0
 contacts_reported = 1
 contact_monitor = true
 script = ExtResource( 3 )
+DeadSpark = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

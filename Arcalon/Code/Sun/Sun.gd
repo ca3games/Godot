@@ -34,4 +34,5 @@ func _physics_process(delta):
 	
 	if collision:
 		if collision.collider.is_in_group("ENEMY"):
+			Variables.PlaySUN()
 			collision.collider.Damage(500)

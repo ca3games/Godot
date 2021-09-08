@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Scenes/Entities/Ball.tscn" type="PackedScene" id=1]
 [ext_resource path="res://2D/Placeholders/183127.jpg" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Code/Manager/Generator.gd" type="Script" id=13]
 [ext_resource path="res://Scenes/Entities/GUI/SHIELD.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/Entities/Entities/EnemyShooter.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Code/Manager/Battle.gd" type="Script" id=17]
 
 [sub_resource type="DynamicFont" id=1]
 size = 80
@@ -24,7 +25,12 @@ font_data = ExtResource( 9 )
 size = 50
 font_data = ExtResource( 9 )
 
+[sub_resource type="DynamicFont" id=3]
+size = 30
+font_data = ExtResource( 9 )
+
 [node name="Battle" type="Node2D"]
+script = ExtResource( 17 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -34,6 +40,17 @@ position = Vector2( 1887.15, 1046.26 )
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -9.0
+margin_top = 1572.0
+margin_right = 1084.0
+margin_bottom = 1926.0
+color = Color( 0.00392157, 0.0235294, 0.12549, 0.815686 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
 }
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -191,6 +208,26 @@ custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.952941, 0.643137, 0.0235294, 1 )
 text = "00000"
 
+[node name="SCORE" type="HBoxContainer" parent="Buttons/InfoTOP"]
+margin_top = 156.0
+margin_right = 424.0
+margin_bottom = 230.0
+
+[node name="LevelLabel" type="Label" parent="Buttons/InfoTOP/SCORE"]
+margin_right = 220.0
+margin_bottom = 74.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.952941, 0.643137, 0.0235294, 1 )
+text = "SCORE:"
+
+[node name="SCORE" type="Label" parent="Buttons/InfoTOP/SCORE"]
+margin_left = 224.0
+margin_right = 424.0
+margin_bottom = 74.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.952941, 0.643137, 0.0235294, 1 )
+text = "00000"
+
 [node name="TimeLeft" parent="Buttons" instance=ExtResource( 12 )]
 margin_left = 774.989
 margin_top = -1459.47
@@ -210,13 +247,13 @@ __meta__ = {
 }
 
 [node name="Power" parent="Buttons/Bars" instance=ExtResource( 14 )]
-margin_right = 424.0
+margin_right = 423.0
 margin_bottom = 16.0
 rect_scale = Vector2( 1, 1 )
 
 [node name="HP" parent="Buttons/Bars" instance=ExtResource( 14 )]
 margin_top = 20.0
-margin_right = 424.0
+margin_right = 423.0
 margin_bottom = 36.0
 rect_scale = Vector2( 1, 1 )
 value = 100.0
@@ -236,6 +273,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Song" type="Label" parent="Buttons"]
+margin_left = 724.0
+margin_top = 263.0
+margin_right = 980.0
+margin_bottom = 310.0
+custom_fonts/font = SubResource( 3 )
+text = "power"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Label2" type="Label" parent="Buttons"]
 margin_left = 43.6923
 margin_top = 210.454
@@ -247,6 +296,21 @@ text = "HP"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="BLACK" type="ColorRect" parent="."]
+visible = false
+margin_left = -27.0
+margin_top = -27.0
+margin_right = 1109.0
+margin_bottom = 1948.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]
 
 [connection signal="button_up" from="Buttons/Buttons/X" to="Ball" method="_on_X_button_up"]
 [connection signal="button_up" from="Buttons/Buttons/Y" to="Ball" method="_on_Y_button_up"]

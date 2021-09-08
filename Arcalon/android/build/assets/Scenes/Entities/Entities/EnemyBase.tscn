@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Code/Entities/FSM.gd" type="Script" id=1]
+[ext_resource path="res://Code/Enemies/WALKEnemy.gd" type="Script" id=2]
+[ext_resource path="res://Code/Enemies/EnemyRigidbody.gd" type="Script" id=3]
+[ext_resource path="res://Code/Enemies/IDLEEnemy.gd" type="Script" id=4]
+[ext_resource path="res://2D/Placeholders/ProgressBar.png" type="Texture" id=5]
+[ext_resource path="res://2D/Placeholders/ProgressBarblack.png" type="Texture" id=6]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 52.6318
+
+[node name="EnemyBase" type="RigidBody2D" groups=[
+"ENEMY",
+]]
+collision_layer = 8
+collision_mask = 15
+gravity_scale = 0.0
+contacts_reported = 1
+contact_monitor = true
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="FSM" type="Node2D" parent="."]
+script = ExtResource( 1 )
+StartingNode = NodePath("WALKING")
+RootPath = NodePath("..")
+speed = 50.0
+Direction = Vector2( 1, 0 )
+
+[node name="IDLE" type="Node2D" parent="FSM"]
+script = ExtResource( 4 )
+FSMPath = NodePath("..")
+
+[node name="WALKING" type="Node2D" parent="FSM"]
+script = ExtResource( 2 )
+FSMPath = NodePath("..")
+
+[node name="INERTIA" type="Timer" parent="."]
+one_shot = true
+
+[node name="RESET" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="HP" type="Node2D" parent="."]
+
+[node name="HP" type="TextureProgress" parent="HP"]
+margin_left = -31.9902
+margin_top = -9.26031
+margin_right = 32.0098
+margin_bottom = 22.7397
+max_value = 10.0
+value = 5.0
+texture_under = ExtResource( 5 )
+texture_over = ExtResource( 6 )
+texture_progress = ExtResource( 5 )
+tint_under = Color( 0.968627, 0.156863, 0.0235294, 1 )
+tint_progress = Color( 0.780392, 0.52549, 0.921569, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="body_entered" from="." to="." method="_on_EnemyBase_body_entered"]
+[connection signal="timeout" from="INERTIA" to="." method="_on_INERTIA_timeout"]
+[connection signal="timeout" from="RESET" to="." method="_on_RESET_timeout"]

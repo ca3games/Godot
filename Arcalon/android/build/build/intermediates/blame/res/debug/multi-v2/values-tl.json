@@ -1,0 +1,77 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/cristian/Documentos/GitHub/ca3games/Godot/Arcalon/android/build/build/intermediates/incremental/mergeDebugResources/merged.dir/values-tl/values-tl.xml",
+            "map": [
+                {
+                    "source": "/home/cristian/.gradle/caches/transforms-2/files-2.1/a7ad5a81b07168db60b339a3a943336d/jetified-play-services-ads-19.3.0/res/values-tl/values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10",
+                        "startColumns": "0,0,0,0,0,0,0",
+                        "startOffsets": "199,274,396,463,530,617,728",
+                        "endColumns": "74,121,66,66,86,110,71",
+                        "endOffsets": "273,395,462,529,616,727,799"
+                    },
+                    "to": {
+                        "startLines": "4,5,6,7,8,9,10",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "372,451,577,648,719,810,925",
+                        "endColumns": "78,125,70,70,90,114,75",
+                        "endOffsets": "446,572,643,714,805,920,996"
+                    }
+                },
+                {
+                    "source": "/home/cristian/.gradle/caches/transforms-2/files-2.1/e5df49c1c3f6c08e72304aa03642d0bd/jetified-play-services-basement-17.0.0/res/values-tl/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "204",
+                        "endOffsets": "451"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "204",
+                        "endOffsets": "305"
+                    }
+                },
+                {
+                    "source": "/home/cristian/Documentos/GitHub/ca3games/Godot/Arcalon/android/build/res/values-tl/godot_project_name_string.xml",
+                    "from": {
+                        "startLines": "3",
+                        "startColumns": "1",
+                        "startOffsets": "112",
+                        "endColumns": "58",
+                        "endOffsets": "169"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "310",
+                        "endColumns": "61",
+                        "endOffsets": "367"
+                    }
+                },
+                {
+                    "source": "/home/cristian/.gradle/caches/transforms-2/files-2.1/61f903db516e52d8783db3337e87ee1a/core-1.0.0/res/values-tl/values-tl.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "11",
+                        "startColumns": "4",
+                        "startOffsets": "1001",
+                        "endColumns": "100",
+                        "endOffsets": "1097"
+                    }
+                }
+            ]
+        }
+    ]
+}

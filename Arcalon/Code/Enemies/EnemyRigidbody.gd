@@ -11,6 +11,8 @@ onready var Enemies = get_tree().get_root().get_node("Battle/Enemies")
 var BulletsManagerPath
 var BulletsManager
 
+export(PackedScene) var DeadSpark
+
 func _ready():
 	
 	yield(get_tree(), "idle_frame")
@@ -32,6 +34,8 @@ func _process(delta):
 
 func _on_EnemyBase_body_entered(body):
 	if body.is_in_group("BALL"):
+		body.HitSound()
+		body.Bounce()
 		walk = false
 		FSM.ChangeState("IDLE")
 		$"INERTIA".start(3)
@@ -49,6 +53,8 @@ func _on_EnemyBase_body_entered(body):
 		FSM.Direction.x *= -1
 	
 	if body.is_in_group("SUN"):
+		print("SUN PREVIOUS")
+		Variables.PlaySUN()
 		Damage(500)
 
 func _on_INERTIA_timeout():
@@ -76,8 +82,13 @@ func JumpToCenter(r):
 
 func Damage(dg):
 	HP -= dg
+	Variables.Add_score(rand_range(3, MaxHP/3))
 	$HP/HP.value = HP
 	if HP <= 0:
+		var tmp = DeadSpark.instance()
+		tmp.position = FSM.Root.position
+		FSM.Root.get_parent().add_child(tmp)
+		Variables.Add_score(rand_range(3, MaxHP))
 		self.queue_free()
 
 func ChangeHP(damage):

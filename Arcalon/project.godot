@@ -8,10 +8,20 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node",
+"class": "AdMob",
+"language": "GDScript",
+"path": "res://admob-lib/admob.gd"
+} ]
+_global_script_class_icons={
+"AdMob": ""
+}
+
 [application]
 
 config/name="Arcalon"
-run/main_scene="res://Scenes/Battle.tscn"
+run/main_scene="res://Scenes/Title.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -24,6 +34,7 @@ window/size/width=1080
 window/size/height=1920
 window/size/test_width=360
 window/size/test_height=640
+window/handheld/orientation="portrait"
 window/stretch/mode="2d"
 
 [importer_defaults]

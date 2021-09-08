@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Code/Manager/Variables.gd" type="Script" id=1]
+[ext_resource path="res://admob-lib/admob.gd" type="Script" id=2]
+
+[node name="Variables" type="Node"]
+script = ExtResource( 1 )
+BattleWin = "res://Scenes/Battle.tscn"
+BattleLost = "res://Scenes/Battle.tscn"
+
+[node name="AdMob" type="Node" parent="."]
+script = ExtResource( 2 )
+banner_size = "BANNER"
+banner_id = "ca-app-pub-3940256099942544/6300978111"

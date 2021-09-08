@@ -1,0 +1,4 @@
+#Tue Sep 07 16:09:58 COT 2021
+base.0=/home/cristian/Documentos/GitHub/ca3games/Godot/Arcalon/android/build/build/intermediates/dex/debug/mergeDexDebug/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

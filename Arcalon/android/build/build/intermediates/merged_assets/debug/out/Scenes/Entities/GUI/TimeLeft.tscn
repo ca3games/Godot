@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://2D/Placeholders/Time.png" type="Texture" id=1]
+[ext_resource path="res://Code/GUI/TimeLeft.gd" type="Script" id=2]
+[ext_resource path="res://Fonts/ThaleahFat.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 80
+font_data = ExtResource( 3 )
+
+[node name="TimeLeft" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimeLeft" type="TextureProgress" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_scale = Vector2( 3, 3 )
+max_value = 60.0
+value = 50.0
+texture_under = ExtResource( 1 )
+texture_progress = ExtResource( 1 )
+fill_mode = 4
+tint_under = Color( 0.992157, 0.262745, 0.0392157, 1 )
+tint_progress = Color( 0.313726, 0.827451, 0.0235294, 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="TimeLeft"]
+wait_time = 60.0
+autostart = true
+
+[node name="Label" type="Label" parent="."]
+margin_left = 58.7329
+margin_top = 61.4026
+margin_right = 138.733
+margin_bottom = 135.403
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.988235, 0.913725, 0.0901961, 1 )
+text = "99"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="timeout" from="TimeLeft/Timer" to="TimeLeft" method="_on_Timer_timeout"]

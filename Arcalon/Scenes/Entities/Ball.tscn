@@ -1,16 +1,40 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://2D/Placeholders/untitled.png" type="Texture" id=1]
 [ext_resource path="res://Code/Entities/FSM.gd" type="Script" id=2]
 [ext_resource path="res://Code/Entities/WALKING.gd" type="Script" id=3]
 [ext_resource path="res://Code/Entities/Ball.gd" type="Script" id=4]
 [ext_resource path="res://2D/Placeholders/shield.png" type="Texture" id=5]
+[ext_resource path="res://Music/Superion 3D_Music_bounce ball.wav" type="AudioStream" id=6]
+[ext_resource path="res://Music/Hit.wav" type="AudioStream" id=7]
+[ext_resource path="res://Music/glass_breaking.wav" type="AudioStream" id=8]
+[ext_resource path="res://2D/Explosion/01.png" type="Texture" id=9]
+
+[sub_resource type="Curve" id=4]
+max_value = 3.0
+_data = [ Vector2( 0, 3 ), 0.0, 0.0, 0, 0, Vector2( 0.662791, 0.770455 ), 0.0, 0.0, 0, 0, Vector2( 0.988372, 0.0613636 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 45.4783
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 46.7429
 
-[sub_resource type="CircleShape2D" id=2]
-radius = 45.4783
+[sub_resource type="Animation" id=3]
+resource_name = "Bounce"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("untitled:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2, 2 ), Vector2( 2.82408, 1.59637 ), Vector2( 1.63001, 3.05953 ), Vector2( 2, 2 ) ]
+}
 
 [node name="Ball" type="KinematicBody2D" groups=[
 "BALL",
@@ -19,8 +43,29 @@ collision_layer = 4
 collision_mask = 15
 script = ExtResource( 4 )
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 100
+lifetime = 2.0
+speed_scale = 7.19
+randomness = 1.0
+local_coords = false
+texture = ExtResource( 9 )
+gravity = Vector2( 0, 0 )
+scale_amount = 2.0
+scale_amount_curve = SubResource( 4 )
+color = Color( 0.505882, 0.890196, 0.929412, 1 )
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( -0.749115, 0.752991 )
+scale = Vector2( 2, 2 )
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 2 )
+
 [node name="untitled" type="Sprite" parent="."]
-position = Vector2( -0.368286, 0.286972 )
+position = Vector2( -3.73186, 7.85507 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 
@@ -32,7 +77,7 @@ shape = SubResource( 1 )
 script = ExtResource( 2 )
 StartingNode = NodePath("WALKING")
 RootPath = NodePath("..")
-speed = 200.0
+speed = 400.0
 Direction = Vector2( 1, -1 )
 
 [node name="WALKING" type="Node2D" parent="FSM"]
@@ -44,16 +89,22 @@ position = Vector2( -0.749115, 0.752991 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 5 )
 
-[node name="Area2D" type="Area2D" parent="shield"]
-collision_layer = 8
-collision_mask = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="shield/Area2D"]
-shape = SubResource( 2 )
-
 [node name="Attack" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
 
-[connection signal="body_entered" from="shield/Area2D" to="." method="_on_Area2D_body_entered"]
+[node name="Bounce" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+
+[node name="Hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+bus = "Hit"
+
+[node name="Glass" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Bounce = SubResource( 3 )
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="timeout" from="Attack" to="." method="_on_Attack_timeout"]

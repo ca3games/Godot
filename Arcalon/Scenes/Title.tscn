@@ -1,0 +1,146 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Fonts/ThaleahFat.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://2D/Placeholders/183127.jpg" type="Texture" id=2]
+[ext_resource path="res://Code/Scenes/Title.gd" type="Script" id=3]
+[ext_resource path="res://Themes/Button.tres" type="Theme" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.00784314, 0, 0.180392, 0.776471 )
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="Theme" id=2]
+Panel/icons/ = null
+Panel/styles/panel = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 200
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 100
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 100
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 50
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=7]
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="183127" type="Sprite" parent="."]
+position = Vector2( 1088.65, 940.739 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 117.0
+margin_top = 112.0
+margin_right = 947.0
+margin_bottom = 1786.0
+theme = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 201.815
+margin_top = 766.943
+margin_right = 901.815
+margin_bottom = 1137.94
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.870588, 0.780392, 0.027451, 1 )
+custom_colors/font_outline_modulate = Color( 0.388235, 0.231373, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.337255, 0.203922, 0.00392157, 1 )
+text = "arcalon"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 323.933
+margin_top = 1432.02
+margin_right = 726.933
+margin_bottom = 1583.02
+theme = ExtResource( 4 )
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.72549, 0.866667, 0.960784, 1 )
+text = "start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 272.0
+margin_top = 1280.0
+margin_right = 791.0
+margin_bottom = 1372.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.764706, 0.952941, 0.968627, 1 )
+text = "press start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 435.654
+margin_top = 1726.01
+margin_right = 954.654
+margin_bottom = 1818.01
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0.764706, 0.952941, 0.968627, 1 )
+text = "ca3 2021"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "StartLetter"
+anims/StartLetter = SubResource( 7 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -79.6569
+margin_top = -33.7451
+margin_right = 1171.34
+margin_bottom = 1963.25
+mouse_filter = 2
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]

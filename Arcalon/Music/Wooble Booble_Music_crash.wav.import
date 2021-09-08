@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Wooble Booble_Music_crash.wav-238ccb217cbfbb7491b3c30d293cc9bd.sample"
+
+[deps]
+
+source_file="res://Music/Wooble Booble_Music_crash.wav"
+dest_files=[ "res://.import/Wooble Booble_Music_crash.wav-238ccb217cbfbb7491b3c30d293cc9bd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
