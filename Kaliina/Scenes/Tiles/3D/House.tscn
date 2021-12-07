@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://3D/Placeholder/Home/home_pa.png" type="Texture" id=1]
+
+[node name="House" type="StaticBody2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( 0, -6 )
+polygon = PoolVector2Array( -17, 6, -11, 10, 17, 4, 6, 1 )
+
+[node name="HomePa" type="Sprite" parent="."]
+position = Vector2( -7, 1 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
