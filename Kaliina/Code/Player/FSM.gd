@@ -9,7 +9,6 @@ onready var SpriteParent = get_node(SpriteParentPath)
 onready var dir = Vector2.DOWN
 onready var old_dir = Vector2.DOWN
 onready var current = $IDLE
-onready var left = false
 
 func _ready():
 	pass

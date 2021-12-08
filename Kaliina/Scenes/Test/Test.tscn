@@ -21,14 +21,13 @@ scale = Vector2( 2, 2 )
 position = Vector2( 40.5, 48.5 )
 scale = Vector2( 0.75, 0.75 )
 
-[node name="Pacifica" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 81, 90.5 )
-scale = Vector2( 0.5, 0.5 )
-CameraPath = NodePath("../../Camera2D")
-SeedRootPath = NodePath("../Fruits")
-
 [node name="House" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 137.5, 48 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="Fruits" type="Node2D" parent="YSort"]
+
+[node name="Pacifica" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 87, 99.5 )
+CameraPath = NodePath("../../Camera2D")
+SeedRootPath = NodePath("../Fruits")

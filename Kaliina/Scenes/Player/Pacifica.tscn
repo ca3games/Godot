@@ -20,10 +20,10 @@ animation = "IDLE Front"
 animation = "IDLE Back"
 
 [sub_resource type="AnimationNodeAnimation" id=9]
-animation = "IDLE Right"
+animation = "IDLE Left"
 
 [sub_resource type="AnimationNodeAnimation" id=10]
-animation = "IDLE Left"
+animation = "IDLE Right"
 
 [sub_resource type="AnimationNodeAnimation" id=28]
 animation = "IDLE Front"
@@ -48,10 +48,10 @@ animation = "WALK Front"
 animation = "WALK Back"
 
 [sub_resource type="AnimationNodeAnimation" id=22]
-animation = "WALK Left"
+animation = "WALK Right"
 
 [sub_resource type="AnimationNodeAnimation" id=23]
-animation = "WALK Right"
+animation = "WALK Left"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id=19]
 blend_point_0/node = SubResource( 20 )
@@ -65,19 +65,19 @@ blend_point_3/pos = Vector2( 1, 0 )
 blend_mode = 1
 
 [sub_resource type="AnimationNodeBlendTree" id=2]
-graph_offset = Vector2( -270, 73 )
+graph_offset = Vector2( -430, 80.5 )
 nodes/BlendWalk/node = SubResource( 18 )
 nodes/BlendWalk/position = Vector2( 60, 60 )
 nodes/IDLE/node = SubResource( 11 )
 nodes/IDLE/position = Vector2( -160, 160 )
 nodes/WALK/node = SubResource( 19 )
 nodes/WALK/position = Vector2( -160, 0 )
-node_connections = [ "output", 0, "BlendWalk", "BlendWalk", 0, "IDLE", "BlendWalk", 1, "WALK" ]
+node_connections = [ "output", 0, "BlendWalk", "BlendWalk", 0, "WALK", "BlendWalk", 1, "IDLE" ]
 
 [sub_resource type="Animation" id=3]
 resource_name = "IDLE Back"
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite/Sprite2:region_rect")
+tracks/0/path = NodePath("Sprite/Pacifica:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -92,7 +92,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=4]
 resource_name = "IDLE Front"
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite/Sprite2:region_rect")
+tracks/0/path = NodePath("Sprite/Pacifica:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -107,7 +107,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=26]
 resource_name = "IDLE Left"
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite/Sprite2:region_rect")
+tracks/0/path = NodePath("Sprite/Pacifica:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -118,8 +118,8 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Rect2( 0, 32, 24, 32 ) ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite/Sprite2:flip_h")
+tracks/1/type = "method"
+tracks/1/path = NodePath("FSM/WALK")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -127,14 +127,16 @@ tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
+"values": [ {
+"args": [  ],
+"method": "BreakIdleLeft"
+} ]
 }
 
 [sub_resource type="Animation" id=25]
 resource_name = "IDLE Right"
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite/Sprite2:region_rect")
+tracks/0/path = NodePath("Sprite/Pacifica:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -143,10 +145,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Rect2( 0, 32, 24, 32 ) ]
+"values": [ Rect2( 0, 96, 24, 32 ) ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite/Sprite2:flip_h")
+tracks/1/type = "method"
+tracks/1/path = NodePath("FSM/WALK")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -154,14 +156,16 @@ tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
+"values": [ {
+"args": [  ],
+"method": "Break"
+} ]
 }
 
 [sub_resource type="Animation" id=6]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite/Sprite2:region_rect")
+tracks/0/path = NodePath("Sprite/Pacifica:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -173,7 +177,7 @@ tracks/0/keys = {
 "values": [ Rect2( 0, 0, 24, 32 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite/Sprite2:flip_h")
+tracks/1/path = NodePath("Sprite/Pacifica:flip_h")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -190,7 +194,7 @@ resource_name = "WALK Back"
 length = 1.2
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite/Sprite2:region_rect")
+tracks/0/path = NodePath("Sprite/Pacifica:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -207,7 +211,7 @@ resource_name = "WALK Front"
 length = 1.2
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite/Sprite2:region_rect")
+tracks/0/path = NodePath("Sprite/Pacifica:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -224,7 +228,7 @@ resource_name = "WALK Left"
 length = 1.2
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite/Sprite2:region_rect")
+tracks/0/path = NodePath("Sprite/Pacifica:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -233,19 +237,30 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.3, 0.6, 0.9 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ Rect2( 24, 96, 24, 32 ), Rect2( 0, 96, 24, 32 ), Rect2( 24, 96, 24, 32 ), Rect2( 48, 96, 24, 32 ) ]
+"values": [ Rect2( 24, 32, 24, 32 ), Rect2( 0, 32, 24, 32 ), Rect2( 24, 32, 24, 32 ), Rect2( 48, 32, 24, 32 ) ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite/Sprite2:flip_h")
+tracks/1/type = "method"
+tracks/1/path = NodePath("FSM/WALK")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "BreakLeft"
+}, {
+"args": [  ],
+"method": "BreakLeft"
+}, {
+"args": [  ],
+"method": "BreakLeft"
+}, {
+"args": [  ],
+"method": "BreakLeft"
+} ]
 }
 
 [sub_resource type="Animation" id=24]
@@ -253,7 +268,7 @@ resource_name = "WALK Right"
 length = 1.2
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite/Sprite2:region_rect")
+tracks/0/path = NodePath("Sprite/Pacifica:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -264,8 +279,8 @@ tracks/0/keys = {
 "update": 1,
 "values": [ Rect2( 24, 96, 24, 32 ), Rect2( 0, 96, 24, 32 ), Rect2( 24, 96, 24, 32 ), Rect2( 48, 96, 24, 32 ) ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite/Sprite2:flip_h")
+tracks/1/type = "method"
+tracks/1/path = NodePath("FSM/WALK")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -273,8 +288,10 @@ tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
+"values": [ {
+"args": [  ],
+"method": "BreakWalk"
+} ]
 }
 
 [node name="Pacifica" type="KinematicBody2D"]
@@ -283,7 +300,7 @@ SeedsPath = ExtResource( 6 )
 
 [node name="Sprite" type="Node2D" parent="."]
 
-[node name="Sprite2" type="Sprite" parent="Sprite"]
+[node name="Pacifica" type="Sprite" parent="Sprite"]
 position = Vector2( 0, -8 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
@@ -300,8 +317,8 @@ tree_root = SubResource( 2 )
 anim_player = NodePath("../Anims")
 active = true
 parameters/BlendWalk/blend_amount = 1.0
-parameters/IDLE/blend_position = Vector2( -0.908078, 0.00862074 )
-parameters/WALK/blend_position = Vector2( -0.0027855, -0.0172414 )
+parameters/IDLE/blend_position = Vector2( 0.0187794, 0.832753 )
+parameters/WALK/blend_position = Vector2( -0.870892, -0.0174216 )
 
 [node name="Anims" type="AnimationPlayer" parent="."]
 "anims/IDLE Back" = SubResource( 3 )
@@ -318,7 +335,6 @@ anims/RESET = SubResource( 6 )
 script = ExtResource( 2 )
 RootPath = NodePath("..")
 AnimTreePath = NodePath("../AnimationTree")
-SpriteParentPath = NodePath("../Sprite")
 
 [node name="IDLE" type="Node2D" parent="FSM"]
 script = ExtResource( 3 )
