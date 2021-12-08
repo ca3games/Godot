@@ -3,10 +3,6 @@ extends Node2D
 export(NodePath) var FSMPath
 onready var FSM = get_node(FSMPath)
 
-func _ready():
-	yield(get_tree(), "idle_frame")
-	SetWalkAnim()
-
 func Update(delta):
 	pass
 
@@ -15,16 +11,12 @@ func Physics(delta):
 
 func Walk():
 	var dir = InputWalk()
-	if FSM.dir.x > 0:
-		FSM.SAnimTree.play("RIGHT")
-	else:
-		FSM.SAnimTree.play("LEFT")
-	
 	if dir != Vector2.ZERO:
 		FSM.dir = dir
 		FSM.current = $"../WALK"
 	else:
-		FSM.current = $"../IDLE"
+		FSM.old_dir = FSM.dir
+		FSM.current = $"../IDLE"	
 
 func FarmInput(offset):
 	if Input.is_action_just_released("FARM"):
@@ -58,6 +50,3 @@ func InputWalk():
 		dir.y = 1
 	
 	return dir
-
-func SetWalkAnim():
-	FSM.AnimTree.set("parameters/WALK/blend_position", FSM.dir)
