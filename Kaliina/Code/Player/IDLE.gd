@@ -10,10 +10,8 @@ func Update(delta):
 	Walk()
 	FarmInput(offset)
 
-func Physics(delta):
-	ChangeAnim()
 
 func ChangeAnim():
 	FSM.AnimTree.set("parameters/BlendWalk/blend_amount", 0)
-	FSM.AnimTree.set("parameters/IDLE/blend_position", FSM.dir)
+	FSM.AnimTree.set("parameters/IDLE/blend_position", FSM.old_dir)
 	

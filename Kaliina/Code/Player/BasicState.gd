@@ -16,7 +16,8 @@ func Walk():
 		FSM.current = $"../WALK"
 	else:
 		FSM.old_dir = FSM.dir
-		FSM.current = $"../IDLE"	
+		FSM.current = $"../IDLE"
+		FSM.current.ChangeAnim()
 
 func FarmInput(offset):
 	if Input.is_action_just_released("FARM"):
