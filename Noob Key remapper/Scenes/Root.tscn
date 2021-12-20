@@ -1,0 +1,95 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Code/Root.py" type="Script" id=1]
+[ext_resource path="res://Code/Button.gd" type="Script" id=2]
+[ext_resource path="res://Code/OutputPorts.gd" type="Script" id=3]
+[ext_resource path="res://Code/Test.gd" type="Script" id=4]
+
+[node name="Root" type="Node2D"]
+
+[node name="OUTPUT" type="Label" parent="."]
+margin_left = 47.0
+margin_top = 11.0
+margin_right = 358.0
+margin_bottom = 106.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Test" type="Node2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="Button" type="Button" parent="Test"]
+margin_left = 68.0
+margin_top = 217.0
+margin_right = 167.0
+margin_bottom = 254.0
+text = "HIT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="Test"]
+margin_left = 178.0
+margin_top = 174.0
+margin_right = 277.0
+margin_bottom = 211.0
+text = "HIT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button3" type="Button" parent="Test"]
+margin_left = 70.0
+margin_top = 175.0
+margin_right = 169.0
+margin_bottom = 212.0
+text = "HIT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonCode" type="Node2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="OutputPorts" type="OptionButton" parent="."]
+margin_left = 50.0
+margin_top = 536.0
+margin_right = 268.0
+margin_bottom = 573.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PythonCode" type="Node2D" parent="."]
+script = ExtResource( 1 )
+
+[node name="SetOutputPort" type="Button" parent="."]
+margin_left = 403.0
+margin_top = 532.0
+margin_right = 471.0
+margin_bottom = 570.0
+text = "SET"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CurrentPortLabel" type="Label" parent="."]
+margin_left = 501.0
+margin_top = 532.0
+margin_right = 763.0
+margin_bottom = 569.0
+text = "Set to:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_down" from="Test/Button" to="Test" method="_C_button_down"]
+[connection signal="button_up" from="Test/Button" to="Test" method="_on_C_button_up"]
+[connection signal="button_down" from="Test/Button2" to="Test" method="_on_Button2_button_down"]
+[connection signal="button_up" from="Test/Button2" to="Test" method="_on_Button2_button_up"]
+[connection signal="button_down" from="Test/Button3" to="Test" method="_on_Button3_button_down"]
+[connection signal="button_up" from="Test/Button3" to="Test" method="_on_Button3_button_up"]
+[connection signal="item_selected" from="OutputPorts" to="OutputPorts" method="_on_OutputPorts_item_selected"]
+[connection signal="button_up" from="SetOutputPort" to="OutputPorts" method="_on_SetOutputPort_button_up"]
