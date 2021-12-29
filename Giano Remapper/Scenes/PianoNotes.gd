@@ -8,8 +8,8 @@ var Mixolydian = [0, 2, 4, 5, 7, 9, 10]
 var Aeolian = [0, 2, 4, 5, 7, 8, 10]
 var Locrian = [0, 1, 3, 5, 6, 8, 10]
 
-func GetKey(key, mode):
-	var i = GetInterval(key)
+func GetKey(key, scale, mode):
+	var i = GetInterval(key, scale)
 	if i == 999:
 		return i
 	var n = 999
@@ -26,8 +26,8 @@ func GetKey(key, mode):
 	return n
 
 
-func GetInterval(key):
-	var n = key%12
+func GetInterval(key, scale):
+	var n = (key + scale )%12
 	#print(n)
 	#print("key " + str(key%12) + " scale " + str(scale) + " n " + (key + scale) % 12)
 	
@@ -39,5 +39,4 @@ func GetInterval(key):
 		7 : return 4
 		9 : return 5
 		11 : return 6
-		13 : return 0
 		_: return 999

@@ -18,6 +18,18 @@ func _ready():
 
 
 func AddScale():
+	AddKeys("C")
+	AddKeys("C#")
+	AddKeys("D")
+	AddKeys("D#")
+	AddKeys("E")
+	AddKeys("F")
+	AddKeys("F#")
+	AddKeys("G")
+	AddKeys("G#")
+	AddKeys("A")
+	AddKeys("A#")
+	AddKeys("B")
 	AddMode("Ionian")
 	AddMode("Dorian")
 	AddMode("Phrygian")
@@ -27,8 +39,7 @@ func AddScale():
 	AddMode("Locrian")
 
 func AddKeys(name):
-	#Keys.get_node("Key").add_item(name)
-	pass
+	Keys.get_node("Keys").add_item(name)
 
 func AddMode(name):
 	Keys.get_node("Mode").add_item(name)
@@ -38,7 +49,7 @@ func _unhandled_input(event):
 	if event is InputEventMIDI:
 		match event.message:
 			MIDI_MESSAGE_NOTE_ON: 
-				var key = piano.GetKey(event.pitch, Keys.get_node("Mode").selected)
+				var key = piano.GetKey(event.pitch, Keys.get_node("Keys").selected, Keys.get_node("Mode").selected)
 				if key != 999:
 					var octave = event.pitch / 12
 					piano.get_node("Piano").TurnOn(event.pitch)
@@ -46,7 +57,7 @@ func _unhandled_input(event):
 					midiout.send_note_on(0, (octave * 12) + key, event.velocity)
 			MIDI_MESSAGE_NOTE_OFF:
 				piano.get_node("Piano").TurnOff(event.pitch)
-				var key = piano.GetKey(event.pitch, Keys.get_node("Mode").selected)
+				var key = piano.GetKey(event.pitch, Keys.get_node("Keys").selected, Keys.get_node("Mode").selected)
 				piano.get_node("Altered").TurnOff(key)
 				var octave = event.pitch / 12
 				midiout.send_note_off(0, (octave * 12) + key, 100)
