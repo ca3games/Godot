@@ -81,12 +81,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Key" type="OptionButton" parent="Keys"]
-margin_right = 37.0
-margin_bottom = 30.0
-text = "C"
-
 [node name="Mode" type="OptionButton" parent="Keys"]
-margin_left = 41.0
-margin_right = 70.0
+margin_right = 29.0
 margin_bottom = 30.0
