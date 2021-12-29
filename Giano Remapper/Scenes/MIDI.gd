@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var midiout = GDRtMidiOut.new(GDRtMidiOut.Api.LINUX_ALSA, "Godot Rtmidi")
+onready var midiout = GDRtMidiOut.new(GDRtMidiOut.Api.LINUX_ALSA, "Giano Remapper")
 
 export(NodePath) var PianoPath
 onready var piano = get_node(PianoPath)
@@ -12,7 +12,7 @@ onready var Keys = get_node(KeysPath)
 func _ready():
 	OS.open_midi_inputs()
 	Info.get_node("Input").text = "MIDI INPUTS: " + str(OS.get_connected_midi_inputs())
-	midiout.open_port(0, "Godot Rtmidi")
+	midiout.open_port(0, "Giano Remapper")
 	Info.get_node("Output").text = "MIDI OUTPUT: " + str(midiout.get_port_count()) 
 	AddScale()
 
