@@ -1,0 +1,92 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/MIDI.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Piano/Piano.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/PianoNotes.gd" type="Script" id=3]
+
+[node name="MIDITest" type="Node2D"]
+
+[node name="MIDI" type="Node2D" parent="."]
+script = ExtResource( 1 )
+PianoPath = NodePath("../PianoNotes")
+InfoPath = NodePath("../Info")
+KeysPath = NodePath("../Keys")
+
+[node name="PianoNotes" type="Node2D" parent="."]
+position = Vector2( 175, 194 )
+script = ExtResource( 3 )
+
+[node name="Piano" parent="PianoNotes" instance=ExtResource( 2 )]
+PianoSize = 12
+size = Rect2( 20, 0, 18, 40 )
+
+[node name="Altered" parent="PianoNotes" instance=ExtResource( 2 )]
+position = Vector2( 198, -2 )
+PianoSize = 12
+size = Rect2( 20, 0, 18, 40 )
+
+[node name="Original" type="Label" parent="PianoNotes"]
+margin_top = 68.0
+margin_right = 70.0
+margin_bottom = 90.0
+text = "Notes"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Original2" type="Label" parent="PianoNotes"]
+margin_left = 206.0
+margin_top = 69.0
+margin_right = 276.0
+margin_bottom = 91.0
+text = "Altered"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Info" type="HBoxContainer" parent="."]
+margin_left = 14.0
+margin_top = 447.0
+margin_right = 127.0
+margin_bottom = 467.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Input" type="Label" parent="Info"]
+margin_top = 3.0
+margin_right = 44.0
+margin_bottom = 17.0
+text = "INPUT:"
+
+[node name="VSeparator" type="VSeparator" parent="Info"]
+margin_left = 48.0
+margin_right = 52.0
+margin_bottom = 20.0
+
+[node name="Output" type="Label" parent="Info"]
+margin_left = 56.0
+margin_top = 3.0
+margin_right = 113.0
+margin_bottom = 17.0
+text = "OUTPUT:"
+
+[node name="Keys" type="HBoxContainer" parent="."]
+margin_left = 362.0
+margin_top = 66.0
+margin_right = 402.0
+margin_bottom = 96.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Key" type="OptionButton" parent="Keys"]
+margin_right = 37.0
+margin_bottom = 30.0
+text = "C"
+
+[node name="Mode" type="OptionButton" parent="Keys"]
+margin_left = 41.0
+margin_right = 70.0
+margin_bottom = 30.0
