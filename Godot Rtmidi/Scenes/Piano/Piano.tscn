@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Piano/Piano.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Piano/Note.tscn" type="PackedScene" id=2]
+
+[node name="Piano" type="Node2D"]
+script = ExtResource( 1 )
+NoteScene = ExtResource( 2 )
+size = Rect2( 5, 0, 10, 20 )
