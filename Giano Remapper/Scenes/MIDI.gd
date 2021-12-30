@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var midiout = GDRtMidiOut.new(GDRtMidiOut.Api.LINUX_ALSA, "Giano")
+onready var midiout = GDRtMidiOut.new(GDRtMidiOut.Api.LINUX_ALSA, "Giano Remapper")
 
 export(NodePath) var customscalecheck
 onready var customcheck = get_node(customscalecheck)
@@ -94,8 +94,6 @@ func NoteOn(pitch, velocity):
 			piano.get_node("Piano").TurnOnCustom(pitch)
 			piano.get_node("Altered").TurnOnCustom(key.x)
 		midiout.send_note_on(0, (key.y * key.z) + key.x, velocity)
-		if CCNode.get_node("XYPad").recording:
-			CCMessage(2, CCNode.get_node("XYPad").GetX())
 
 func NoteOff(pitch, velocity):
 	var key = NoteValues(pitch)
@@ -107,6 +105,3 @@ func NoteOff(pitch, velocity):
 			piano.get_node("Piano").TurnOffCustom(pitch)
 			piano.get_node("Altered").TurnOffCustom(key.x)
 		midiout.send_note_off(0, (key.y * key.z) + key.x, velocity)
-
-func CCMessage(number : int, value : int):
-	midiout.send_control_change(2, number, value)

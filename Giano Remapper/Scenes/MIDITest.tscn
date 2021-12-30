@@ -1,13 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/MIDI.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Piano/Piano.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/PianoNotes.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Editor.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/CustomScale.gd" type="Script" id=5]
-[ext_resource path="res://Scenes/XY Pad/XY Pad.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/PCKeyboard.gd" type="Script" id=7]
-[ext_resource path="res://Scenes/CC Controls.gd" type="Script" id=8]
 
 [node name="MIDITest" type="Node2D"]
 
@@ -15,7 +13,6 @@
 script = ExtResource( 1 )
 customscalecheck = NodePath("../Panel/Tabs/Keys/Keys/Custom/CustomScale")
 customscalecodepath = NodePath("../CustomScale")
-CCNodePath = NodePath("../Panel/Tabs/CC Controls")
 PianoPath = NodePath("../Panel/Tabs/Keys/PianoNotes")
 InfoPath = NodePath("../Panel/Info")
 KeysPath = NodePath("../Panel/Tabs/Keys/Keys")
@@ -348,44 +345,8 @@ margin_right = 144.0
 margin_bottom = 19.0
 text = "Key Offset"
 
-[node name="CC Controls" type="Tabs" parent="Panel/Tabs"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
-script = ExtResource( 8 )
-MIDIpath = NodePath("../../../MIDI")
-
-[node name="XYPad" parent="Panel/Tabs/CC Controls" instance=ExtResource( 6 )]
-margin_left = 28.0
-margin_top = 25.0
-margin_right = 278.0
-margin_bottom = 275.0
-
-[node name="Record" type="VBoxContainer" parent="Panel/Tabs/CC Controls"]
-margin_left = 30.0
-margin_top = 292.0
-margin_right = 70.0
-margin_bottom = 332.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Tabs/CC Controls/Record"]
-margin_right = 170.0
-margin_bottom = 40.0
-
-[node name="CheckButton" type="CheckButton" parent="Panel/Tabs/CC Controls/Record/HBoxContainer"]
-margin_right = 170.0
-margin_bottom = 40.0
-text = "Record XY Pad"
-
 [connection signal="button_up" from="Panel/Tabs/Keys/Keys/Custom/CustomScale" to="MIDI" method="_on_CustomScale_button_up"]
 [connection signal="button_up" from="Panel/Tabs/Keys/PCKeyboard/HBoxContainer/CheckButton" to="Panel/Tabs/Keys/PCKeyboard" method="_on_CheckButton_button_up"]
 [connection signal="button_up" from="Panel/Tabs/Custom Scale/Scale/ScaleName/Name" to="Panel/Tabs/Custom Scale" method="_on_Name_button_up"]
 [connection signal="button_up" from="Panel/Tabs/Custom Scale/Scale/Intervals/SetIntervals" to="Panel/Tabs/Custom Scale" method="_on_SetIntervals_button_up"]
 [connection signal="button_up" from="Panel/Tabs/Custom Scale/Scale/HBoxContainer/Button" to="Panel/Tabs/Custom Scale" method="_on_Button_button_up"]
-[connection signal="button_up" from="Panel/Tabs/CC Controls/Record/HBoxContainer/CheckButton" to="Panel/Tabs/CC Controls" method="_on_CheckButton_button_up"]
