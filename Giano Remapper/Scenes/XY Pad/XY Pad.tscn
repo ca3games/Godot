@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/XY Pad/XY Pad.gd" type="Script" id=1]
+
+[node name="XYPad" type="Panel"]
+margin_left = -125.0
+margin_top = -125.0
+margin_right = 125.0
+margin_bottom = 125.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Center" type="ColorRect" parent="."]
+margin_left = 123.0
+margin_top = 123.0
+margin_right = 128.0
+margin_bottom = 128.0
+
+[node name="Dot" type="ColorRect" parent="."]
+margin_left = 121.0
+margin_top = 120.0
+margin_right = 130.0
+margin_bottom = 129.0
+color = Color( 0.282353, 0.643137, 0.992157, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TriggerArea" type="TextureButton" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="mouse_entered" from="TriggerArea" to="." method="_on_TriggerArea_mouse_entered"]
+[connection signal="mouse_exited" from="TriggerArea" to="." method="_on_TriggerArea_mouse_exited"]

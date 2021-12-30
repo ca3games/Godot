@@ -53,7 +53,7 @@ func SpawnBlack(key, offset):
 	add_child(Keyboard[key])
 	return 1
 
-func TurnOn(key):
+func TurnOn(key:int):
 	if key == 999:
 		return
 	else:
@@ -65,7 +65,7 @@ func TurnOnCustom(key:int):
 	var b = int(key)%12
 	Keyboard[b].color = Color.red
 
-func TurnOffCustom(key):
+func TurnOffCustom(key:int):
 	var n = key%12
 	if n == 1 or n == 3 or n == 6 or n == 8 or n == 10:	
 		Keyboard[n].color = Color.black
@@ -74,7 +74,7 @@ func TurnOffCustom(key):
 
 
 
-func TurnOff(key):
+func TurnOff(key:int):
 	if key == 999:
 		return
 	var n = key % 12

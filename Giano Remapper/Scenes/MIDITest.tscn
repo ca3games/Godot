@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/MIDI.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Piano/Piano.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/PianoNotes.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Editor.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/CustomScale.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/XY Pad/XY Pad.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/PCKeyboard.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/CC Controls.gd" type="Script" id=8]
 
 [node name="MIDITest" type="Node2D"]
 
@@ -12,8 +15,9 @@
 script = ExtResource( 1 )
 customscalecheck = NodePath("../Panel/Tabs/Keys/Keys/Custom/CustomScale")
 customscalecodepath = NodePath("../CustomScale")
+CCNodePath = NodePath("../Panel/Tabs/CC Controls")
 PianoPath = NodePath("../Panel/Tabs/Keys/PianoNotes")
-InfoPath = NodePath("../Panel/Tabs/Keys/Info")
+InfoPath = NodePath("../Panel/Info")
 KeysPath = NodePath("../Panel/Tabs/Keys/Keys")
 
 [node name="CustomScale" type="Node2D" parent="."]
@@ -28,6 +32,34 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Info" type="HBoxContainer" parent="Panel"]
+margin_left = 16.0
+margin_top = 454.0
+margin_right = 129.0
+margin_bottom = 474.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Input" type="Label" parent="Panel/Info"]
+margin_top = 3.0
+margin_right = 44.0
+margin_bottom = 17.0
+text = "INPUT:"
+
+[node name="VSeparator" type="VSeparator" parent="Panel/Info"]
+margin_left = 48.0
+margin_right = 52.0
+margin_bottom = 20.0
+
+[node name="Output" type="Label" parent="Panel/Info"]
+margin_left = 56.0
+margin_top = 3.0
+margin_right = 113.0
+margin_bottom = 17.0
+text = "OUTPUT:"
+
 [node name="Tabs" type="TabContainer" parent="Panel"]
 margin_left = 19.0
 margin_top = 20.0
@@ -38,41 +70,12 @@ __meta__ = {
 }
 
 [node name="Keys" type="Tabs" parent="Panel/Tabs"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
 margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
-
-[node name="Info" type="HBoxContainer" parent="Panel/Tabs/Keys"]
-margin_left = -7.0
-margin_top = 402.0
-margin_right = 106.0
-margin_bottom = 422.0
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Input" type="Label" parent="Panel/Tabs/Keys/Info"]
-margin_top = 3.0
-margin_right = 44.0
-margin_bottom = 17.0
-text = "INPUT:"
-
-[node name="VSeparator" type="VSeparator" parent="Panel/Tabs/Keys/Info"]
-margin_left = 48.0
-margin_right = 52.0
-margin_bottom = 20.0
-
-[node name="Output" type="Label" parent="Panel/Tabs/Keys/Info"]
-margin_left = 56.0
-margin_top = 3.0
-margin_right = 113.0
-margin_bottom = 17.0
-text = "OUTPUT:"
 
 [node name="Keys" type="VBoxContainer" parent="Panel/Tabs/Keys"]
 margin_left = 339.0
@@ -111,8 +114,11 @@ margin_right = 62.0
 margin_bottom = 20.0
 
 [node name="PianoNotes" type="Node2D" parent="Panel/Tabs/Keys"]
-position = Vector2( 152, 142 )
+position = Vector2( 103, 159 )
 script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Piano" parent="Panel/Tabs/Keys/PianoNotes" instance=ExtResource( 2 )]
 PianoSize = 12
@@ -127,7 +133,7 @@ size = Rect2( 20, 0, 18, 40 )
 margin_top = 68.0
 margin_right = 70.0
 margin_bottom = 90.0
-text = "Notes"
+text = "Original"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -142,7 +148,46 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="PCKeyboard" type="VBoxContainer" parent="Panel/Tabs/Keys"]
+margin_left = 43.0
+margin_top = 25.0
+margin_right = 83.0
+margin_bottom = 65.0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+MIDIpath = NodePath("../../../../MIDI")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Tabs/Keys/PCKeyboard"]
+margin_right = 159.0
+margin_bottom = 40.0
+
+[node name="CheckButton" type="CheckButton" parent="Panel/Tabs/Keys/PCKeyboard/HBoxContainer"]
+margin_right = 159.0
+margin_bottom = 40.0
+text = "PC Keyboard"
+
+[node name="Volume" type="HBoxContainer" parent="Panel/Tabs/Keys/PCKeyboard"]
+margin_top = 44.0
+margin_right = 159.0
+margin_bottom = 68.0
+
+[node name="Volume" type="SpinBox" parent="Panel/Tabs/Keys/PCKeyboard/Volume"]
+margin_right = 74.0
+margin_bottom = 24.0
+value = 100.0
+
+[node name="Label" type="Label" parent="Panel/Tabs/Keys/PCKeyboard/Volume"]
+margin_left = 78.0
+margin_top = 5.0
+margin_right = 129.0
+margin_bottom = 19.0
+text = "Velocity"
+
 [node name="Custom Scale" type="Tabs" parent="Panel/Tabs"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -303,7 +348,44 @@ margin_right = 144.0
 margin_bottom = 19.0
 text = "Key Offset"
 
+[node name="CC Controls" type="Tabs" parent="Panel/Tabs"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+script = ExtResource( 8 )
+MIDIpath = NodePath("../../../MIDI")
+
+[node name="XYPad" parent="Panel/Tabs/CC Controls" instance=ExtResource( 6 )]
+margin_left = 28.0
+margin_top = 25.0
+margin_right = 278.0
+margin_bottom = 275.0
+
+[node name="Record" type="VBoxContainer" parent="Panel/Tabs/CC Controls"]
+margin_left = 30.0
+margin_top = 292.0
+margin_right = 70.0
+margin_bottom = 332.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Tabs/CC Controls/Record"]
+margin_right = 170.0
+margin_bottom = 40.0
+
+[node name="CheckButton" type="CheckButton" parent="Panel/Tabs/CC Controls/Record/HBoxContainer"]
+margin_right = 170.0
+margin_bottom = 40.0
+text = "Record XY Pad"
+
 [connection signal="button_up" from="Panel/Tabs/Keys/Keys/Custom/CustomScale" to="MIDI" method="_on_CustomScale_button_up"]
+[connection signal="button_up" from="Panel/Tabs/Keys/PCKeyboard/HBoxContainer/CheckButton" to="Panel/Tabs/Keys/PCKeyboard" method="_on_CheckButton_button_up"]
 [connection signal="button_up" from="Panel/Tabs/Custom Scale/Scale/ScaleName/Name" to="Panel/Tabs/Custom Scale" method="_on_Name_button_up"]
 [connection signal="button_up" from="Panel/Tabs/Custom Scale/Scale/Intervals/SetIntervals" to="Panel/Tabs/Custom Scale" method="_on_SetIntervals_button_up"]
 [connection signal="button_up" from="Panel/Tabs/Custom Scale/Scale/HBoxContainer/Button" to="Panel/Tabs/Custom Scale" method="_on_Button_button_up"]
+[connection signal="button_up" from="Panel/Tabs/CC Controls/Record/HBoxContainer/CheckButton" to="Panel/Tabs/CC Controls" method="_on_CheckButton_button_up"]
