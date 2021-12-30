@@ -1,0 +1,9 @@
+[gd_scene format=2]
+
+[node name="Interval" type="SpinBox"]
+margin_right = 74.0
+margin_bottom = 27.0
+max_value = 80.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

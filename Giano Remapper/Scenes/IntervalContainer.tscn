@@ -1,0 +1,6 @@
+[gd_scene format=2]
+
+[node name="IntervalContainer" type="HBoxContainer"]
+margin_top = 92.0
+margin_right = 172.0
+margin_bottom = 92.0

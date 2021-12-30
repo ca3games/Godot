@@ -57,8 +57,23 @@ func TurnOn(key):
 	if key == 999:
 		return
 	else:
-		Keyboard[key%12].color = Color.darkgreen
-	
+		var new_key = key%12
+		Keyboard[new_key].color = Color.darkgreen
+		
+
+func TurnOnCustom(key:int):
+	var b = int(key)%12
+	Keyboard[b].color = Color.red
+
+func TurnOffCustom(key):
+	var n = key%12
+	if n == 1 or n == 3 or n == 6 or n == 8 or n == 10:	
+		Keyboard[n].color = Color.black
+	else:
+		Keyboard[n].color = Color.white
+
+
+
 func TurnOff(key):
 	if key == 999:
 		return
