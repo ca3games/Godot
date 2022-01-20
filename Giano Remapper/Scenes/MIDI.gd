@@ -77,8 +77,8 @@ func NoteValues(pitch):
 		scale_len = 12
 	else:
 		key = CustomScaleCode.GetKey(pitch)
-		octave = pitch / len(CustomScaleCode.customscale.notes)
-		scale_len = len(CustomScaleCode.customscale.notes)
+		octave = pitch / len(CustomScaleCode.customscale.data["notes"])
+		scale_len = len(CustomScaleCode.customscale.data["notes"])
 	
 	return Vector3(int(key), int(octave), int(scale_len))
 

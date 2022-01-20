@@ -6,19 +6,19 @@ onready var customscale = get_node(customscalepath)
 
 func GetKey(key):
 	var g = GetInterval(key)
-	var i = GetOffset(g, customscale.offset)
 	var n = 999
 	
-	n = customscale.notes[i]
+	n = customscale.data["notes"][g]
 	return n
 
 
 func GetOffset(key, scale):
-	var n = (key + scale)% len(customscale.notes)
+	var i = len(customscale.data["notes"])
+	var n = (key + int(scale))% i
 	
 	return n
 
 func GetInterval(key):
-	var n = key % len(customscale.notes)
+	var n = key % len(customscale.data["notes"])
 	
 	return n

@@ -1,13 +1,71 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scenes/MIDI.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Piano/Piano.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/PianoNotes.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Editor.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/CustomScale.gd" type="Script" id=5]
+[ext_resource path="res://2D/349928.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/PCKeyboard.gd" type="Script" id=7]
+[ext_resource path="res://Fonts/MIDITest theme.tres" type="Theme" id=8]
+[ext_resource path="res://Fonts/PT_Serif/PTSerif-Bold.ttf" type="DynamicFontData" id=9]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.254902, 0.172549, 0.0980392, 0.741176 )
+
+[sub_resource type="Theme" id=2]
+Panel/styles/panel = SubResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.121569, 0.0901961, 0.0627451, 0.729412 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=5]
+content_margin_left = 5.0
+content_margin_right = 5.0
+bg_color = Color( 0.2, 0.160784, 0.117647, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.231373, 0.223529, 0.219608, 1 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+content_margin_left = 5.0
+content_margin_right = 5.0
+bg_color = Color( 0.568627, 0.498039, 0.372549, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+
+[sub_resource type="DynamicFont" id=8]
+outline_color = Color( 0.270588, 0.188235, 0.0470588, 1 )
+extra_spacing_top = 1
+extra_spacing_bottom = 1
+font_data = ExtResource( 9 )
+
+[sub_resource type="Theme" id=4]
+default_font = SubResource( 8 )
+TabContainer/styles/panel = SubResource( 3 )
+TabContainer/styles/tab_bg = SubResource( 5 )
+TabContainer/styles/tab_disabled = SubResource( 6 )
+TabContainer/styles/tab_fg = SubResource( 7 )
 
 [node name="MIDITest" type="Node2D"]
+
+[node name="349928" type="Sprite" parent="."]
+position = Vector2( 320.5, 259.75 )
+scale = Vector2( 0.511719, 0.578176 )
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="MIDI" type="Node2D" parent="."]
 script = ExtResource( 1 )
@@ -24,6 +82,7 @@ customscalepath = NodePath("../Panel/Tabs/Custom Scale")
 [node name="Panel" type="Panel" parent="."]
 margin_right = 641.0
 margin_bottom = 482.0
+theme = SubResource( 2 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
@@ -34,27 +93,26 @@ margin_left = 16.0
 margin_top = 454.0
 margin_right = 129.0
 margin_bottom = 474.0
+theme = ExtResource( 8 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="Input" type="Label" parent="Panel/Info"]
-margin_top = 3.0
-margin_right = 44.0
-margin_bottom = 17.0
+margin_right = 54.0
+margin_bottom = 22.0
 text = "INPUT:"
 
 [node name="VSeparator" type="VSeparator" parent="Panel/Info"]
-margin_left = 48.0
-margin_right = 52.0
-margin_bottom = 20.0
+margin_left = 58.0
+margin_right = 62.0
+margin_bottom = 22.0
 
 [node name="Output" type="Label" parent="Panel/Info"]
-margin_left = 56.0
-margin_top = 3.0
-margin_right = 113.0
-margin_bottom = 17.0
+margin_left = 66.0
+margin_right = 135.0
+margin_bottom = 22.0
 text = "OUTPUT:"
 
 [node name="Tabs" type="TabContainer" parent="Panel"]
@@ -62,60 +120,61 @@ margin_left = 19.0
 margin_top = 20.0
 margin_right = 606.0
 margin_bottom = 446.0
+rect_min_size = Vector2( 50, 0 )
+theme = SubResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Keys" type="Tabs" parent="Panel/Tabs"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
+margin_top = 24.0
 
 [node name="Keys" type="VBoxContainer" parent="Panel/Tabs/Keys"]
 margin_left = 339.0
 margin_top = 14.0
 margin_right = 401.0
 margin_bottom = 44.0
+theme = ExtResource( 8 )
 __meta__ = {
-"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="Custom" type="HBoxContainer" parent="Panel/Tabs/Keys/Keys"]
-margin_right = 166.0
-margin_bottom = 40.0
+margin_right = 170.0
+margin_bottom = 34.0
 
 [node name="CustomScale" type="CheckButton" parent="Panel/Tabs/Keys/Keys/Custom"]
-margin_right = 166.0
-margin_bottom = 40.0
+margin_right = 170.0
+margin_bottom = 34.0
 text = "Custom Scale"
 
 [node name="Modes" type="HBoxContainer" parent="Panel/Tabs/Keys/Keys"]
-margin_top = 44.0
-margin_right = 166.0
-margin_bottom = 64.0
+margin_top = 38.0
+margin_right = 170.0
+margin_bottom = 60.0
 
 [node name="Keys" type="OptionButton" parent="Panel/Tabs/Keys/Keys/Modes"]
-margin_right = 29.0
-margin_bottom = 20.0
+margin_right = 50.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 50, 0 )
+theme = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Mode" type="OptionButton" parent="Panel/Tabs/Keys/Keys/Modes"]
-margin_left = 33.0
-margin_right = 62.0
-margin_bottom = 20.0
+margin_left = 54.0
+margin_right = 104.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 50, 0 )
+theme = ExtResource( 8 )
 
 [node name="PianoNotes" type="Node2D" parent="Panel/Tabs/Keys"]
 position = Vector2( 103, 159 )
 script = ExtResource( 3 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Piano" parent="Panel/Tabs/Keys/PianoNotes" instance=ExtResource( 2 )]
 PianoSize = 12
@@ -130,6 +189,7 @@ size = Rect2( 20, 0, 18, 40 )
 margin_top = 68.0
 margin_right = 70.0
 margin_bottom = 90.0
+theme = ExtResource( 8 )
 text = "Original"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -140,6 +200,7 @@ margin_left = 206.0
 margin_top = 69.0
 margin_right = 276.0
 margin_bottom = 91.0
+theme = ExtResource( 8 )
 text = "Altered"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -152,45 +213,44 @@ margin_right = 83.0
 margin_bottom = 65.0
 script = ExtResource( 7 )
 __meta__ = {
-"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 MIDIpath = NodePath("../../../../MIDI")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/Tabs/Keys/PCKeyboard"]
-margin_right = 159.0
-margin_bottom = 40.0
+margin_right = 165.0
+margin_bottom = 34.0
 
 [node name="CheckButton" type="CheckButton" parent="Panel/Tabs/Keys/PCKeyboard/HBoxContainer"]
-margin_right = 159.0
-margin_bottom = 40.0
+margin_right = 165.0
+margin_bottom = 34.0
+theme = ExtResource( 8 )
 text = "PC Keyboard"
 
 [node name="Volume" type="HBoxContainer" parent="Panel/Tabs/Keys/PCKeyboard"]
-margin_top = 44.0
-margin_right = 159.0
-margin_bottom = 68.0
+margin_top = 38.0
+margin_right = 165.0
+margin_bottom = 62.0
 
 [node name="Volume" type="SpinBox" parent="Panel/Tabs/Keys/PCKeyboard/Volume"]
-margin_right = 74.0
+margin_right = 80.0
 margin_bottom = 24.0
+rect_min_size = Vector2( 80, 0 )
+theme = ExtResource( 8 )
 value = 100.0
 
 [node name="Label" type="Label" parent="Panel/Tabs/Keys/PCKeyboard/Volume"]
-margin_left = 78.0
-margin_top = 5.0
-margin_right = 129.0
-margin_bottom = 19.0
+margin_left = 84.0
+margin_top = 1.0
+margin_right = 143.0
+margin_bottom = 23.0
+theme = ExtResource( 8 )
 text = "Velocity"
 
 [node name="Custom Scale" type="Tabs" parent="Panel/Tabs"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
+margin_top = 24.0
 script = ExtResource( 4 )
 intervalbuttonpath = NodePath("Scale/Intervals/IntervalSize")
 
@@ -204,20 +264,23 @@ __meta__ = {
 }
 
 [node name="New" type="Button" parent="Panel/Tabs/Custom Scale/HBoxContainer"]
-margin_right = 40.0
+margin_right = 42.0
 margin_bottom = 30.0
+theme = ExtResource( 8 )
 text = "New"
 
 [node name="Open" type="Button" parent="Panel/Tabs/Custom Scale/HBoxContainer"]
-margin_left = 44.0
-margin_right = 91.0
+margin_left = 46.0
+margin_right = 95.0
 margin_bottom = 30.0
+theme = ExtResource( 8 )
 text = "Open"
 
 [node name="Save" type="Button" parent="Panel/Tabs/Custom Scale/HBoxContainer"]
-margin_left = 95.0
-margin_right = 136.0
+margin_left = 99.0
+margin_right = 142.0
 margin_bottom = 30.0
+theme = ExtResource( 8 )
 text = "Save"
 
 [node name="Scale" type="VBoxContainer" parent="Panel/Tabs/Custom Scale"]
@@ -230,94 +293,106 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Panel/Tabs/Custom Scale/Scale"]
-margin_right = 204.0
-margin_bottom = 14.0
+margin_right = 203.0
+margin_bottom = 22.0
+theme = ExtResource( 8 )
 text = "Scale Properties"
 
 [node name="ScaleName" type="HBoxContainer" parent="Panel/Tabs/Custom Scale/Scale"]
-margin_top = 18.0
-margin_right = 204.0
-margin_bottom = 42.0
+margin_top = 26.0
+margin_right = 203.0
+margin_bottom = 50.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="NameString" type="LineEdit" parent="Panel/Tabs/Custom Scale/Scale/ScaleName"]
-margin_right = 58.0
+margin_right = 120.0
 margin_bottom = 24.0
+rect_min_size = Vector2( 120, 0 )
+theme = ExtResource( 8 )
 
 [node name="Name" type="Button" parent="Panel/Tabs/Custom Scale/Scale/ScaleName"]
-margin_left = 62.0
-margin_right = 94.0
+margin_left = 124.0
+margin_right = 157.0
 margin_bottom = 24.0
+theme = ExtResource( 8 )
 text = "Set"
 
 [node name="Namelabel" type="Label" parent="Panel/Tabs/Custom Scale/Scale/ScaleName"]
-margin_left = 98.0
-margin_top = 5.0
-margin_right = 136.0
-margin_bottom = 19.0
+margin_left = 161.0
+margin_top = 1.0
+margin_right = 203.0
+margin_bottom = 23.0
+theme = ExtResource( 8 )
 text = "Name"
 
 [node name="Intervals" type="HBoxContainer" parent="Panel/Tabs/Custom Scale/Scale"]
-margin_top = 46.0
-margin_right = 204.0
-margin_bottom = 70.0
+margin_top = 54.0
+margin_right = 203.0
+margin_bottom = 78.0
 
 [node name="IntervalSize" type="SpinBox" parent="Panel/Tabs/Custom Scale/Scale/Intervals"]
-margin_right = 74.0
+margin_right = 50.0
 margin_bottom = 24.0
+rect_min_size = Vector2( 50, 0 )
+theme = ExtResource( 8 )
 min_value = 1.0
 max_value = 30.0
 value = 7.0
 
 [node name="Label" type="Label" parent="Panel/Tabs/Custom Scale/Scale/Intervals"]
-margin_left = 78.0
-margin_top = 5.0
-margin_right = 136.0
-margin_bottom = 19.0
+margin_left = 54.0
+margin_top = 1.0
+margin_right = 116.0
+margin_bottom = 23.0
+theme = ExtResource( 8 )
 text = "# of keys"
 
 [node name="SetIntervals" type="Button" parent="Panel/Tabs/Custom Scale/Scale/Intervals"]
-margin_left = 140.0
-margin_right = 204.0
+margin_left = 120.0
+margin_right = 189.0
 margin_bottom = 24.0
+theme = ExtResource( 8 )
 text = "Set New"
 
 [node name="Label2" type="Label" parent="Panel/Tabs/Custom Scale/Scale"]
-margin_top = 74.0
-margin_right = 204.0
-margin_bottom = 88.0
+margin_top = 82.0
+margin_right = 203.0
+margin_bottom = 104.0
+theme = ExtResource( 8 )
 text = "Intervals"
 
 [node name="IntervalContainer" type="VBoxContainer" parent="Panel/Tabs/Custom Scale/Scale"]
-margin_top = 92.0
-margin_right = 204.0
-margin_bottom = 92.0
+margin_top = 108.0
+margin_right = 203.0
+margin_bottom = 108.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/Tabs/Custom Scale/Scale"]
-margin_top = 96.0
-margin_right = 204.0
-margin_bottom = 116.0
+margin_top = 112.0
+margin_right = 203.0
+margin_bottom = 136.0
 
 [node name="Button" type="Button" parent="Panel/Tabs/Custom Scale/Scale/HBoxContainer"]
-margin_right = 66.0
-margin_bottom = 20.0
+margin_right = 70.0
+margin_bottom = 24.0
+theme = ExtResource( 8 )
 text = "Set Keys"
 
 [node name="KeysLabel" type="HBoxContainer" parent="Panel/Tabs/Custom Scale/Scale"]
-margin_top = 120.0
-margin_right = 204.0
-margin_bottom = 134.0
+margin_top = 140.0
+margin_right = 203.0
+margin_bottom = 164.0
 
 [node name="Keys" type="Label" parent="Panel/Tabs/Custom Scale/Scale/KeysLabel"]
-margin_bottom = 14.0
+margin_bottom = 24.0
 
 [node name="ScaleNameLabel" type="Label" parent="Panel/Tabs/Custom Scale"]
 margin_left = 3.0
 margin_top = 51.0
 margin_right = 573.0
 margin_bottom = 81.0
+theme = ExtResource( 8 )
 text = "NEW SCALE"
 align = 1
 __meta__ = {
@@ -333,20 +408,38 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SpinBox" type="SpinBox" parent="Panel/Tabs/Custom Scale/OffSetScale"]
-margin_right = 74.0
-margin_bottom = 24.0
-max_value = 50.0
+[node name="Save" type="FileDialog" parent="."]
+margin_left = 48.0
+margin_top = 86.0
+margin_right = 580.0
+margin_bottom = 426.0
+theme = ExtResource( 8 )
+window_title = "Save File"
+filters = PoolStringArray( "*.gia" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Label" type="Label" parent="Panel/Tabs/Custom Scale/OffSetScale"]
-margin_left = 78.0
-margin_top = 5.0
-margin_right = 144.0
-margin_bottom = 19.0
-text = "Key Offset"
+[node name="Open" type="FileDialog" parent="."]
+margin_left = 48.0
+margin_top = 86.0
+margin_right = 580.0
+margin_bottom = 426.0
+theme = ExtResource( 8 )
+window_title = "Open File"
+mode = 0
+filters = PoolStringArray( "*.gia" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="button_up" from="Panel/Tabs/Keys/Keys/Custom/CustomScale" to="MIDI" method="_on_CustomScale_button_up"]
 [connection signal="button_up" from="Panel/Tabs/Keys/PCKeyboard/HBoxContainer/CheckButton" to="Panel/Tabs/Keys/PCKeyboard" method="_on_CheckButton_button_up"]
+[connection signal="button_up" from="Panel/Tabs/Custom Scale/HBoxContainer/New" to="Panel/Tabs/Custom Scale" method="_on_New_button_up"]
+[connection signal="button_up" from="Panel/Tabs/Custom Scale/HBoxContainer/Open" to="Panel/Tabs/Custom Scale" method="_on_Open_button_up"]
+[connection signal="button_up" from="Panel/Tabs/Custom Scale/HBoxContainer/Save" to="Panel/Tabs/Custom Scale" method="_on_Save_button_up"]
 [connection signal="button_up" from="Panel/Tabs/Custom Scale/Scale/ScaleName/Name" to="Panel/Tabs/Custom Scale" method="_on_Name_button_up"]
 [connection signal="button_up" from="Panel/Tabs/Custom Scale/Scale/Intervals/SetIntervals" to="Panel/Tabs/Custom Scale" method="_on_SetIntervals_button_up"]
 [connection signal="button_up" from="Panel/Tabs/Custom Scale/Scale/HBoxContainer/Button" to="Panel/Tabs/Custom Scale" method="_on_Button_button_up"]
+[connection signal="file_selected" from="Save" to="Panel/Tabs/Custom Scale" method="_on_Save_file_selected"]
+[connection signal="file_selected" from="Open" to="Panel/Tabs/Custom Scale" method="_on_Open_file_selected"]
