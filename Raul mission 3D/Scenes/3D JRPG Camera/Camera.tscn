@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/3D JRPG Camera/Camera.gd" type="Script" id=1]
+
+[node name="CameraFollow" type="Camera"]
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": ""
+}
+Angle = 45.0
+YHeight = 5.0
+speed = 6.0
+StartOffset = Vector2( 0, 3 )
+ZMargin = Vector2( -4, 0 )
+XMargin = 3.0
+ObjectFollowPath = NodePath("../Player")
+
+[node name="Childs" type="Spatial" parent="."]
+
+[node name="PlayerPosArea" type="Position3D" parent="Childs"]

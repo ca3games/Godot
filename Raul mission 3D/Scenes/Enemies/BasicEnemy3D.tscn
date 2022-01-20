@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Enemies/goblin anim.scn" type="PackedScene" id=1]
+[ext_resource path="res://Code/Enemy Code/FSM.gd" type="Script" id=2]
+[ext_resource path="res://Code/Enemy Code/HIT.gd" type="Script" id=3]
+[ext_resource path="res://Code/Enemy Code/BasicEnemy.gd" type="Script" id=4]
+
+[sub_resource type="CylinderShape" id=1]
+radius = 1.21866
+height = 4.47856
+
+[node name="RigidBody" type="RigidBody" groups=["ENEMY"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+mass = 1.5
+contacts_reported = 1
+contact_monitor = true
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+script = ExtResource( 4 )
+
+[node name="goblin" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.243731, 0 )
+shape = SubResource( 1 )
+
+[node name="FSM" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="HIT" type="Node" parent="FSM"]
+script = ExtResource( 3 )
+FSMPath = NodePath("..")
