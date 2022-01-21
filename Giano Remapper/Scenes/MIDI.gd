@@ -21,7 +21,7 @@ onready var Keys = get_node(KeysPath)
 func _ready():
 	OS.open_midi_inputs()
 	Info.get_node("Input").text = "MIDI INPUTS: " + str(OS.get_connected_midi_inputs())
-	midiout.open_port(0, "Giano")
+	print(midiout.open_port(0, "Giano"))
 	Info.get_node("Output").text = "MIDI OUTPUT: " + str(midiout.get_port_count()) 
 	AddScale()
 

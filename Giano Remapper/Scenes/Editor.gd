@@ -127,7 +127,7 @@ func _on_Save_button_up():
 
 func _on_Save_file_selected(path):
 	var tmp = File.new()
-	tmp.open(path + ".gia", File.WRITE)
+	tmp.open(path, File.WRITE)
 	tmp.store_line(to_json(data))
 	tmp.close()
 
