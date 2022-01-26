@@ -1,61 +1,72 @@
-[gd_scene load_steps=71 format=2]
+[gd_scene load_steps=82 format=2]
 
-[ext_resource path="res://2D/Raul/Idle/Idle1.png" type="Texture" id=1]
-[ext_resource path="res://2D/Raul/Idle/Idle5.png" type="Texture" id=2]
-[ext_resource path="res://2D/Raul/Idle/Idle4.png" type="Texture" id=3]
-[ext_resource path="res://2D/Raul/Idle/Idle2.png" type="Texture" id=4]
-[ext_resource path="res://2D/Raul/Idle/Idle3.png" type="Texture" id=5]
+[ext_resource path="res://2D/Raul/Walk/Side Front/walk_pa_Side Front_1.png" type="Texture" id=1]
+[ext_resource path="res://2D/Raul/Walk/Back/walk_pa_Back_14.png" type="Texture" id=2]
+[ext_resource path="res://2D/Raul/Walk/Side Front/walk_pa_Side Front_4.png" type="Texture" id=3]
+[ext_resource path="res://2D/Raul/Walk/Back/walk_pa_Back_07.png" type="Texture" id=4]
+[ext_resource path="res://2D/Raul/Walk/Back/walk_pa_Back_10.png" type="Texture" id=5]
 [ext_resource path="res://Code/Player code/FSM.gd" type="Script" id=6]
 [ext_resource path="res://Code/Player code/IDLE.gd" type="Script" id=7]
 [ext_resource path="res://Code/Player code/WALK.gd" type="Script" id=8]
-[ext_resource path="res://2D/Raul/WALK/Front/front walk2.png" type="Texture" id=9]
-[ext_resource path="res://2D/Raul/WALK/side front/side front3.png" type="Texture" id=10]
-[ext_resource path="res://2D/Raul/WALK/Front/front walk3.png" type="Texture" id=11]
-[ext_resource path="res://2D/Raul/WALK/side front/side front1.png" type="Texture" id=12]
-[ext_resource path="res://2D/Raul/WALK/side/side1.png" type="Texture" id=13]
-[ext_resource path="res://2D/Raul/WALK/back/back2.png" type="Texture" id=14]
-[ext_resource path="res://2D/Raul/WALK/side back/side back1.png" type="Texture" id=15]
-[ext_resource path="res://2D/Raul/WALK/side back/side back3.png" type="Texture" id=16]
-[ext_resource path="res://2D/Raul/WALK/side front/side front2.png" type="Texture" id=17]
-[ext_resource path="res://2D/Raul/WALK/side/side2.png" type="Texture" id=18]
-[ext_resource path="res://2D/Raul/WALK/side/side3.png" type="Texture" id=19]
-[ext_resource path="res://2D/Raul/WALK/side back/side back2.png" type="Texture" id=20]
-[ext_resource path="res://2D/Raul/WALK/Front/front walk1.png" type="Texture" id=21]
-[ext_resource path="res://2D/Raul/WALK/back/back3.png" type="Texture" id=22]
-[ext_resource path="res://2D/Raul/WALK/back/back1.png" type="Texture" id=23]
+[ext_resource path="res://2D/Raul/Walk/Front/walk_pa_Front_7.png" type="Texture" id=9]
+[ext_resource path="res://2D/Raul/Walk/Side Back/walk_pa_Side Back_01.png" type="Texture" id=10]
+[ext_resource path="res://2D/Raul/Walk/Back/walk_pa_Back_03.png" type="Texture" id=11]
+[ext_resource path="res://2D/Raul/Walk/Side/walk_pa_Side_1.png" type="Texture" id=12]
+[ext_resource path="res://2D/Raul/Walk/Front/walk_pa_Front_1.png" type="Texture" id=13]
+[ext_resource path="res://2D/Raul/Walk/Side Back/walk_pa_Side Back_14.png" type="Texture" id=14]
+[ext_resource path="res://2D/Raul/Walk/Side/walk_pa_Side_6.png" type="Texture" id=15]
+[ext_resource path="res://2D/Raul/Walk/Side Front/walk_pa_Side Front_7.png" type="Texture" id=16]
+[ext_resource path="res://2D/Raul/Walk/Side/walk_pa_Side_4.png" type="Texture" id=17]
+[ext_resource path="res://2D/Raul/Walk/Side Front/walk_pa_Side Front_6.png" type="Texture" id=18]
+[ext_resource path="res://2D/Raul/Walk/Front/walk_pa_Front_2.png" type="Texture" id=19]
+[ext_resource path="res://2D/Raul/Walk/Front/walk_pa_Front_4.png" type="Texture" id=20]
+[ext_resource path="res://2D/Raul/Walk/Back/walk_pa_Back_01.png" type="Texture" id=21]
+[ext_resource path="res://2D/Raul/Walk/Front/walk_pa_Front_5.png" type="Texture" id=22]
+[ext_resource path="res://2D/Raul/Walk/Side Front/walk_pa_Side Front_3.png" type="Texture" id=23]
 [ext_resource path="res://Code/Player code/BOMB.gd" type="Script" id=24]
 [ext_resource path="res://Code/Player code/Raul.gd" type="Script" id=25]
+[ext_resource path="res://2D/Raul/Walk/Side Back/walk_pa_Side Back_03.png" type="Texture" id=26]
+[ext_resource path="res://2D/Raul/Walk/Side Back/walk_pa_Side Back_18.png" type="Texture" id=27]
+[ext_resource path="res://2D/Raul/Walk/Back/walk_pa_Back_18.png" type="Texture" id=28]
+[ext_resource path="res://2D/Raul/Walk/Side Front/walk_pa_Side Front_2.png" type="Texture" id=29]
+[ext_resource path="res://2D/Raul/Walk/Side/walk_pa_Side_5.png" type="Texture" id=30]
+[ext_resource path="res://2D/Raul/Walk/Side/walk_pa_Side_7.png" type="Texture" id=31]
+[ext_resource path="res://2D/Raul/Walk/Front/walk_pa_Front_6.png" type="Texture" id=32]
+[ext_resource path="res://2D/Raul/Walk/Side/walk_pa_Side_3.png" type="Texture" id=33]
+[ext_resource path="res://2D/Raul/Walk/Front/walk_pa_Front_3.png" type="Texture" id=34]
+[ext_resource path="res://2D/Raul/Walk/Side Back/walk_pa_Side Back_13.png" type="Texture" id=35]
+[ext_resource path="res://2D/Raul/Walk/Side/walk_pa_Side_2.png" type="Texture" id=36]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"frames": [ ExtResource( 13 ), ExtResource( 21 ), ExtResource( 12 ), ExtResource( 10 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "IDLE",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 15 ), ExtResource( 20 ), ExtResource( 16 ) ],
+"frames": [ ExtResource( 10 ), ExtResource( 26 ), ExtResource( 35 ), ExtResource( 14 ), ExtResource( 27 ) ],
 "loop": true,
 "name": "WALK Side B",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 21 ), ExtResource( 9 ), ExtResource( 11 ) ],
-"loop": true,
-"name": "WALK Front",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 23 ), ExtResource( 14 ), ExtResource( 22 ) ],
-"loop": true,
-"name": "WALK Back",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 12 ), ExtResource( 17 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 1 ), ExtResource( 29 ), ExtResource( 23 ), ExtResource( 3 ), ExtResource( 18 ), ExtResource( 16 ) ],
 "loop": true,
 "name": "WALK Side F",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ), ExtResource( 18 ), ExtResource( 19 ) ],
+"frames": [ ExtResource( 12 ), ExtResource( 36 ), ExtResource( 33 ), ExtResource( 17 ), ExtResource( 30 ), ExtResource( 15 ), ExtResource( 31 ) ],
 "loop": true,
 "name": "WALK Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 19 ), ExtResource( 34 ), ExtResource( 20 ), ExtResource( 22 ), ExtResource( 32 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "WALK Front",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 11 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 28 ) ],
+"loop": true,
+"name": "WALK Back",
 "speed": 5.0
 } ]
 
@@ -176,7 +187,7 @@ graph_offset = Vector2( -234, -154 )
 
 [sub_resource type="AnimationNodeStateMachine" id=3]
 states/MOVEMENT/node = SubResource( 12 )
-states/MOVEMENT/position = Vector2( 215, 77 )
+states/MOVEMENT/position = Vector2( 264, 75 )
 start_node = "MOVEMENT"
 graph_offset = Vector2( 38, -3 )
 
@@ -196,7 +207,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 1, 1, 1 ) ]
+"values": [ Vector3( -1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=23]
@@ -226,7 +237,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( -1, 1, 1 ) ]
+"values": [ Vector3( 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=41]
@@ -298,7 +309,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 4 ]
+"values": [ 1 ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -410,7 +421,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ 4 ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -442,9 +453,8 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=27]
 resource_name = "WALK Back"
-length = 0.375
+length = 0.5
 loop = true
-step = 0.125
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprites/AnimatedSprite3D:animation")
 tracks/0/interp = 1
@@ -464,17 +474,16 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.125, 0.25 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2 ]
+"values": [ 0, 1, 2, 3, 4 ]
 }
 
 [sub_resource type="Animation" id=25]
 resource_name = "WALK Front"
-length = 0.375
+length = 0.6
 loop = true
-step = 0.125
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprites/AnimatedSprite3D:animation")
 tracks/0/interp = 1
@@ -494,17 +503,16 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.125, 0.25 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2 ]
+"values": [ 0, 1, 2, 3, 5, 6 ]
 }
 
 [sub_resource type="Animation" id=26]
 resource_name = "WALK Side"
-length = 0.375
+length = 0.6
 loop = true
-step = 0.125
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprites/AnimatedSprite3D:animation")
 tracks/0/interp = 1
@@ -524,17 +532,16 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.125, 0.25 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2 ]
+"values": [ 0, 1, 2, 3, 5, 6 ]
 }
 
 [sub_resource type="Animation" id=28]
 resource_name = "WALK Side B"
-length = 0.375
+length = 0.5
 loop = true
-step = 0.125
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprites/AnimatedSprite3D:animation")
 tracks/0/interp = 1
@@ -554,17 +561,16 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.125, 0.25 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2 ]
+"values": [ 0, 1, 2, 3, 4 ]
 }
 
 [sub_resource type="Animation" id=29]
 resource_name = "WALK Side F"
-length = 0.375
+length = 0.6
 loop = true
-step = 0.125
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprites/AnimatedSprite3D:animation")
 tracks/0/interp = 1
@@ -584,10 +590,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.125, 0.25 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2 ]
+"values": [ 0, 1, 2, 3, 4, 5 ]
 }
 
 [node name="Raul" type="KinematicBody"]
@@ -597,7 +603,7 @@ script = ExtResource( 25 )
 [node name="Sprites" type="Spatial" parent="."]
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Sprites"]
-transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0 )
+transform = Transform( 0.5, 0, 0, 0, 0.353553, 0.353553, 0, -0.353553, 0.353553, 0, 0, 0 )
 alpha_cut = 2
 frames = SubResource( 1 )
 animation = "IDLE"
