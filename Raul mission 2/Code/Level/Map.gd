@@ -1,4 +1,4 @@
-extends Spatial
+extends Node2D
 
 func UpdateHPLabel():
 	$GUI.UpdateHP()

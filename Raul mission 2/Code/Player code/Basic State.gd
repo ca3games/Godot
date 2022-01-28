@@ -1,4 +1,4 @@
-extends Spatial
+extends Node2D
 
 export (NodePath) var FSMPath
 onready var FSM = get_node(FSMPath)
@@ -23,7 +23,7 @@ func CheckInput():
 		8: direction = Vector2.ZERO
 	FSM.direction = direction
 	
-	if $"../InputBuffer".idle > 20:
+	if $"../InputBuffer".idle > 10:
 		FSM.direction = Vector2.ZERO
 	
 	if direction != Vector2.ZERO:

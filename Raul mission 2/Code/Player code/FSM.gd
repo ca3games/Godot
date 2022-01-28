@@ -1,4 +1,4 @@
-extends Spatial
+extends Node2D
 
 onready var current = $IDLE
 

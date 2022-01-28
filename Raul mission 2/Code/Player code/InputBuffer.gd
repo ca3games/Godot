@@ -1,4 +1,4 @@
-extends Spatial
+extends Node2D
 
 var buffer = []
 var released_buffer = []

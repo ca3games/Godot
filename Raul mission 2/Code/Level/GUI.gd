@@ -1,16 +1,16 @@
-extends Control
+extends CanvasLayer
 
 func _ready():
 	UpdateHP()
 
 func UpdateHP():
-	$Label/HP.text = str(Variables.HP)
+	$VBoxContainer/HBoxContainer/HP.text = str(Variables.HP)
 
 func WALKMANA():
-	$Mana.value += 1
+	$VBoxContainer/Mana.value += 1
 
 func GetMANA():
-	return $Mana.value
+	return $VBoxContainer/Mana.value
 
 func SetMANA(bomb_cost):
-	$Mana.value -= bomb_cost
+	$VBoxContainer/Mana.value -= bomb_cost
