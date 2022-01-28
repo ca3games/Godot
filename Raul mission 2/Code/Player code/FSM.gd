@@ -18,10 +18,13 @@ func _ready():
 	pass
 
 func _process(delta):
-	current.CheckInput()
-	current.Update(delta)
+	if not Root.menushown:
+		current.CheckInput()
+		current.Update(delta)
 
 func _physics_process(delta):
+	if Root.menushown:
+		return
 	if old_dir.x < 0:
 		LeftRight.play("Right")
 	else:

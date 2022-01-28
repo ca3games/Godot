@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scene/Font/GUI font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Code/GUI/Option.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+resource_local_to_scene = true
+
+[sub_resource type="Theme" id=2]
+resource_local_to_scene = true
+Panel/styles/panel = SubResource( 1 )
+
+[node name="OptionGUI" type="Control"]
+rect_min_size = Vector2( 40, 11 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+margin_right = 61.0
+margin_bottom = 11.0
+theme = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Option" type="HBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 11.0
+rect_min_size = Vector2( 40, 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Select" type="Label" parent="Option"]
+margin_right = 5.0
+margin_bottom = 11.0
+custom_fonts/font = ExtResource( 1 )
+text = "+"
+
+[node name="Option" type="Label" parent="Option"]
+margin_left = 9.0
+margin_right = 40.0
+margin_bottom = 11.0
+custom_fonts/font = ExtResource( 1 )
+text = "Option"
