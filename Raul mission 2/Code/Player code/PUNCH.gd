@@ -13,5 +13,10 @@ func Update(delta):
 
 func EndAnim():
 	FSM.ChangeState("IDLE")
-	var coord = Map.world_to_map(FSM.Root.position)
-	Map.set_cell(coord.x, coord.y, 1)
+
+
+func _on_Attack_body_entered(body):
+	if body.is_in_group("ENEMY"):
+		#var coord = Map.world_to_map(FSM.Root.get_node("Sprites/Attack/Hitbox").global_position)
+		#Map.set_cell(coord.x, coord.y, 1)
+		body.queue_free()
