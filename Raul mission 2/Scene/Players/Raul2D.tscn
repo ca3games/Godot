@@ -1368,17 +1368,6 @@ FSMPath = NodePath("..")
 [node name="InputBuffer" type="Node2D" parent="FSM"]
 script = ExtResource( 5 )
 
-[node name="BUFFERPRINT" type="Label" parent="FSM/InputBuffer"]
-visible = false
-margin_left = 56.0
-margin_top = 49.0
-margin_right = 685.0
-margin_bottom = 235.0
-text = "BUFFER"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="PUNCH" type="Node2D" parent="FSM"]
 script = ExtResource( 4 )
 FSMPath = NodePath("..")

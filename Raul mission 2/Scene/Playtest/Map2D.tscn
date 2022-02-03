@@ -1,11 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scene/Players/Raul2D.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Code/Level/Map.gd" type="Script" id=2]
-[ext_resource path="res://Scene/GUI/GUI.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scene/Tiles/Grass Map.tscn" type="PackedScene" id=4]
-[ext_resource path="res://GUI/Menu.tscn" type="PackedScene" id=5]
-[ext_resource path="res://GUI/Option.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scene/Enemies/Goblin2D.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Code/Enemies code/EnemiesManager.gd" type="Script" id=8]
 
@@ -17,11 +14,13 @@ script = ExtResource( 2 )
 [node name="Navigation2D" type="Navigation2D" parent="."]
 
 [node name="Grass" parent="Navigation2D" instance=ExtResource( 4 )]
+cell_size = Vector2( 30, 30 )
 
 [node name="Objects" type="YSort" parent="."]
 
 [node name="Raul" parent="Objects" instance=ExtResource( 1 )]
 position = Vector2( 109, 96 )
+SceneRootPath = NodePath("../..")
 
 [node name="AnimationTree" parent="Objects/Raul" index="2"]
 parameters/playback = SubResource( 1 )
@@ -32,6 +31,7 @@ MapPath = NodePath("../../../../Navigation2D/Grass")
 [node name="Camera2D" type="Camera2D" parent="Objects/Raul"]
 position = Vector2( 3, 11 )
 current = true
+zoom = Vector2( 0.5, 0.5 )
 limit_smoothed = true
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
@@ -85,15 +85,5 @@ position = Vector2( 177, 37 )
 
 [node name="Goblin3" parent="Objects/Enemies" instance=ExtResource( 7 )]
 position = Vector2( 105, 198 )
-
-[node name="GUI" parent="." instance=ExtResource( 3 )]
-
-[node name="Menu" parent="." instance=ExtResource( 5 )]
-margin_left = 1.0
-margin_top = 17.0
-margin_right = 1.0
-margin_bottom = 17.0
-Option = ExtResource( 6 )
-PlayerPath = NodePath("../Objects/Raul")
 
 [editable path="Objects/Raul"]

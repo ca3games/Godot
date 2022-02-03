@@ -33,25 +33,3 @@ func ClearPanels(id):
 	for i in len(panels):
 		panels[i].ChangePanelColor(Color.black)
 	panels[selected].ChangePanelColor(id)
-
-func _process(delta):
-	if Input.is_action_just_released("BOMB"):
-		shown = !shown
-		selected = 0
-		ClearPanels(Color.gray)
-		Player.menushown = shown
-		self.rect_position = Player.position
-	
-	if Input.is_action_just_released("UP"):
-		if selected > 0:
-			selected -= 1
-		ClearPanels(Color.gray)
-	if Input.is_action_just_released("DOWN"):
-		if selected < max_id - 1:
-			selected += 1
-		ClearPanels(Color.gray)
-	
-	if shown:
-		self.show()
-	else:
-		self.hide()

@@ -1,5 +1,8 @@
 extends Node2D
 
+export(NodePath) var ActionButtonsPath
+onready var ActionButtons = get_node(ActionButtonsPath)
+
 func UpdateHPLabel():
 	$GUI.UpdateHP()
 

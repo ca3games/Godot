@@ -1,0 +1,35 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/granja-de-la-plantación-del-árbol-plátano-105566905.jpg-73f4fcfd2280e8aa395c8a3b0d3582d0.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://2D/Placeholders/Backgrounds/granja-de-la-plantación-del-árbol-plátano-105566905.jpg"
+dest_files=[ "res://.import/granja-de-la-plantación-del-árbol-plátano-105566905.jpg-73f4fcfd2280e8aa395c8a3b0d3582d0.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Raul Mission"
-run/main_scene="res://Scene/Playtest/Map2D.tscn"
+run/main_scene="res://Non Battle Scenes/Battle Wrap/BattleWrap.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -20,10 +20,7 @@ Variables="*res://Scene/Variables/Variables.tscn"
 
 [display]
 
-window/size/width=255
-window/size/height=255
-window/size/test_width=765
-window/size/test_height=765
+window/size/width=800
 window/stretch/mode="2d"
 
 [importer_defaults]

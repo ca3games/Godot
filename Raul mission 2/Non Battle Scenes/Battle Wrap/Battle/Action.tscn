@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Non Battle Code/Battle Wrap/Battle/Action.gd" type="Script" id=1]
+
+[node name="Action" type="Button"]
+margin_right = 12.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 50, 20 )
+text = "Action"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_up" from="." to="." method="_on_Action_button_up"]
