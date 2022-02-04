@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scene/Players/Raul2D.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Code/Level/Map.gd" type="Script" id=2]
+[ext_resource path="res://Non Battle Scenes/Battle Wrap/Battle/ActionMenu.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scene/Tiles/Grass Map.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scene/Enemies/Goblin2D.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Code/Enemies code/EnemiesManager.gd" type="Script" id=8]
@@ -10,6 +11,7 @@
 
 [node name="Map" type="Node2D"]
 script = ExtResource( 2 )
+ActionButtonsPath = NodePath("CanvasLayer/Actions")
 
 [node name="Navigation2D" type="Navigation2D" parent="."]
 
@@ -85,5 +87,10 @@ position = Vector2( 177, 37 )
 
 [node name="Goblin3" parent="Objects/Enemies" instance=ExtResource( 7 )]
 position = Vector2( 105, 198 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Actions" parent="CanvasLayer" instance=ExtResource( 3 )]
+position = Vector2( 21, 343 )
 
 [editable path="Objects/Raul"]

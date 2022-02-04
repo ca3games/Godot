@@ -1,15 +1,31 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Non Battle Code/Battle Wrap/Battle/Action.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/Fuente.tres" type="DynamicFont" id=2]
 
-[node name="Action" type="Button"]
-margin_right = 12.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 50, 20 )
-text = "Action"
+[node name="Action" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -742.0
+margin_bottom = -584.0
+rect_min_size = Vector2( 58, 17 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="button_up" from="." to="." method="_on_Action_button_up"]
+[node name="Panel" type="Panel" parent="."]
+margin_right = 58.0
+margin_bottom = 17.0
+
+[node name="Label" type="Label" parent="."]
+margin_left = 2.0
+margin_top = 1.0
+margin_right = 44.0
+margin_bottom = 16.0
+custom_colors/font_color = Color( 0.905882, 0.913725, 1, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "Action"
+__meta__ = {
+"_edit_use_anchors_": false
+}

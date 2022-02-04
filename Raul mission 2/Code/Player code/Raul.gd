@@ -6,3 +6,7 @@ onready var GUI = get_tree().get_root().get_node("BattleWrap").find_node("GUI")
 
 export (NodePath) var SceneRootPath
 onready var SceneRoot = get_node(SceneRootPath)
+
+enum leveltype {battle, dungeon, town}
+
+export(leveltype) var level

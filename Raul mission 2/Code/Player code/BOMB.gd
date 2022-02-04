@@ -4,4 +4,4 @@ func END():
 	FSM.ChangeState("IDLE")
 	
 func SpawnBomb():
-	FSM.Root.SceneRoot.ActionButtons.DeleteCommand()
+	pass

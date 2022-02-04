@@ -3,6 +3,8 @@ extends Node2D
 export(NodePath) var ActionButtonsPath
 onready var ActionButtons = get_node(ActionButtonsPath)
 
+onready var levelmanager = $"../../../"
+
 func UpdateHPLabel():
 	$GUI.UpdateHP()
 
