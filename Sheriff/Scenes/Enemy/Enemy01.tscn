@@ -1,0 +1,684 @@
+[gd_scene load_steps=54 format=2]
+
+[ext_resource path="res://Scenes/Enemy/EnemyBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://2D/Enemies/Enemy01/Front/Front3.png" type="Texture" id=2]
+[ext_resource path="res://2D/Enemies/Enemy01/Front/Front2.png" type="Texture" id=3]
+[ext_resource path="res://2D/Enemies/Enemy01/Front/Front1.png" type="Texture" id=4]
+[ext_resource path="res://2D/Enemies/Enemy01/Front diagonal/Front diagonal2.png" type="Texture" id=5]
+[ext_resource path="res://2D/Enemies/Enemy01/Back/back2.png" type="Texture" id=6]
+[ext_resource path="res://2D/Enemies/Enemy01/Side/side2.png" type="Texture" id=7]
+[ext_resource path="res://2D/Enemies/Enemy01/Back/back3.png" type="Texture" id=8]
+[ext_resource path="res://2D/Enemies/Enemy01/Side/side1.png" type="Texture" id=9]
+[ext_resource path="res://2D/Enemies/Enemy01/Front diagonal/Front diagonal3.png" type="Texture" id=10]
+[ext_resource path="res://2D/Enemies/Enemy01/Back diagonal/back side2.png" type="Texture" id=11]
+[ext_resource path="res://2D/Enemies/Enemy01/Back/back1.png" type="Texture" id=12]
+[ext_resource path="res://2D/Enemies/Enemy01/Back diagonal/back side3.png" type="Texture" id=13]
+[ext_resource path="res://2D/Enemies/Enemy01/Side/side3.png" type="Texture" id=14]
+[ext_resource path="res://2D/Enemies/Enemy01/Front diagonal/Front diagonal1.png" type="Texture" id=15]
+[ext_resource path="res://2D/Enemies/Enemy01/Back diagonal/back side1.png" type="Texture" id=16]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 9 ), ExtResource( 7 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 6 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "Back",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 11 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "Back D",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 5 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "Front D",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "Front",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=2]
+resource_name = "IDLE Back"
+tracks/0/type = "value"
+tracks/0/path = NodePath("MySprites/AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Back" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MySprites/AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MySprites/AnimatedSprite:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "IDLE Back D"
+tracks/0/type = "value"
+tracks/0/path = NodePath("MySprites/AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Back D" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MySprites/AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MySprites/AnimatedSprite:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "IDLE Front"
+tracks/0/type = "value"
+tracks/0/path = NodePath("MySprites/AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Front" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MySprites/AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MySprites/AnimatedSprite:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "IDLE Front D"
+tracks/0/type = "value"
+tracks/0/path = NodePath("MySprites/AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Front D" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MySprites/AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MySprites/AnimatedSprite:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "IDLE Side"
+tracks/0/type = "value"
+tracks/0/path = NodePath("MySprites/AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Side" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MySprites/AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MySprites/AnimatedSprite:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("MySprites/AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "Front" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MySprites/AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MySprites/AnimatedSprite:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "WALK Back"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("MySprites/AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Back" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MySprites/AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 0, 2 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MySprites/AnimatedSprite:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "WALK Back D"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("MySprites/AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Back D" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MySprites/AnimatedSprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MySprites/AnimatedSprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "WALK Front"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("MySprites/AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Front" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MySprites/AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 0, 2 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MySprites/AnimatedSprite:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "WALK Front D"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("MySprites/AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Front D" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MySprites/AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 0, 2 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MySprites/AnimatedSprite:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "WALK Side"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("MySprites/AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Side" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MySprites/AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MySprites/AnimatedSprite:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=35]
+resource_name = "LEFT"
+tracks/0/type = "value"
+tracks/0/path = NodePath("MySprites:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=36]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("MySprites:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=37]
+resource_name = "RIGHT"
+tracks/0/type = "value"
+tracks/0/path = NodePath("MySprites:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "IDLE Side"
+
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "IDLE Side"
+
+[sub_resource type="AnimationNodeAnimation" id=18]
+animation = "IDLE Back"
+
+[sub_resource type="AnimationNodeAnimation" id=19]
+animation = "IDLE Front"
+
+[sub_resource type="AnimationNodeAnimation" id=20]
+animation = "IDLE Front D"
+
+[sub_resource type="AnimationNodeAnimation" id=21]
+animation = "IDLE Front D"
+
+[sub_resource type="AnimationNodeAnimation" id=22]
+animation = "IDLE Back D"
+
+[sub_resource type="AnimationNodeAnimation" id=23]
+animation = "IDLE Back D"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=13]
+blend_point_0/node = SubResource( 16 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 17 )
+blend_point_1/pos = Vector2( 1, 0 )
+blend_point_2/node = SubResource( 18 )
+blend_point_2/pos = Vector2( 0, 1 )
+blend_point_3/node = SubResource( 19 )
+blend_point_3/pos = Vector2( 0, -1 )
+blend_point_4/node = SubResource( 20 )
+blend_point_4/pos = Vector2( 1, -1 )
+blend_point_5/node = SubResource( 21 )
+blend_point_5/pos = Vector2( -1, -1 )
+blend_point_6/node = SubResource( 22 )
+blend_point_6/pos = Vector2( -1, 1 )
+blend_point_7/node = SubResource( 23 )
+blend_point_7/pos = Vector2( 1, 1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=24]
+animation = "WALK Side"
+
+[sub_resource type="AnimationNodeAnimation" id=25]
+animation = "WALK Side"
+
+[sub_resource type="AnimationNodeAnimation" id=26]
+animation = "WALK Back"
+
+[sub_resource type="AnimationNodeAnimation" id=27]
+animation = "WALK Front"
+
+[sub_resource type="AnimationNodeAnimation" id=28]
+animation = "WALK Front D"
+
+[sub_resource type="AnimationNodeAnimation" id=29]
+animation = "WALK Front D"
+
+[sub_resource type="AnimationNodeAnimation" id=30]
+animation = "WALK Back D"
+
+[sub_resource type="AnimationNodeAnimation" id=31]
+animation = "WALK Back D"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=32]
+blend_point_0/node = SubResource( 24 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 25 )
+blend_point_1/pos = Vector2( 1, 0 )
+blend_point_2/node = SubResource( 26 )
+blend_point_2/pos = Vector2( 0, 1 )
+blend_point_3/node = SubResource( 27 )
+blend_point_3/pos = Vector2( 0, -1 )
+blend_point_4/node = SubResource( 28 )
+blend_point_4/pos = Vector2( 1, -1 )
+blend_point_5/node = SubResource( 29 )
+blend_point_5/pos = Vector2( -1, -1 )
+blend_point_6/node = SubResource( 30 )
+blend_point_6/pos = Vector2( -1, 1 )
+blend_point_7/node = SubResource( 31 )
+blend_point_7/pos = Vector2( 1, 1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=33]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=34]
+
+[sub_resource type="AnimationNodeStateMachine" id=14]
+states/IDLE/node = SubResource( 13 )
+states/IDLE/position = Vector2( 108, 71 )
+states/WALK/node = SubResource( 32 )
+states/WALK/position = Vector2( 295, 71 )
+transitions = [ "IDLE", "WALK", SubResource( 33 ), "WALK", "IDLE", SubResource( 34 ) ]
+start_node = "IDLE"
+graph_offset = Vector2( -26, -15 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=15]
+
+[node name="Enemy" instance=ExtResource( 1 )]
+
+[node name="MySprites" parent="." index="0"]
+scale = Vector2( -1, 1 )
+
+[node name="AnimatedSprite" parent="MySprites" index="0"]
+position = Vector2( 0, -15 )
+frames = SubResource( 1 )
+animation = "Front"
+flip_h = true
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 0, -6 )
+
+[node name="FSM" parent="." index="2"]
+vel = 30.0
+AnimTreePath = NodePath("../AnimTree")
+LeftRightAnim = NodePath("../LeftRight")
+
+[node name="IDLE" parent="FSM" index="0"]
+FSMPath = NodePath("..")
+
+[node name="CHASE" parent="FSM" index="1"]
+FSMPath = NodePath("..")
+
+[node name="Sprites" parent="." index="5"]
+"anims/IDLE Back" = SubResource( 2 )
+"anims/IDLE Back D" = SubResource( 3 )
+"anims/IDLE Front" = SubResource( 4 )
+"anims/IDLE Front D" = SubResource( 5 )
+"anims/IDLE Side" = SubResource( 6 )
+anims/RESET = SubResource( 7 )
+"anims/WALK Back" = SubResource( 11 )
+"anims/WALK Back D" = SubResource( 12 )
+"anims/WALK Front" = SubResource( 8 )
+"anims/WALK Front D" = SubResource( 9 )
+"anims/WALK Side" = SubResource( 10 )
+
+[node name="LeftRight" parent="." index="6"]
+anims/LEFT = SubResource( 35 )
+anims/RESET = SubResource( 36 )
+anims/RIGHT = SubResource( 37 )
+
+[node name="AnimTree" parent="." index="7"]
+tree_root = SubResource( 14 )
+active = true
+parameters/playback = SubResource( 15 )
+parameters/IDLE/blend_position = Vector2( -0.992327, -0.017341 )
+parameters/WALK/blend_position = Vector2( -0.207161, 0.827586 )
+
+[connection signal="timeout" from="Return to Idle" to="FSM" method="_on_Return_to_Idle_timeout"]
+[connection signal="timeout" from="Chase" to="FSM" method="_on_Chase_timeout"]
