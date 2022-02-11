@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Fonts/Baskic8-Bold.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://Code/Battle/Enemies/Word.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+
+[sub_resource type="Theme" id=3]
+Panel/styles/panel = SubResource( 2 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 8
+font_data = ExtResource( 1 )
+
+[node name="Word" type="Node2D"]
+script = ExtResource( 2 )
+phrase = [ "gonna kill u", "fuck off", "fuck you", "i hate you", "damn", "help", "we gonna win", "shit", "cunt", "damn, you good", "get gud", "he's here", "come here", "you gonna lose", "you aint shit", "need to gg", "not losing this", "gg", "you aint so hot", "were the bestest", "sucker", "loser", "bullied loser", "your mom", "your sister", "is all you got", "kek", "puto", "frijolero", "beaner", "marica", "chida tu pedo", "jodete", "boludo", "hijueputa" ]
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = -3.0
+margin_top = -5.0
+margin_right = 60.0
+margin_bottom = 11.0
+theme = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "gonna kill u"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Show" type="Timer" parent="."]
+
+[node name="Hide" type="Timer" parent="."]
+
+[connection signal="timeout" from="Show" to="." method="_on_Show_timeout"]
+[connection signal="timeout" from="Hide" to="." method="_on_Hide_timeout"]

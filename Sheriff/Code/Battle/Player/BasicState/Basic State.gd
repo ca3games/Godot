@@ -29,3 +29,9 @@ func CheckInput():
 	FSM.direction = direction
 	if direction != Vector2.ZERO:
 		FSM.old_dir = direction
+
+func ShootBullets():
+	var tmp = FSM.Bullet.instance()
+	tmp.global_position = FSM.Root.get_node("SpawnBulletPos").global_position
+	FSM.Root.BulletManager.add_child(tmp)
+	tmp.SetSpeed(FSM.old_dir)

@@ -1,10 +1,11 @@
 extends "res://Code/Battle/Player/BasicState/Basic State.gd"
 
 func Update(delta):	
-	if Input.is_action_just_released("PUNCH"):
-		FSM.ChangeState("PUNCH")
 	if FSM.direction == Vector2.ZERO:
 		FSM.ChangeState("IDLE")
+	
+	if Input.is_action_just_released("SHOOT"):
+		ShootBullets()
 	
 func Physics(delta):
 	FSM.state_machine.travel("WALK")

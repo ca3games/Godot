@@ -14,6 +14,10 @@ export(NodePath) var LeftRightAnim
 onready var LeftRight = get_node(LeftRightAnim)
 onready var state_machine = $"../AnimationTree".get("parameters/playback")
 
+export(int) var HP 
+
+export(PackedScene) var Bullet
+
 func _ready():
 	pass
 

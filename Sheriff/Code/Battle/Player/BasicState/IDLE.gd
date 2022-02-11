@@ -4,6 +4,9 @@ func Update(delta):
 		
 	if FSM.direction != Vector2.ZERO:
 		FSM.ChangeState("WALK")
+		
+	if Input.is_action_just_released("SHOOT"):
+		ShootBullets()
 	
 
 func Physics(delta):

@@ -13,9 +13,12 @@ onready var LeftRight = get_node(LeftRightAnim)
 onready var current = $IDLE
 var direction = Vector2.DOWN
 
+export(int) var HP 
+
 func _ready():
 	randomize()
-	$"../Return to Idle".start(1)
+	$"../Return to Idle".start(rand_range(1, 3))
+	vel = Root.type * 15 + 20
 
 func _process(delta):
 	current.Update(delta)
@@ -27,13 +30,29 @@ func ChangeState(state):
 	match(state):
 		"IDLE" : current = $IDLE
 		"CHASE" : current = $CHASE
+		"DEAD" : current = $DEAD
 
 
 func _on_Return_to_Idle_timeout():
 	direction = GetDirAngle()
-	$"../Return to Idle".start(rand_range(2, 5))
-	$"../Chase".start(rand_range(0.3, 1))
+	$"../Return to Idle".start(IdleTimerID())
+	$"../Chase".start(ChaseTimerID()+1)
 	ChangeState("IDLE")
+
+func IdleTimerID():
+	if Root.type < 3:
+		return rand_range(2, 4)
+	elif Root.type > 7:
+		return rand_range(8, 12)
+	return rand_range(6, 8)
+
+func ChaseTimerID():
+	if Root.type < 3:
+		return rand_range(4, 5)
+	elif Root.type > 7:
+		return rand_range(1, 2)
+	return rand_range(2, 3)
+
 
 func GetDirAngle():
 	var playerpos = Root.get_parent().Player.global_position

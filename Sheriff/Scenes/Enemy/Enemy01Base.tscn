@@ -1,69 +1,56 @@
 [gd_scene load_steps=64 format=2]
 
-[ext_resource path="res://Scenes/Enemy/EnemyBase.tscn" type="PackedScene" id=1]
-[ext_resource path="res://2D/Enemies/Enemy01/Front/Front3.png" type="Texture" id=2]
-[ext_resource path="res://2D/Enemies/Enemy01/Front/Front2.png" type="Texture" id=3]
+[ext_resource path="res://2D/Enemies/Enemy01/Side/side2.png" type="Texture" id=1]
+[ext_resource path="res://2D/Enemies/Enemy01/Side/side1.png" type="Texture" id=2]
+[ext_resource path="res://2D/Enemies/Enemy01/Front diagonal/Front diagonal2.png" type="Texture" id=3]
 [ext_resource path="res://2D/Enemies/Enemy01/Front/Front1.png" type="Texture" id=4]
-[ext_resource path="res://2D/Enemies/Enemy01/Front diagonal/Front diagonal2.png" type="Texture" id=5]
+[ext_resource path="res://2D/Enemies/Enemy01/Front/Front2.png" type="Texture" id=5]
 [ext_resource path="res://2D/Enemies/Enemy01/Back/back2.png" type="Texture" id=6]
-[ext_resource path="res://2D/Enemies/Enemy01/Side/side2.png" type="Texture" id=7]
-[ext_resource path="res://2D/Enemies/Enemy01/Back/back3.png" type="Texture" id=8]
-[ext_resource path="res://2D/Enemies/Enemy01/Side/side1.png" type="Texture" id=9]
-[ext_resource path="res://2D/Enemies/Enemy01/Front diagonal/Front diagonal3.png" type="Texture" id=10]
-[ext_resource path="res://2D/Enemies/Enemy01/Back diagonal/back side2.png" type="Texture" id=11]
-[ext_resource path="res://2D/Enemies/Enemy01/Back/back1.png" type="Texture" id=12]
-[ext_resource path="res://2D/Enemies/Enemy01/Back diagonal/back side3.png" type="Texture" id=13]
-[ext_resource path="res://2D/Enemies/Enemy01/Side/side3.png" type="Texture" id=14]
-[ext_resource path="res://2D/Enemies/Enemy01/Front diagonal/Front diagonal1.png" type="Texture" id=15]
-[ext_resource path="res://2D/Enemies/Enemy01/Back diagonal/back side1.png" type="Texture" id=16]
-[ext_resource path="res://2D/Enemies/Enemy01/Dead/dead4.png" type="Texture" id=17]
-[ext_resource path="res://2D/Enemies/Enemy01/Dead/dead2.png" type="Texture" id=18]
-[ext_resource path="res://2D/Enemies/Enemy01/Dead/dead3.png" type="Texture" id=19]
-[ext_resource path="res://2D/Enemies/Enemy01/Dead/dead1.png" type="Texture" id=20]
-[ext_resource path="res://Code/Shader/EnemyBase.gdshader" type="Shader" id=22]
-
-[sub_resource type="ShaderMaterial" id=44]
-resource_local_to_scene = true
-shader = ExtResource( 22 )
-shader_param/shirt_color = Color( 0, 0, 0, 1 )
-shader_param/shirt_replace = Color( 0.87451, 0.541176, 0.27451, 1 )
-shader_param/hat_color = Color( 0.682353, 0.0235294, 0.0235294, 1 )
-shader_param/hat_replace = Color( 0.592157, 0.447059, 0.192157, 1 )
-shader_param/pants_color = Color( 0.317647, 0.027451, 0.027451, 1 )
-shader_param/pants_replace = Color( 0.270588, 0.164706, 0.054902, 1 )
-shader_param/skin_color = Color( 0.756863, 0.513726, 0.345098, 1 )
-shader_param/skin_replace = Color( 0.760784, 0.482353, 0.301961, 1 )
-shader_param/mask_color = Color( 0.192157, 0.313726, 0.780392, 1 )
-shader_param/mask_replace = Color( 1, 0.772549, 0.290196, 1 )
+[ext_resource path="res://2D/Enemies/Enemy01/Dead/dead4.png" type="Texture" id=7]
+[ext_resource path="res://2D/Enemies/Enemy01/Front/Front3.png" type="Texture" id=8]
+[ext_resource path="res://2D/Enemies/Enemy01/Front diagonal/Front diagonal1.png" type="Texture" id=9]
+[ext_resource path="res://2D/Enemies/Enemy01/Side/side3.png" type="Texture" id=10]
+[ext_resource path="res://2D/Enemies/Enemy01/Back/back1.png" type="Texture" id=11]
+[ext_resource path="res://2D/Enemies/Enemy01/Front diagonal/Front diagonal3.png" type="Texture" id=12]
+[ext_resource path="res://2D/Enemies/Enemy01/Back diagonal/back side1.png" type="Texture" id=13]
+[ext_resource path="res://2D/Enemies/Enemy01/Dead/dead2.png" type="Texture" id=14]
+[ext_resource path="res://2D/Enemies/Enemy01/Back/back3.png" type="Texture" id=15]
+[ext_resource path="res://2D/Enemies/Enemy01/Dead/dead3.png" type="Texture" id=16]
+[ext_resource path="res://2D/Enemies/Enemy01/Back diagonal/back side2.png" type="Texture" id=17]
+[ext_resource path="res://2D/Enemies/Enemy01/Back diagonal/back side3.png" type="Texture" id=18]
+[ext_resource path="res://2D/Enemies/Enemy01/Dead/dead1.png" type="Texture" id=19]
+[ext_resource path="res://Scenes/Enemy/EnemyBase.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Code/Shader/Enemy01Base.tres" type="Material" id=21]
+[ext_resource path="res://Code/Battle/Enemies/Color Shader.gd" type="Script" id=22]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 9 ), ExtResource( 7 ), ExtResource( 14 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 1 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "Side",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 12 ), ExtResource( 6 ), ExtResource( 8 ) ],
+"frames": [ ExtResource( 11 ), ExtResource( 6 ), ExtResource( 15 ) ],
 "loop": true,
 "name": "Back",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 2 ) ],
-"loop": true,
-"name": "Front",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 15 ), ExtResource( 5 ), ExtResource( 10 ) ],
-"loop": true,
-"name": "Front D",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 16 ), ExtResource( 11 ), ExtResource( 13 ) ],
+"frames": [ ExtResource( 13 ), ExtResource( 17 ), ExtResource( 18 ) ],
 "loop": true,
 "name": "Back D",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 20 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 17 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "Front",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 3 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "Front D",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "Dead",
 "speed": 5.0
@@ -833,26 +820,40 @@ graph_offset = Vector2( -10, 30 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=15]
 
-[node name="Enemy01" instance=ExtResource( 1 )]
-collision_layer = 4
+[node name="Enemy01" instance=ExtResource( 20 )]
 collision_mask = 17
 
-[node name="MySprites" parent="." index="0"]
+[node name="ColorsCode" type="Node2D" parent="." index="0"]
+script = ExtResource( 22 )
+AnimatedSpritePath = NodePath("../MySprites/AnimatedSprite")
+jacket01 = Color( 0.858824, 0.6, 0.105882, 1 )
+jacket02 = Color( 0.921569, 0.439216, 0.0509804, 1 )
+jacket03 = Color( 0.968627, 0.121569, 0.0352941, 1 )
+Hat01 = Color( 0.52549, 0.290196, 0.266667, 1 )
+Hat02 = Color( 0.717647, 0.211765, 0.211765, 1 )
+Hat03 = Color( 0.564706, 0.0235294, 0.0235294, 1 )
+Pants01 = Color( 0.0509804, 0.192157, 0.137255, 1 )
+Pants02 = Color( 0.0235294, 0.176471, 0.290196, 1 )
+Pants03 = Color( 0.027451, 0.0313726, 0.266667, 1 )
+Skin01 = Color( 0.694118, 0.521569, 0.34902, 1 )
+Skin02 = Color( 0.968627, 0.862745, 0.780392, 1 )
+Skin03 = Color( 0.458824, 0.211765, 0.0784314, 1 )
+
+[node name="MySprites" parent="." index="1"]
 scale = Vector2( -1, 1 )
 
 [node name="AnimatedSprite" parent="MySprites" index="0"]
-material = SubResource( 44 )
+material = ExtResource( 21 )
 position = Vector2( 0, -15 )
 frames = SubResource( 1 )
 animation = "Front"
 flip_h = true
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" parent="." index="2"]
 visible = false
 position = Vector2( 0, -6 )
 
-[node name="FSM" parent="." index="2"]
-vel = 30.0
+[node name="FSM" parent="." index="3"]
 AnimTreePath = NodePath("../AnimTree")
 LeftRightAnim = NodePath("../LeftRight")
 HP = 10
@@ -863,7 +864,7 @@ FSMPath = NodePath("..")
 [node name="CHASE" parent="FSM" index="1"]
 FSMPath = NodePath("..")
 
-[node name="Sprites" parent="." index="5"]
+[node name="Sprites" parent="." index="6"]
 anims/Dead = SubResource( 38 )
 "anims/IDLE Back" = SubResource( 43 )
 "anims/IDLE Back D" = SubResource( 3 )
@@ -877,17 +878,24 @@ anims/RESET = SubResource( 7 )
 "anims/WALK Front D" = SubResource( 9 )
 "anims/WALK Side" = SubResource( 10 )
 
-[node name="LeftRight" parent="." index="6"]
+[node name="LeftRight" parent="." index="7"]
 anims/LEFT = SubResource( 35 )
 anims/RESET = SubResource( 36 )
 anims/RIGHT = SubResource( 37 )
 
-[node name="AnimTree" parent="." index="7"]
+[node name="AnimTree" parent="." index="8"]
 tree_root = SubResource( 14 )
 active = true
 parameters/playback = SubResource( 15 )
 parameters/IDLE/blend_position = Vector2( -0.992327, -0.017341 )
 parameters/WALK/blend_position = Vector2( -0.207161, 0.827586 )
+
+[node name="FlockingAvoidance" parent="." index="9"]
+position = Vector2( 0, -13 )
+collision_layer = 4
+
+[node name="Word" parent="." index="10"]
+position = Vector2( 6, -38 )
 
 [connection signal="timeout" from="Return to Idle" to="FSM" method="_on_Return_to_Idle_timeout"]
 [connection signal="timeout" from="Chase" to="FSM" method="_on_Chase_timeout"]

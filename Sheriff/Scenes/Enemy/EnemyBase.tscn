@@ -1,12 +1,21 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Code/Battle/Enemies/FSM.gd" type="Script" id=1]
 [ext_resource path="res://Code/Battle/Enemies/IDLE.gd" type="Script" id=2]
 [ext_resource path="res://Code/Battle/Enemies/CHASE.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Enemy/DEAD.gd" type="Script" id=4]
+[ext_resource path="res://Code/Battle/Enemies/EnemyKinematic.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/Enemy/Word.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 
-[node name="Enemy" type="KinematicBody2D"]
+[sub_resource type="CircleShape2D" id=2]
+radius = 28.1603
+
+[node name="Enemy" type="KinematicBody2D" groups=["ENEMY"]]
+collision_layer = 4
+collision_mask = 21
+script = ExtResource( 5 )
 
 [node name="MySprites" type="Node2D" parent="."]
 
@@ -18,13 +27,16 @@ shape = SubResource( 1 )
 [node name="FSM" type="Node2D" parent="."]
 script = ExtResource( 1 )
 RootPath = NodePath("..")
-vel = 10.0
 
 [node name="IDLE" type="Node2D" parent="FSM"]
 script = ExtResource( 2 )
 
 [node name="CHASE" type="Node2D" parent="FSM"]
 script = ExtResource( 3 )
+
+[node name="DEAD" type="Node2D" parent="FSM"]
+script = ExtResource( 4 )
+FSMPath = NodePath("..")
 
 [node name="Return to Idle" type="Timer" parent="."]
 
@@ -36,3 +48,16 @@ script = ExtResource( 3 )
 
 [node name="AnimTree" type="AnimationTree" parent="."]
 anim_player = NodePath("../Sprites")
+
+[node name="FlockingAvoidance" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlockingAvoidance"]
+shape = SubResource( 2 )
+
+[node name="Word" parent="." instance=ExtResource( 6 )]
+position = Vector2( 4, -31 )
+
+[connection signal="body_entered" from="FlockingAvoidance" to="FSM/CHASE" method="_on_FlockingAvoidance_body_entered"]
+[connection signal="body_exited" from="FlockingAvoidance" to="FSM/CHASE" method="_on_FlockingAvoidance_body_exited"]
