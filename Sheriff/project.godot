@@ -10,9 +10,13 @@ config_version=4
 
 [application]
 
-config/name="Sheriff"
+config/name="Sheriff 22"
 run/main_scene="res://Scenes/Game.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Variables="*res://Scenes/Battle/Variables.tscn"
 
 [display]
 
@@ -83,6 +87,7 @@ SHOOT={
 2d_physics/layer_5="Player Bullets"
 2d_physics/layer_6="GroundTileset"
 2d_physics/layer_7="FlockingAvoidance"
+2d_physics/layer_8="AIMAvoidance"
 
 [physics]
 

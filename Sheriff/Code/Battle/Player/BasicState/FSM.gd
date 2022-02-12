@@ -19,7 +19,8 @@ export(int) var HP
 export(PackedScene) var Bullet
 
 func _ready():
-	pass
+	yield(get_tree(), "idle_frame")
+	Root.GUI.SetAmmoBasic(Root.AmmoBasic)
 
 func _process(delta):
 	current.CheckInput()
@@ -38,3 +39,4 @@ func ChangeState(state):
 		"WALK" : current = $WALK
 		"BOMB" : current = $BOMB
 		"PUNCH" : current = $PUNCH
+

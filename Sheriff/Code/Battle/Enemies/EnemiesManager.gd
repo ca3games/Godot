@@ -12,6 +12,11 @@ onready var LeftUp = get_node(LeftUpPath)
 export(NodePath) var RightDownPath
 onready var RightDown = get_node(RightDownPath)
 
+export(NodePath) var GUIPath
+onready var GUI = get_node(GUIPath)
+export(NodePath) var PlayerBulletsPath
+onready var PlayerBullets = get_node(PlayerBulletsPath)
+
 func _ready():
 	SpawnEnemies(5)
 
@@ -30,3 +35,5 @@ func SpawnEnemy():
 	var y = rand_range(LeftUp.global_position.y, RightDown.global_position.y)
 	tmp.global_position = Vector2(x, y)
 	add_child(tmp)
+	GUI.SpawnEnemy()
+	

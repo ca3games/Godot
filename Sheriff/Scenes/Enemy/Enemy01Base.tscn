@@ -58,6 +58,8 @@ animations = [ {
 
 [sub_resource type="Animation" id=38]
 resource_name = "Dead"
+length = 10.0
+step = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("MySprites/AnimatedSprite:animation")
 tracks/0/interp = 1
@@ -93,6 +95,32 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ Vector2( 0, -15 ), Vector2( 1, -13 ), Vector2( 2, -9 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("MySprites/AnimatedSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, false, true, false, true, false, true, false, true ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("FSM/DEAD")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 9.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "DieEnd"
+} ]
 }
 
 [sub_resource type="Animation" id=43]
@@ -398,6 +426,18 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 0, -15 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("MySprites/AnimatedSprite:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=11]
@@ -850,7 +890,6 @@ animation = "Front"
 flip_h = true
 
 [node name="CollisionShape2D" parent="." index="2"]
-visible = false
 position = Vector2( 0, -6 )
 
 [node name="FSM" parent="." index="3"]

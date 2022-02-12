@@ -10,10 +10,13 @@ func Physics(delta):
 	FSM.AnimTree.set("parameters/WALK/blend_position", FSM.direction)
 
 	var playerpos 
-	if flocking < 2 :
-		playerpos = FSM.Root.get_parent().Player.global_position
+	if FSM.Root.avoiding:
+		playerpos = FSM.Root.avoidpos
 	else:
-		playerpos = FSM.Root.startingpos
+		if flocking < 2 :
+			playerpos = FSM.Root.get_parent().Player.global_position
+		else:
+			playerpos = FSM.Root.startingpos
 	points = FSM.Root.get_parent().MapNavigation.get_simple_path(FSM.Root.global_position, playerpos)
 	
 	if points.size() > 1:

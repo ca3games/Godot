@@ -21,13 +21,14 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
-margin_left = 56.0
+margin_left = -1.0
 margin_top = 89.0
-margin_right = 215.0
+margin_right = 256.0
 margin_bottom = 161.0
 custom_colors/font_color = Color( 1, 0.929412, 0.2, 1 )
 custom_fonts/font = SubResource( 1 )
-text = "SHERIFF"
+text = "SHERIFF 22"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
