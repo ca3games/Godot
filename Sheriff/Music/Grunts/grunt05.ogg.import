@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/grunt05.ogg-b0a47285d913ee0549d27ae33f489432.oggstr"
+
+[deps]
+
+source_file="res://Music/Grunts/grunt05.ogg"
+dest_files=[ "res://.import/grunt05.ogg-b0a47285d913ee0549d27ae33f489432.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

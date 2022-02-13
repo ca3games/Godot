@@ -8,6 +8,7 @@ func Physics(delta):
 
 func DieEnd():
 	if (randi()%4 == 2):
+		Sounds.PlayAmmoBasic()
 		var tmp = AmmoBasic.instance()
 		tmp.global_position = FSM.Root.global_position
 		FSM.Root.get_parent().PlayerBullets.add_child(tmp)

@@ -16,18 +16,16 @@ export(NodePath) var GUIPath
 onready var GUI = get_node(GUIPath)
 export(NodePath) var PlayerBulletsPath
 onready var PlayerBullets = get_node(PlayerBulletsPath)
+export(NodePath) var EnemyBulletPath
+onready var EnemyBullet = get_node(EnemyBulletPath)
 
 func _ready():
-	SpawnEnemies(5)
+	SpawnEnemies((Variables.level / 3) + 3)
 
 
 func SpawnEnemies(x):
 	for i in x:
 		SpawnEnemy()
-
-func _process(delta):
-	if get_child_count() == 0:
-		$"../../".levelmanager.ChangeScene("DUNGEON")
 
 func SpawnEnemy():
 	var tmp = Enemy01.instance()

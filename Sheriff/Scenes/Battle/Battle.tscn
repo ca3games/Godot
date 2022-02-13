@@ -224,8 +224,11 @@ LeftUpPath = NodePath("../LeftUp")
 RightDownPath = NodePath("../DownRight")
 GUIPath = NodePath("../../../GUI")
 PlayerBulletsPath = NodePath("../PlayerBullets")
+EnemyBulletPath = NodePath("../EnemyBullets")
 
 [node name="PlayerBullets" type="YSort" parent="Entities/Warriors"]
+
+[node name="EnemyBullets" type="YSort" parent="Entities/Warriors"]
 
 [node name="LeftUp" type="Position2D" parent="Entities/Warriors"]
 position = Vector2( -192, -126 )

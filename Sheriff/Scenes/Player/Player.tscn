@@ -34,14 +34,14 @@ animations = [ {
 "name": "Back",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ), ExtResource( 10 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "Back D",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 1 ), ExtResource( 8 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "Front",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 10 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "Back D",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ), ExtResource( 2 ), ExtResource( 5 ) ],

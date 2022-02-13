@@ -8,6 +8,8 @@ export(NodePath) var PlayerPath
 onready var Player = get_node(PlayerPath)
 
 func _ready():
+	$Lifebar.max_value = Variables.max_hp
+	$Lifebar.value = Variables.HP
 	$VBoxContainer/LEVEL.text = "LEVEL : " + str(Variables.level)
 	$VBoxContainer/WAVE.text = "WAVE : " + str(Variables.wave)
 	$Screentone.material.set("shader_param/position", -1.5)
@@ -16,7 +18,7 @@ func _ready():
 	StartTransition()
 
 func SetAmmoBasic(x):
-	$AmmoBasic.text = str(x)
+	$Revolver/AmmoBasic.text = str(x)
 
 func SpawnEnemy():
 	left += 1
@@ -27,6 +29,7 @@ func EnemyDie():
 	$VBoxContainer/LEFT.text = "LEFT : " +  str(left)
 	if left < 1:
 		gameover = true
+		Sounds.ChangeLevel()
 		$GameEnd.start(1.5)
 
 func StartTransition():
@@ -38,6 +41,9 @@ func EndTransition():
 	get_tree().paused = true
 	$Tween.interpolate_property($Screentone.material, "shader_param/position", 1, -1.5, 2, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$Tween.start()
+
+func DamageLifebar(damage):
+	$Lifebar.value += damage
 
 
 func _on_Tween_tween_all_completed():

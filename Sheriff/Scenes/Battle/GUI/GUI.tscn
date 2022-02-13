@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Fonts/Baskic8-Bold.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Code/Battle/GUI.gd" type="Script" id=2]
 [ext_resource path="res://2D/Items/revolver.png" type="Texture" id=3]
+[ext_resource path="res://2D/Lifebars/playerlifebar.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 10
@@ -104,15 +105,34 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Revolver" type="Sprite" parent="."]
-position = Vector2( 20, 241 )
-texture = ExtResource( 3 )
+[node name="Lifebar" type="TextureProgress" parent="."]
+margin_left = 5.0
+margin_top = 241.0
+margin_right = 69.0
+margin_bottom = 281.0
+max_value = 500.0
+value = 50.0
+texture_under = ExtResource( 4 )
+texture_progress = ExtResource( 4 )
+tint_under = Color( 0.517647, 0.027451, 0.027451, 1 )
+tint_over = Color( 0.184314, 0.956863, 0.211765, 1 )
+tint_progress = Color( 0.184314, 0.956863, 0.211765, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="AmmoBasic" type="Label" parent="."]
-margin_left = 34.0
-margin_top = 237.0
-margin_right = 74.0
-margin_bottom = 253.0
+[node name="Revolver" type="Sprite" parent="."]
+position = Vector2( 15, 229 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AmmoBasic" type="Label" parent="Revolver"]
+margin_left = 14.0
+margin_top = -4.0
+margin_right = 54.0
+margin_bottom = 12.0
 custom_colors/font_color = Color( 0.211765, 0.231373, 0.407843, 1 )
 custom_colors/font_outline_modulate = Color( 0.403922, 0.615686, 0.764706, 1 )
 custom_fonts/font = SubResource( 4 )

@@ -17,6 +17,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Variables="*res://Scenes/Battle/Variables.tscn"
+Sounds="*res://Scenes/Battle/Sounds/Sounds.tscn"
 
 [display]
 

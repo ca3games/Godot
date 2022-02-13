@@ -23,7 +23,7 @@ func _ready():
 	yield(get_tree(), "idle_frame")
 	var id = GetLevel()
 	SetColor(id)
-	$"../".type = id
+	$"../".level = id
 		
 func SetColor(level):
 	match(level):

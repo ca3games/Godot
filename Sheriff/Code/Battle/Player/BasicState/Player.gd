@@ -11,6 +11,8 @@ onready var GUI = get_node(GUIPath)
 
 onready var AmmoBasic = Variables.ammobasic
 
+onready var OffsetBody = $SpawnBulletPos.position
+
 func ReloadAmmo(x):
 	AmmoBasic += x
 	GUI.SetAmmoBasic(AmmoBasic)

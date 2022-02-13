@@ -4,6 +4,7 @@ onready var story = "res://Scenes/Story/STORY.tscn"
 onready var battle = "res://Scenes/Battle/Battle.tscn"
 onready var PreBattlePicture = "res://Scenes/Story/STORY picture.tscn"
 onready var VideoIntro1 = "res://Scenes/Story/Video1.tscn"
+onready var Title = "res://Scenes/Game.tscn"
 
 func _on_Start_pressed():
 	get_tree().change_scene(story)
@@ -18,4 +19,9 @@ func _on_story_picture_button_pressed():
 
 
 func _VideoIntro1():
+	Variables.ResetVariables()
 	get_tree().change_scene(battle)
+
+
+func _on_GameOverButton_pressed():
+	get_tree().change_scene(Title)

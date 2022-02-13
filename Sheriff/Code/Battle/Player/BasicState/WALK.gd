@@ -7,6 +7,7 @@ func Update(delta):
 	if Input.is_action_just_released("SHOOT") and FSM.Root.AmmoBasic >= 1:
 		FSM.Root.AmmoBasic -= 1
 		FSM.Root.GUI.SetAmmoBasic(FSM.Root.AmmoBasic)
+		Sounds.GunShoot()
 		ShootBullets()
 	
 func Physics(delta):

@@ -1,14 +1,31 @@
 extends KinematicBody2D
 
-var type = 1
+var level = 1
 onready var startingpos = global_position
 onready var avoidpos = global_position
 onready var avoiding = false
 var dead = false
 
+func _ready():
+	yield(get_tree(), "idle_frame")
+	yield(get_tree(), "idle_frame")
+	yield(get_tree(), "idle_frame")
+	
+	var hp = Variables.level + 10
+	$FSM.HP = hp
+	$HPLifebar.max_value = $FSM.HP
+	$HPLifebar.value = $FSM.HP
+	
+	$Bullet.start(rand_range(3, 8))
+
 func HIT(damage):
-	$FSM.HP -= damage
+	$FSM.HP -= damage - (level / 3)
+	$HPLifebar.value = $FSM.HP
+	Sounds.PlayEnemyHit()
 	if $FSM.HP < 1 and !dead:
+		$Bullet.stop()
+		$HPLifebar.hide()
+		Sounds.PlayGrunt(level / 2)
 		dead = true
 		$FSM.ChangeState("DEAD")
 		$"Return to Idle".stop()

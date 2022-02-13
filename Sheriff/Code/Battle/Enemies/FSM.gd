@@ -18,7 +18,7 @@ export(int) var HP
 func _ready():
 	randomize()
 	$"../Return to Idle".start(rand_range(1, 3))
-	vel = Root.type * 15 + 20
+	vel = Root.level * 15 + 20
 
 func _process(delta):
 	current.Update(delta)
@@ -40,16 +40,16 @@ func _on_Return_to_Idle_timeout():
 	ChangeState("IDLE")
 
 func IdleTimerID():
-	if Root.type < 3:
+	if Root.level < 3:
 		return rand_range(2, 4)
-	elif Root.type > 7:
+	elif Root.level > 7:
 		return rand_range(8, 12)
 	return rand_range(6, 8)
 
 func ChaseTimerID():
-	if Root.type < 3:
+	if Root.level < 3:
 		return rand_range(4, 5)
-	elif Root.type > 7:
+	elif Root.level > 7:
 		return rand_range(1, 2)
 	return rand_range(2, 3)
 
