@@ -46,4 +46,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Dificulty" type="OptionButton" parent="."]
+margin_left = 105.0
+margin_top = 219.0
+margin_right = 187.0
+margin_bottom = 239.0
+text = "Dificulty"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="pressed" from="StartBattle" to="." method="_on_StartBattle_pressed"]
+[connection signal="item_selected" from="Dificulty" to="." method="_on_Dificulty_item_selected"]

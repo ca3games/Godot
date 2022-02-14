@@ -20,7 +20,8 @@ export(NodePath) var EnemyBulletPath
 onready var EnemyBullet = get_node(EnemyBulletPath)
 
 func _ready():
-	SpawnEnemies((Variables.level / 3) + 3)
+	var id = (Variables.level / 3) + 3
+	SpawnEnemies(id * Variables.dificulty)
 
 
 func SpawnEnemies(x):

@@ -11,7 +11,7 @@ func _ready():
 	yield(get_tree(), "idle_frame")
 	yield(get_tree(), "idle_frame")
 	
-	var hp = Variables.level + 10
+	var hp = (Variables.level + 10) * Variables.dificulty
 	$FSM.HP = hp
 	$HPLifebar.max_value = $FSM.HP
 	$HPLifebar.value = $FSM.HP

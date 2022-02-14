@@ -1,6 +1,7 @@
 extends Node2D
 
 var HP = 1000
+var dificulty = 1
 onready var max_hp = HP
 var level = 0
 var wave = 0
@@ -21,6 +22,7 @@ func ResetVariables():
 	level = 0
 	wave = 0
 	ammobasic = 100
+	dificulty = 1
 
 
 func PlayerDamage(damage):

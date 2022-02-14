@@ -9,8 +9,8 @@ func SpawnBullet():
 	tmp.global_position = spawn
 	var normal = (spawn - $"../../../".Player.global_position - $"../../../".Player.OffsetBody).normalized()
 	tmp.direction = normal
-	tmp.damage = ($"../../".level * 2) + (Variables.level * 2)
-	tmp.speed = (($"../../".level / 2) + (Variables.level / 3)) / 5 + 1
+	tmp.damage = (($"../../".level * 2) + (Variables.level * 2) ) * Variables.dificulty
+	tmp.speed = ((($"../../".level / 2) + (Variables.level / 3)) / 5 + 1 ) * Variables.dificulty
 	$"../../../".EnemyBullet.add_child(tmp)
 
 

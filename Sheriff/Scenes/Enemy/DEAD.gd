@@ -7,7 +7,8 @@ func Physics(delta):
 	FSM.state_machine.travel("Dead")
 
 func DieEnd():
-	if (randi()%4 == 2):
+	var chance = 10 - FSM.Root.level + 1
+	if (randi()%chance > chance / 2.2):
 		Sounds.PlayAmmoBasic()
 		var tmp = AmmoBasic.instance()
 		tmp.global_position = FSM.Root.global_position

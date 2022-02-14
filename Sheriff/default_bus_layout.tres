@@ -35,5 +35,5 @@ bus/5/name = "AuchPlayer"
 bus/5/solo = false
 bus/5/mute = false
 bus/5/bypass_fx = false
-bus/5/volume_db = -10.0692
+bus/5/volume_db = -24.9389
 bus/5/send = "Master"

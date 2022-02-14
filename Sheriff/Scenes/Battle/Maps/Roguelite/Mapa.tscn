@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Code/Battle/DungeonGenerator/DungeonCode.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Map/tiles 2.tres" type="TileSet" id=2]
+
+[node name="Mapa" type="Node2D"]
+
+[node name="Map" type="Navigation2D" parent="."]
+
+[node name="MapTiles" type="TileMap" parent="Map"]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+collision_layer = 2
+collision_mask = 0
+format = 1
+
+[node name="DungeonCode" type="Node2D" parent="."]
+script = ExtResource( 1 )
+maxsize = Vector2( 10, 10 )
+MapTilesPath = NodePath("../Map/MapTiles")
+LeftUpPath = NodePath("../LeftUp")
+RightDownPath = NodePath("../DownRight")
+RockIndex = 4
+SandIndex = 3
+
+[node name="LeftUp" type="Position2D" parent="."]
+position = Vector2( -192, -126 )
+
+[node name="DownRight" type="Position2D" parent="."]
+position = Vector2( 481, 311 )
