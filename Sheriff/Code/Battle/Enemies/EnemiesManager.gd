@@ -19,20 +19,11 @@ onready var PlayerBullets = get_node(PlayerBulletsPath)
 export(NodePath) var EnemyBulletPath
 onready var EnemyBullet = get_node(EnemyBulletPath)
 
-func _ready():
-	var id = (Variables.level / 3) + 3
-	SpawnEnemies(id * Variables.dificulty)
-
-
-func SpawnEnemies(x):
-	for i in x:
-		SpawnEnemy()
-
-func SpawnEnemy():
+func SpawnEnemy(x, y):
 	var tmp = Enemy01.instance()
-	var x = rand_range(LeftUp.global_position.x, RightDown.global_position.x)
-	var y = rand_range(LeftUp.global_position.y, RightDown.global_position.y)
 	tmp.global_position = Vector2(x, y)
 	add_child(tmp)
+	if !is_instance_valid(GUI):
+		GUI = get_node(GUIPath)
 	GUI.SpawnEnemy()
 	

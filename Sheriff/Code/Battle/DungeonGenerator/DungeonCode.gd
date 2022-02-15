@@ -1,146 +1,67 @@
 extends Node2D
 
-var Map = []
-var grasstiles = []
-export(Vector2) var maxsize
-var size
-export(NodePath) var MapTilesPath
-onready var MapTiles = get_node(MapTilesPath)
+export(Vector2) var origin
+export(int) var NumberRooms
+export(Vector2) var MaxRoomSize
+export(Rect2) var DungeonSize
+export(int) var GrassIndex
+export(int) var RockIndex
+
+export(NodePath) var TileMapPath
+onready var tilemap = get_node(TileMapPath)
 export(NodePath) var PlayerPath
 onready var Player = get_node(PlayerPath)
-export(NodePath) var LeftUpPath
-onready var LeftUp = get_node(LeftUpPath)
-export(NodePath) var RightDownPath
-onready var RightDown = get_node(RightDownPath)
-export(int) var RockIndex
-export(int) var GrassIndex
-export(int) var SandIndex
-onready var boundaries = Rect2(0, 0, 0, 0)
+
+onready var RoomTiles = []
+onready var RoomCenters = []
+onready var RoomWalls = []
+onready var OverlapWalls = []
 
 func _ready():
-	randomize()
-	CreateMap(5)
-	Player.global_position = MapTiles.map_to_world(Vector2(size.x/2, size.y/2))
-	LeftUp.global_position = MapTiles.map_to_world(Vector2(1, 1))
-	RightDown.global_position = MapTiles.map_to_world(Vector2(size.x-2, size.y-2))
-
-func CreateMap(NumberRooms):
-	var pos = Vector2.ZERO
+	CreateMap()
+	SpawnTiles()
+	Player.global_position = tilemap.map_to_world(RoomCenters[0])
+	
+func CreateMap():
 	for x in NumberRooms:
-		size = Vector2(rand_range(4, maxsize.x), rand_range(4, maxsize.y))
-		Map = CreateRoom(size.x, size.y)
-		var array = []
-		array.append(RandomWalkPath(pos.x + (size.x/2), pos.y + (size.y/2), array, 0, 50))
-		SetMapTexture(pos.x,pos.y)
-		pos = CreatePath(array, pos.x + (size.x/2), pos.y + (size.y/2))
-	PutRockWalls()
+		var pos = Vector2(rand_range(DungeonSize.position.x, DungeonSize.position.x + DungeonSize.size.x), rand_range(DungeonSize.position.y, DungeonSize.position.y + DungeonSize.size.y))
+		var size = Vector2(rand_range(4, MaxRoomSize.x), rand_range(4, MaxRoomSize.y))
+		SetRoom(size, pos)
 
-func RandomWalkPath(x, y, array, i, maxid):
-	if i > maxid:
-		return array
-	
-	var pos = int(rand_range(1, 4))
-	match(pos):
-		1: RandomWalkPath(0, 1, array, i+1, maxid)
-		2: RandomWalkPath(-1, 0, array, i+1, maxid)
-		3: RandomWalkPath(0, -1, array, i+1, maxid)
-		_: RandomWalkPath(1, 0, array, i+1, maxid)
-	
-	return array.append(Vector2(int(x), int(y)))
-	
-func CheckBoundaries(x, y):
-	if x < boundaries.position.x:
-		boundaries.position.x = x
-	if x > boundaries.position.x + boundaries.size.x:
-		boundaries.size.x = x - boundaries.position.x
-	if y < boundaries.position.y:
-		boundaries.position.y = y
-	if y > boundaries.position.y + boundaries.size.y:
-		boundaries.size.y = y - boundaries.position.y
-	
-func CreatePath(array, x, y):
-	var pos = Vector2(x, y)
-	for x in len(array):
-		if x < len(array)-1:
-			var new_pos = Vector2.ZERO
-			new_pos.x = int(clamp(array[x].x, -1, 1))
-			new_pos.y = int(clamp(array[x].y, -1, 1))
-			pos += new_pos
-			CarveGrassPath(pos.x, pos.y)
-			grasstiles.append(Vector2(pos.x, pos.y))
-	return pos
+func SpawnTiles():
+	print(len(OverlapWalls))
+	for x in len(RoomTiles):
+		tilemap.set_cell(RoomTiles[x].x, RoomTiles[x].y, GrassIndex)
+	for y in len(RoomWalls):
+		#tilemap.set_cell(RoomWalls[y].x, RoomWalls[y].y, RockIndex)
+		pass
+	for x in len(OverlapWalls):
+		tilemap.set_cell(RoomTiles[x].x, RoomTiles[x].y, RockIndex)
 
-func CarveGrassPath(x, y):
-	SetGrass(x-1, y)
-	SetGrass(x+1, y)
-	SetGrass(x-1, y-1)
-	SetGrass(x+1, y-1)
-	SetGrass(x+1, y+1)
-	SetGrass(x-1, y+1)
-	SetGrass(y, y+1)
-	SetGrass(y, y-1)
-	SetGrass(x, y)
+func SetRoom(size, pos):
+	var walls = []
+	for x in int(size.x):
+		for y in int(size.y):
+			var newpos = Vector2(int(pos.x+x - (size.x/2)), int(pos.y+y - (size.y/2)))
+			if y == 0 and x == 0:
+				walls.append(newpos)
+			else:
+				RoomTiles.append(newpos)
+	for x in len(walls):
+		if WallOverlaps(x, walls, RoomTiles):
+			OverlapWalls.append(walls[x])
+			pass
+		else:
+			#RoomWalls.append(walls[x])
+			pass
+	RoomCenters.append(Vector2(pos.x, pos.y))
 
-func PutRockWalls():
-	for x in len(grasstiles):
-		Walls(grasstiles[x].x, grasstiles[x].y)
-		for i in range(10):
-			CarveRockPos(grasstiles[x].x, grasstiles[x].y, i)
-		
-func CarveRockPos(x, y, off):
-	SetRock(x-off, y)
-	SetRock(x+off, y)
-	SetRock(x-off, y-off)
-	SetRock(x+off, y-off)
-	SetRock(x+off, y+off)
-	SetRock(x-off, y+off)
-	SetRock(y, y+off)
-	SetRock(y, y-off)
-	SetRock(x, y)
-
-
-func Walls(x, y):
-	var check = false
-	if Corner(x-1, y): check = true
-	if Corner(x+1, y): check = true
-	if Corner(x-1, y-1): check = true
-	if Corner(x+1, y-1): check = true
-	if Corner(x-1, y+1): check = true
-	if Corner(x+1, y+1): check = true
-	if Corner(x, y+1): check = true
-	if Corner(x, y-1): check = true
-	if check:
-		SetRock(x, y)
-
-func Corner(x, y):
-	if MapTiles.get_cell(x, y) == -1:
-		return true
+func WallOverlaps(id, walls, rooms):
+	for y in len(rooms):
+		var A = Vector2(int(walls[id].x), int(walls[id].y))
+		var B = Vector2(int(rooms[y].x), int(rooms[y].y))
+		if A == B:
+			print(A, B)
+			return true
 	return false
-
-func SetRock(x, y):
-	if MapTiles.get_cell(x, y) == -1:
-		MapTiles.set_cell(x, y, RockIndex)
-
-func SetGrass(x, y):
-	MapTiles.set_cell(x, y, GrassIndex)
-
-
-
-func CreateRoom(h, v):
-	var map = []
-	for x in h:
-		map.append([])
-		for y in v:
-			map[x].append([])
-			map[x][y].append(GrassIndex)
-	return map
-
-func SetMapTexture(x, y):
-	SetMapTextureRoom(size.x, size.y, x, y)
-
-func SetMapTextureRoom(h, v, xp, yp):
-	for x in int(h):
-		for y in int(v):
-			var n = Map[x][y][0]
-			MapTiles.set_cell(x+xp, y+yp, GrassIndex)
-			grasstiles.append(Vector2(x+xp, y+yp))
+	

@@ -28,6 +28,7 @@ GUIPath = NodePath("../../../GUI")
 [node name="Camera2D" type="Camera2D" parent="Entities/Warriors/Player"]
 position = Vector2( 2, -5 )
 current = true
+zoom = Vector2( 10, 10 )
 drag_margin_left = 0.5
 drag_margin_top = 0.5
 drag_margin_right = 0.5

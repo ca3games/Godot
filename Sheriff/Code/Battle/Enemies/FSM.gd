@@ -17,7 +17,6 @@ export(int) var HP
 
 func _ready():
 	randomize()
-	$"../Return to Idle".start(rand_range(1, 3))
 	vel = Root.level * 15 + 20
 
 func _process(delta):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://2D/Enemies/Enemy01/Side/side2.png" type="Texture" id=1]
 [ext_resource path="res://2D/Enemies/Enemy01/Side/side1.png" type="Texture" id=2]
@@ -40,9 +40,9 @@ animations = [ {
 "name": "Front D",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 19 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 13 ), ExtResource( 17 ), ExtResource( 18 ) ],
 "loop": true,
-"name": "Dead",
+"name": "Back D",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 8 ) ],
@@ -50,9 +50,9 @@ animations = [ {
 "name": "Front",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ), ExtResource( 17 ), ExtResource( 18 ) ],
+"frames": [ ExtResource( 19 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 7 ) ],
 "loop": true,
-"name": "Back D",
+"name": "Dead",
 "speed": 5.0
 } ]
 
@@ -860,6 +860,9 @@ graph_offset = Vector2( -10, 30 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=15]
 
+[sub_resource type="CircleShape2D" id=44]
+radius = 228.009
+
 [node name="Enemy01" instance=ExtResource( 20 )]
 collision_mask = 17
 
@@ -946,6 +949,13 @@ value = 50.0
 [node name="SpawnShoot" parent="Bullet/Shoot" index="0"]
 position = Vector2( 0, -13 )
 
+[node name="Visible" type="Area2D" parent="." index="14"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Visible" index="0"]
+shape = SubResource( 44 )
+
 [connection signal="timeout" from="Return to Idle" to="FSM" method="_on_Return_to_Idle_timeout"]
 [connection signal="timeout" from="Chase" to="FSM" method="_on_Chase_timeout"]
 [connection signal="timeout" from="Bullet" to="Bullet/Shoot" method="_on_Bullet_timeout"]
+[connection signal="body_entered" from="Visible" to="." method="_on_Visible_body_entered"]
+[connection signal="body_exited" from="Visible" to="." method="_on_Visible_body_exited"]

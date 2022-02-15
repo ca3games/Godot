@@ -7,21 +7,20 @@
 
 [node name="Map" type="Navigation2D" parent="."]
 
-[node name="MapTiles" type="TileMap" parent="Map"]
+[node name="MapTiles" type="TileMap" parent="Map" groups=["TILEMAP"]]
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 32, 32 )
-collision_layer = 2
-collision_mask = 0
+collision_layer = 32
+collision_mask = 29
 format = 1
 
 [node name="DungeonCode" type="Node2D" parent="."]
 script = ExtResource( 1 )
-maxsize = Vector2( 10, 10 )
-MapTilesPath = NodePath("../Map/MapTiles")
-LeftUpPath = NodePath("../LeftUp")
-RightDownPath = NodePath("../DownRight")
+NumberRooms = 15
+MaxRoomSize = Vector2( 15, 15 )
+DungeonSize = Rect2( 0, 0, 50, 50 )
 RockIndex = 4
-SandIndex = 3
+TileMapPath = NodePath("../Map/MapTiles")
 
 [node name="LeftUp" type="Position2D" parent="."]
 position = Vector2( -192, -126 )

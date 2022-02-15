@@ -15,8 +15,7 @@ func _ready():
 	$FSM.HP = hp
 	$HPLifebar.max_value = $FSM.HP
 	$HPLifebar.value = $FSM.HP
-	
-	$Bullet.start(rand_range(3, 8))
+	SLEEP()
 
 func HIT(damage):
 	$FSM.HP -= damage - (level / 3)
@@ -43,3 +42,24 @@ func AVOIDS(pos):
 
 func _on_AvoidStop_timeout():
 	avoiding = false
+
+
+
+func WAKEUP():
+	$Bullet.start(rand_range(2, 3.5))
+	$"Return to Idle".start(1)
+	$Chase.start(2)
+
+func SLEEP():
+	$FSM.ChangeState("IDLE")
+	$Chase.stop()
+	$"Return to Idle".stop()
+
+func _on_Visible_body_exited(body):
+	if body.is_in_group("PLAYER"):
+		SLEEP()
+
+
+func _on_Visible_body_entered(body):
+	if body.is_in_group("PLAYER"):
+		WAKEUP()
