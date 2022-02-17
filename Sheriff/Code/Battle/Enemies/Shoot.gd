@@ -2,6 +2,7 @@ extends Node2D
 
 export(PackedScene) var BasicBullet
 
+var boss = false
 
 func SpawnBullet():
 	var tmp = BasicBullet.instance()
@@ -9,7 +10,10 @@ func SpawnBullet():
 	tmp.global_position = spawn
 	var normal = (spawn - $"../../../".Player.global_position - $"../../../".Player.OffsetBody).normalized()
 	tmp.direction = normal
-	tmp.damage = (($"../../".level * 2) + (Variables.level * 2) ) * Variables.dificulty
+	var damage = (($"../../".level * 2) + (Variables.level * 2) ) * Variables.dificulty
+	if boss:
+		damage *= 5
+	tmp.damage = damage
 	tmp.speed = ((($"../../".level / 2) + (Variables.level / 3)) / 5 + 1 ) * Variables.dificulty
 	$"../../../".EnemyBullet.add_child(tmp)
 

@@ -7,6 +7,17 @@ func Physics(delta):
 	FSM.state_machine.travel("Dead")
 
 func DieEnd():
+	var disolve = FSM.Root.DeadDisolve.instance()
+	var pos = FSM.Root.get_node("MySprites/AnimatedSprite").global_position
+	if FSM.Root.BOSS:
+		disolve.scale *= 2
+	disolve.global_position = pos
+	if FSM.direction.x < 0:
+		disolve.Flip(false)
+	var colors = FSM.Root.get_node("ColorsCode")
+	disolve.SetColor(colors.myjacket, colors.myhat, colors.mypants, colors.myskin)
+	FSM.Root.get_parent().add_child(disolve)
+	
 	var chance = 10 - FSM.Root.level + 1
 	if (randi()%chance > chance / 2.2):
 		Sounds.PlayAmmoBasic()

@@ -3,6 +3,11 @@ extends Node2D
 export(NodePath) var AnimatedSpritePath
 onready var AnimSprite = get_node(AnimatedSpritePath)
 
+var myjacket
+var myhat
+var mypants
+var myskin
+
 export(Color) var jacket01
 export(Color) var jacket02
 export(Color) var jacket03
@@ -44,6 +49,10 @@ func ChangeColor(jacket, hat, pants, skin):
 	AnimSprite.material.set("shader_param/hat_replace", hat)
 	AnimSprite.material.set("shader_param/pants_replace", pants)
 	AnimSprite.material.set("shader_param/skin_replace", skin)
+	myjacket = jacket
+	myhat = hat
+	mypants = pants
+	myskin = skin
 
 func GetLevel():
 	var level = 1

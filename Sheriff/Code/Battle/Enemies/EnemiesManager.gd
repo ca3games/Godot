@@ -6,7 +6,6 @@ onready var MapNavigation = get_node(MapNavigationPath)
 export(NodePath) var PlayerPath
 onready var Player = get_node(PlayerPath)
 
-export(PackedScene) var Enemy01
 export(NodePath) var LeftUpPath
 onready var LeftUp = get_node(LeftUpPath)
 export(NodePath) var RightDownPath
@@ -19,8 +18,9 @@ onready var PlayerBullets = get_node(PlayerBulletsPath)
 export(NodePath) var EnemyBulletPath
 onready var EnemyBullet = get_node(EnemyBulletPath)
 
-func SpawnEnemy(x, y):
-	var tmp = Enemy01.instance()
+
+func SpawnEnemy(x, y, enemy):
+	var tmp = enemy.instance()
 	tmp.global_position = Vector2(x, y)
 	add_child(tmp)
 	if !is_instance_valid(GUI):

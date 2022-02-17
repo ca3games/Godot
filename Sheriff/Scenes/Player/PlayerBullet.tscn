@@ -8,7 +8,7 @@
 radius = 5.09902
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 2.0
+radius = 0.0
 
 [node name="PlayerBullet" type="KinematicBody2D"]
 collision_layer = 16

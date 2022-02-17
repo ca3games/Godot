@@ -1,13 +1,16 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Code/Battle/DungeonGenerator/DungeonCode.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Map/tiles 2.tres" type="TileSet" id=2]
+[ext_resource path="res://Scenes/Map/sand autotile.tres" type="TileSet" id=2]
+[ext_resource path="res://Scenes/Enemy/Enemy01Base.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Enemy/Enemy01Boss.tscn" type="PackedScene" id=4]
 
 [node name="Mapa" type="Node2D"]
 
 [node name="Map" type="Navigation2D" parent="."]
 
 [node name="MapTiles" type="TileMap" parent="Map" groups=["TILEMAP"]]
+z_index = -3
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 32, 32 )
 collision_layer = 32
@@ -20,10 +23,7 @@ NumberRooms = 15
 MaxRoomSize = Vector2( 15, 15 )
 DungeonSize = Rect2( 0, 0, 50, 50 )
 RockIndex = 4
+PathIndex = 5
 TileMapPath = NodePath("../Map/MapTiles")
-
-[node name="LeftUp" type="Position2D" parent="."]
-position = Vector2( -192, -126 )
-
-[node name="DownRight" type="Position2D" parent="."]
-position = Vector2( 481, 311 )
+BasicEnemy = ExtResource( 3 )
+BasicBoss = ExtResource( 4 )

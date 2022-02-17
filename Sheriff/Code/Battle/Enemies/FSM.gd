@@ -26,6 +26,9 @@ func _physics_process(delta):
 	current.Physics(delta)
 
 func ChangeState(state):
+	GetDirAngle()
+	if HP <= 0:
+		state = "DEAD"
 	match(state):
 		"IDLE" : current = $IDLE
 		"CHASE" : current = $CHASE
@@ -69,9 +72,15 @@ func GetDirAngle():
 		dir.y = -1
 	
 	if dir.x == -1:
-		LeftRight.play("LEFT")
+		if Root.BOSS:
+			LeftRight.play("LEFTBOSS")
+		else:
+			LeftRight.play("LEFT")
 	else:
-		LeftRight.play("RIGHT")
+		if Root.BOSS:
+			LeftRight.play("RIGHTBOSS")
+		else:
+			LeftRight.play("RIGHT")
 	
 	return dir
 

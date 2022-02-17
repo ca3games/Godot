@@ -6,62 +6,152 @@ export(Vector2) var MaxRoomSize
 export(Rect2) var DungeonSize
 export(int) var GrassIndex
 export(int) var RockIndex
+export(int) var PathIndex
 
 export(NodePath) var TileMapPath
 onready var tilemap = get_node(TileMapPath)
 export(NodePath) var PlayerPath
 onready var Player = get_node(PlayerPath)
 
+export(NodePath) var EnemyManagerPath
+onready var EnemyManager = get_node(EnemyManagerPath)
+
 onready var RoomTiles = []
 onready var RoomCenters = []
 onready var RoomWalls = []
-onready var OverlapWalls = []
+onready var Paths = []
+
+export(PackedScene) var BasicEnemy
+export(PackedScene) var BasicBoss
 
 func _ready():
+	yield(get_tree(), "idle_frame")
 	CreateMap()
 	SpawnTiles()
 	Player.global_position = tilemap.map_to_world(RoomCenters[0])
+	SpawnEnemies()
+	SpawnBosses()
 	
 func CreateMap():
 	for x in NumberRooms:
 		var pos = Vector2(rand_range(DungeonSize.position.x, DungeonSize.position.x + DungeonSize.size.x), rand_range(DungeonSize.position.y, DungeonSize.position.y + DungeonSize.size.y))
 		var size = Vector2(rand_range(4, MaxRoomSize.x), rand_range(4, MaxRoomSize.y))
 		SetRoom(size, pos)
+	for i in len(RoomCenters):
+		if i > 0 or i < len(RoomCenters)-1:
+			var pat = []
+			pat.append(RandomWalk(RoomCenters[i-1], RoomCenters[i], 0, []))
+			for x in pat:
+				Paths.append(x)
+
+func SpawnEnemies():
+	for i in NumberRooms:
+		SpawnBasicEnemyRoom()
+		
+func SpawnBosses():
+	SpawnBoss01()
+
+
+func SpawnBasicEnemyRoom():
+	for i in (Variables.level / 3) + 3:
+		SpawnBasic()
+
+func SpawnBoss01():
+	var id = len(RoomTiles)
+	var pos = Vector2.ZERO
+	var x = int(rand_range(1, id))
+	pos = RoomTiles[0]
+	var mapos = tilemap.map_to_world(pos)
+	EnemyManager.SpawnEnemy(mapos.x, mapos.y, BasicBoss)
+
+
+func SpawnBasic():
+	var id = len(RoomTiles)
+	var pos = Vector2.ZERO
+	var x = int(rand_range(1, id))
+	pos = RoomTiles[x]
+	var mapos = tilemap.map_to_world(pos)
+	EnemyManager.SpawnEnemy(mapos.x, mapos.y, BasicEnemy)
 
 func SpawnTiles():
-	print(len(OverlapWalls))
 	for x in len(RoomTiles):
 		tilemap.set_cell(RoomTiles[x].x, RoomTiles[x].y, GrassIndex)
 	for y in len(RoomWalls):
-		#tilemap.set_cell(RoomWalls[y].x, RoomWalls[y].y, RockIndex)
-		pass
-	for x in len(OverlapWalls):
-		tilemap.set_cell(RoomTiles[x].x, RoomTiles[x].y, RockIndex)
+		SetWall(RoomWalls[y].x, RoomWalls[y].y)
+	for x in Paths:
+		for y in x:
+			tilemap.set_cell(y.x, y.y, PathIndex)
+			SetWall(y.x, y.y)
+	tilemap.update_bitmask_region(DungeonSize.position, DungeonSize.size)
+	
+
+func SetWall(x, y):
+	SetRock(x-1, y)
+	SetRock(x+1, y)
+	SetRock(x, y-1)
+	SetRock(x, y+1)
+	SetRock(x-1, y-1)
+	SetRock(x-1, y+1)
+	SetRock(x+1, y-1)
+	SetRock(x+1, y+1)
+
+func SetRock(x, y):
+	if tilemap.get_cell(x, y) == -1:
+		tilemap.set_cell(x, y, RockIndex)
+
+func RandomWalk(current, goal, i, array):
+	if Vector2(int(current.x), int(current.y)) == Vector2(int(goal.x), int(goal.y)) or i > 500:
+		return
+	array.append(current)
+	
+	
+	var angle = (goal - current).normalized()
+	var dist = angle.x + angle.y
+	var dir = Vector2.ZERO
+	var left = false
+	var right = false
+	var down = false
+	var up = false
+	if angle.x < 0:
+		left = true
+	if angle.x > 0:
+		right = true
+	if angle.y < 0:
+		up = true
+	if angle.y > 0:
+		down = true
+	
+	if randi()%4+1 < 3:
+		if randi()%4+1 > 2:
+			if left:
+				RandomWalk(current + Vector2.LEFT, goal, i+1, array)
+			if right:
+				RandomWalk(current + Vector2.RIGHT, goal, i+1, array)
+		else:
+			if up:
+				RandomWalk(current + Vector2.UP, goal, i+1, array)
+			if down:
+				RandomWalk(current + Vector2.DOWN, goal, i+1, array)
+	else:
+		match(randi()%4+1):
+			1 : RandomWalk(current + Vector2.LEFT, goal, i+1, array)
+			2 : RandomWalk(current + Vector2.RIGHT, goal, i+1, array)
+			3 : RandomWalk(current + Vector2.UP, goal, i+1, array)
+			_: RandomWalk(current + Vector2.DOWN, goal, i+1, array)
+		
+	return array
+	
+	
+	
 
 func SetRoom(size, pos):
 	var walls = []
 	for x in int(size.x):
 		for y in int(size.y):
 			var newpos = Vector2(int(pos.x+x - (size.x/2)), int(pos.y+y - (size.y/2)))
-			if y == 0 and x == 0:
+			if y == 0 or x == 0 or x > size.x-2 or y > size.y-2:
 				walls.append(newpos)
-			else:
-				RoomTiles.append(newpos)
-	for x in len(walls):
-		if WallOverlaps(x, walls, RoomTiles):
-			OverlapWalls.append(walls[x])
-			pass
-		else:
-			#RoomWalls.append(walls[x])
-			pass
+			RoomTiles.append(newpos)
+	for x in walls:
+		RoomWalls.append(x)
 	RoomCenters.append(Vector2(pos.x, pos.y))
-
-func WallOverlaps(id, walls, rooms):
-	for y in len(rooms):
-		var A = Vector2(int(walls[id].x), int(walls[id].y))
-		var B = Vector2(int(rooms[y].x), int(rooms[y].y))
-		if A == B:
-			print(A, B)
-			return true
-	return false
-	
