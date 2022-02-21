@@ -7,6 +7,7 @@ var Lydian = [0, 2, 4, 6, 7, 9, 11]
 var Mixolydian = [0, 2, 4, 5, 7, 9, 10]
 var Aeolian = [0, 2, 3, 5, 7, 8, 10]
 var Locrian = [0, 1, 3, 5, 6, 8, 10]
+var Blues = [0, 4, 6, 7, 8, 11]
 
 func GetKey(key, scale, mode):
 	var g = GetInterval(key)
@@ -23,6 +24,7 @@ func GetKey(key, scale, mode):
 		4: n = Mixolydian[i]
 		5: n = Aeolian[i]
 		6: n = Locrian[i]
+		7: n = Blues[i]
 		
 	return n
 

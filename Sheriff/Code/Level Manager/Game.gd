@@ -26,6 +26,7 @@ func _on_story_picture_button_pressed():
 
 
 func _VideoIntro1():
+	Sounds.PlayBattleSong()
 	get_tree().change_scene(battle)
 
 

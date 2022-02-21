@@ -28,4 +28,5 @@ func ResetVariables():
 func PlayerDamage(damage):
 	HP -= damage
 	if HP < 1:
+		Sounds.StopBattleSong()
 		get_tree().change_scene(GameOverScreen)

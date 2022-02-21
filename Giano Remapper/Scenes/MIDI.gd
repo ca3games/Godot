@@ -46,6 +46,7 @@ func AddScale():
 	AddMode("Myxolidian")
 	AddMode("Aeolian")
 	AddMode("Locrian")
+	AddMode("Blues")
 
 func AddKeys(name):
 	Keys.get_node("Modes/Keys").add_item(name)

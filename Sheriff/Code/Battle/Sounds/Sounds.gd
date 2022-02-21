@@ -21,3 +21,9 @@ func PlayEnemyHit():
 
 func PlayPlayerHit():
 	$Battle/AuchPlayer.play()
+
+func PlayBattleSong():
+	$Songs/Wildarms.play()
+	
+func StopBattleSong():
+	$Songs/Wildarms.stop()

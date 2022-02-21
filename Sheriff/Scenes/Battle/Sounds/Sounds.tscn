@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Music/shoot.ogg" type="AudioStream" id=1]
 [ext_resource path="res://Code/Battle/Sounds/Sounds.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Music/Sounds/hit02.ogg" type="AudioStream" id=10]
 [ext_resource path="res://Music/Sounds/hit01.ogg" type="AudioStream" id=11]
 [ext_resource path="res://Music/auch.ogg" type="AudioStream" id=12]
+[ext_resource path="res://Music/Songs/Placeholder/Wild arms theme.ogg" type="AudioStream" id=13]
 
 [node name="Sounds" type="Node2D"]
 script = ExtResource( 2 )
@@ -67,3 +68,9 @@ bus = "Hits"
 [node name="AuchPlayer" type="AudioStreamPlayer" parent="Battle"]
 stream = ExtResource( 12 )
 bus = "AuchPlayer"
+
+[node name="Songs" type="Node2D" parent="."]
+
+[node name="Wildarms" type="AudioStreamPlayer" parent="Songs"]
+stream = ExtResource( 13 )
+bus = "WildArms"

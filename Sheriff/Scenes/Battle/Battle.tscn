@@ -1,12 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Code/Battle/Battle.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Battle/Maps/Roguelite/Mapa.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Code/Battle/Enemies/EnemiesManager.gd" type="Script" id=4]
 [ext_resource path="res://2D/Tiles/catcus1.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/Battle/GUI/GUI.tscn" type="PackedScene" id=9]
 
 [node name="Battle" type="Node2D"]
+script = ExtResource( 2 )
 
 [node name="Mapa" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, -1 )
