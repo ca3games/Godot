@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Code/Input/PianoRoll.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Note.tscn" type="PackedScene" id=2]
+
+[node name="PianoRoll" type="Node2D"]
+script = ExtResource( 1 )
+Note = ExtResource( 2 )
+YSize = 1.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D"]
+margin_left = -523.0
+margin_top = -305.0
+margin_right = 521.0
+margin_bottom = 312.0
+color = Color( 0.0117647, 0.0392157, 0.207843, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Notes" type="Node2D" parent="."]
