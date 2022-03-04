@@ -11,4 +11,4 @@ func Physics(delta):
 	
 	var dir = FSM.old_dir * FSM.vel * delta
 	dir.y *= -1
-	FSM.Root.move_and_collide(Vector3(dir.x, 0, dir.y), false)
+	FSM.Root.move_and_collide(Vector3(dir.x, 0, dir.y), true)

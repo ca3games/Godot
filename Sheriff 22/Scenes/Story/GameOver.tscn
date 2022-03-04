@@ -12,15 +12,15 @@ font_data = ExtResource( 1 )
 script = ExtResource( 3 )
 
 [node name="Dead5" type="Sprite" parent="."]
-position = Vector2( 104, 174 )
+position = Vector2( 174, 169 )
 scale = Vector2( 5.75, 4.1875 )
 texture = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="."]
-margin_left = -1.0
-margin_top = 28.0
-margin_right = 255.0
-margin_bottom = 121.0
+margin_left = 88.0
+margin_top = 41.0
+margin_right = 344.0
+margin_bottom = 134.0
 custom_colors/font_color = Color( 0.992157, 0.0823529, 0.0823529, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "GAME
@@ -31,10 +31,10 @@ __meta__ = {
 }
 
 [node name="GameOverButton" type="Button" parent="."]
-margin_left = 124.0
-margin_top = 152.0
-margin_right = 196.0
-margin_bottom = 179.0
+margin_left = 223.0
+margin_top = 146.0
+margin_right = 295.0
+margin_bottom = 173.0
 text = "RETURN"
 __meta__ = {
 "_edit_use_anchors_": false

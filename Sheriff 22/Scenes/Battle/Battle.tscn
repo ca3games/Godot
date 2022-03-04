@@ -5,7 +5,7 @@
 [ext_resource path="res://Scenes/Battle/Maps/Roguelite/Mapa.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Code/Battle/Enemies/EnemiesManager.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Battle/Sounds/Sounds.tscn" type="PackedScene" id=5]
-[ext_resource path="res://2D/Tiles/catcus1.png" type="Texture" id=6]
+[ext_resource path="res://Code/Battle/Items/Plants.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/Battle/GUI/GUI.tscn" type="PackedScene" id=9]
 
 [node name="Battle" type="Node2D"]
@@ -38,32 +38,8 @@ drag_margin_bottom = 0.5
 editor_draw_drag_margin = true
 
 [node name="Plants" type="YSort" parent="Entities/Warriors"]
-visible = false
-
-[node name="Catcus1" type="Sprite" parent="Entities/Warriors/Plants"]
-position = Vector2( -81, -43 )
-texture = ExtResource( 6 )
-offset = Vector2( 0, -10 )
-
-[node name="Catcus2" type="Sprite" parent="Entities/Warriors/Plants"]
-position = Vector2( 207, -111 )
-texture = ExtResource( 6 )
-offset = Vector2( 0, -10 )
-
-[node name="Catcus3" type="Sprite" parent="Entities/Warriors/Plants"]
-position = Vector2( 432, -44 )
-texture = ExtResource( 6 )
-offset = Vector2( 0, -10 )
-
-[node name="Catcus4" type="Sprite" parent="Entities/Warriors/Plants"]
-position = Vector2( 368, 211 )
-texture = ExtResource( 6 )
-offset = Vector2( 0, -10 )
-
-[node name="Catcus5" type="Sprite" parent="Entities/Warriors/Plants"]
-position = Vector2( -113, 274 )
-texture = ExtResource( 6 )
-offset = Vector2( 0, -10 )
+script = ExtResource( 6 )
+GUIPath = NodePath("../../../GUI")
 
 [node name="Enemies" type="YSort" parent="Entities/Warriors"]
 script = ExtResource( 4 )
@@ -74,6 +50,7 @@ RightDownPath = NodePath("../../../Mapa/DownRight")
 GUIPath = NodePath("../../../GUI")
 PlayerBulletsPath = NodePath("../PlayerBullets")
 EnemyBulletPath = NodePath("../EnemyBullets")
+PlantsPath = NodePath("../Plants")
 
 [node name="PlayerBullets" type="YSort" parent="Entities/Warriors"]
 

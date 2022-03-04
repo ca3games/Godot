@@ -36,6 +36,11 @@ animations = [ {
 "name": "Back",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 19 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "Dead",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 9 ), ExtResource( 3 ), ExtResource( 12 ) ],
 "loop": true,
 "name": "Front D",
@@ -49,11 +54,6 @@ animations = [ {
 "frames": [ ExtResource( 13 ), ExtResource( 17 ), ExtResource( 18 ) ],
 "loop": true,
 "name": "Back D",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 19 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "Dead",
 "speed": 5.0
 } ]
 

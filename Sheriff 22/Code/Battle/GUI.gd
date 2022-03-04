@@ -6,8 +6,12 @@ var gameover = false
 onready var battle_scene = "res://Scenes/Battle/Battle.tscn"
 export(NodePath) var PlayerPath
 onready var Player = get_node(PlayerPath)
+onready var inventory = false
 
 func _ready():
+	inventory = false
+	$INVENTORY.hide()
+	$MONEY.text = "GOLD : " + str(Variables.money)
 	$Lifebar.max_value = Variables.max_hp
 	$Lifebar.value = Variables.HP
 	$VBoxContainer/LEVEL.text = "LEVEL : " + str(Variables.level)
@@ -16,6 +20,19 @@ func _ready():
 	yield(get_tree(), "idle_frame")
 	yield(get_tree(), "idle_frame")
 	StartTransition()
+
+func _process(delta):
+	if Input.is_action_just_released("INVENTORY"):
+		if not inventory:
+			inventory = true
+			$INVENTORY.show()
+			$INVENTORY.TURNON()
+			get_tree().paused = true
+		else:
+			inventory = false
+			$INVENTORY.hide()
+			$INVENTORY.TURNOFF()
+			get_tree().paused = false
 
 func SetAmmoBasic(x):
 	$Revolver/AmmoBasic.text = str(x)
@@ -54,6 +71,8 @@ func _on_Tween_tween_all_completed():
 	else:
 		get_tree().paused = false
 
+func UpdateMoney():
+	$MONEY.text = "GOLD : " + str(Variables.money)
 
 func _on_GameEnd_timeout():
 	EndTransition()

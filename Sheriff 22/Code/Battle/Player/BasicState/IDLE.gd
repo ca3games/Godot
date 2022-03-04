@@ -11,6 +11,9 @@ func Update(delta):
 		$"/root/Battle/Sounds".GunShoot()
 		ShootBullets()
 	
+	if Input.is_action_just_released("MELEE"):
+		FSM.ChangeState("KICK")
+	
 
 func Physics(delta):
 	FSM.state_machine.travel("IDLE")

@@ -6,6 +6,8 @@ onready var max_hp = HP
 var level = 0
 var wave = 0
 var ammobasic = 100
+var kicklevel = 1
+var money = 0
 
 onready var GameOverScreen = "res://Scenes/Story/GameOver.tscn"
 
@@ -23,6 +25,7 @@ func ResetVariables():
 	wave = 0
 	ammobasic = 100
 	dificulty = 1
+	money = 0
 
 
 func PlayerDamage(damage):

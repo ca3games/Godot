@@ -1,56 +1,106 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=99 format=2]
 
-[ext_resource path="res://2D/pistolero/front/front walk1.png" type="Texture" id=1]
-[ext_resource path="res://2D/pistolero/front diagonal/front diagonal walk2.png" type="Texture" id=2]
-[ext_resource path="res://2D/pistolero/side/side walk2.png" type="Texture" id=3]
-[ext_resource path="res://2D/pistolero/back diagonal/diagonal back walk3.png" type="Texture" id=4]
-[ext_resource path="res://2D/pistolero/front diagonal/front diagonal walk3.png" type="Texture" id=5]
-[ext_resource path="res://2D/pistolero/front/front walk3.png" type="Texture" id=6]
-[ext_resource path="res://2D/pistolero/front diagonal/front diagonal walk1.png" type="Texture" id=7]
-[ext_resource path="res://2D/pistolero/front/front walk2.png" type="Texture" id=8]
-[ext_resource path="res://2D/pistolero/side/side walk3.png" type="Texture" id=9]
-[ext_resource path="res://2D/pistolero/back diagonal/diagonal back walk2.png" type="Texture" id=10]
-[ext_resource path="res://2D/pistolero/side/side walk1.png" type="Texture" id=11]
-[ext_resource path="res://2D/pistolero/back/back walk1.png" type="Texture" id=12]
-[ext_resource path="res://2D/pistolero/back diagonal/diagonal back walk1.png" type="Texture" id=13]
-[ext_resource path="res://2D/pistolero/back/back walk2.png" type="Texture" id=14]
-[ext_resource path="res://2D/pistolero/back/back walk3.png" type="Texture" id=15]
+[ext_resource path="res://2D/pistolero/WALK/front diagonal/front diagonal walk1.png" type="Texture" id=1]
+[ext_resource path="res://2D/pistolero/WALK/front/front walk3.png" type="Texture" id=2]
+[ext_resource path="res://2D/pistolero/WALK/back diagonal/diagonal back walk3.png" type="Texture" id=3]
+[ext_resource path="res://2D/pistolero/WALK/front/front walk2.png" type="Texture" id=4]
+[ext_resource path="res://2D/pistolero/WALK/back/back walk1.png" type="Texture" id=5]
+[ext_resource path="res://2D/pistolero/WALK/front diagonal/front diagonal walk3.png" type="Texture" id=6]
+[ext_resource path="res://2D/pistolero/WALK/back/back walk2.png" type="Texture" id=7]
+[ext_resource path="res://2D/pistolero/WALK/side/side walk3.png" type="Texture" id=8]
+[ext_resource path="res://2D/pistolero/WALK/back/back walk3.png" type="Texture" id=9]
+[ext_resource path="res://2D/pistolero/WALK/front/front walk1.png" type="Texture" id=10]
+[ext_resource path="res://2D/pistolero/WALK/back diagonal/diagonal back walk2.png" type="Texture" id=11]
+[ext_resource path="res://2D/pistolero/WALK/back diagonal/diagonal back walk1.png" type="Texture" id=12]
+[ext_resource path="res://2D/pistolero/WALK/front diagonal/front diagonal walk2.png" type="Texture" id=13]
+[ext_resource path="res://2D/pistolero/WALK/side/side walk2.png" type="Texture" id=14]
+[ext_resource path="res://2D/pistolero/WALK/side/side walk1.png" type="Texture" id=15]
 [ext_resource path="res://Code/Battle/Player/BasicState/Player.gd" type="Script" id=16]
 [ext_resource path="res://Code/Battle/Player/BasicState/FSM.gd" type="Script" id=17]
 [ext_resource path="res://Code/Battle/Player/BasicState/IDLE.gd" type="Script" id=18]
 [ext_resource path="res://Code/Battle/Player/BasicState/WALK.gd" type="Script" id=19]
 [ext_resource path="res://Scenes/Player/PlayerBullet.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Code/Battle/Player/BasicState/AIMCode.gd" type="Script" id=21]
+[ext_resource path="res://2D/pistolero/KICK/Side/side kick1.png" type="Texture" id=22]
+[ext_resource path="res://2D/pistolero/KICK/Side/side kick2.png" type="Texture" id=23]
+[ext_resource path="res://2D/pistolero/KICK/Side/side kick4.png" type="Texture" id=24]
+[ext_resource path="res://2D/pistolero/KICK/Side/side kick3.png" type="Texture" id=25]
+[ext_resource path="res://2D/pistolero/KICK/Front/front kick2.png" type="Texture" id=26]
+[ext_resource path="res://2D/pistolero/KICK/Front/front kick3.png" type="Texture" id=27]
+[ext_resource path="res://2D/pistolero/KICK/Front/front kick4.png" type="Texture" id=28]
+[ext_resource path="res://2D/pistolero/KICK/Front/front kick1.png" type="Texture" id=29]
+[ext_resource path="res://2D/pistolero/KICK/Back/back1.png" type="Texture" id=30]
+[ext_resource path="res://2D/pistolero/KICK/Back/back2.png" type="Texture" id=31]
+[ext_resource path="res://2D/pistolero/KICK/Back/back3.png" type="Texture" id=32]
+[ext_resource path="res://2D/pistolero/KICK/Back/back4.png" type="Texture" id=33]
+[ext_resource path="res://2D/pistolero/KICK/Diagonal back/diagonal back3.png" type="Texture" id=34]
+[ext_resource path="res://2D/pistolero/KICK/Diagonal back/diagonal back2.png" type="Texture" id=35]
+[ext_resource path="res://2D/pistolero/KICK/Diagonal back/diagonal back4.png" type="Texture" id=36]
+[ext_resource path="res://2D/pistolero/KICK/Diagonal back/diagonal back1.png" type="Texture" id=37]
+[ext_resource path="res://2D/pistolero/KICK/Front Diagonal/front diagonal4.png" type="Texture" id=38]
+[ext_resource path="res://2D/pistolero/KICK/Front Diagonal/front diagonal1.png" type="Texture" id=39]
+[ext_resource path="res://2D/pistolero/KICK/Front Diagonal/front diagonal2.png" type="Texture" id=40]
+[ext_resource path="res://2D/pistolero/KICK/Front Diagonal/front diagonal3.png" type="Texture" id=41]
+[ext_resource path="res://Code/Battle/Player/Attacks/KICK.gd" type="Script" id=42]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 11 ), ExtResource( 3 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 15 ), ExtResource( 14 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "Side",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 12 ), ExtResource( 14 ), ExtResource( 15 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 7 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "Back",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 1 ), ExtResource( 8 ), ExtResource( 6 ) ],
+"frames": [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 25 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "Side KICK",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ) ],
+"loop": true,
+"name": "Back KICK",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 38 ) ],
+"loop": true,
+"name": "Front D KICK",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 4 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "Front",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ), ExtResource( 2 ), ExtResource( 5 ) ],
+"frames": [ ExtResource( 37 ), ExtResource( 35 ), ExtResource( 34 ), ExtResource( 36 ) ],
+"loop": true,
+"name": "Back D KICK",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 13 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "Front D",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ), ExtResource( 10 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 29 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ) ],
+"loop": true,
+"name": "Front KICK",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 11 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "Back D",
 "speed": 5.0
 } ]
 
+[sub_resource type="CircleShape2D" id=44]
+radius = 5.0
+
 [sub_resource type="CircleShape2D" id=2]
+radius = 8.0
 
 [sub_resource type="Animation" id=36]
 resource_name = "LEFT"
@@ -183,6 +233,18 @@ tracks/6/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/7/type = "value"
+tracks/7/path = NodePath("Sprite/Melee/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "IDLE Back D"
@@ -265,6 +327,18 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Sprite/Melee/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
@@ -357,6 +431,18 @@ tracks/6/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/7/type = "value"
+tracks/7/path = NodePath("Sprite/Melee/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=5]
 resource_name = "IDLE front"
@@ -439,6 +525,18 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Sprite/Melee/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
@@ -532,6 +630,353 @@ tracks/6/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/7/type = "value"
+tracks/7/path = NodePath("Sprite/Melee/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=43]
+resource_name = "KICK Back D"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite/AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Back D KICK" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 2 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/Melee/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.15, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite/Melee/CollisionShape2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.15, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 0 ), Vector2( 14, -5 ), Vector2( 0, 0 ) ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("FSM/KICK")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.45 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "End"
+} ]
+}
+
+[sub_resource type="Animation" id=40]
+resource_name = "KICK Front"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite/AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Front KICK" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 2 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/Melee/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.15, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite/Melee/CollisionShape2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.15, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 8 ), Vector2( 0, 0 ) ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("FSM/KICK")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.45 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "End"
+} ]
+}
+
+[sub_resource type="Animation" id=42]
+resource_name = "KICK Front D"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite/AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Front D KICK" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 2 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/Melee/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.15, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite/Melee/CollisionShape2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.15, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 0 ), Vector2( 11, 5 ), Vector2( 0, 0 ) ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("FSM/KICK")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.45 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "End"
+} ]
+}
+
+[sub_resource type="Animation" id=41]
+resource_name = "KICK back"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite/AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Back KICK" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 2 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/Melee/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.15, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite/Melee/CollisionShape2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.15, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -23 ), Vector2( 0, 0 ) ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("FSM/KICK")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.45 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "End"
+} ]
+}
+
+[sub_resource type="Animation" id=39]
+resource_name = "KICK side"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite/AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Side KICK" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 1 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/Melee/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.15, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite/Melee/CollisionShape2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.15, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 0 ), Vector2( 15, -5 ), Vector2( 0, 0 ) ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("FSM/KICK")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.45 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "End"
+} ]
+}
 
 [sub_resource type="Animation" id=7]
 length = 0.001
@@ -619,6 +1064,30 @@ tracks/6/keys = {
 "update": 0,
 "values": [ true ]
 }
+tracks/7/type = "value"
+tracks/7/path = NodePath("Sprite/Melee/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Sprite/Melee/CollisionShape2D:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
 
 [sub_resource type="Animation" id=12]
 resource_name = "WALK Back"
@@ -703,6 +1172,18 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Sprite/Melee/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
@@ -797,6 +1278,18 @@ tracks/6/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/7/type = "value"
+tracks/7/path = NodePath("Sprite/Melee/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=8]
 resource_name = "WALK Front"
@@ -881,6 +1374,18 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Sprite/Melee/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
@@ -975,6 +1480,18 @@ tracks/6/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/7/type = "value"
+tracks/7/path = NodePath("Sprite/Melee/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=13]
 resource_name = "WALK Side"
@@ -1064,6 +1581,18 @@ tracks/6/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/7/type = "value"
+tracks/7/path = NodePath("Sprite/Melee/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="AnimationNodeAnimation" id=14]
 animation = "IDLE Side"
@@ -1106,6 +1635,49 @@ blend_point_6/node = SubResource( 20 )
 blend_point_6/pos = Vector2( -1, 1 )
 blend_point_7/node = SubResource( 21 )
 blend_point_7/pos = Vector2( 1, 1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=49]
+animation = "KICK back"
+
+[sub_resource type="AnimationNodeAnimation" id=50]
+animation = "KICK Front"
+
+[sub_resource type="AnimationNodeAnimation" id=51]
+animation = "KICK side"
+
+[sub_resource type="AnimationNodeAnimation" id=52]
+animation = "KICK side"
+
+[sub_resource type="AnimationNodeAnimation" id=53]
+animation = "KICK Front D"
+
+[sub_resource type="AnimationNodeAnimation" id=54]
+animation = "KICK Front D"
+
+[sub_resource type="AnimationNodeAnimation" id=55]
+animation = "KICK Back D"
+
+[sub_resource type="AnimationNodeAnimation" id=56]
+animation = "KICK Back D"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=45]
+blend_point_0/node = SubResource( 49 )
+blend_point_0/pos = Vector2( 0, 1 )
+blend_point_1/node = SubResource( 50 )
+blend_point_1/pos = Vector2( 0, -1 )
+blend_point_2/node = SubResource( 51 )
+blend_point_2/pos = Vector2( 1, 0 )
+blend_point_3/node = SubResource( 52 )
+blend_point_3/pos = Vector2( -1, 0 )
+blend_point_4/node = SubResource( 53 )
+blend_point_4/pos = Vector2( -1, -1 )
+blend_point_5/node = SubResource( 54 )
+blend_point_5/pos = Vector2( 1, -1 )
+blend_point_6/node = SubResource( 55 )
+blend_point_6/pos = Vector2( 1, 1 )
+blend_point_7/node = SubResource( 56 )
+blend_point_7/pos = Vector2( -1, 1 )
 blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id=23]
@@ -1155,13 +1727,24 @@ blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=33]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=46]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=47]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=48]
+switch_mode = 2
+auto_advance = true
+
 [sub_resource type="AnimationNodeStateMachine" id=34]
 states/IDLE/node = SubResource( 22 )
 states/IDLE/position = Vector2( 155, 80 )
+states/KICK/node = SubResource( 45 )
+states/KICK/position = Vector2( 240, 181 )
 states/WALK/node = SubResource( 31 )
 states/WALK/position = Vector2( 359, 80 )
-transitions = [ "IDLE", "WALK", SubResource( 32 ), "WALK", "IDLE", SubResource( 33 ) ]
+transitions = [ "IDLE", "WALK", SubResource( 32 ), "WALK", "IDLE", SubResource( 33 ), "IDLE", "KICK", SubResource( 46 ), "WALK", "KICK", SubResource( 47 ), "KICK", "IDLE", SubResource( 48 ) ]
 start_node = "IDLE"
+graph_offset = Vector2( -60, -7 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=35]
 
@@ -1173,7 +1756,7 @@ script = ExtResource( 16 )
 scale = Vector2( -1, 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Sprite"]
-position = Vector2( 1, -14 )
+position = Vector2( 0, -16 )
 frames = SubResource( 1 )
 animation = "Front"
 
@@ -1237,6 +1820,12 @@ position = Vector2( 69, 41 )
 [node name="Down" type="Position2D" parent="Sprite/AvoidPos"]
 position = Vector2( -25, 43 )
 
+[node name="Melee" type="Area2D" parent="Sprite"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Melee"]
+shape = SubResource( 44 )
+disabled = true
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -6 )
 shape = SubResource( 2 )
@@ -1246,12 +1835,17 @@ anims/LEFT = SubResource( 36 )
 anims/RESET = SubResource( 38 )
 anims/RIGHT = SubResource( 37 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="Sprites" type="AnimationPlayer" parent="."]
 "anims/IDLE Back" = SubResource( 3 )
 "anims/IDLE Back D" = SubResource( 4 )
 "anims/IDLE Side" = SubResource( 11 )
 "anims/IDLE front" = SubResource( 5 )
 "anims/IDLE front d" = SubResource( 6 )
+"anims/KICK Back D" = SubResource( 43 )
+"anims/KICK Front" = SubResource( 40 )
+"anims/KICK Front D" = SubResource( 42 )
+"anims/KICK back" = SubResource( 41 )
+"anims/KICK side" = SubResource( 39 )
 anims/RESET = SubResource( 7 )
 "anims/WALK Back" = SubResource( 12 )
 "anims/WALK Back D" = SubResource( 10 )
@@ -1261,11 +1855,12 @@ anims/RESET = SubResource( 7 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 34 )
-anim_player = NodePath("../AnimationPlayer")
+anim_player = NodePath("../Sprites")
 active = true
 parameters/playback = SubResource( 35 )
-parameters/IDLE/blend_position = Vector2( -0.959079, 0.853448 )
-parameters/WALK/blend_position = Vector2( 0, 0 )
+parameters/IDLE/blend_position = Vector2( -0.882353, 0.87931 )
+parameters/KICK/blend_position = Vector2( 0, 0 )
+parameters/WALK/blend_position = Vector2( -0.971867, -0.155172 )
 
 [node name="FSM" type="Node2D" parent="."]
 script = ExtResource( 17 )
@@ -1281,6 +1876,10 @@ FSMPath = NodePath("..")
 
 [node name="WALK" type="Node2D" parent="FSM"]
 script = ExtResource( 19 )
+FSMPath = NodePath("..")
+
+[node name="KICK" type="Node2D" parent="FSM"]
+script = ExtResource( 42 )
 FSMPath = NodePath("..")
 
 [node name="SpawnBulletPos" type="Position2D" parent="."]
@@ -1299,3 +1898,4 @@ DownPath = NodePath("../Sprite/AvoidPos/Down")
 [connection signal="body_entered" from="Sprite/AIMTrigger/Side" to="AIMCode" method="_on_Side_body_entered"]
 [connection signal="body_entered" from="Sprite/AIMTrigger/UpRight" to="AIMCode" method="_on_UpRight_body_entered"]
 [connection signal="body_entered" from="Sprite/AIMTrigger/Up" to="AIMCode" method="_on_Up_body_entered"]
+[connection signal="body_entered" from="Sprite/Melee" to="." method="_on_Melee_body_entered"]

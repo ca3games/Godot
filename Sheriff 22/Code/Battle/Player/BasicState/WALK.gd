@@ -10,6 +10,9 @@ func Update(delta):
 		$"/root/Battle/Sounds".GunShoot()
 		ShootBullets()
 	
+	if Input.is_action_just_released("MELEE"):
+		FSM.ChangeState("KICK")
+	
 func Physics(delta):
 	FSM.state_machine.travel("WALK")
 	FSM.AnimTree.set("parameters/WALK/blend_position", FSM.old_dir)

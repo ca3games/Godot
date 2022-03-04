@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Fonts/Baskic8-Bold.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Code/Battle/GUI.gd" type="Script" id=2]
 [ext_resource path="res://2D/Items/revolver.png" type="Texture" id=3]
 [ext_resource path="res://2D/Lifebars/playerlifebar.png" type="Texture" id=4]
+[ext_resource path="res://2D/Items/basic coin/coin_Nueva animación_03.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Battle/GUI/INVENTORY.tscn" type="PackedScene" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 10
@@ -59,10 +61,10 @@ pause_mode = 2
 script = ExtResource( 2 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_left = 189.0
-margin_top = 212.0
-margin_right = 249.0
-margin_bottom = 268.0
+margin_left = 356.0
+margin_top = 195.0
+margin_right = 416.0
+margin_bottom = 251.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -106,10 +108,10 @@ __meta__ = {
 }
 
 [node name="Lifebar" type="TextureProgress" parent="."]
-margin_left = 5.0
-margin_top = 241.0
-margin_right = 69.0
-margin_bottom = 281.0
+margin_left = 9.0
+margin_top = 225.0
+margin_right = 73.0
+margin_bottom = 265.0
 max_value = 500.0
 value = 50.0
 texture_under = ExtResource( 4 )
@@ -122,7 +124,7 @@ __meta__ = {
 }
 
 [node name="Revolver" type="Sprite" parent="."]
-position = Vector2( 15, 229 )
+position = Vector2( 22, 209 )
 texture = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
@@ -156,6 +158,26 @@ __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
+
+[node name="MONEY" type="Label" parent="."]
+margin_left = 24.0
+margin_top = 13.0
+margin_right = 84.0
+margin_bottom = 24.0
+custom_colors/font_color = Color( 1, 0.882353, 0.388235, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "MONEY 01"
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="CoinNuevaAnimación03" type="Sprite" parent="MONEY"]
+position = Vector2( -11, 2 )
+texture = ExtResource( 5 )
+
+[node name="INVENTORY" parent="." instance=ExtResource( 6 )]
 
 [connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
 [connection signal="timeout" from="GameEnd" to="." method="_on_GameEnd_timeout"]

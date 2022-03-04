@@ -12,17 +12,17 @@ font_data = ExtResource( 2 )
 script = ExtResource( 3 )
 
 [node name="BrendaStarrTexture" type="Sprite" parent="."]
-position = Vector2( 127, 127 )
-scale = Vector2( 0.366434, 0.257812 )
+position = Vector2( 215.5, 124 )
+scale = Vector2( 0.613986, 0.251953 )
 texture = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="StoryText" type="RichTextLabel" parent="."]
-margin_left = 21.0
+margin_left = 34.0
 margin_top = 14.0
-margin_right = 232.0
+margin_right = 352.0
 margin_bottom = 214.0
 custom_colors/default_color = Color( 0.368627, 0.207843, 0.133333, 1 )
 custom_fonts/normal_font = SubResource( 1 )
@@ -32,10 +32,10 @@ __meta__ = {
 }
 
 [node name="Button" type="Button" parent="."]
-margin_left = 191.0
-margin_top = 219.0
-margin_right = 232.0
-margin_bottom = 240.0
+margin_left = 363.0
+margin_top = 212.0
+margin_right = 404.0
+margin_bottom = 233.0
 text = ">>"
 __meta__ = {
 "_edit_use_anchors_": false

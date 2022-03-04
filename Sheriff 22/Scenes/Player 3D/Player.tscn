@@ -35,14 +35,14 @@ animations = [ {
 "name": "Back",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 2 ) ],
-"loop": true,
-"name": "Front",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 7 ), ExtResource( 12 ), ExtResource( 14 ) ],
 "loop": true,
 "name": "Front Diagonal",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "Front",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ), ExtResource( 15 ), ExtResource( 5 ) ],
@@ -475,7 +475,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 1, -1, 1 ) ]
+"values": [ Vector3( -1, -1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=15]
@@ -490,7 +490,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( -1, 1, 1 ) ]
+"values": [ Vector3( -1, -1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=14]
@@ -505,7 +505,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( -1, -1, 1 ) ]
+"values": [ Vector3( 1, -1, 1 ) ]
 }
 
 [node name="Player" type="KinematicBody"]
@@ -515,7 +515,7 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Spatial" parent="."]
-transform = Transform( -1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform = Transform( -1, 0, 0, 0, -1, -8.74228e-08, 0, -8.74228e-08, 1, 0, 0, 0 )
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Sprite"]
 transform = Transform( 2.5, 0, 0, 0, 2.49555, -0.14918, 0, 0.14918, 2.49555, 0, 0, 0 )

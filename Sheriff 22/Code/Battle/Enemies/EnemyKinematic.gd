@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var level = 1
-onready var startingpos = global_position
+onready var startingpos
 onready var avoidpos = global_position
 onready var avoiding = false
 var dead = false
@@ -10,6 +10,13 @@ export(bool) var BOSS
 export(PackedScene) var DeadDisolve
 
 func _ready():
+	randomize()
+	startingpos = global_position
+	var x = sign(rand_range(-3, 2))
+	var y = sign(rand_range(-3, 2))
+	var dir = Vector2(x, y) * 20
+	startingpos += dir
+	
 	yield(get_tree(), "idle_frame")
 	yield(get_tree(), "idle_frame")
 	yield(get_tree(), "idle_frame")
@@ -45,9 +52,6 @@ func HIT(damage):
 		if is_instance_valid($Word):
 			$Word.queue_free()
 
-func _process(delta):
-	if $HPLifebar.visible == false and $FSM.HP > 2:
-		print("SUICIDE")
 
 func AVOIDS(pos):
 	avoiding = true

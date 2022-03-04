@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Code/Battle/DungeonGenerator/DungeonCode.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Map/sand autotile.tres" type="TileSet" id=2]
 [ext_resource path="res://Scenes/Enemy/Enemy01Base.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Enemy/Enemy01Boss.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Enemies/Tumbleweed/RigidBody2D.tscn" type="PackedScene" id=5]
 
 [node name="Mapa" type="Node2D"]
 
@@ -27,3 +28,4 @@ PathIndex = 5
 TileMapPath = NodePath("../Map/MapTiles")
 BasicEnemy = ExtResource( 3 )
 BasicBoss = ExtResource( 4 )
+tumbleweed01 = ExtResource( 5 )
