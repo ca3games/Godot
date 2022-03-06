@@ -35,7 +35,11 @@ func _process(delta):
 			get_tree().paused = false
 
 func SetAmmoBasic(x):
-	$Revolver/AmmoBasic.text = str(x)
+	if x == -999:
+		$Revolver/AmmoBasic.text = str(0)
+	else:
+		$Revolver/AmmoBasic.text = str(x)
+	$INVENTORY.UpdateAMMO()
 
 func SpawnEnemy():
 	left += 1

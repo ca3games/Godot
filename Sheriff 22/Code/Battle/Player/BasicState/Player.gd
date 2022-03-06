@@ -9,16 +9,14 @@ onready var BulletManager = get_node(BulletManagerPath)
 export(NodePath) var GUIPath
 onready var GUI = get_node(GUIPath)
 
-onready var AmmoBasic = Variables.ammobasic
-
 onready var OffsetBody = $SpawnBulletPos.position
 
 export(int) var kickdamage
 var meleetype = "KICK"
 
 func ReloadAmmo(x):
-	AmmoBasic += x
-	GUI.SetAmmoBasic(AmmoBasic)
+	Variables.AddAmmo(Variables.currentgun, x)
+	GUI.SetAmmoBasic(Variables.GetAmmo(Variables.currentgun))
 
 func _on_Melee_body_entered(body):
 	if body.is_in_group("TUMBLEWEED"):

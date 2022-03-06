@@ -39,6 +39,9 @@ func HIT(damage):
 		$FSM.HP -= damage - (level / 3)
 		$HPLifebar.value = $FSM.HP
 		$"/root/Battle/Sounds".PlayEnemyHit()
+		
+
+func _process(delta):
 	if $FSM.HP <= 0 and !dead:
 		$Bullet/Shoot.queue_free()
 		$Bullet.stop()
