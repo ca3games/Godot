@@ -78,5 +78,8 @@ func _on_Tween_tween_all_completed():
 func UpdateMoney():
 	$MONEY.text = "GOLD : " + str(Variables.money)
 
+func Update():
+	$INVENTORY.RESET()
+
 func _on_GameEnd_timeout():
 	EndTransition()

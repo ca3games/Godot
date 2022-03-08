@@ -6,16 +6,20 @@ func CleanSelection():
 		name = "Item" + str(i)
 		get_node(name).SelectOFF()
 
-func SetItem(id, gun, ammo):
+func SetItem(id, ammo):
 	var name = "Item"
 	name = "Item" + str(id)
-	get_node(name).SetItem(gun)
+	get_node(name).SetItem(id)
 
 func UpdateAMMO(id):
-	print(id)
 	var name = "Item"
 	name = "Item" + str(id)
 	get_node(name).UpdatePic()
+
+func SetActive(id):
+	var name = "Item"
+	name = "Item" + str(id)
+	get_node(name).SetActive()
 
 func TurnH(id):
 	var name = "Item" + str(id)

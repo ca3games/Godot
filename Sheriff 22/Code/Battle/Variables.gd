@@ -8,7 +8,6 @@ var wave = 0
 var kicklevel = 1
 var money = 0
 var guns = []
-var ammo = []
 var currentgun = 0
 
 enum guntype {revolver}
@@ -32,49 +31,33 @@ func ResetVariables():
 	dificulty = 1
 	money = 0
 	guns = []
-	AddGun(guntype.revolver)
-	AddAmmo(0, 99)
+	AddGun(Vector2(guntype.revolver, 50))
 
 func AddGun(id):
-	guns.append(id)
+	if len(guns) < 5:
+		guns.append(id)
 
 func GunsMax():
 	return len(guns)
 
 func AddAmmo(id, amount):
-	if HasAmmo(id):
-		for i in len(ammo):
-			if id == ammo[i].x:
-				ammo[i].y += amount
-				if ammo[i].y > 99:
-					ammo[i].y = 99
-	else:
-		ammo.append(Vector2(id, amount))
+	guns[id].y += amount
+	if guns[id].y > 99:
+		guns[id].y = 99
 
-func ConsumeAmmo(id):
-	if HasAmmo(id):
-		for i in len(ammo):
-			if id == ammo[i].x:
-				ammo[i].y -= 1
-				if ammo[i].y < 1:
-					ammo.remove(i)
+func ConsumeAmmo():
+	guns[currentgun].y -= 1
+	if guns[currentgun].y < 1:
+		guns[currentgun].y = 0
 
 func GetAmmo(id):
-	if HasAmmo(id):
-		for i in len(ammo):
-			if id == ammo[i].x:
-				return ammo[i].y
-	else:
-		return -999
+	if id == -999:
+		return
+	return guns[id].y
 
 func GetGun(id):
-	return guns[id]
+	return guns[id].x
 
-func HasAmmo(id):
-	for i in len(ammo):
-		if id == ammo[i].x:
-			return true
-	return false
 
 func PlayerDamage(damage):
 	HP -= damage

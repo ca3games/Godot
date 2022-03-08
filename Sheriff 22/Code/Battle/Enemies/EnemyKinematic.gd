@@ -8,6 +8,7 @@ var dead = false
 export(bool) var BOSS
 
 export(PackedScene) var DeadDisolve
+export(PackedScene) var Gun01
 
 func _ready():
 	randomize()
@@ -52,6 +53,10 @@ func _process(delta):
 		$"Return to Idle".stop()
 		$Chase.stop()
 		$"../".GUI.EnemyDie()
+		if BOSS:
+			var tmp = Gun01.instance()
+			tmp.global_position = self.global_position
+			get_parent().add_child(tmp)
 		if is_instance_valid($Word):
 			$Word.queue_free()
 

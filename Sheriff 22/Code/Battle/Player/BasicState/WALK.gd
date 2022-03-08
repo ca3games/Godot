@@ -5,7 +5,7 @@ func Update(delta):
 		FSM.ChangeState("IDLE")
 	
 	if Input.is_action_just_released("SHOOT") and Variables.GetAmmo(Variables.currentgun) >= 1:
-		Variables.ConsumeAmmo(Variables.currentgun)
+		Variables.ConsumeAmmo()
 		FSM.Root.GUI.SetAmmoBasic(Variables.GetAmmo(Variables.currentgun))
 		$"/root/Battle/Sounds".GunShoot()
 		ShootBullets()

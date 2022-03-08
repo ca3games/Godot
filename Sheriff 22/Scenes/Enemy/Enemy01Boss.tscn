@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Enemy/Enemy01Base.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Code/Shader/EnemyBase.gdshader" type="Shader" id=2]
+[ext_resource path="res://Scenes/Battle/Items/Guns/RevolverItem.tscn" type="PackedScene" id=3]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -22,6 +23,7 @@ shader_param/mask_replace = Color( 0.8, 0.0431373, 0.0431373, 1 )
 
 [node name="Boss01" instance=ExtResource( 1 )]
 BOSS = true
+Gun01 = ExtResource( 3 )
 
 [node name="AnimatedSprite" parent="MySprites" index="0"]
 material = SubResource( 1 )
