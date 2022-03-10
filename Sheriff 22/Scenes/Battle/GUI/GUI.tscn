@@ -53,14 +53,22 @@ shader = SubResource( 2 )
 shader_param/in_color = Color( 0, 0, 0, 1 )
 shader_param/out_color = Color( 0.0156863, 0.00784314, 0.196078, 1 )
 shader_param/in_out = 1.0
-shader_param/position = 1.0
+shader_param/position = -0.167
 shader_param/size = Vector2( 50, 50 )
 
 [node name="GUI" type="CanvasLayer"]
 pause_mode = 2
 script = ExtResource( 2 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="GUI" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI"]
 margin_left = 356.0
 margin_top = 195.0
 margin_right = 416.0
@@ -69,7 +77,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LEFT" type="Label" parent="VBoxContainer"]
+[node name="LEFT" type="Label" parent="GUI/VBoxContainer"]
 margin_right = 60.0
 margin_bottom = 11.0
 custom_colors/font_color = Color( 1, 0.882353, 0.388235, 1 )
@@ -81,7 +89,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LEVEL" type="Label" parent="VBoxContainer"]
+[node name="LEVEL" type="Label" parent="GUI/VBoxContainer"]
 margin_top = 15.0
 margin_right = 60.0
 margin_bottom = 26.0
@@ -94,7 +102,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="WAVE" type="Label" parent="VBoxContainer"]
+[node name="WAVE" type="Label" parent="GUI/VBoxContainer"]
 margin_top = 30.0
 margin_right = 60.0
 margin_bottom = 41.0
@@ -107,7 +115,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Lifebar" type="TextureProgress" parent="."]
+[node name="Lifebar" type="TextureProgress" parent="GUI"]
 margin_left = 9.0
 margin_top = 225.0
 margin_right = 73.0
@@ -123,14 +131,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Revolver" type="Sprite" parent="."]
+[node name="Revolver" type="Sprite" parent="GUI"]
 position = Vector2( 22, 209 )
 texture = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="AmmoBasic" type="Label" parent="Revolver"]
+[node name="AmmoBasic" type="Label" parent="GUI/Revolver"]
 margin_left = 14.0
 margin_top = -4.0
 margin_right = 54.0
@@ -143,23 +151,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Tween" type="Tween" parent="."]
+[node name="Tween" type="Tween" parent="GUI"]
 pause_mode = 2
 
-[node name="GameEnd" type="Timer" parent="."]
+[node name="GameEnd" type="Timer" parent="GUI"]
 one_shot = true
 
-[node name="Screentone" type="ColorRect" parent="."]
-pause_mode = 2
-material = SubResource( 3 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="MONEY" type="Label" parent="."]
+[node name="MONEY" type="Label" parent="GUI"]
 margin_left = 24.0
 margin_top = 13.0
 margin_right = 84.0
@@ -173,11 +171,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CoinNuevaAnimación03" type="Sprite" parent="MONEY"]
+[node name="CoinNuevaAnimación03" type="Sprite" parent="GUI/MONEY"]
 position = Vector2( -11, 2 )
 texture = ExtResource( 5 )
 
-[node name="INVENTORY" parent="." instance=ExtResource( 6 )]
+[node name="INVENTORY" parent="GUI" instance=ExtResource( 6 )]
 
-[connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
-[connection signal="timeout" from="GameEnd" to="." method="_on_GameEnd_timeout"]
+[node name="Screentone" type="ColorRect" parent="GUI"]
+pause_mode = 2
+material = SubResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -2.0
+margin_top = -1.0
+margin_right = 390.0
+margin_bottom = 203.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[connection signal="tween_all_completed" from="GUI/Tween" to="." method="_on_Tween_tween_all_completed"]
+[connection signal="timeout" from="GUI/GameEnd" to="." method="_on_GameEnd_timeout"]

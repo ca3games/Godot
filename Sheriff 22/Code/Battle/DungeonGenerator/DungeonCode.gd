@@ -32,6 +32,7 @@ func _ready():
 	yield(get_tree(), "idle_frame")
 	CreateMap()
 	SpawnTiles()
+	tilemap.update_bitmask_region(DungeonSize.position, DungeonSize.size)
 	Player.global_position = tilemap.map_to_world(RoomCenters[0])
 	SpawnedPicked.append(RoomCenters[0])
 	SpawnEnemies()
@@ -120,8 +121,6 @@ func SpawnTiles():
 		for y in x:
 			tilemap.set_cell(y.x, y.y, PathIndex)
 			SetWall(y.x, y.y)
-	tilemap.update_bitmask_region(DungeonSize.position, DungeonSize.size)
-	
 
 func SetWall(x, y):
 	SetRock(x-1, y)

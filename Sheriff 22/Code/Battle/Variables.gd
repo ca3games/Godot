@@ -33,6 +33,24 @@ func ResetVariables():
 	guns = []
 	AddGun(Vector2(guntype.revolver, 50))
 
+
+func TownReset():
+	HP += 500
+	max_hp = 1000
+	level = 0
+	wave = 0
+	dificulty = 1
+	NewAmmoTownReset()
+
+func NewAmmoTownReset():
+	for i in len(guns):
+		if guns[i].x == guntype.revolver:
+			guns[i].y += 50
+			if guns[i].y > 99:
+				guns[i].y = 99
+			return
+	AddGun(Vector2(guntype.revolver, 50))
+
 func AddGun(id):
 	if len(guns) < 5:
 		guns.append(id)

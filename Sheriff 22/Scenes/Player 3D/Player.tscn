@@ -1,20 +1,20 @@
 [gd_scene load_steps=57 format=2]
 
-[ext_resource path="res://2D/pistolero/front/front walk2.png" type="Texture" id=1]
-[ext_resource path="res://2D/pistolero/front/front walk3.png" type="Texture" id=2]
-[ext_resource path="res://2D/pistolero/front/front walk1.png" type="Texture" id=3]
-[ext_resource path="res://2D/pistolero/back/back walk1.png" type="Texture" id=4]
-[ext_resource path="res://2D/pistolero/back diagonal/diagonal back walk3.png" type="Texture" id=5]
-[ext_resource path="res://2D/pistolero/side/side walk2.png" type="Texture" id=6]
-[ext_resource path="res://2D/pistolero/front diagonal/front diagonal walk1.png" type="Texture" id=7]
-[ext_resource path="res://2D/pistolero/back/back walk2.png" type="Texture" id=8]
-[ext_resource path="res://2D/pistolero/back diagonal/diagonal back walk1.png" type="Texture" id=9]
-[ext_resource path="res://2D/pistolero/side/side walk3.png" type="Texture" id=10]
-[ext_resource path="res://2D/pistolero/back/back walk3.png" type="Texture" id=11]
-[ext_resource path="res://2D/pistolero/front diagonal/front diagonal walk2.png" type="Texture" id=12]
-[ext_resource path="res://2D/pistolero/side/side walk1.png" type="Texture" id=13]
-[ext_resource path="res://2D/pistolero/front diagonal/front diagonal walk3.png" type="Texture" id=14]
-[ext_resource path="res://2D/pistolero/back diagonal/diagonal back walk2.png" type="Texture" id=15]
+[ext_resource path="res://2D/pistolero/WALK/front/front walk2.png" type="Texture" id=1]
+[ext_resource path="res://2D/pistolero/WALK/front/front walk3.png" type="Texture" id=2]
+[ext_resource path="res://2D/pistolero/WALK/front/front walk1.png" type="Texture" id=3]
+[ext_resource path="res://2D/pistolero/WALK/back/back walk1.png" type="Texture" id=4]
+[ext_resource path="res://2D/pistolero/WALK/back diagonal/diagonal back walk3.png" type="Texture" id=5]
+[ext_resource path="res://2D/pistolero/WALK/side/side walk2.png" type="Texture" id=6]
+[ext_resource path="res://2D/pistolero/WALK/front diagonal/front diagonal walk1.png" type="Texture" id=7]
+[ext_resource path="res://2D/pistolero/WALK/back/back walk2.png" type="Texture" id=8]
+[ext_resource path="res://2D/pistolero/WALK/back diagonal/diagonal back walk1.png" type="Texture" id=9]
+[ext_resource path="res://2D/pistolero/WALK/side/side walk3.png" type="Texture" id=10]
+[ext_resource path="res://2D/pistolero/WALK/back/back walk3.png" type="Texture" id=11]
+[ext_resource path="res://2D/pistolero/WALK/front diagonal/front diagonal walk2.png" type="Texture" id=12]
+[ext_resource path="res://2D/pistolero/WALK/side/side walk1.png" type="Texture" id=13]
+[ext_resource path="res://2D/pistolero/WALK/front diagonal/front diagonal walk3.png" type="Texture" id=14]
+[ext_resource path="res://2D/pistolero/WALK/back diagonal/diagonal back walk2.png" type="Texture" id=15]
 [ext_resource path="res://Code/Battle/Player3D/FSM.gd" type="Script" id=16]
 [ext_resource path="res://Code/Battle/Player3D/IDLE.gd" type="Script" id=17]
 [ext_resource path="res://Code/Battle/Player3D/WALK.gd" type="Script" id=18]
@@ -35,9 +35,9 @@ animations = [ {
 "name": "Back",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ), ExtResource( 12 ), ExtResource( 14 ) ],
+"frames": [ ExtResource( 9 ), ExtResource( 15 ), ExtResource( 5 ) ],
 "loop": true,
-"name": "Front Diagonal",
+"name": "Back Diagonal",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 2 ) ],
@@ -45,9 +45,9 @@ animations = [ {
 "name": "Front",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 15 ), ExtResource( 5 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 12 ), ExtResource( 14 ) ],
 "loop": true,
-"name": "Back Diagonal",
+"name": "Front Diagonal",
 "speed": 5.0
 } ]
 
@@ -475,7 +475,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( -1, -1, 1 ) ]
+"values": [ Vector3( 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=15]
@@ -505,17 +505,17 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 1, -1, 1 ) ]
+"values": [ Vector3( -1, 1, 1 ) ]
 }
 
-[node name="Player" type="KinematicBody"]
+[node name="Player" type="KinematicBody" groups=["PLAYER"]]
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Spatial" parent="."]
-transform = Transform( -1, 0, 0, 0, -1, -8.74228e-08, 0, -8.74228e-08, 1, 0, 0, 0 )
+transform = Transform( 1, -8.74228e-08, 0, 8.74228e-08, 1, -8.74228e-08, 7.64274e-15, 8.74228e-08, 1, 0, 0, 0 )
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Sprite"]
 transform = Transform( 2.5, 0, 0, 0, 2.49555, -0.14918, 0, 0.14918, 2.49555, 0, 0, 0 )

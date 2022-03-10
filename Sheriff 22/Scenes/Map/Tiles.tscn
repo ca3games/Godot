@@ -4,7 +4,7 @@
 [ext_resource path="res://2D/Tiles/shadow.png" type="Texture" id=2]
 [ext_resource path="res://2D/Tiles/catcus1.png" type="Texture" id=3]
 [ext_resource path="res://2D/Tiles/null.png" type="Texture" id=4]
-[ext_resource path="res://2D/Tiles/rocks.png" type="Texture" id=5]
+[ext_resource path="res://2D/Tiles/rock.png" type="Texture" id=5]
 [ext_resource path="res://2D/Tiles/Sand.png" type="Texture" id=6]
 
 [node name="Tiles" type="Node2D"]
@@ -25,10 +25,10 @@ texture = ExtResource( 4 )
 position = Vector2( 73, 22 )
 texture = ExtResource( 2 )
 
-[node name="Rocks" type="Sprite" parent="."]
-position = Vector2( 72, 63 )
-texture = ExtResource( 5 )
-
 [node name="Sand" type="Sprite" parent="."]
 position = Vector2( 291, 84 )
 texture = ExtResource( 6 )
+
+[node name="Rock" type="Sprite" parent="."]
+position = Vector2( 286, 255 )
+texture = ExtResource( 5 )

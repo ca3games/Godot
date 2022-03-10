@@ -13,11 +13,9 @@ onready var LeftRight = get_node(LeftRightAnim)
 onready var current = $IDLE
 var direction = Vector2.DOWN
 
-export(int) var HP 
-
 func _ready():
 	randomize()
-	vel = Root.level * 15 + 20
+	vel = Root.speed
 
 func _process(delta):
 	current.Update(delta)
@@ -27,7 +25,7 @@ func _physics_process(delta):
 
 func ChangeState(state):
 	GetDirAngle()
-	if HP <= 0:
+	if Root.HP <= 0:
 		state = "DEAD"
 	match(state):
 		"IDLE" : current = $IDLE
@@ -37,23 +35,9 @@ func ChangeState(state):
 
 func _on_Return_to_Idle_timeout():
 	direction = GetDirAngle()
-	$"../Return to Idle".start(IdleTimerID())
-	$"../Chase".start(ChaseTimerID()+1)
+	$"../Return to Idle".start(Root.idletimer)
+	$"../Chase".start(Root.chasetimer)
 	ChangeState("IDLE")
-
-func IdleTimerID():
-	if Root.level < 3:
-		return rand_range(2, 4)
-	elif Root.level > 7:
-		return rand_range(8, 12)
-	return rand_range(6, 8)
-
-func ChaseTimerID():
-	if Root.level < 3:
-		return rand_range(4, 5)
-	elif Root.level > 7:
-		return rand_range(1, 2)
-	return rand_range(2, 3)
 
 
 func GetDirAngle():

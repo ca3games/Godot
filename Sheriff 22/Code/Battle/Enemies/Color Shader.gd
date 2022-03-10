@@ -1,5 +1,6 @@
 extends Node2D
 
+onready var level
 export(NodePath) var AnimatedSpritePath
 onready var AnimSprite = get_node(AnimatedSpritePath)
 
@@ -26,13 +27,15 @@ export(Color) var Skin03
 
 func _ready():
 	yield(get_tree(), "idle_frame")
-	var id = GetLevel()
-	SetColor(id)
-	$"../".level = id
-		
+	level = $"../".level
+	var id = clamp(level, 0, 10)
+	SetColor(int(id))
+
 func SetColor(level):
+	print(level)
 	match(level):
-		1 : ChangeColor(jacket01, Hat01, Pants01, Skin01)
+		0: ChangeColor(jacket01, Hat02, Pants01, Skin02)
+		1: ChangeColor(jacket01, Hat01, Pants01, Skin01)
 		2 : ChangeColor(jacket02, Hat01, Pants01, Skin01)
 		3 : ChangeColor(jacket01, Hat02, Pants01, Skin01)
 		4 : ChangeColor(jacket01, Hat01, Pants02, Skin02)
@@ -53,10 +56,3 @@ func ChangeColor(jacket, hat, pants, skin):
 	myhat = hat
 	mypants = pants
 	myskin = skin
-
-func GetLevel():
-	var level = 1
-	
-	level = randi()%10 + 1
-	
-	return level

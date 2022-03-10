@@ -1,11 +1,16 @@
 extends KinematicBody2D
 
-var level = 1
+export(int) var level = 0
+export(int) var HP = 10
+export(int) var speed = 10
+export(int) var idletimer = 5
+export(int) var chasetimer = 8
 onready var startingpos
 onready var avoidpos = global_position
 onready var avoiding = false
 var dead = false
 export(bool) var BOSS
+export(bool) var DropBasicAmmo
 
 export(PackedScene) var DeadDisolve
 export(PackedScene) var Gun01
@@ -22,12 +27,8 @@ func _ready():
 	yield(get_tree(), "idle_frame")
 	yield(get_tree(), "idle_frame")
 	
-	var hp = (Variables.level + 10) * Variables.dificulty
-	$FSM.HP = hp
-	if BOSS:
-		$FSM.HP *= 5
-	$HPLifebar.max_value = $FSM.HP
-	$HPLifebar.value = $FSM.HP
+	$HPLifebar.max_value = HP
+	$HPLifebar.value = HP
 	SLEEP()
 	$Bullet/Shoot.boss = BOSS
 	
@@ -36,14 +37,12 @@ func _ready():
 	$FSM.GetDirAngle()
 
 func HIT(damage):
-	if $FSM.HP >= 1 and !dead:
-		$FSM.HP -= damage - (level / 3)
-		$HPLifebar.value = $FSM.HP
-		$"/root/Battle/Sounds".PlayEnemyHit()
-		
+	HP -= damage
+	$HPLifebar.value = HP
+	$"/root/Battle/Sounds".PlayEnemyHit()
 
 func _process(delta):
-	if $FSM.HP <= 0 and !dead:
+	if HP <= 0 and !dead:
 		$Bullet/Shoot.queue_free()
 		$Bullet.stop()
 		$HPLifebar.hide()
@@ -63,8 +62,6 @@ func _process(delta):
 
 func AVOIDS(pos):
 	avoiding = true
-	var tmp = (pos - startingpos) * 0.1
-	avoidpos = pos + tmp
 	$AvoidStop.start(3)
 
 

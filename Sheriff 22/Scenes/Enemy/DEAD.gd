@@ -19,7 +19,7 @@ func DieEnd():
 	FSM.Root.get_parent().add_child(disolve)
 	
 	var chance = 10 - FSM.Root.level + 1
-	if (randi()%chance > chance / 2.2):
+	if FSM.Root.DropBasicAmmo:
 		$"/root/Battle/Sounds".PlayAmmoBasic()
 		var tmp = AmmoBasic.instance()
 		tmp.global_position = FSM.Root.global_position

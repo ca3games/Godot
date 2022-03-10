@@ -26,6 +26,11 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 9 ), ExtResource( 3 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "Front D",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 2 ), ExtResource( 1 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "Side",
@@ -36,24 +41,19 @@ animations = [ {
 "name": "Back",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 19 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "Dead",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 13 ), ExtResource( 17 ), ExtResource( 18 ) ],
 "loop": true,
 "name": "Back D",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 3 ), ExtResource( 12 ) ],
-"loop": true,
-"name": "Front D",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "Front",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 19 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "Dead",
 "speed": 5.0
 } ]
 
@@ -934,7 +934,6 @@ shape = SubResource( 45 )
 [node name="FSM" parent="." index="3"]
 AnimTreePath = NodePath("../AnimTree")
 LeftRightAnim = NodePath("../LeftRight")
-HP = 10
 
 [node name="IDLE" parent="FSM" index="0"]
 FSMPath = NodePath("..")
@@ -988,6 +987,7 @@ value = 50.0
 position = Vector2( 0, -13 )
 
 [node name="Visible" type="Area2D" parent="." index="14"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Visible" index="0"]
 shape = SubResource( 44 )
