@@ -17,7 +17,7 @@ size = 14
 outline_size = 1
 font_data = ExtResource( 1 )
 
-[sub_resource type="Shader" id=2]
+[sub_resource type="Shader" id=5]
 code = "shader_type canvas_item;
 
 uniform vec4 in_color:hint_color;
@@ -49,11 +49,11 @@ void fragment(){
 }"
 
 [sub_resource type="ShaderMaterial" id=3]
-shader = SubResource( 2 )
+shader = SubResource( 5 )
 shader_param/in_color = Color( 0, 0, 0, 1 )
 shader_param/out_color = Color( 0.0156863, 0.00784314, 0.196078, 1 )
 shader_param/in_out = 1.0
-shader_param/position = -0.167
+shader_param/position = -1.5
 shader_param/size = Vector2( 50, 50 )
 
 [node name="GUI" type="CanvasLayer"]
@@ -61,7 +61,6 @@ pause_mode = 2
 script = ExtResource( 2 )
 
 [node name="GUI" type="Control" parent="."]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -69,10 +68,10 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GUI"]
-margin_left = 356.0
-margin_top = 195.0
-margin_right = 416.0
-margin_bottom = 251.0
+margin_left = 358.0
+margin_top = 208.0
+margin_right = 418.0
+margin_bottom = 264.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -89,23 +88,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LEVEL" type="Label" parent="GUI/VBoxContainer"]
+[node name="WAVE" type="Label" parent="GUI/VBoxContainer"]
 margin_top = 15.0
 margin_right = 60.0
 margin_bottom = 26.0
-custom_colors/font_color = Color( 1, 0.882353, 0.388235, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 1 )
-text = "LEVEL 01"
-align = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="WAVE" type="Label" parent="GUI/VBoxContainer"]
-margin_top = 30.0
-margin_right = 60.0
-margin_bottom = 41.0
 custom_colors/font_color = Color( 1, 0.882353, 0.388235, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
@@ -176,6 +162,7 @@ position = Vector2( -11, 2 )
 texture = ExtResource( 5 )
 
 [node name="INVENTORY" parent="GUI" instance=ExtResource( 6 )]
+GUIPath = NodePath("../..")
 
 [node name="Screentone" type="ColorRect" parent="GUI"]
 pause_mode = 2

@@ -3,7 +3,6 @@ extends Node2D
 var HP = 1000
 var dificulty = 1
 onready var max_hp = HP
-var level = 0
 var wave = 0
 var kicklevel = 1
 var money = 0
@@ -18,15 +17,11 @@ func _ready():
 	ResetVariables()
 
 func WinWave():
-	wave += 1
-	if wave > 5:
-		wave = 0
-		level += 1
+	wave -= 1
 
 func ResetVariables():
 	HP = 1000
 	max_hp = HP
-	level = 0
 	wave = 0
 	dificulty = 1
 	money = 0
@@ -37,7 +32,6 @@ func ResetVariables():
 func TownReset():
 	HP += 500
 	max_hp = 1000
-	level = 0
 	wave = 0
 	dificulty = 1
 	NewAmmoTownReset()

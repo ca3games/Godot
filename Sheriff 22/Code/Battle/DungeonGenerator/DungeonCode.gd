@@ -1,5 +1,9 @@
 extends Node2D
 
+export(int) var tumbleweedmax
+export(int) var basicenemymax
+export(int) var basicbossmax
+
 export(Vector2) var origin
 export(int) var NumberRooms
 export(Vector2) var MaxRoomSize
@@ -36,7 +40,7 @@ func _ready():
 	Player.global_position = tilemap.map_to_world(RoomCenters[0])
 	SpawnedPicked.append(RoomCenters[0])
 	SpawnEnemies()
-	SpawnBosses()
+	#SpawnBosses()
 	SpawnTumbleweeds()
 	SpawnedPicked.remove(0)
 	SummonEnemies()
@@ -63,19 +67,19 @@ func SpawnBosses():
 		AddSpawnLocation(NumberRooms - i - 1)
 
 func SpawnTumbleweeds():
-	for i in 20:
+	for i in tumbleweedmax:
 		var chance = randi()%3 +1
 		if chance == 2:
 			Tumbleweed()
 
 
 func SpawnBasicEnemyRoom(room):
-	for i in (Variables.level / 3) + 3:
+	for i in basicenemymax:
 		AddSpawnLocation(room)
 
 func SummonEnemies():
 	for i in len(SpawnedPicked):
-		if i < len(SpawnedPicked)-3:
+		if i < len(SpawnedPicked)-basicbossmax:
 			SpawnEnemy("BASIC", SpawnedPicked[i])
 		else:
 			SpawnEnemy("BOSS", SpawnedPicked[i])
@@ -110,7 +114,7 @@ func SpawnEnemy(id, pos):
 	var mapos = tilemap.map_to_world(pos)
 	match(id):
 		"BASIC" : EnemyManager.SpawnEnemy(mapos.x, mapos.y, BasicEnemy)
-		"BOSS" : EnemyManager.SpawnEnemy(mapos.x, mapos.y, BasicBoss)
+		"BOSS" : EnemyManager.SpawnEnemy(mapos.x, mapos.y, BasicBoss, true)
 
 func SpawnTiles():
 	for x in len(RoomTiles):

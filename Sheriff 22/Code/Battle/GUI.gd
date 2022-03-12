@@ -1,7 +1,13 @@
 extends CanvasLayer
 
-export(int) var left = 1
+export(bool) var nextprocgen
+export(bool) var setprocgenmax
+export(int) var procgennextMax  #How much times the proc gen will reset before using NextScene
+export(String) var NextProcGen
+export(int) var SwitchId
+var left = 1  #Enemies left
 var gameover = false
+
 
 export(String) var NextScene 
 export(NodePath) var PlayerPath
@@ -23,7 +29,6 @@ func _ready():
 	$GUI/MONEY.text = "GOLD : " + str(Variables.money)
 	$GUI/Lifebar.max_value = Variables.max_hp
 	$GUI/Lifebar.value = Variables.HP
-	$GUI/VBoxContainer/LEVEL.text = "LEVEL : " + str(Variables.level)
 	$GUI/VBoxContainer/WAVE.text = "WAVE : " + str(Variables.wave)
 	$GUI/Screentone.material.set("shader_param/position", -1.5)
 	yield(get_tree(), "idle_frame")
@@ -78,7 +83,19 @@ func DamageLifebar(damage):
 
 func _on_Tween_tween_all_completed():
 	if gameover:
-		get_tree().change_scene(NextScene)
+		if nextprocgen:
+			if setprocgenmax:
+				Variables.wave = procgennextMax
+				get_tree().change_scene(NextProcGen)
+			else:
+				Variables.wave -= 1
+				if Variables.wave < 1:
+					Variables.get_node("StoryInterruptors").Interruptors[SwitchId] = true
+					get_tree().change_scene(NextScene)
+				else:
+					get_tree().change_scene(NextProcGen)
+		else:
+			get_tree().change_scene(NextScene)
 	else:
 		get_tree().paused = false
 

@@ -4,6 +4,9 @@ onready var menuopen = false
 onready var id = 0
 onready var current = 0
 
+export(NodePath) var GUIPath
+onready var GUI = get_node(GUIPath)
+
 func _ready():
 	RESET()
 	
@@ -60,7 +63,7 @@ func _process(delta):
 		$Weapons.CleanSelection()
 		$Weapons.SetActive(current)
 		$Weapons.TurnH(id)
-		get_parent().SetAmmoBasic(Variables.GetAmmo(current))
+		GUI.SetAmmoBasic(Variables.GetAmmo(current))
 		
 	if left or right or up or down:
 		$Weapons.CleanSelection()

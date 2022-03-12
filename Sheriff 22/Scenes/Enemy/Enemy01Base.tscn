@@ -26,11 +26,6 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 9 ), ExtResource( 3 ), ExtResource( 12 ) ],
-"loop": true,
-"name": "Front D",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 2 ), ExtResource( 1 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "Side",
@@ -41,9 +36,14 @@ animations = [ {
 "name": "Back",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 19 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 9 ), ExtResource( 3 ), ExtResource( 12 ) ],
 "loop": true,
-"name": "Dead",
+"name": "Front D",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "Front",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ), ExtResource( 17 ), ExtResource( 18 ) ],
@@ -51,9 +51,9 @@ animations = [ {
 "name": "Back D",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 8 ) ],
+"frames": [ ExtResource( 19 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 7 ) ],
 "loop": true,
-"name": "Front",
+"name": "Dead",
 "speed": 5.0
 } ]
 
@@ -972,6 +972,9 @@ parameters/WALK/blend_position = Vector2( -0.207161, 0.827586 )
 [node name="FlockingAvoidance" parent="." index="9"]
 position = Vector2( 0, -13 )
 collision_layer = 4
+
+[node name="CollisionShape2D" parent="FlockingAvoidance" index="0"]
+position = Vector2( 0, 7 )
 
 [node name="Word" parent="." index="10"]
 position = Vector2( 6, -38 )

@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+export(bool) var Town = false
 export (NodePath) var SceneRootPath
 onready var SceneRoot = get_node(SceneRootPath)
 

@@ -1,6 +1,8 @@
 extends RigidBody2D
 
 export(int) var HP
+export(bool) var basiccoin
+export(bool) var bigcoin
 var delay = false
 onready var step = 255 / HP
 export(PackedScene) var BasicCoin
@@ -18,16 +20,17 @@ func Melee(d):
 	var color = Color8(id, id, id, 255)
 	$Tumbleweed.modulate = color
 	if HP < 1:
-		if randi()%4 +1 == 3:
-			SpawnCoin()
+		SpawnCoin()
 		self.queue_free()
 
 func SpawnCoin():
+	if not basiccoin and not bigcoin:
+		return
 	var coin
-	if randi()%5 +1 == 3:
-		coin = BigCoin.instance()
-	else:
+	if basiccoin:
 		coin = BasicCoin.instance()
+	if bigcoin:
+		coin = BigCoin.instance()
 	coin.global_position = self.global_position
 	get_parent().add_child(coin)
 

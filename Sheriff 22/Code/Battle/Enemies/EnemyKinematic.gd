@@ -1,6 +1,9 @@
 extends KinematicBody2D
 
-export(int) var level = 0
+enum basiccolor {mex1, mex2, mex3, mex4, white1, white2, white3, black1, black2, black3}
+
+export(basiccolor) var skin
+onready var level = skin
 export(int) var HP = 10
 export(int) var speed = 10
 export(int) var idletimer = 5

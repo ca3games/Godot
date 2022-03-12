@@ -32,7 +32,6 @@ func _ready():
 	SetColor(int(id))
 
 func SetColor(level):
-	print(level)
 	match(level):
 		0: ChangeColor(jacket01, Hat02, Pants01, Skin02)
 		1: ChangeColor(jacket01, Hat01, Pants01, Skin01)

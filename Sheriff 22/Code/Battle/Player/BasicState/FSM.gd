@@ -20,7 +20,8 @@ export(PackedScene) var Bullet
 
 func _ready():
 	yield(get_tree(), "idle_frame")
-	Root.GUI.SetAmmoBasic(Variables.GetAmmo(Variables.currentgun))
+	if !Root.Town:
+		Root.GUI.SetAmmoBasic(Variables.GetAmmo(Variables.currentgun))
 
 func _process(delta):
 	current.CheckInput()

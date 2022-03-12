@@ -3,14 +3,14 @@
 [ext_resource path="res://2D/pistolero/WALK/front/front walk2.png" type="Texture" id=1]
 [ext_resource path="res://2D/pistolero/WALK/front/front walk3.png" type="Texture" id=2]
 [ext_resource path="res://2D/pistolero/WALK/front/front walk1.png" type="Texture" id=3]
-[ext_resource path="res://2D/pistolero/WALK/back/back walk1.png" type="Texture" id=4]
+[ext_resource path="res://2D/pistolero/WALK/back/my back 1..png" type="Texture" id=4]
 [ext_resource path="res://2D/pistolero/WALK/back diagonal/diagonal back walk3.png" type="Texture" id=5]
 [ext_resource path="res://2D/pistolero/WALK/side/side walk2.png" type="Texture" id=6]
 [ext_resource path="res://2D/pistolero/WALK/front diagonal/front diagonal walk1.png" type="Texture" id=7]
-[ext_resource path="res://2D/pistolero/WALK/back/back walk2.png" type="Texture" id=8]
+[ext_resource path="res://2D/pistolero/WALK/back/my back2.png" type="Texture" id=8]
 [ext_resource path="res://2D/pistolero/WALK/back diagonal/diagonal back walk1.png" type="Texture" id=9]
 [ext_resource path="res://2D/pistolero/WALK/side/side walk3.png" type="Texture" id=10]
-[ext_resource path="res://2D/pistolero/WALK/back/back walk3.png" type="Texture" id=11]
+[ext_resource path="res://2D/pistolero/WALK/back/my back3.png" type="Texture" id=11]
 [ext_resource path="res://2D/pistolero/WALK/front diagonal/front diagonal walk2.png" type="Texture" id=12]
 [ext_resource path="res://2D/pistolero/WALK/side/side walk1.png" type="Texture" id=13]
 [ext_resource path="res://2D/pistolero/WALK/front diagonal/front diagonal walk3.png" type="Texture" id=14]
@@ -30,11 +30,6 @@ animations = [ {
 "name": "Side",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 8 ), ExtResource( 11 ) ],
-"loop": true,
-"name": "Back",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 9 ), ExtResource( 15 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "Back Diagonal",
@@ -48,6 +43,11 @@ animations = [ {
 "frames": [ ExtResource( 7 ), ExtResource( 12 ), ExtResource( 14 ) ],
 "loop": true,
 "name": "Front Diagonal",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 11 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "Espalda",
 "speed": 5.0
 } ]
 
@@ -63,7 +63,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ "Back" ]
+"values": [ "Espalda" ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite/AnimatedSprite3D:frame")
@@ -228,7 +228,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ "Back" ]
+"values": [ "Espalda" ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite/AnimatedSprite3D:frame")
@@ -515,7 +515,7 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Spatial" parent="."]
-transform = Transform( 1, -8.74228e-08, 0, 8.74228e-08, 1, -8.74228e-08, 7.64274e-15, 8.74228e-08, 1, 0, 0, 0 )
+transform = Transform( 1, -1.50996e-07, 5.0822e-21, 1.50996e-07, 1, -8.74228e-08, 1.32005e-14, 8.74228e-08, 1, 0, 0, 0 )
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Sprite"]
 transform = Transform( 2.5, 0, 0, 0, 2.49555, -0.14918, 0, 0.14918, 2.49555, 0, 0, 0 )
