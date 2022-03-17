@@ -2,6 +2,9 @@ extends CanvasLayer
 
 func _ready():
 	$GUI.show()
+	$GUI/Revolver/AmmoBasic.text = str(Variables.GetAmmo(Variables.currentgun))
+	$GUI/Lifebar.max_value = Variables.max_hp
+	$GUI/Lifebar.value = Variables.HP
 	StartTransition()
 	
 func StartTransition():

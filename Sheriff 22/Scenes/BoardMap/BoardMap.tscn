@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Code/Battle/BoardMap/Map.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/BoardMap/Tile.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/2D Towns/TownGUI.tscn" type="PackedScene" id=3]
+
+[node name="BoardMap" type="Node2D"]
+
+[node name="MapParent" type="Control" parent="."]
+margin_left = 89.0
+margin_top = 21.0
+margin_right = 129.0
+margin_bottom = 61.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Map" type="GridContainer" parent="MapParent"]
+rect_min_size = Vector2( 32, 32 )
+rect_scale = Vector2( 0.5, 0.5 )
+columns = 9
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+Tile = ExtResource( 2 )
+CameraPath = NodePath("../../Camera2D")
+CameraOff = Vector2( 0, -50 )
+
+[node name="PlayerDelay" type="Timer" parent="MapParent"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 193, 98 )
+current = true
+
+[node name="TownGUI" parent="." instance=ExtResource( 3 )]
+
+[connection signal="timeout" from="MapParent/PlayerDelay" to="MapParent/Map" method="_on_PlayerDelay_timeout"]

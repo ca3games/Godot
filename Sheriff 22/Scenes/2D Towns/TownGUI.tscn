@@ -1,8 +1,15 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Fonts/Baskic8-Bold.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://2D/Items/basic coin/coin_Nueva animación_03.png" type="Texture" id=2]
 [ext_resource path="res://Code/2D Town/TownGUI.gd" type="Script" id=3]
+[ext_resource path="res://2D/Items/revolver.png" type="Texture" id=4]
+[ext_resource path="res://2D/Lifebars/playerlifebar.png" type="Texture" id=5]
+
+[sub_resource type="DynamicFont" id=4]
+size = 14
+outline_size = 1
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 10
@@ -59,6 +66,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Revolver" type="Sprite" parent="GUI"]
+position = Vector2( 19, 45 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AmmoBasic" type="Label" parent="GUI/Revolver"]
+margin_left = 14.0
+margin_top = -4.0
+margin_right = 54.0
+margin_bottom = 12.0
+custom_colors/font_color = Color( 0.211765, 0.231373, 0.407843, 1 )
+custom_colors/font_outline_modulate = Color( 0.403922, 0.615686, 0.764706, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "99"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="MONEY" type="Label" parent="GUI"]
 margin_left = 24.0
 margin_top = 13.0
@@ -79,6 +106,7 @@ texture = ExtResource( 2 )
 
 [node name="Screentone" type="ColorRect" parent="GUI"]
 pause_mode = 2
+visible = false
 material = SubResource( 3 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -93,5 +121,21 @@ __meta__ = {
 
 [node name="Tween" type="Tween" parent="GUI"]
 pause_mode = 2
+
+[node name="Lifebar" type="TextureProgress" parent="GUI"]
+margin_left = 5.0
+margin_top = 63.0
+margin_right = 69.0
+margin_bottom = 103.0
+max_value = 500.0
+value = 50.0
+texture_under = ExtResource( 5 )
+texture_progress = ExtResource( 5 )
+tint_under = Color( 0.517647, 0.027451, 0.027451, 1 )
+tint_over = Color( 0.184314, 0.956863, 0.211765, 1 )
+tint_progress = Color( 0.184314, 0.956863, 0.211765, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="tween_all_completed" from="GUI/Tween" to="." method="_on_Tween_tween_all_completed"]

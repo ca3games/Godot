@@ -35,4 +35,8 @@ position = Vector2( 211, -133 )
 position = Vector2( 330, -92 )
 NextScene = "res://Scenes/Battle/Maps/Level01/1.tscn"
 
+[node name="Portal2" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 304, -248 )
+NextScene = "res://Scenes/Battle/Maps/Level01/1.tscn"
+
 [node name="TownGUI" parent="." instance=ExtResource( 5 )]

@@ -39,6 +39,7 @@ position = Vector2( 213, 183 )
 SceneRootPath = NodePath("../..")
 BulletManagerPath = NodePath("../PlayerBullets")
 GUIPath = NodePath("../../GUI")
+kickdamage = 5
 
 [node name="Camera2D" type="Camera2D" parent="YSort/Player"]
 current = true
@@ -78,6 +79,19 @@ __meta__ = {
 "_edit_lock_": true
 }
 GUIPath = NodePath("../../GUI")
+PlayerPath = NodePath("../Player")
+MapPath = NodePath("../Navigation2D")
+EnemyBulletsPath = NodePath("../EnemyBullets")
+
+[node name="Animals" type="YSort" parent="YSort"]
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+GUIPath = NodePath("../../GUI")
+PlayerPath = NodePath("../Player")
+MapPath = NodePath("../Navigation2D")
+EnemyBulletsPath = NodePath("../EnemyBullets")
 
 [node name="GUI" parent="." instance=ExtResource( 3 )]
 PlayerPath = NodePath("../YSort/Player")

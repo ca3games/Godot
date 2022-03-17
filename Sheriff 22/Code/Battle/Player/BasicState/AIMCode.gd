@@ -13,19 +13,24 @@ onready var down = get_node(DownPath)
 
 
 func _on_DownRight_body_entered(body):
-	body.AVOIDS(downright.global_position)
+	if body.is_in_group("ENEMY"):
+		body.AVOIDS(downright.global_position)
 
 func _on_Down_body_entered(body):
-	body.AVOIDS(down.global_position)
+	if body.is_in_group("ENEMY"):
+		body.AVOIDS(down.global_position)
 
 
 func _on_Side_body_entered(body):
-	body.AVOIDS(side.global_position)
+	if body.is_in_group("ENEMY"):
+		body.AVOIDS(side.global_position)
 
 
 func _on_UpRight_body_entered(body):
-	body.AVOIDS(upright.global_position)
+	if body.is_in_group("ENEMY"):
+		body.AVOIDS(upright.global_position)
 
 
 func _on_Up_body_entered(body):
-	body.AVOIDS(up.global_position)
+	if body.is_in_group("ENEMY"):
+		body.AVOIDS(up.global_position)

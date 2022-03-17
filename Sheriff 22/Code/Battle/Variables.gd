@@ -4,6 +4,8 @@ var HP = 1000
 var dificulty = 1
 onready var max_hp = HP
 var wave = 0
+var boardwave = 0
+var level = 1
 var kicklevel = 1
 var money = 0
 var guns = []
@@ -18,6 +20,12 @@ func _ready():
 
 func WinWave():
 	wave -= 1
+
+func EndBattle():
+	boardwave += 1
+	if boardwave > 3:
+		boardwave = 0
+		level += 1
 
 func ResetVariables():
 	HP = 1000

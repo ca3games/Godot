@@ -5,7 +5,7 @@ onready var battle = "res://Scenes/Battle/Maps/Level01/1.tscn"
 onready var PreBattlePicture = "res://Scenes/Story/STORY picture.tscn"
 onready var VideoIntro1 = "res://Scenes/Story/Video1.tscn"
 onready var Title = "res://Scenes/Game.tscn"
-onready var Town = "res://Scenes/2D Towns/Town/Town1.tscn"
+onready var Town = "res://Scenes/BoardMap/BoardMap.tscn"
 
 func _on_Start_pressed():
 	get_tree().change_scene(story)

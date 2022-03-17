@@ -3,17 +3,12 @@ extends "res://Code/Battle/Enemies/BASE STATE.gd"
 var stop = 1.5
 var points = []
 
-var flocking = 0
-
 func Physics(delta):
 	FSM.state_machine.travel("WALK")
 	FSM.AnimTree.set("parameters/WALK/blend_position", FSM.direction)
 
 	var playerpos 
-	if flocking > 0:
-		playerpos = FSM.Root.get_parent().Player.global_position - (FSM.Root.startingpos / 10)
-	else:
-		playerpos = FSM.Root.get_parent().Player.global_position
+	playerpos = FSM.Root.get_parent().Player.global_position - (FSM.Root.startingpos / 10)
 	points = FSM.Root.get_parent().MapNavigation.get_simple_path(FSM.Root.global_position, playerpos)
 	
 	if points.size() > 1:
@@ -30,8 +25,8 @@ func _draw():
 
 
 func _on_FlockingAvoidance_body_entered(body):
-	flocking += 1
+	pass
 
 
 func _on_FlockingAvoidance_body_exited(body):
-	flocking -= 1
+	pass
