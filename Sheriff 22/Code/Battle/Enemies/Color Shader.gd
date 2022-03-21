@@ -27,9 +27,8 @@ export(Color) var Skin03
 
 func _ready():
 	yield(get_tree(), "idle_frame")
-	level = $"../".level
-	var id = clamp(level, 0, 10)
-	SetColor(int(id))
+	level = randi()%10
+	SetColor(level)
 
 func SetColor(level):
 	match(level):

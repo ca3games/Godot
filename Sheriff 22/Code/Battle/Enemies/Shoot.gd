@@ -10,11 +10,11 @@ func SpawnBullet():
 	tmp.global_position = spawn
 	var normal = (spawn - $"../../../".Player.global_position - $"../../../".Player.OffsetBody).normalized()
 	tmp.direction = normal
-	var damage = ($"../../".level * 2) * Variables.dificulty
+	var damage = $"../../".damage + Variables.level * 2
 	if boss:
 		damage *= 5
 	tmp.damage = damage
-	tmp.speed = (($"../../".level / 2) / 5 + 1 ) * Variables.dificulty
+	tmp.speed = Variables.level * $"../../".speed
 	$"../../../".EnemyBullet.add_child(tmp)
 
 

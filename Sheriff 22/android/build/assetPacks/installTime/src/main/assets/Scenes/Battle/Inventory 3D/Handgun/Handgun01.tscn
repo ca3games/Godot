@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://3D/Items/Handgun01/gun.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://Code/Battle/Inventory/3D Items/Handgun01.gd" type="Script" id=2]
+
+[node name="Spatial" type="Spatial"]
+script = ExtResource( 2 )
+current = true
+rot = 0.1
+
+[node name="gun" type="MeshInstance" parent="."]
+mesh = ExtResource( 1 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( -0.793513, 0.157505, -0.587818, 0, 0.965926, 0.258819, 0.608554, 0.205376, -0.766474, -11.2416, 5.77509, -14.3636 )
+current = true
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( -0.872453, 0, -0.488697, 0, 1, 0, 0.488697, 0, -0.872453, 0, 17.9396, 0 )

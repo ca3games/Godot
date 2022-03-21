@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://2D/Textures/brenda starr texture.jpg" type="Texture" id=1]
+[ext_resource path="res://Fonts/Baskic8-Bold.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://2D/pistolero/WALK/front diagonal/front diagonal walk2.png" type="Texture" id=3]
+[ext_resource path="res://Code/Level Manager/Game.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 2 )
+
+[node name="STORY" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="BrendaStarrTexture" type="Sprite" parent="."]
+position = Vector2( 214, 127 )
+scale = Vector2( 0.609791, 0.257812 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StartBattle" type="Button" parent="."]
+margin_left = 322.0
+margin_top = 203.0
+margin_right = 363.0
+margin_bottom = 224.0
+text = ">>"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 182.0
+margin_top = 77.0
+margin_right = 373.0
+margin_bottom = 130.0
+custom_colors/font_color = Color( 0.960784, 0.827451, 0.0431373, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Are u ready to fight?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dificulty" type="OptionButton" parent="."]
+margin_left = 177.0
+margin_top = 204.0
+margin_right = 259.0
+margin_bottom = 224.0
+text = "Dificulty"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FrontDiagonalWalk1" type="Sprite" parent="."]
+position = Vector2( 93, 108 )
+scale = Vector2( 3.40625, 3.45312 )
+texture = ExtResource( 3 )
+
+[connection signal="pressed" from="StartBattle" to="." method="_on_StartBattle_pressed"]
+[connection signal="item_selected" from="Dificulty" to="." method="_on_Dificulty_item_selected"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/battle theme 03.ogg-ecc3b5220d5497d877662dc12c60af11.oggstr"
+
+[deps]
+
+source_file="res://Music/Songs/battle theme 03.ogg"
+dest_files=[ "res://.import/battle theme 03.ogg-ecc3b5220d5497d877662dc12c60af11.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

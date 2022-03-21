@@ -1,0 +1,90 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Music/shoot.ogg" type="AudioStream" id=1]
+[ext_resource path="res://Code/Battle/Sounds/Sounds.gd" type="Script" id=2]
+[ext_resource path="res://Music/Grunts/grunt01.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Music/Grunts/grunt03.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Music/Grunts/grunt04.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Music/Grunts/grunt05.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Music/Grunts/grunt02.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Music/Sounds/ammo melody 01.wav" type="AudioStream" id=8]
+[ext_resource path="res://Music/Sounds/hit03.ogg" type="AudioStream" id=9]
+[ext_resource path="res://Music/Sounds/hit02.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Music/Sounds/hit01.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Music/auch.ogg" type="AudioStream" id=12]
+[ext_resource path="res://Music/Songs/battle theme 01.ogg" type="AudioStream" id=13]
+[ext_resource path="res://Music/Songs/battle theme 02.ogg" type="AudioStream" id=14]
+[ext_resource path="res://Music/Songs/battle theme 03.ogg" type="AudioStream" id=15]
+
+[node name="Sounds" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Battle" type="Node2D" parent="."]
+
+[node name="Gun" type="AudioStreamPlayer" parent="Battle"]
+stream = ExtResource( 1 )
+bus = "GunShot"
+
+[node name="Grunts" type="Node2D" parent="Battle"]
+
+[node name="1" type="AudioStreamPlayer" parent="Battle/Grunts"]
+stream = ExtResource( 3 )
+bus = "Grunts low"
+
+[node name="2" type="AudioStreamPlayer" parent="Battle/Grunts"]
+stream = ExtResource( 7 )
+bus = "Grunts low"
+
+[node name="3" type="AudioStreamPlayer" parent="Battle/Grunts"]
+stream = ExtResource( 4 )
+bus = "Grunts low"
+
+[node name="4" type="AudioStreamPlayer" parent="Battle/Grunts"]
+stream = ExtResource( 5 )
+bus = "Grunts low"
+
+[node name="5" type="AudioStreamPlayer" parent="Battle/Grunts"]
+stream = ExtResource( 6 )
+bus = "Grunts low"
+
+[node name="BasicAmmo" type="AudioStreamPlayer" parent="Battle"]
+stream = ExtResource( 8 )
+bus = "AmmoMelody"
+
+[node name="Hits" type="Node2D" parent="Battle"]
+
+[node name="1" type="AudioStreamPlayer" parent="Battle/Hits"]
+stream = ExtResource( 11 )
+bus = "Hits"
+
+[node name="2" type="AudioStreamPlayer" parent="Battle/Hits"]
+stream = ExtResource( 10 )
+volume_db = 5.244
+bus = "Hits"
+
+[node name="3" type="AudioStreamPlayer" parent="Battle/Hits"]
+stream = ExtResource( 9 )
+volume_db = 5.244
+bus = "Hits"
+
+[node name="AuchPlayer" type="AudioStreamPlayer" parent="Battle"]
+stream = ExtResource( 12 )
+bus = "AuchPlayer"
+
+[node name="Songs" type="Node2D" parent="."]
+
+[node name="Battle1" type="AudioStreamPlayer" parent="Songs"]
+stream = ExtResource( 13 )
+bus = "BattleSong"
+
+[node name="Battle2" type="AudioStreamPlayer" parent="Songs"]
+stream = ExtResource( 14 )
+bus = "BattleSong"
+
+[node name="Battle3" type="AudioStreamPlayer" parent="Songs"]
+stream = ExtResource( 15 )
+bus = "BattleSong"
+
+[connection signal="finished" from="Songs/Battle1" to="." method="_on_Battle1_finished"]
+[connection signal="finished" from="Songs/Battle2" to="." method="_on_Battle2_finished"]
+[connection signal="finished" from="Songs/Battle3" to="." method="_on_Battle3_finished"]

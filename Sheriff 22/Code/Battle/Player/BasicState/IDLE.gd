@@ -5,9 +5,11 @@ func Update(delta):
 	if FSM.direction != Vector2.ZERO:
 		FSM.ChangeState("WALK")
 
-	if Input.is_action_just_released("SHOOT") and Variables.GetAmmo(Variables.currentgun) >= 1 and !FSM.Root.Town:
+	if Input.is_action_just_released("SHOOT") and Variables.GetAmmo() >= 1 and !FSM.Root.Town:
 		Variables.ConsumeAmmo()
-		FSM.Root.GUI.SetAmmoBasic(Variables.GetAmmo(Variables.currentgun))
+		Variables.AddScore(1)
+		FSM.Root.GUI.UpdateScore()
+		FSM.Root.GUI.SetAmmoBasic(Variables.GetAmmo())
 		$"/root/Battle/Sounds".GunShoot()
 		ShootBullets()
 	

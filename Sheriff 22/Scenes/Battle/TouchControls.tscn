@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://2D/Mobile/Arrow.png" type="Texture" id=1]
+[ext_resource path="res://2D/Mobile/A button.png" type="Texture" id=2]
+[ext_resource path="res://2D/Mobile/B button.png" type="Texture" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.00392157, 0.00784314, 0.0784314, 0.47451 )
+
+[sub_resource type="Theme" id=2]
+Panel/styles/panel = SubResource( 1 )
+
+[node name="Touch" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = -7.0
+margin_top = 429.0
+margin_right = 370.0
+margin_bottom = 649.0
+theme = SubResource( 2 )
+
+[node name="LEFT" type="TouchScreenButton" parent="."]
+position = Vector2( 8, 555 )
+rotation = -1.5708
+normal = ExtResource( 1 )
+passby_press = true
+action = "LEFT"
+
+[node name="UP" type="TouchScreenButton" parent="."]
+position = Vector2( 53, 444 )
+normal = ExtResource( 1 )
+passby_press = true
+action = "UP"
+
+[node name="DOWN" type="TouchScreenButton" parent="."]
+position = Vector2( 103, 616 )
+rotation = 3.14159
+normal = ExtResource( 1 )
+passby_press = true
+action = "DOWN"
+
+[node name="RIGHT" type="TouchScreenButton" parent="."]
+position = Vector2( 150, 504 )
+rotation = 1.5708
+normal = ExtResource( 1 )
+passby_press = true
+action = "RIGHT"
+
+[node name="A" type="TouchScreenButton" parent="."]
+position = Vector2( 199, 551 )
+normal = ExtResource( 2 )
+passby_press = true
+action = "SHOOT"
+
+[node name="B" type="TouchScreenButton" parent="."]
+position = Vector2( 259, 502 )
+normal = ExtResource( 3 )
+passby_press = true
+action = "MELEE"

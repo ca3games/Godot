@@ -1,0 +1,395 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Fonts/Baskic8-Bold.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://Fonts/Chonk.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://2D/Items/bigger coin/3 coins_Nueva animación_05.png" type="Texture" id=3]
+[ext_resource path="res://Code/Shop/SHOP.gd" type="Script" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.0235294, 0.0352941, 0.2, 1 )
+
+[sub_resource type="Theme" id=2]
+Panel/styles/panel = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 25
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 35
+font_data = ExtResource( 2 )
+
+[node name="SHOP" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = -3.0
+margin_top = -6.0
+margin_right = 368.0
+margin_bottom = 648.0
+theme = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Items" type="GridContainer" parent="."]
+margin_left = 39.0
+margin_top = 150.0
+margin_right = 333.0
+margin_bottom = 347.0
+columns = 5
+
+[node name="Label" type="Label" parent="Items"]
+margin_right = 114.0
+margin_bottom = 28.0
+custom_colors/font_color = Color( 1, 0.870588, 0.407843, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "20 AMMO"
+
+[node name="VSeparator" type="VSeparator" parent="Items"]
+margin_left = 118.0
+margin_right = 128.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 10, 0 )
+
+[node name="Label7" type="Label" parent="Items"]
+margin_left = 132.0
+margin_right = 178.0
+margin_bottom = 28.0
+custom_colors/font_color = Color( 1, 0.870588, 0.407843, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "50"
+
+[node name="VSeparator7" type="VSeparator" parent="Items"]
+margin_left = 182.0
+margin_right = 222.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 40, 0 )
+
+[node name="20ammo" type="Button" parent="Items"]
+margin_left = 226.0
+margin_right = 264.0
+margin_bottom = 28.0
+text = "BUY"
+
+[node name="Label2" type="Label" parent="Items"]
+margin_top = 32.0
+margin_right = 114.0
+margin_bottom = 60.0
+custom_colors/font_color = Color( 1, 0.870588, 0.407843, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "50 AMMO"
+
+[node name="VSeparator2" type="VSeparator" parent="Items"]
+margin_left = 118.0
+margin_top = 32.0
+margin_right = 128.0
+margin_bottom = 60.0
+
+[node name="Label8" type="Label" parent="Items"]
+margin_left = 132.0
+margin_top = 32.0
+margin_right = 178.0
+margin_bottom = 60.0
+custom_colors/font_color = Color( 1, 0.870588, 0.407843, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "150"
+
+[node name="VSeparator8" type="VSeparator" parent="Items"]
+margin_left = 182.0
+margin_top = 32.0
+margin_right = 222.0
+margin_bottom = 60.0
+
+[node name="50ammo" type="Button" parent="Items"]
+margin_left = 226.0
+margin_top = 32.0
+margin_right = 264.0
+margin_bottom = 60.0
+text = "BUY"
+
+[node name="Label3" type="Label" parent="Items"]
+margin_top = 64.0
+margin_right = 114.0
+margin_bottom = 92.0
+custom_colors/font_color = Color( 1, 0.870588, 0.407843, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "99 AMMO"
+
+[node name="VSeparator3" type="VSeparator" parent="Items"]
+margin_left = 118.0
+margin_top = 64.0
+margin_right = 128.0
+margin_bottom = 92.0
+
+[node name="Label9" type="Label" parent="Items"]
+margin_left = 132.0
+margin_top = 64.0
+margin_right = 178.0
+margin_bottom = 92.0
+custom_colors/font_color = Color( 1, 0.870588, 0.407843, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "250"
+
+[node name="VSeparator9" type="VSeparator" parent="Items"]
+margin_left = 182.0
+margin_top = 64.0
+margin_right = 222.0
+margin_bottom = 92.0
+
+[node name="99ammo" type="Button" parent="Items"]
+margin_left = 226.0
+margin_top = 64.0
+margin_right = 264.0
+margin_bottom = 92.0
+text = "BUY"
+
+[node name="Label4" type="Label" parent="Items"]
+margin_top = 96.0
+margin_right = 114.0
+margin_bottom = 124.0
+custom_colors/font_color = Color( 1, 0.870588, 0.407843, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "20 HP"
+
+[node name="VSeparator4" type="VSeparator" parent="Items"]
+margin_left = 118.0
+margin_top = 96.0
+margin_right = 128.0
+margin_bottom = 124.0
+
+[node name="Label10" type="Label" parent="Items"]
+margin_left = 132.0
+margin_top = 96.0
+margin_right = 178.0
+margin_bottom = 124.0
+custom_colors/font_color = Color( 1, 0.870588, 0.407843, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "100"
+
+[node name="VSeparator10" type="VSeparator" parent="Items"]
+margin_left = 182.0
+margin_top = 96.0
+margin_right = 222.0
+margin_bottom = 124.0
+
+[node name="20hp" type="Button" parent="Items"]
+margin_left = 226.0
+margin_top = 96.0
+margin_right = 264.0
+margin_bottom = 124.0
+text = "BUY"
+
+[node name="Label5" type="Label" parent="Items"]
+margin_top = 128.0
+margin_right = 114.0
+margin_bottom = 156.0
+custom_colors/font_color = Color( 1, 0.870588, 0.407843, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "50 HP"
+
+[node name="VSeparator5" type="VSeparator" parent="Items"]
+margin_left = 118.0
+margin_top = 128.0
+margin_right = 128.0
+margin_bottom = 156.0
+
+[node name="Label11" type="Label" parent="Items"]
+margin_left = 132.0
+margin_top = 128.0
+margin_right = 178.0
+margin_bottom = 156.0
+custom_colors/font_color = Color( 1, 0.870588, 0.407843, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "250"
+
+[node name="VSeparator11" type="VSeparator" parent="Items"]
+margin_left = 182.0
+margin_top = 128.0
+margin_right = 222.0
+margin_bottom = 156.0
+
+[node name="50hp" type="Button" parent="Items"]
+margin_left = 226.0
+margin_top = 128.0
+margin_right = 264.0
+margin_bottom = 156.0
+text = "BUY"
+
+[node name="Label6" type="Label" parent="Items"]
+margin_top = 160.0
+margin_right = 114.0
+margin_bottom = 188.0
+custom_colors/font_color = Color( 1, 0.870588, 0.407843, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "99 HP"
+
+[node name="VSeparator6" type="VSeparator" parent="Items"]
+margin_left = 118.0
+margin_top = 160.0
+margin_right = 128.0
+margin_bottom = 188.0
+
+[node name="Label12" type="Label" parent="Items"]
+margin_left = 132.0
+margin_top = 160.0
+margin_right = 178.0
+margin_bottom = 188.0
+custom_colors/font_color = Color( 1, 0.870588, 0.407843, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "400"
+
+[node name="VSeparator12" type="VSeparator" parent="Items"]
+margin_left = 182.0
+margin_top = 160.0
+margin_right = 222.0
+margin_bottom = 188.0
+
+[node name="99hp" type="Button" parent="Items"]
+margin_left = 226.0
+margin_top = 160.0
+margin_right = 264.0
+margin_bottom = 188.0
+text = "BUY"
+
+[node name="Items2" type="GridContainer" parent="."]
+margin_left = 42.0
+margin_top = 422.0
+margin_right = 336.0
+margin_bottom = 493.0
+columns = 5
+
+[node name="Label" type="Label" parent="Items2"]
+margin_right = 55.0
+margin_bottom = 28.0
+custom_colors/font_color = Color( 1, 0.870588, 0.407843, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "GUN"
+
+[node name="VSeparator" type="VSeparator" parent="Items2"]
+margin_left = 59.0
+margin_right = 69.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 10, 0 )
+
+[node name="Label7" type="Label" parent="Items2"]
+margin_left = 73.0
+margin_right = 118.0
+margin_bottom = 28.0
+custom_colors/font_color = Color( 1, 0.870588, 0.407843, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "800"
+
+[node name="VSeparator7" type="VSeparator" parent="Items2"]
+margin_left = 122.0
+margin_right = 162.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 40, 0 )
+
+[node name="gunlevelup" type="Button" parent="Items2"]
+margin_left = 166.0
+margin_right = 204.0
+margin_bottom = 28.0
+text = "BUY"
+
+[node name="Label2" type="Label" parent="Items2"]
+margin_top = 32.0
+margin_right = 55.0
+margin_bottom = 60.0
+custom_colors/font_color = Color( 1, 0.870588, 0.407843, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "KICK"
+
+[node name="VSeparator2" type="VSeparator" parent="Items2"]
+margin_left = 59.0
+margin_top = 32.0
+margin_right = 69.0
+margin_bottom = 60.0
+
+[node name="Label8" type="Label" parent="Items2"]
+margin_left = 73.0
+margin_top = 32.0
+margin_right = 118.0
+margin_bottom = 60.0
+custom_colors/font_color = Color( 1, 0.870588, 0.407843, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "500"
+
+[node name="VSeparator8" type="VSeparator" parent="Items2"]
+margin_left = 122.0
+margin_top = 32.0
+margin_right = 162.0
+margin_bottom = 60.0
+
+[node name="kicklevelup" type="Button" parent="Items2"]
+margin_left = 166.0
+margin_top = 32.0
+margin_right = 204.0
+margin_bottom = 60.0
+text = "BUY"
+
+[node name="Label" type="Label" parent="."]
+margin_left = 37.0
+margin_top = 96.0
+margin_right = 77.0
+margin_bottom = 110.0
+custom_colors/font_color = Color( 0.415686, 0.796078, 1, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "buy"
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 40.0
+margin_top = 369.0
+margin_right = 261.0
+margin_bottom = 388.0
+custom_colors/font_color = Color( 0.415686, 0.796078, 1, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "UPGRADES"
+
+[node name="Next" type="Button" parent="."]
+margin_left = 261.0
+margin_top = 581.0
+margin_right = 325.0
+margin_bottom = 611.0
+text = "NEXT"
+
+[node name="3CoinsNuevaAnimación05" type="Sprite" parent="."]
+position = Vector2( 59, 575 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 107.0
+margin_top = 544.0
+margin_right = 162.0
+margin_bottom = 572.0
+custom_colors/font_color = Color( 1, 0.870588, 0.407843, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "MONEY"
+
+[node name="MONEYTEXT" type="Label" parent="."]
+margin_left = 107.0
+margin_top = 574.0
+margin_right = 223.0
+margin_bottom = 615.0
+custom_colors/font_color = Color( 1, 0.870588, 0.407843, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "99"
+
+[node name="500freecoins" type="Button" parent="."]
+margin_left = 227.0
+margin_top = 92.0
+margin_right = 341.0
+margin_bottom = 122.0
+text = "FREE 500 COINS"
+
+[connection signal="button_up" from="Items/20ammo" to="." method="_on_20ammo_button_up"]
+[connection signal="button_up" from="Items/50ammo" to="." method="_on_50ammo_button_up"]
+[connection signal="button_up" from="Items/99ammo" to="." method="_on_99ammo_button_up"]
+[connection signal="button_up" from="Items/20hp" to="." method="_on_20hp_button_up"]
+[connection signal="button_up" from="Items/50hp" to="." method="_on_50hp_button_up"]
+[connection signal="button_up" from="Items/99hp" to="." method="_on_99hp_button_up"]
+[connection signal="button_up" from="Items2/gunlevelup" to="." method="_on_gunlevelup_button_up"]
+[connection signal="button_up" from="Items2/kicklevelup" to="." method="_on_kicklevelup_button_up"]
+[connection signal="button_up" from="Next" to="." method="_on_Next_button_up"]
+[connection signal="button_up" from="500freecoins" to="." method="_on_500freecoins_button_up"]

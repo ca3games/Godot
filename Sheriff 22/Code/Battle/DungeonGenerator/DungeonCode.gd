@@ -33,6 +33,9 @@ export(PackedScene) var tumbleweed01
 
 func _ready():
 	randomize()
+	NumberRooms = Variables.level + 1
+	basicbossmax = int(Variables.level / 5)
+	basicenemymax = Variables.level + 3
 	yield(get_tree(), "idle_frame")
 	CreateMap()
 	SpawnTiles()
@@ -40,7 +43,6 @@ func _ready():
 	Player.global_position = tilemap.map_to_world(RoomCenters[0])
 	SpawnedPicked.append(RoomCenters[0])
 	SpawnEnemies()
-	#SpawnBosses()
 	SpawnTumbleweeds()
 	SpawnedPicked.remove(0)
 	SummonEnemies()
@@ -88,7 +90,7 @@ func Tumbleweed():
 	for x in Paths:
 		var id = len(x)
 		var pos = Vector2.ZERO
-		var y = int(rand_range(1, id))
+		var y = int(rand_range(1, id-1))
 		pos = x[y]
 		var mapos = tilemap.map_to_world(pos)
 		EnemyManager.SpawnPlant(mapos.x, mapos.y, tumbleweed01)
@@ -135,6 +137,14 @@ func SetWall(x, y):
 	SetRock(x-1, y+1)
 	SetRock(x+1, y-1)
 	SetRock(x+1, y+1)
+	SetRock(x-2, y)
+	SetRock(x+2, y)
+	SetRock(x, y-2)
+	SetRock(x, y+2)
+	SetRock(x-2, y-2)
+	SetRock(x-2, y+2)
+	SetRock(x+2, y-2)
+	SetRock(x+2, y+2)
 
 func SetRock(x, y):
 	if tilemap.get_cell(x, y) == -1:

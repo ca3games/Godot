@@ -34,4 +34,9 @@ func ShootBullets():
 	var tmp = FSM.Bullet.instance()
 	tmp.global_position = FSM.Root.get_node("SpawnBulletPos").global_position
 	FSM.Root.BulletManager.add_child(tmp)
-	tmp.SetSpeed(FSM.old_dir)
+	if FSM.Root.Lock.visible:
+		var a = FSM.Root.Lock.global_position - FSM.Root.global_position
+		var angle = a.normalized()
+		tmp.SetSpeed(Vector2(angle.x, angle.y * -1))
+	else:
+		tmp.SetSpeed(FSM.old_dir)

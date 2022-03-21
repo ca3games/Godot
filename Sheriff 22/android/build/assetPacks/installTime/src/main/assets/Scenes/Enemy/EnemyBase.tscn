@@ -1,0 +1,93 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Code/Battle/Enemies/FSM.gd" type="Script" id=1]
+[ext_resource path="res://Code/Battle/Enemies/IDLE.gd" type="Script" id=2]
+[ext_resource path="res://Code/Battle/Enemies/CHASE.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Enemy/DEAD.gd" type="Script" id=4]
+[ext_resource path="res://Code/Battle/Enemies/EnemyKinematic.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/Enemy/Word.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Player/AmmoBasic.tscn" type="PackedScene" id=7]
+[ext_resource path="res://2D/Lifebars/lifebar.png" type="Texture" id=8]
+[ext_resource path="res://Code/Battle/Enemies/Shoot.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/Enemy/Bullet.tscn" type="PackedScene" id=10]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 7.0
+
+[node name="Enemy" type="KinematicBody2D" groups=["ENEMY"]]
+collision_layer = 4
+collision_mask = 23
+script = ExtResource( 5 )
+
+[node name="MySprites" type="Node2D" parent="."]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="MySprites"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="FSM" type="Node2D" parent="."]
+script = ExtResource( 1 )
+RootPath = NodePath("..")
+
+[node name="IDLE" type="Node2D" parent="FSM"]
+script = ExtResource( 2 )
+
+[node name="CHASE" type="Node2D" parent="FSM"]
+script = ExtResource( 3 )
+
+[node name="DEAD" type="Node2D" parent="FSM"]
+script = ExtResource( 4 )
+FSMPath = NodePath("..")
+AmmoBasic = ExtResource( 7 )
+
+[node name="Return to Idle" type="Timer" parent="."]
+
+[node name="Chase" type="Timer" parent="."]
+
+[node name="Sprites" type="AnimationPlayer" parent="."]
+
+[node name="LeftRight" type="AnimationPlayer" parent="."]
+
+[node name="AnimTree" type="AnimationTree" parent="."]
+anim_player = NodePath("../Sprites")
+
+[node name="FlockingAvoidance" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlockingAvoidance"]
+shape = SubResource( 2 )
+
+[node name="Word" parent="." instance=ExtResource( 6 )]
+position = Vector2( 4, -31 )
+
+[node name="AvoidStop" type="Timer" parent="."]
+
+[node name="HPLifebar" type="TextureProgress" parent="."]
+margin_left = -5.0
+margin_top = 8.0
+margin_right = 23.0
+margin_bottom = 19.0
+texture_under = ExtResource( 8 )
+texture_progress = ExtResource( 8 )
+tint_under = Color( 0.607843, 0.0823529, 0.0823529, 1 )
+tint_progress = Color( 0.501961, 0.894118, 0.235294, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bullet" type="Timer" parent="."]
+
+[node name="Shoot" type="Node2D" parent="Bullet"]
+script = ExtResource( 9 )
+BasicBullet = ExtResource( 10 )
+
+[node name="SpawnShoot" type="Position2D" parent="Bullet/Shoot"]
+position = Vector2( 0, -4 )
+
+[connection signal="body_entered" from="FlockingAvoidance" to="FSM/CHASE" method="_on_FlockingAvoidance_body_entered"]
+[connection signal="body_exited" from="FlockingAvoidance" to="FSM/CHASE" method="_on_FlockingAvoidance_body_exited"]
+[connection signal="timeout" from="AvoidStop" to="." method="_on_AvoidStop_timeout"]

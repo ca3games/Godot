@@ -8,8 +8,12 @@ func ChangePic(p):
 
 func UpdatePic():
 	match(pic):
-		"EMPTY" : $Tile.frame = 0
-		"BASIC ENEMY" : $Tile.frame = 1
+		"EMPTY" : 
+			$Tile.frame = 0
+			$ID.text = str(id)
+		"BASIC ENEMY" : 
+			$Tile.frame = 1
+			$ID.text = str(id)
 		"TOWN" : $Tile.frame = 2
 		"PLAYER" : $Tile.frame = 3
 		"GOLD" : $Tile.frame = 4

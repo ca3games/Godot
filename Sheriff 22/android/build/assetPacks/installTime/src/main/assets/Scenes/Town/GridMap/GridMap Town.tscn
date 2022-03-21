@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Town/GridMap/Fence01.tscn" type="PackedScene" id=1]
+[ext_resource path="res://3D/Town/Fence corner.obj" type="ArrayMesh" id=2]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.509202, 0.204658, 0.0474674 )
+
+[sub_resource type="BoxShape" id=10]
+extents = Vector3( 0.238178, 0.0724796, 0.515828 )
+
+[node name="GridMap" type="Spatial"]
+
+[node name="fence_classicFarm" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.475853 )
+
+[node name="Fence01" type="StaticBody" parent="fence_classicFarm"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.499217 )
+
+[node name="CollisionShape" type="CollisionShape" parent="fence_classicFarm/Fence01"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.200435, -0.0199537 )
+shape = SubResource( 1 )
+
+[node name="Fence corner" type="MeshInstance" parent="."]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.837557, 0, 1.46247 )
+mesh = ExtResource( 2 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+
+[node name="StaticBody" type="StaticBody" parent="Fence corner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.26711e-08, -0.976202, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Fence corner/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18675, 0.43575, 0 )
+shape = SubResource( 10 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Fence corner/StaticBody"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.18675, 5.38975e-05, -0.465592 )
+shape = SubResource( 10 )

@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://2D/Items/bigger coin/3 coins_Nueva animación_05.png" type="Texture" id=1]
+[ext_resource path="res://Fonts/Chonk.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://Code/Town/GUITown.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+outline_size = 1
+font_data = ExtResource( 2 )
+
+[node name="GUI" type="CanvasLayer"]
+script = ExtResource( 3 )
+
+[node name="Coins" type="Label" parent="."]
+margin_left = 32.0
+margin_top = 9.0
+margin_right = 116.0
+margin_bottom = 25.0
+custom_colors/font_color = Color( 0.956863, 0.87451, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0.639216, 0.309804, 0.0156863, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "99 gold"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="3CoinsNuevaAnimación05" type="Sprite" parent="."]
+position = Vector2( 16, 16 )
+texture = ExtResource( 1 )

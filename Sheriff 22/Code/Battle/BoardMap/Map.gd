@@ -5,18 +5,23 @@ var Map = []
 onready var mapvars = Variables.get_node("BoardGame")
 onready var size = Vector2(11,11)
 var active = true
-onready var Battle = "res://Scenes/Battle/Maps/Roguelite/Level1.tscn"
 export(NodePath) var CameraPath
 onready var mycamera = get_node(CameraPath)
 export(Vector2) var CameraOff
+export(NodePath) var GUIPath
+onready var gui = get_node(GUIPath)
 
 func _ready():
 	self.columns = size.x
-	mapvars.home = Vector2(size.x/2, size.y/2)
-	mapvars.playerpos = Vector2(mapvars.home.x, mapvars.home.y+1)
+	if not mapvars.initialized:
+		mapvars.initialized = true
+		mapvars.home = Vector2(size.x/2, size.y/2)
+		mapvars.playerpos = Vector2(mapvars.home.x, mapvars.home.y+1)
 	CreateMap()
 	SpawnMap()
-	SpawnWave(10)
+	if mapvars.BanditMax() < 1:
+		SpawnWave(5)
+	UpdateBandits()
 	UpdateMapTiles()
 	var pos = get_rect().position + (Vector2(size.x/2, size.y/2) * 32) + CameraOff
 	mycamera.position = pos
@@ -29,7 +34,7 @@ func _process(delta):
 func UpdateMapTiles():
 	ClearMap()
 	ChangeTile(mapvars.home.x, mapvars.home.y, "TOWN")
-	SetEnemyTiles()
+	UpdateBandits()
 	ChangeTile(mapvars.playerpos.x, mapvars.playerpos.y, "PLAYER")
 	UpdateMap()
 
@@ -43,7 +48,16 @@ func PlayerTurn():
 		if IsValid(newpos.x, newpos.y):
 			$"../PlayerDelay".start(0.2)
 			active = false
-			mapvars.playerpos += move
+			var b = EnemyCollision(newpos.x, newpos.y)
+			if b != -999:
+				mapvars.CurrentBandit = b
+				print(b, " accepted")
+				gui.EndTransition()
+			else:
+				mapvars.playerpos = newpos
+
+func EnemyCollision(x, y):
+	return Map[x][y].id
 
 func GetAxisMovement():
 	var move = Vector2.ZERO
@@ -89,7 +103,7 @@ func CreateMap():
 			t.name = str(id)
 			id += 1
 			Map[x][y] = t
-			
+
 func SpawnMap():
 	for x in size.x:
 		for y in size.y:
@@ -98,6 +112,7 @@ func SpawnMap():
 func ClearMap():
 	for x in size.x:
 		for y in size.y:
+			Map[x][y].id = -999
 			Map[x][y].ChangePic("EMPTY")
 
 func UpdateMap():
@@ -112,7 +127,13 @@ func _on_PlayerDelay_timeout():
 func SpawnWave(maxid):
 	for i in maxid:
 		var pos = GetAngle(i, maxid)
-		mapvars.AddBandit(pos.x, pos.y)
+		mapvars.AddBandit(int(pos.x), int(pos.y))
+		
+func UpdateBandits():
+	for i in mapvars.BanditMax():
+		var pos = mapvars.GetBanditPos(i)
+		Map[int(pos.x)][int(pos.y)].ChangePic("BASIC ENEMY")
+		Map[int(pos.x)][int(pos.y)].id = i
 
 func GetAngle(id, maxid):
 	var half = size.y / 2
@@ -122,8 +143,3 @@ func GetAngle(id, maxid):
 	pos.y = int(sin(angle) * half + (half))
 	
 	return pos
-
-func SetEnemyTiles():
-	for i in mapvars.BanditMax():
-		var pos = mapvars.GetBanditPos(i)
-		ChangeTile(pos.x, pos.y, "BASIC ENEMY")

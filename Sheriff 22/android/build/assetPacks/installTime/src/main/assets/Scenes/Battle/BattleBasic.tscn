@@ -1,0 +1,99 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Code/Battle/Battle.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Battle/Sounds/Sounds.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Battle/GUI/GUI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Map/Grass tilemap 2.tres" type="TileSet" id=5]
+[ext_resource path="res://Code/Battle/Enemies/EnemiesManager.gd" type="Script" id=6]
+[ext_resource path="res://Code/Battle/Items/Plants.gd" type="Script" id=7]
+
+[node name="Battle" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sounds" parent="." instance=ExtResource( 2 )]
+
+[node name="YSort" type="YSort" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Navigation2D" type="Navigation2D" parent="YSort"]
+
+[node name="Ground" type="TileMap" parent="YSort/Navigation2D"]
+z_index = -1
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 32, 32 )
+collision_layer = 32
+collision_mask = 29
+format = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Player" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 213, 183 )
+SceneRootPath = NodePath("../..")
+BulletManagerPath = NodePath("../PlayerBullets")
+GUIPath = NodePath("../../GUI")
+kickdamage = 5
+
+[node name="Camera2D" type="Camera2D" parent="YSort/Player"]
+current = true
+drag_margin_left = 0.5
+drag_margin_top = 0.5
+drag_margin_right = 0.5
+drag_margin_bottom = 0.5
+editor_draw_drag_margin = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PlayerBullets" type="YSort" parent="YSort"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Enemies" type="YSort" parent="YSort"]
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+MapNavigationPath = NodePath("../Navigation2D")
+PlayerPath = NodePath("../Player")
+GUIPath = NodePath("../../GUI")
+PlayerBulletsPath = NodePath("../PlayerBullets")
+EnemyBulletPath = NodePath("../EnemyBullets")
+
+[node name="EnemyBullets" type="YSort" parent="YSort"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Bushes" type="YSort" parent="YSort"]
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+GUIPath = NodePath("../../GUI")
+PlayerPath = NodePath("../Player")
+MapPath = NodePath("../Navigation2D")
+EnemyBulletsPath = NodePath("../EnemyBullets")
+
+[node name="Animals" type="YSort" parent="YSort"]
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+GUIPath = NodePath("../../GUI")
+PlayerPath = NodePath("../Player")
+MapPath = NodePath("../Navigation2D")
+EnemyBulletsPath = NodePath("../EnemyBullets")
+
+[node name="GUI" parent="." instance=ExtResource( 3 )]
+PlayerPath = NodePath("../YSort/Player")
+EnemyManagerPath = NodePath("../YSort/Enemies")
+SoundsPath = NodePath("../Sounds")

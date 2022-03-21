@@ -3,11 +3,12 @@ extends KinematicBody2D
 enum basiccolor {mex1, mex2, mex3, mex4, white1, white2, white3, black1, black2, black3}
 
 export(basiccolor) var skin
-onready var level = skin
+onready var level = 0
 export(int) var HP = 10
 export(int) var speed = 10
 export(int) var idletimer = 5
 export(int) var chasetimer = 8
+export(int) var damage = 10
 onready var startingpos
 onready var avoidpos = global_position
 onready var avoiding = false
@@ -40,6 +41,8 @@ func _ready():
 	$FSM.GetDirAngle()
 
 func HIT(damage):
+	Variables.AddScore(damage)
+	$"../".GUI.UpdateScore()
 	HP -= damage
 	$HPLifebar.value = HP
 	$"/root/Battle/Sounds".PlayEnemyHit()

@@ -32,6 +32,10 @@ func SpawnEnemy(x, y, enemy, isboss = false):
 	p.speed = rand_range(Speed.x, Speed.y)
 	p.idletimer = rand_range(IdleTimer.x, IdleTimer.y)
 	p.chasetimer = rand_range(ChaseTimer.x, ChaseTimer.y)
+	p.level = randi()%10
+	
+	if randi()%3 == 1:
+		p.DropBasicAmmo = true
 	add_child(p)
 
 
